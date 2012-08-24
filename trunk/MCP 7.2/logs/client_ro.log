@@ -6,7 +6,7 @@
 #
 # RetroGuard MCP v3.6.5
 #
-# Logfile created on Thu Aug 23 23:23:48 EDT 2012
+# Logfile created on Fri Aug 24 16:18:16 EDT 2012
 #
 # Jar file to be obfuscated:           client_recomp.jar
 # Target Jar file for obfuscated code: client_reobf.jar
@@ -50,8 +50,8 @@
 #      Your class net/minecraftforge/event/ASMEventHandler$ASMClassLoader calls the java/lang/ClassLoader method defineClass(Ljava/lang/String;[BII)Ljava/lang/Class;
 #      Your class net/minecraftforge/event/EventBus calls the java/lang/Class method getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 #
-# Memory in use after class data structure built: 23969728 bytes
-# Total memory available                        : 369098752 bytes
+# Memory in use after class data structure built: 24000552 bytes
+# Total memory available                        : 369229824 bytes
 #
 #
 # Names reserved from obfuscation:
@@ -2001,6 +2001,7 @@
 .method net/minecraftforge/client/IItemRenderer$ItemRendererHelper/valueOf (Ljava/lang/String;)Lnet/minecraftforge/client/IItemRenderer$ItemRendererHelper;
 .method net/minecraftforge/common/ForgeDirection/valueOf (Ljava/lang/String;)Lnet/minecraftforge/common/ForgeDirection;
 .method net/minecraftforge/event/EventPriority/valueOf (Ljava/lang/String;)Lnet/minecraftforge/event/EventPriority;
+.method mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/valueOf (Ljava/lang/String;)Lmal/teleportrelay/common/TeleportRelay$PACKET_TYPES;
 #
 #
 # Obfuscated name mappings (some of these may be unchanged due to polymorphism constraints):
@@ -18967,6 +18968,14 @@
 .method_map mal/teleportrelay/common/CommonProxy/getClientGuiElement (ILnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/World;III)Ljava/lang/Object; getClientGuiElement
 .method_map mal/teleportrelay/common/CommonProxy/registerRenderInformation (Ljava/lang/String;)V registerRenderInformation
 .method_map mal/teleportrelay/common/CommonProxy/getServerGuiElement (ILnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/World;III)Ljava/lang/Object; getServerGuiElement
+.class_map mal/teleportrelay/common/TeleportRelay$PACKET_TYPES PACKET_TYPES
+.field_map mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/TELEPORT_PLAYER_TO_SPAWN TELEPORT_PLAYER_TO_SPAWN
+.field_map mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/UPDATE_TELEPORT_RELAY UPDATE_TELEPORT_RELAY
+.field_map mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/$VALUES $VALUES
+.field_map mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/iType iType
+.field_map mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/TELEPORT_PLAYER_TO_POS TELEPORT_PLAYER_TO_POS
+.method_map mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/getType ()I getType
+.method_map mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/values ()[Lmal/teleportrelay/common/TeleportRelay$PACKET_TYPES; values
 .class_map mal/teleportrelay/common/TeleportRelay TeleportRelay
 .field_map mal/teleportrelay/common/TeleportRelay/teleportRelayID teleportRelayID
 .field_map mal/teleportrelay/common/TeleportRelay/proxy proxy
