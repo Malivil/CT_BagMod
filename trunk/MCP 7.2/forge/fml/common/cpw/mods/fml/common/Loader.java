@@ -35,6 +35,7 @@ import com.google.common.collect.HashBiMap;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.ImmutableMultiset;
+import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
@@ -178,46 +179,60 @@ public class Loader
         try
         {
             BiMap<String, ArtifactVersion> modVersions = HashBiMap.create();
-            for (ModContainer mod : mods)
+            for (ModContainer mod : getActiveModList())
             {
                 modVersions.put(mod.getModId(), mod.getProcessedVersion());
             }
 
-            for (ModContainer mod : mods)
+            for (ModContainer mod : getActiveModList())
             {
-                Set<ArtifactVersion> missingMods = Sets.difference(mod.getRequirements(), modVersions.values());
+                Map<String,ArtifactVersion> names = Maps.uniqueIndex(mod.getRequirements(), new Function<ArtifactVersion, String>()
+                {
+                    public String apply(ArtifactVersion v)
+                    {
+                        return v.getLabel();
+                    }
+                });
+                Set<String> missingMods = Sets.difference(names.keySet(), modVersions.keySet());
+                Set<ArtifactVersion> versionMissingMods = Sets.newHashSet();
                 if (!missingMods.isEmpty())
                 {
                     FMLLog.severe("The mod %s (%s) requires mods %s to be available", mod.getModId(), mod.getName(), missingMods);
-                    throw new MissingModsException(missingMods);
+                    for (String modid : missingMods)
+                    {
+                        versionMissingMods.add(names.get(modid));
+                    }
+                    throw new MissingModsException(versionMissingMods);
                 }
                 ImmutableList<ArtifactVersion> allDeps = ImmutableList.<ArtifactVersion>builder().addAll(mod.getDependants()).addAll(mod.getDependencies()).build();
                 for (ArtifactVersion v : allDeps)
                 {
-                    missingMods = Sets.newHashSet();
                     if (modVersions.containsKey(v.getLabel()))
                     {
                         if (!v.containsVersion(modVersions.get(v.getLabel())))
                         {
-                            missingMods.add(v);
+                            versionMissingMods.add(v);
                         }
                     }
                 }
-                if (!missingMods.isEmpty())
+                if (!versionMissingMods.isEmpty())
                 {
                     FMLLog.severe("The mod %s (%s) requires mod versions %s to be available", mod.getModId(), mod.getName(), missingMods);
-                    throw new MissingModsException(missingMods);
+                    throw new MissingModsException(versionMissingMods);
                 }
             }
 
             FMLLog.fine("All mod requirements are satisfied");
 
-            ModSorter sorter = new ModSorter(mods, namedMods);
+            ModSorter sorter = new ModSorter(getActiveModList(), namedMods);
 
             try
             {
                 FMLLog.fine("Sorting mods into an ordered list");
-                mods = sorter.sort();
+                List<ModContainer> sortedMods = sorter.sort();
+                mods.removeAll(sortedMods);
+                sortedMods.addAll(mods);
+                mods = sortedMods;
                 FMLLog.fine("Mod sorting completed successfully");
             }
             catch (ModSortingException sortException)
@@ -232,11 +247,11 @@ public class Loader
         finally
         {
             FMLLog.fine("Mod sorting data:");
-            for (ModContainer mod : mods)
+            for (ModContainer mod : getActiveModList())
             {
                 if (!mod.isImmutable())
                 {
-                    FMLLog.fine("\t%s(%s): %s (%s)", mod.getModId(), mod.getName(), mod.getSource().getName(), mod.getSortingRules());
+                    FMLLog.fine("\t%s(%s:%s): %s (%s)", mod.getModId(), mod.getName(), mod.getVersion(), mod.getSource().getName(), mod.getSortingRules());
                 }
             }
             if (mods.size()==0)
@@ -416,9 +431,9 @@ public class Loader
         modController.transition(LoaderState.LOADING);
         ModDiscoverer disc = identifyMods();
         disableRequestedMods();
+        modController.distributeStateMessage(FMLLoadEvent.class);
         sortModList();
         mods = ImmutableList.copyOf(mods);
-        modController.distributeStateMessage(FMLLoadEvent.class);
         modController.transition(LoaderState.CONSTRUCTING);
         modController.distributeStateMessage(LoaderState.CONSTRUCTING, modClassLoader, disc.getASMTable());
         modController.transition(LoaderState.PREINITIALIZATION);
@@ -428,30 +443,30 @@ public class Loader
 
     private void disableRequestedMods()
     {
-        String disabledModList = System.getProperty("fml.modStates", "");
-        FMLLog.fine("Received a system property request \'%s\'",disabledModList);
+        String forcedModList = System.getProperty("fml.modStates", "");
+        FMLLog.fine("Received a system property request \'%s\'",forcedModList);
         Map<String, String> sysPropertyStateList = Splitter.on(CharMatcher.anyOf(";:"))
                 .omitEmptyStrings().trimResults().withKeyValueSeparator("=")
-                .split(disabledModList);
+                .split(forcedModList);
         FMLLog.fine("System property request managing the state of %d mods", sysPropertyStateList.size());
         Map<String, String> modStates = Maps.newHashMap();
 
-        File disabledModFile = new File(canonicalConfigDir, "fmlModState.properties");
-        Properties disabledModListProperties = new Properties();
-        if (disabledModFile.exists() && disabledModFile.isFile())
+        File forcedModFile = new File(canonicalConfigDir, "fmlModState.properties");
+        Properties forcedModListProperties = new Properties();
+        if (forcedModFile.exists() && forcedModFile.isFile())
         {
-            FMLLog.fine("Found a mod state file %s", disabledModFile.getName());
+            FMLLog.fine("Found a mod state file %s", forcedModFile.getName());
             try
             {
-                disabledModListProperties.load(new FileReader(disabledModFile));
-                FMLLog.fine("Loaded states for %d mods from file", disabledModListProperties.size());
+                forcedModListProperties.load(new FileReader(forcedModFile));
+                FMLLog.fine("Loaded states for %d mods from file", forcedModListProperties.size());
             }
             catch (Exception e)
             {
                 FMLLog.log(Level.INFO, e, "An error occurred reading the fmlModState.properties file");
             }
         }
-        modStates.putAll(Maps.fromProperties(disabledModListProperties));
+        modStates.putAll(Maps.fromProperties(forcedModListProperties));
         modStates.putAll(sysPropertyStateList);
         FMLLog.fine("After merging, found state information for %d mods", modStates.size());
 
@@ -459,7 +474,7 @@ public class Loader
         {
             public Boolean apply(String input)
             {
-                return !Boolean.parseBoolean(input);
+                return Boolean.parseBoolean(input);
             }
         });
 
@@ -481,7 +496,7 @@ public class Loader
      */
     public static boolean isModLoaded(String modname)
     {
-        return instance().namedMods.containsKey(modname);
+        return instance().namedMods.containsKey(modname) && instance().modController.getModState(instance.namedMods.get(modname))!=ModState.DISABLED;
     }
 
     /**
