@@ -22,12 +22,13 @@ public class ClientPacketHandler implements IPacketHandler {
 
 		try {
 			int type = data.readInt();
-			// 0 = Item Use - Position change and item damage
-			if (type == 0) {
+			// Position change and item damage
+			if (type == TeleportRelay.PACKET_TYPES.TELEPORT_PLAYER_TO_SPAWN.getType() ||
+				type == TeleportRelay.PACKET_TYPES.TELEPORT_PLAYER_TO_POS.getType()) {
 				// Server-only
 			}
-			// 1 = TileEntityTeleportRelay Update - Updates the variables associated with the relay at the given location
-			else if (type == 1) {
+			// Updates the variables associated with the relay at the given location
+			else if (type == TeleportRelay.PACKET_TYPES.UPDATE_TELEPORT_RELAY.getType()) {
 				int x = data.readInt();
 				int y = data.readInt();
 				int z = data.readInt();

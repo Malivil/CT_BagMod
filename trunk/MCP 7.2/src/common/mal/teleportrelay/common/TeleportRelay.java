@@ -31,6 +31,20 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 		serverPacketHandlerSpec = @SidedPacketHandler(channels = {"TR_Channel"}, packetHandler = ServerPacketHandler.class)
 )
 public class TeleportRelay {
+	public enum PACKET_TYPES {
+		TELEPORT_PLAYER_TO_SPAWN(0),
+		TELEPORT_PLAYER_TO_POS(1),
+		UPDATE_TELEPORT_RELAY(2);
+
+		private int iType;
+		PACKET_TYPES(int iType) {
+			this.iType = iType;
+		}
+		
+		public int getType() {
+			return this.iType;
+		}
+	};
 	public static final String version = "0.4";
 	public static Block teleportRelayBlock;
 	public static Item relayRemoteItem;

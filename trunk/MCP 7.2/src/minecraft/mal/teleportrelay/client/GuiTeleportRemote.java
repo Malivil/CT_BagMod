@@ -29,8 +29,6 @@ public class GuiTeleportRemote extends GuiScreen {
 	public void initGui() {
 		final EntityPlayer player = mc.thePlayer;
 		final World world = mc.theWorld;
-		final ChunkCoordinates bed = player.getSpawnChunk();
-		final ChunkCoordinates spawn = world.getSpawnPoint();
 		ChunkCoordinates loc = null;
 		TileEntityTeleportRelay relay = null;
 		TileEntity entity = null;
@@ -42,13 +40,7 @@ public class GuiTeleportRemote extends GuiScreen {
 		if (TeleportRelay.debug)
 			TeleportRelay.printRelayLocations();
 
-		// HACK: Until player.getSpawnChunk is fixed so it returns the actual
-		// bed location, add a check to make sure the bed and the world aren't equal.
-		// If they ARE, display "World" rather than "Bed" so it isn't confusing.
-		if ((bed != null) && !bed.equals(spawn))
-			controlList.add(new GuiButton(0, width / 2 - 100, height / 4 + 24, "Bed Spawn at: (" + bed.posX + ", " + bed.posY + ", " + bed.posZ + ")"));
-		else
-			controlList.add(new GuiButton(0, width / 2 - 100, height / 4 + 24, "World Spawn at: (" + spawn.posX + ", " + spawn.posY + ", " + spawn.posZ + ")"));
+		controlList.add(new GuiButton(0, width / 2 - 100, height / 4 + 24, "Spawn"));
 
 		for (int i = 0; i < TeleportRelay.getRelayCount(); i++) {
 			loc = TeleportRelay.getTeleportLocation(i);
@@ -114,65 +106,26 @@ public class GuiTeleportRemote extends GuiScreen {
 		EntityPlayer player = mc.thePlayer;
 		ChunkCoordinates destinationChunk = null;
 
-		switch(guibutton.id) {
-			// World / Bed
-			case 0:
-				destinationChunk = player.getSpawnChunk();
-
-				if (destinationChunk == null)
-					destinationChunk = mc.theWorld.getSpawnPoint();
-				break;
-			// Relay
-			default:
-				destinationChunk = TeleportRelay.getTeleportLocation(guibutton.id - 1);
-				break;
-		}
-
 		Packet250CustomPayload positionPacket = new Packet250CustomPayload();
 		ByteArrayOutputStream positionBytes = new ByteArrayOutputStream();
 		DataOutputStream positionData = new DataOutputStream(positionBytes);
 
-		// Add small amounts to each position to center the player
-		double xPos = ((double)destinationChunk.posX) + 0.5;
-		double zPos = ((double)destinationChunk.posZ) + 0.5;
-		double yPos = (double)destinationChunk.posY;
-		double yPosAdjusted = yPos;
-
-		if (mc.theWorld != null) {
-			// Try to get the nearest free space
-			yPosAdjusted = mc.theWorld.getTopSolidOrLiquidBlock((int)xPos, (int)zPos);
-			if (yPosAdjusted == -1) {
-				Chunk chunk = mc.theWorld.getChunkFromBlockCoords(destinationChunk.posX, destinationChunk.posZ);
-				if (chunk != null) {
-					if (!chunk.isChunkLoaded) {
-						FMLLog.info("[TeleportRelay] Chunk is not loaded in actionPerformed, trying to load it!");
-						// TODO: Doesn't work
-						//mc.theWorld.getChunkProvider().loadChunk(destinationChunk.posX >> 4, destinationChunk.posZ >> 4);
-					}
-
-					// Try to get the nearest free space again
-					yPosAdjusted = mc.theWorld.getTopSolidOrLiquidBlock((int)xPos, (int)zPos);
-				}
-			}
-		}
-
-		// If we got a valid adjusted yPos, use it
-		// Otherwise just use the stored value
-		if (yPosAdjusted != -1)
-			yPos = yPosAdjusted;
-
-		player.setVelocity(0.0, 0.0, 0.0);
-		player.fallDistance = 0.0f;
-		player.setPositionAndUpdate(xPos, yPos, zPos);
-
 		try {
-			// Type
-			positionData.writeInt(0);
-			positionData.writeDouble(xPos);
-			positionData.writeDouble(yPos);
-			positionData.writeDouble(zPos);
-			positionData.writeFloat(player.rotationYaw);
-			positionData.writeFloat(player.rotationPitch);
+			switch(guibutton.id) {
+				// World / Bed
+				case 0:
+					positionData.writeInt(TeleportRelay.PACKET_TYPES.TELEPORT_PLAYER_TO_SPAWN.getType());
+					break;
+				// Relay
+				default:
+					destinationChunk = TeleportRelay.getTeleportLocation(guibutton.id - 1);
+
+					positionData.writeInt(TeleportRelay.PACKET_TYPES.TELEPORT_PLAYER_TO_POS.getType());
+					positionData.writeDouble((double)destinationChunk.posX);
+					positionData.writeDouble((double)destinationChunk.posZ);
+					positionData.writeDouble((double)destinationChunk.posY);
+					break;
+			}
 
 			// Set up the packet
 			positionPacket.channel = "TR_Channel";
@@ -184,8 +137,7 @@ public class GuiTeleportRemote extends GuiScreen {
 		catch (IOException e) {
 			e.printStackTrace();
 		}
-		FMLLog.info("[TeleportRelay] Teleporting player to (%f, %f, %f)!", xPos, yPos, zPos);
-		remote.damageItem(1, player);
+
 		mc.displayGuiScreen(null);
 	}
 

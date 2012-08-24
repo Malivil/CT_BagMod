@@ -16911,6 +16911,14 @@ CL: mal/teleportrelay/common/ServerPacketHandler mal/teleportrelay/common/Server
 CL: mal/teleportrelay/common/CommonProxy mal/teleportrelay/common/CommonProxy
 MD: mal/teleportrelay/common/CommonProxy/registerTickHandler ()V mal/teleportrelay/common/CommonProxy/registerTickHandler ()V
 MD: mal/teleportrelay/common/CommonProxy/registerRenderInformation (Ljava/lang/String;)V mal/teleportrelay/common/CommonProxy/registerRenderInformation (Ljava/lang/String;)V
+CL: mal/teleportrelay/common/TeleportRelay$PACKET_TYPES mal/teleportrelay/common/TeleportRelay$PACKET_TYPES
+FD: mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/TELEPORT_PLAYER_TO_SPAWN mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/TELEPORT_PLAYER_TO_SPAWN
+FD: mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/UPDATE_TELEPORT_RELAY mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/UPDATE_TELEPORT_RELAY
+FD: mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/$VALUES mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/$VALUES
+FD: mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/iType mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/iType
+FD: mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/TELEPORT_PLAYER_TO_POS mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/TELEPORT_PLAYER_TO_POS
+MD: mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/getType ()I mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/getType ()I
+MD: mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/values ()[Lmal/teleportrelay/common/TeleportRelay$PACKET_TYPES; mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/values ()[Lmal/teleportrelay/common/TeleportRelay$PACKET_TYPES;
 CL: mal/teleportrelay/common/TeleportRelay mal/teleportrelay/common/TeleportRelay
 FD: mal/teleportrelay/common/TeleportRelay/teleportRelayID mal/teleportrelay/common/TeleportRelay/teleportRelayID
 FD: mal/teleportrelay/common/TeleportRelay/proxy mal/teleportrelay/common/TeleportRelay/proxy
