@@ -653,6 +653,8 @@ MD: cpw/mods/fml/client/SpriteHelper/registerSpriteMapForFile (Ljava/lang/String
 MD: cpw/mods/fml/client/SpriteHelper/freeSlotCount (Ljava/lang/String;)I cpw/mods/fml/client/SpriteHelper/freeSlotCount (Ljava/lang/String;)I
 MD: cpw/mods/fml/client/SpriteHelper/initMCSpriteMaps ()V cpw/mods/fml/client/SpriteHelper/initMCSpriteMaps ()V
 MD: cpw/mods/fml/client/SpriteHelper/getFreeSlot (Ljava/util/BitSet;)I cpw/mods/fml/client/SpriteHelper/getFreeSlot (Ljava/util/BitSet;)I
+CL: cpw/mods/fml/client/GuiModsMissing cpw/mods/fml/client/GuiModsMissing
+FD: cpw/mods/fml/client/GuiModsMissing/modsMissing cpw/mods/fml/client/GuiModsMissing/modsMissing
 CL: cpw/mods/fml/client/ITextureFX cpw/mods/fml/client/ITextureFX
 MD: cpw/mods/fml/client/ITextureFX/getErrored ()Z cpw/mods/fml/client/ITextureFX/getErrored ()Z
 MD: cpw/mods/fml/client/ITextureFX/onTextureDimensionsUpdate (II)V cpw/mods/fml/client/ITextureFX/onTextureDimensionsUpdate (II)V
@@ -869,6 +871,7 @@ MD: cpw/mods/fml/common/versioning/VersionParser/parseVersionReference (Ljava/la
 MD: cpw/mods/fml/common/versioning/VersionParser/satisfies (Lcpw/mods/fml/common/versioning/ArtifactVersion;Lcpw/mods/fml/common/versioning/ArtifactVersion;)Z cpw/mods/fml/common/versioning/VersionParser/satisfies (Lcpw/mods/fml/common/versioning/ArtifactVersion;Lcpw/mods/fml/common/versioning/ArtifactVersion;)Z
 MD: cpw/mods/fml/common/versioning/VersionParser/parseRange (Ljava/lang/String;)Lcpw/mods/fml/common/versioning/VersionRange; cpw/mods/fml/common/versioning/VersionParser/parseRange (Ljava/lang/String;)Lcpw/mods/fml/common/versioning/VersionRange;
 CL: cpw/mods/fml/common/versioning/ArtifactVersion cpw/mods/fml/common/versioning/ArtifactVersion
+MD: cpw/mods/fml/common/versioning/ArtifactVersion/getRangeString ()Ljava/lang/String; cpw/mods/fml/common/versioning/ArtifactVersion/getRangeString ()Ljava/lang/String;
 MD: cpw/mods/fml/common/versioning/ArtifactVersion/getLabel ()Ljava/lang/String; cpw/mods/fml/common/versioning/ArtifactVersion/getLabel ()Ljava/lang/String;
 MD: cpw/mods/fml/common/versioning/ArtifactVersion/getVersionString ()Ljava/lang/String; cpw/mods/fml/common/versioning/ArtifactVersion/getVersionString ()Ljava/lang/String;
 MD: cpw/mods/fml/common/versioning/ArtifactVersion/containsVersion (Lcpw/mods/fml/common/versioning/ArtifactVersion;)Z cpw/mods/fml/common/versioning/ArtifactVersion/containsVersion (Lcpw/mods/fml/common/versioning/ArtifactVersion;)Z
@@ -1500,18 +1503,21 @@ FD: cpw/mods/fml/common/MetadataCollection/parser cpw/mods/fml/common/MetadataCo
 FD: cpw/mods/fml/common/MetadataCollection/metadataVersion cpw/mods/fml/common/MetadataCollection/metadataVersion
 FD: cpw/mods/fml/common/MetadataCollection/metadatas cpw/mods/fml/common/MetadataCollection/metadatas
 MD: cpw/mods/fml/common/MetadataCollection/getMetadataForId (Ljava/lang/String;Ljava/util/Map;)Lcpw/mods/fml/common/ModMetadata; cpw/mods/fml/common/MetadataCollection/getMetadataForId (Ljava/lang/String;Ljava/util/Map;)Lcpw/mods/fml/common/ModMetadata;
+MD: cpw/mods/fml/common/MetadataCollection/from (Ljava/io/InputStream;Ljava/lang/String;)Lcpw/mods/fml/common/MetadataCollection; cpw/mods/fml/common/MetadataCollection/from (Ljava/io/InputStream;Ljava/lang/String;)Lcpw/mods/fml/common/MetadataCollection;
 MD: cpw/mods/fml/common/MetadataCollection/parseModMetadataList (Largo/jdom/JsonNode;)V cpw/mods/fml/common/MetadataCollection/parseModMetadataList (Largo/jdom/JsonNode;)V
 MD: cpw/mods/fml/common/MetadataCollection/parse10ModInfo (Largo/jdom/JsonRootNode;)Lcpw/mods/fml/common/MetadataCollection; cpw/mods/fml/common/MetadataCollection/parse10ModInfo (Largo/jdom/JsonRootNode;)Lcpw/mods/fml/common/MetadataCollection;
 MD: cpw/mods/fml/common/MetadataCollection/parseModInfo (Largo/jdom/JsonRootNode;)Lcpw/mods/fml/common/MetadataCollection; cpw/mods/fml/common/MetadataCollection/parseModInfo (Largo/jdom/JsonRootNode;)Lcpw/mods/fml/common/MetadataCollection;
-MD: cpw/mods/fml/common/MetadataCollection/from (Ljava/io/InputStream;)Lcpw/mods/fml/common/MetadataCollection; cpw/mods/fml/common/MetadataCollection/from (Ljava/io/InputStream;)Lcpw/mods/fml/common/MetadataCollection;
 CL: cpw/mods/fml/common/IWorldGenerator cpw/mods/fml/common/IWorldGenerator
 MD: cpw/mods/fml/common/IWorldGenerator/generate (Ljava/util/Random;IILnet/minecraft/src/World;Lnet/minecraft/src/IChunkProvider;Lnet/minecraft/src/IChunkProvider;)V cpw/mods/fml/common/IWorldGenerator/generate (Ljava/util/Random;IILup;Lwi;Lwi;)V
+CL: cpw/mods/fml/common/Loader$3 cpw/mods/fml/common/Loader$3
+FD: cpw/mods/fml/common/Loader$3/this$0 cpw/mods/fml/common/Loader$3/this$0
+MD: cpw/mods/fml/common/Loader$3/call ()Ljava/lang/String; cpw/mods/fml/common/Loader$3/call ()Ljava/lang/String;
 CL: cpw/mods/fml/common/Loader$2 cpw/mods/fml/common/Loader$2
 FD: cpw/mods/fml/common/Loader$2/this$0 cpw/mods/fml/common/Loader$2/this$0
-MD: cpw/mods/fml/common/Loader$2/call ()Ljava/lang/String; cpw/mods/fml/common/Loader$2/call ()Ljava/lang/String;
+MD: cpw/mods/fml/common/Loader$2/apply (Ljava/lang/String;)Ljava/lang/Boolean; cpw/mods/fml/common/Loader$2/apply (Ljava/lang/String;)Ljava/lang/Boolean;
 CL: cpw/mods/fml/common/Loader$1 cpw/mods/fml/common/Loader$1
 FD: cpw/mods/fml/common/Loader$1/this$0 cpw/mods/fml/common/Loader$1/this$0
-MD: cpw/mods/fml/common/Loader$1/apply (Ljava/lang/String;)Ljava/lang/Boolean; cpw/mods/fml/common/Loader$1/apply (Ljava/lang/String;)Ljava/lang/Boolean;
+MD: cpw/mods/fml/common/Loader$1/apply (Lcpw/mods/fml/common/versioning/ArtifactVersion;)Ljava/lang/String; cpw/mods/fml/common/Loader$1/apply (Lcpw/mods/fml/common/versioning/ArtifactVersion;)Ljava/lang/String;
 CL: cpw/mods/fml/common/Loader$ModIdComparator cpw/mods/fml/common/Loader$ModIdComparator
 FD: cpw/mods/fml/common/Loader$ModIdComparator/this$0 cpw/mods/fml/common/Loader$ModIdComparator/this$0
 MD: cpw/mods/fml/common/Loader$ModIdComparator/compare (Lcpw/mods/fml/common/ModContainer;Lcpw/mods/fml/common/ModContainer;)I cpw/mods/fml/common/Loader$ModIdComparator/compare (Lcpw/mods/fml/common/ModContainer;Lcpw/mods/fml/common/ModContainer;)I

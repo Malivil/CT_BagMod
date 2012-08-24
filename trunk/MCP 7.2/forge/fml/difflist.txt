@@ -9,6 +9,7 @@ minecraft/a.class
 minecraft/axf.class
 minecraft/ha.class
 minecraft/et.class
+minecraft/aou.class
 minecraft/axh.class
 minecraft/gm.class
 minecraft/ajd.class
@@ -103,6 +104,7 @@ minecraft/cpw/mods/fml/common/Mod$PreInit.class
 minecraft/cpw/mods/fml/common/IFMLSidedHandler.class
 minecraft/cpw/mods/fml/common/Mod$PostInit.class
 minecraft/cpw/mods/fml/common/ModMetadata$JsonArrayConverter.class
+minecraft/cpw/mods/fml/common/Loader$3.class
 minecraft/cpw/mods/fml/common/MissingModsException.class
 minecraft/cpw/mods/fml/common/ModMetadata$1.class
 minecraft/cpw/mods/fml/common/asm/ASMTransformer.class
@@ -226,10 +228,10 @@ minecraft/cpw/mods/fml/client/OverrideInfo.class
 minecraft/cpw/mods/fml/client/FMLClientHandler.class
 minecraft/cpw/mods/fml/client/TextureFXManager$TextureProperties.class
 minecraft/cpw/mods/fml/client/GuiModList.class
+minecraft/cpw/mods/fml/client/GuiModsMissing.class
 minecraft/cpw/mods/fml/client/GuiSlotModList.class
 minecraft/cpw/mods/fml/client/SpriteHelper.class
 minecraft/cpw/mods/fml/client/GuiScrollingList.class
-minecraft/cpw/mods/fml/client/ModsMissingGuiScreen.class
 minecraft/cpw/mods/fml/client/ITextureFX.class
 minecraft/cpw/mods/fml/client/FMLTextureFX.class
 minecraft/cpw/mods/fml/client/TextureFXManager.class

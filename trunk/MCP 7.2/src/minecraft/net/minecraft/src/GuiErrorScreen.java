@@ -16,6 +16,10 @@ public class GuiErrorScreen extends GuiScreen
      */
     private String message2;
 
+    public GuiErrorScreen()
+    {
+    }
+
     /**
      * Draws the screen and all the components in it.
      */

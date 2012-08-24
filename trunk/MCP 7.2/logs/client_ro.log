@@ -6,7 +6,7 @@
 #
 # RetroGuard MCP v3.6.5
 #
-# Logfile created on Thu Aug 23 14:40:33 EDT 2012
+# Logfile created on Thu Aug 23 23:23:48 EDT 2012
 #
 # Jar file to be obfuscated:           client_recomp.jar
 # Target Jar file for obfuscated code: client_reobf.jar
@@ -50,7 +50,7 @@
 #      Your class net/minecraftforge/event/ASMEventHandler$ASMClassLoader calls the java/lang/ClassLoader method defineClass(Ljava/lang/String;[BII)Ljava/lang/Class;
 #      Your class net/minecraftforge/event/EventBus calls the java/lang/Class method getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 #
-# Memory in use after class data structure built: 23916880 bytes
+# Memory in use after class data structure built: 23969728 bytes
 # Total memory available                        : 369098752 bytes
 #
 #
@@ -2400,6 +2400,9 @@
 .method_map cpw/mods/fml/client/SpriteHelper/freeSlotCount (Ljava/lang/String;)I freeSlotCount
 .method_map cpw/mods/fml/client/SpriteHelper/initMCSpriteMaps ()V initMCSpriteMaps
 .method_map cpw/mods/fml/client/SpriteHelper/getFreeSlot (Ljava/util/BitSet;)I getFreeSlot
+.class_map cpw/mods/fml/client/GuiModsMissing GuiModsMissing
+.field_map cpw/mods/fml/client/GuiModsMissing/modsMissing modsMissing
+.method_map cpw/mods/fml/client/GuiModsMissing/drawScreen (IIF)V a
 .class_map cpw/mods/fml/client/ITextureFX ITextureFX
 .method_map cpw/mods/fml/client/ITextureFX/getErrored ()Z getErrored
 .method_map cpw/mods/fml/client/ITextureFX/onTextureDimensionsUpdate (II)V onTextureDimensionsUpdate
@@ -2672,6 +2675,7 @@
 .method_map cpw/mods/fml/common/versioning/VersionParser/satisfies (Lcpw/mods/fml/common/versioning/ArtifactVersion;Lcpw/mods/fml/common/versioning/ArtifactVersion;)Z satisfies
 .method_map cpw/mods/fml/common/versioning/VersionParser/parseRange (Ljava/lang/String;)Lcpw/mods/fml/common/versioning/VersionRange; parseRange
 .class_map cpw/mods/fml/common/versioning/ArtifactVersion ArtifactVersion
+.method_map cpw/mods/fml/common/versioning/ArtifactVersion/getRangeString ()Ljava/lang/String; getRangeString
 .method_map cpw/mods/fml/common/versioning/ArtifactVersion/getLabel ()Ljava/lang/String; getLabel
 .method_map cpw/mods/fml/common/versioning/ArtifactVersion/getVersionString ()Ljava/lang/String; getVersionString
 .method_map cpw/mods/fml/common/versioning/ArtifactVersion/containsVersion (Lcpw/mods/fml/common/versioning/ArtifactVersion;)Z containsVersion
@@ -2755,6 +2759,7 @@
 .field_map cpw/mods/fml/common/versioning/DefaultArtifactVersion/range range
 .field_map cpw/mods/fml/common/versioning/DefaultArtifactVersion/label label
 .field_map cpw/mods/fml/common/versioning/DefaultArtifactVersion/unbounded unbounded
+.method_map cpw/mods/fml/common/versioning/DefaultArtifactVersion/getRangeString ()Ljava/lang/String; getRangeString
 .method_map cpw/mods/fml/common/versioning/DefaultArtifactVersion/getLabel ()Ljava/lang/String; getLabel
 .method_map cpw/mods/fml/common/versioning/DefaultArtifactVersion/compareTo (Ljava/lang/Object;)I compareTo
 .method_map cpw/mods/fml/common/versioning/DefaultArtifactVersion/toString ()Ljava/lang/String; toString
@@ -3383,21 +3388,25 @@
 .field_map cpw/mods/fml/common/MetadataCollection/metadataVersion metadataVersion
 .field_map cpw/mods/fml/common/MetadataCollection/metadatas metadatas
 .method_map cpw/mods/fml/common/MetadataCollection/getMetadataForId (Ljava/lang/String;Ljava/util/Map;)Lcpw/mods/fml/common/ModMetadata; getMetadataForId
+.method_map cpw/mods/fml/common/MetadataCollection/from (Ljava/io/InputStream;Ljava/lang/String;)Lcpw/mods/fml/common/MetadataCollection; from
 .method_map cpw/mods/fml/common/MetadataCollection/parseModMetadataList (Largo/jdom/JsonNode;)V parseModMetadataList
 .method_map cpw/mods/fml/common/MetadataCollection/parse10ModInfo (Largo/jdom/JsonRootNode;)Lcpw/mods/fml/common/MetadataCollection; parse10ModInfo
 .method_map cpw/mods/fml/common/MetadataCollection/parseModInfo (Largo/jdom/JsonRootNode;)Lcpw/mods/fml/common/MetadataCollection; parseModInfo
-.method_map cpw/mods/fml/common/MetadataCollection/from (Ljava/io/InputStream;)Lcpw/mods/fml/common/MetadataCollection; from
 .class_map cpw/mods/fml/common/IWorldGenerator IWorldGenerator
 .method_map cpw/mods/fml/common/IWorldGenerator/generate (Ljava/util/Random;IILnet/minecraft/src/World;Lnet/minecraft/src/IChunkProvider;Lnet/minecraft/src/IChunkProvider;)V generate
+.class_map cpw/mods/fml/common/Loader$3 3
+.field_map cpw/mods/fml/common/Loader$3/this$0 this$0
+.method_map cpw/mods/fml/common/Loader$3/getLabel ()Ljava/lang/String; getLabel
+.method_map cpw/mods/fml/common/Loader$3/call ()Ljava/lang/Object; call
+.method_map cpw/mods/fml/common/Loader$3/call ()Ljava/lang/String; call
 .class_map cpw/mods/fml/common/Loader$2 2
 .field_map cpw/mods/fml/common/Loader$2/this$0 this$0
-.method_map cpw/mods/fml/common/Loader$2/getLabel ()Ljava/lang/String; getLabel
-.method_map cpw/mods/fml/common/Loader$2/call ()Ljava/lang/Object; call
-.method_map cpw/mods/fml/common/Loader$2/call ()Ljava/lang/String; call
+.method_map cpw/mods/fml/common/Loader$2/apply (Ljava/lang/String;)Ljava/lang/Boolean; apply
+.method_map cpw/mods/fml/common/Loader$2/apply (Ljava/lang/Object;)Ljava/lang/Object; apply
 .class_map cpw/mods/fml/common/Loader$1 1
 .field_map cpw/mods/fml/common/Loader$1/this$0 this$0
-.method_map cpw/mods/fml/common/Loader$1/apply (Ljava/lang/String;)Ljava/lang/Boolean; apply
 .method_map cpw/mods/fml/common/Loader$1/apply (Ljava/lang/Object;)Ljava/lang/Object; apply
+.method_map cpw/mods/fml/common/Loader$1/apply (Lcpw/mods/fml/common/versioning/ArtifactVersion;)Ljava/lang/String; apply
 .class_map cpw/mods/fml/common/Loader$ModIdComparator ModIdComparator
 .field_map cpw/mods/fml/common/Loader$ModIdComparator/this$0 this$0
 .method_map cpw/mods/fml/common/Loader$ModIdComparator/compare (Lcpw/mods/fml/common/ModContainer;Lcpw/mods/fml/common/ModContainer;)I compare
