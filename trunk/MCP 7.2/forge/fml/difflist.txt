@@ -54,6 +54,7 @@ minecraft/ny.class
 minecraft/axd.class
 minecraft/TradeEntry.class
 minecraft/cpw/mods/fml/server/FMLServerHandler.class
+minecraft/cpw/mods/fml/common/FMLModContainer$1.class
 minecraft/cpw/mods/fml/common/Loader$1.class
 minecraft/cpw/mods/fml/common/Loader$2.class
 minecraft/cpw/mods/fml/common/Mod.class
@@ -81,6 +82,7 @@ minecraft/cpw/mods/fml/common/TickType.class
 minecraft/cpw/mods/fml/common/INetworkHandler.class
 minecraft/cpw/mods/fml/common/ModMetadata.class
 minecraft/cpw/mods/fml/common/IFuelHandler.class
+minecraft/cpw/mods/fml/common/FMLModContainer$2.class
 minecraft/cpw/mods/fml/common/ProxyInjector.class
 minecraft/cpw/mods/fml/common/FMLLog.class
 minecraft/cpw/mods/fml/common/IScheduledTickHandler.class
@@ -134,6 +136,7 @@ minecraft/cpw/mods/fml/common/network/PacketDispatcher.class
 minecraft/cpw/mods/fml/common/network/NetworkMod$SidedPacketHandler.class
 minecraft/cpw/mods/fml/common/network/EntitySpawnAdjustmentPacket.class
 minecraft/cpw/mods/fml/common/network/NetworkRegistry.class
+minecraft/cpw/mods/fml/common/network/ModMissingPacket$1.class
 minecraft/cpw/mods/fml/common/network/FMLNetworkException.class
 minecraft/cpw/mods/fml/common/network/ModMissingPacket.class
 minecraft/cpw/mods/fml/common/network/Player.class
@@ -143,6 +146,7 @@ minecraft/cpw/mods/fml/common/network/FMLNetworkHandler.class
 minecraft/cpw/mods/fml/common/network/IPacketHandler.class
 minecraft/cpw/mods/fml/common/network/FMLPacket$Type.class
 minecraft/cpw/mods/fml/common/network/NetworkMod$NULL.class
+minecraft/cpw/mods/fml/common/network/ModMissingPacket$ModData.class
 minecraft/cpw/mods/fml/common/toposort/ModSortingException.class
 minecraft/cpw/mods/fml/common/toposort/ModSorter.class
 minecraft/cpw/mods/fml/common/toposort/TopologicalSort.class
@@ -230,6 +234,7 @@ minecraft/cpw/mods/fml/client/TextureFXManager$TextureProperties.class
 minecraft/cpw/mods/fml/client/GuiModList.class
 minecraft/cpw/mods/fml/client/GuiModsMissing.class
 minecraft/cpw/mods/fml/client/GuiSlotModList.class
+minecraft/cpw/mods/fml/client/GuiModsMissingForServer.class
 minecraft/cpw/mods/fml/client/SpriteHelper.class
 minecraft/cpw/mods/fml/client/GuiScrollingList.class
 minecraft/cpw/mods/fml/client/ITextureFX.class
