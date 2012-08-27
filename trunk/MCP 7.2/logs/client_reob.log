@@ -343,6 +343,7 @@ FD: cpw/mods/fml/relauncher/RelaunchClassLoader/cachedClasses cpw/mods/fml/relau
 FD: cpw/mods/fml/relauncher/RelaunchClassLoader/parent cpw/mods/fml/relauncher/RelaunchClassLoader/parent
 FD: cpw/mods/fml/relauncher/RelaunchClassLoader/excludedPackages cpw/mods/fml/relauncher/RelaunchClassLoader/excludedPackages
 FD: cpw/mods/fml/relauncher/RelaunchClassLoader/sources cpw/mods/fml/relauncher/RelaunchClassLoader/sources
+MD: cpw/mods/fml/relauncher/RelaunchClassLoader/getTransformers ()Ljava/util/List; cpw/mods/fml/relauncher/RelaunchClassLoader/getTransformers ()Ljava/util/List;
 MD: cpw/mods/fml/relauncher/RelaunchClassLoader/readFully (Ljava/io/InputStream;)[B cpw/mods/fml/relauncher/RelaunchClassLoader/readFully (Ljava/io/InputStream;)[B
 MD: cpw/mods/fml/relauncher/RelaunchClassLoader/getSources ()Ljava/util/List; cpw/mods/fml/relauncher/RelaunchClassLoader/getSources ()Ljava/util/List;
 MD: cpw/mods/fml/relauncher/RelaunchClassLoader/runTransformers (Ljava/lang/String;[B)[B cpw/mods/fml/relauncher/RelaunchClassLoader/runTransformers (Ljava/lang/String;[B)[B
@@ -645,6 +646,8 @@ MD: cpw/mods/fml/client/FMLClientHandler/addSpecialModEntries (Ljava/util/ArrayL
 CL: cpw/mods/fml/client/GuiSlotModList cpw/mods/fml/client/GuiSlotModList
 FD: cpw/mods/fml/client/GuiSlotModList/parent cpw/mods/fml/client/GuiSlotModList/parent
 FD: cpw/mods/fml/client/GuiSlotModList/mods cpw/mods/fml/client/GuiSlotModList/mods
+CL: cpw/mods/fml/client/GuiModsMissingForServer cpw/mods/fml/client/GuiModsMissingForServer
+FD: cpw/mods/fml/client/GuiModsMissingForServer/modsMissing cpw/mods/fml/client/GuiModsMissingForServer/modsMissing
 CL: cpw/mods/fml/client/SpriteHelper cpw/mods/fml/client/SpriteHelper
 FD: cpw/mods/fml/client/SpriteHelper/spriteInfo cpw/mods/fml/client/SpriteHelper/spriteInfo
 MD: cpw/mods/fml/client/SpriteHelper/toBitSet (Ljava/lang/String;)Ljava/util/BitSet; cpw/mods/fml/client/SpriteHelper/toBitSet (Ljava/lang/String;)Ljava/util/BitSet;
@@ -705,6 +708,7 @@ MD: cpw/mods/fml/common/modloader/ModLoaderHelper/buildCraftingHelper (Lcpw/mods
 MD: cpw/mods/fml/common/modloader/ModLoaderHelper/buildEntityTracker (Lcpw/mods/fml/common/modloader/BaseModProxy;Ljava/lang/Class;IIIZ)V cpw/mods/fml/common/modloader/ModLoaderHelper/buildEntityTracker (Lcpw/mods/fml/common/modloader/BaseModProxy;Ljava/lang/Class;IIIZ)V
 MD: cpw/mods/fml/common/modloader/ModLoaderHelper/updateGUITicks (Lcpw/mods/fml/common/modloader/BaseModProxy;ZZ)V cpw/mods/fml/common/modloader/ModLoaderHelper/updateGUITicks (Lcpw/mods/fml/common/modloader/BaseModProxy;ZZ)V
 MD: cpw/mods/fml/common/modloader/ModLoaderHelper/finishModLoading (Lcpw/mods/fml/common/modloader/ModLoaderModContainer;)V cpw/mods/fml/common/modloader/ModLoaderHelper/finishModLoading (Lcpw/mods/fml/common/modloader/ModLoaderModContainer;)V
+MD: cpw/mods/fml/common/modloader/ModLoaderHelper/addCommand (Lnet/minecraft/src/ICommand;)V cpw/mods/fml/common/modloader/ModLoaderHelper/addCommand (Lp;)V
 MD: cpw/mods/fml/common/modloader/ModLoaderHelper/openGui (ILnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/Container;III)V cpw/mods/fml/common/modloader/ModLoaderHelper/openGui (ILog;Lov;III)V
 MD: cpw/mods/fml/common/modloader/ModLoaderHelper/buildConnectionHelper (Lcpw/mods/fml/common/modloader/BaseModProxy;)Lcpw/mods/fml/common/network/IConnectionHandler; cpw/mods/fml/common/modloader/ModLoaderHelper/buildConnectionHelper (Lcpw/mods/fml/common/modloader/BaseModProxy;)Lcpw/mods/fml/common/network/IConnectionHandler;
 MD: cpw/mods/fml/common/modloader/ModLoaderHelper/buildDispenseHelper (Lcpw/mods/fml/common/modloader/BaseModProxy;)Lcpw/mods/fml/common/IDispenseHandler; cpw/mods/fml/common/modloader/ModLoaderHelper/buildDispenseHelper (Lcpw/mods/fml/common/modloader/BaseModProxy;)Lcpw/mods/fml/common/IDispenseHandler;
@@ -777,15 +781,18 @@ FD: cpw/mods/fml/common/modloader/ModLoaderModContainer/guiTickHandler cpw/mods/
 FD: cpw/mods/fml/common/modloader/ModLoaderModContainer/sidedProxy cpw/mods/fml/common/modloader/ModLoaderModContainer/sidedProxy
 FD: cpw/mods/fml/common/modloader/ModLoaderModContainer/dependencies cpw/mods/fml/common/modloader/ModLoaderModContainer/dependencies
 FD: cpw/mods/fml/common/modloader/ModLoaderModContainer/dependants cpw/mods/fml/common/modloader/ModLoaderModContainer/dependants
+FD: cpw/mods/fml/common/modloader/ModLoaderModContainer/serverCommands cpw/mods/fml/common/modloader/ModLoaderModContainer/serverCommands
 FD: cpw/mods/fml/common/modloader/ModLoaderModContainer/gameTickHandler cpw/mods/fml/common/modloader/ModLoaderModContainer/gameTickHandler
 FD: cpw/mods/fml/common/modloader/ModLoaderModContainer/controller cpw/mods/fml/common/modloader/ModLoaderModContainer/controller
 FD: cpw/mods/fml/common/modloader/ModLoaderModContainer/metadata cpw/mods/fml/common/modloader/ModLoaderModContainer/metadata
 MD: cpw/mods/fml/common/modloader/ModLoaderModContainer/findContainerFor (Lcpw/mods/fml/common/modloader/BaseModProxy;)Lcpw/mods/fml/common/ModContainer; cpw/mods/fml/common/modloader/ModLoaderModContainer/findContainerFor (Lcpw/mods/fml/common/modloader/BaseModProxy;)Lcpw/mods/fml/common/ModContainer;
+MD: cpw/mods/fml/common/modloader/ModLoaderModContainer/addServerCommand (Lnet/minecraft/src/ICommand;)V cpw/mods/fml/common/modloader/ModLoaderModContainer/addServerCommand (Lp;)V
 MD: cpw/mods/fml/common/modloader/ModLoaderModContainer/findAll (Ljava/lang/Class;)Ljava/util/List; cpw/mods/fml/common/modloader/ModLoaderModContainer/findAll (Ljava/lang/Class;)Ljava/util/List;
 MD: cpw/mods/fml/common/modloader/ModLoaderModContainer/extractValue (Ljava/lang/Object;)Ljava/lang/String; cpw/mods/fml/common/modloader/ModLoaderModContainer/extractValue (Ljava/lang/Object;)Ljava/lang/String;
 MD: cpw/mods/fml/common/modloader/ModLoaderModContainer/configureMod (Ljava/lang/Class;Lcpw/mods/fml/common/discovery/ASMDataTable;)V cpw/mods/fml/common/modloader/ModLoaderModContainer/configureMod (Ljava/lang/Class;Lcpw/mods/fml/common/discovery/ASMDataTable;)V
 MD: cpw/mods/fml/common/modloader/ModLoaderModContainer/init (Lcpw/mods/fml/common/event/FMLInitializationEvent;)V cpw/mods/fml/common/modloader/ModLoaderModContainer/init (Lcpw/mods/fml/common/event/FMLInitializationEvent;)V
 MD: cpw/mods/fml/common/modloader/ModLoaderModContainer/loadComplete (Lcpw/mods/fml/common/event/FMLLoadCompleteEvent;)V cpw/mods/fml/common/modloader/ModLoaderModContainer/loadComplete (Lcpw/mods/fml/common/event/FMLLoadCompleteEvent;)V
+MD: cpw/mods/fml/common/modloader/ModLoaderModContainer/serverStarting (Lcpw/mods/fml/common/event/FMLServerStartingEvent;)V cpw/mods/fml/common/modloader/ModLoaderModContainer/serverStarting (Lcpw/mods/fml/common/event/FMLServerStartingEvent;)V
 MD: cpw/mods/fml/common/modloader/ModLoaderModContainer/getGUITickHandler ()Lcpw/mods/fml/common/modloader/BaseModTicker; cpw/mods/fml/common/modloader/ModLoaderModContainer/getGUITickHandler ()Lcpw/mods/fml/common/modloader/BaseModTicker;
 MD: cpw/mods/fml/common/modloader/ModLoaderModContainer/parseValue (Ljava/lang/String;Lcpw/mods/fml/common/modloader/ModProperty;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object; cpw/mods/fml/common/modloader/ModLoaderModContainer/parseValue (Ljava/lang/String;Lcpw/mods/fml/common/modloader/ModProperty;Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Object;
 MD: cpw/mods/fml/common/modloader/ModLoaderModContainer/postInit (Lcpw/mods/fml/common/event/FMLPostInitializationEvent;)V cpw/mods/fml/common/modloader/ModLoaderModContainer/postInit (Lcpw/mods/fml/common/event/FMLPostInitializationEvent;)V
@@ -802,6 +809,7 @@ MD: cpw/mods/fml/common/event/FMLServerStartingEvent/getServer ()Lnet/minecraft/
 MD: cpw/mods/fml/common/event/FMLServerStartingEvent/registerServerCommand (Lnet/minecraft/src/ICommand;)V cpw/mods/fml/common/event/FMLServerStartingEvent/registerServerCommand (Lp;)V
 CL: cpw/mods/fml/common/event/FMLLoadCompleteEvent cpw/mods/fml/common/event/FMLLoadCompleteEvent
 CL: cpw/mods/fml/common/event/FMLPostInitializationEvent cpw/mods/fml/common/event/FMLPostInitializationEvent
+MD: cpw/mods/fml/common/event/FMLPostInitializationEvent/buildSoftDependProxy (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object; cpw/mods/fml/common/event/FMLPostInitializationEvent/buildSoftDependProxy (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/Object;
 CL: cpw/mods/fml/common/event/FMLConstructionEvent cpw/mods/fml/common/event/FMLConstructionEvent
 FD: cpw/mods/fml/common/event/FMLConstructionEvent/asmData cpw/mods/fml/common/event/FMLConstructionEvent/asmData
 FD: cpw/mods/fml/common/event/FMLConstructionEvent/modClassLoader cpw/mods/fml/common/event/FMLConstructionEvent/modClassLoader
@@ -1063,10 +1071,10 @@ FD: cpw/mods/fml/common/registry/EntityRegistry/INSTANCE cpw/mods/fml/common/reg
 FD: cpw/mods/fml/common/registry/EntityRegistry/entityNames cpw/mods/fml/common/registry/EntityRegistry/entityNames
 MD: cpw/mods/fml/common/registry/EntityRegistry/addSpawn (Ljava/lang/Class;IIILnet/minecraft/src/EnumCreatureType;[Lnet/minecraft/src/BiomeGenBase;)V cpw/mods/fml/common/registry/EntityRegistry/addSpawn (Ljava/lang/Class;IIILjx;[Lvk;)V
 MD: cpw/mods/fml/common/registry/EntityRegistry/tryTrackingEntity (Lnet/minecraft/src/EntityTracker;Lnet/minecraft/src/Entity;)Z cpw/mods/fml/common/registry/EntityRegistry/tryTrackingEntity (Lgm;Ljn;)Z
-MD: cpw/mods/fml/common/registry/EntityRegistry/validateAndClaimId (I)V cpw/mods/fml/common/registry/EntityRegistry/validateAndClaimId (I)V
 MD: cpw/mods/fml/common/registry/EntityRegistry/findGlobalUniqueEntityId ()I cpw/mods/fml/common/registry/EntityRegistry/findGlobalUniqueEntityId ()I
 MD: cpw/mods/fml/common/registry/EntityRegistry/registerGlobalEntityID (Ljava/lang/Class;Ljava/lang/String;III)V cpw/mods/fml/common/registry/EntityRegistry/registerGlobalEntityID (Ljava/lang/Class;Ljava/lang/String;III)V
 MD: cpw/mods/fml/common/registry/EntityRegistry/lookupModSpawn (Ljava/lang/Class;Z)Lcpw/mods/fml/common/registry/EntityRegistry$EntityRegistration; cpw/mods/fml/common/registry/EntityRegistry/lookupModSpawn (Ljava/lang/Class;Z)Lcpw/mods/fml/common/registry/EntityRegistry$EntityRegistration;
+MD: cpw/mods/fml/common/registry/EntityRegistry/validateAndClaimId (I)I cpw/mods/fml/common/registry/EntityRegistry/validateAndClaimId (I)I
 MD: cpw/mods/fml/common/registry/EntityRegistry/instance ()Lcpw/mods/fml/common/registry/EntityRegistry; cpw/mods/fml/common/registry/EntityRegistry/instance ()Lcpw/mods/fml/common/registry/EntityRegistry;
 MD: cpw/mods/fml/common/registry/EntityRegistry/registerModEntity (Ljava/lang/Class;Ljava/lang/String;ILjava/lang/Object;IIZ)V cpw/mods/fml/common/registry/EntityRegistry/registerModEntity (Ljava/lang/Class;Ljava/lang/String;ILjava/lang/Object;IIZ)V
 MD: cpw/mods/fml/common/registry/EntityRegistry/removeSpawn (Ljava/lang/String;Lnet/minecraft/src/EnumCreatureType;[Lnet/minecraft/src/BiomeGenBase;)V cpw/mods/fml/common/registry/EntityRegistry/removeSpawn (Ljava/lang/String;Ljx;[Lvk;)V
@@ -1223,28 +1231,29 @@ FD: cpw/mods/fml/common/network/FMLNetworkHandler/networkModHandlers cpw/mods/fm
 FD: cpw/mods/fml/common/network/FMLNetworkHandler/INSTANCE cpw/mods/fml/common/network/FMLNetworkHandler/INSTANCE
 FD: cpw/mods/fml/common/network/FMLNetworkHandler/FML_HASH cpw/mods/fml/common/network/FMLNetworkHandler/FML_HASH
 FD: cpw/mods/fml/common/network/FMLNetworkHandler/loginStates cpw/mods/fml/common/network/FMLNetworkHandler/loginStates
-MD: cpw/mods/fml/common/network/FMLNetworkHandler/registerNetworkMod (Lcpw/mods/fml/common/network/NetworkModHandler;)V cpw/mods/fml/common/network/FMLNetworkHandler/registerNetworkMod (Lcpw/mods/fml/common/network/NetworkModHandler;)V
+MD: cpw/mods/fml/common/network/FMLNetworkHandler/setHandlerState (Lnet/minecraft/src/NetLoginHandler;I)V cpw/mods/fml/common/network/FMLNetworkHandler/setHandlerState (Lgx;I)V
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/onClientConnectionToIntegratedServer (Lnet/minecraft/src/NetHandler;Lnet/minecraft/server/MinecraftServer;Lnet/minecraft/src/NetworkManager;)V cpw/mods/fml/common/network/FMLNetworkHandler/onClientConnectionToIntegratedServer (Ldc;Lnet/minecraft/server/MinecraftServer;Laz;)V
-MD: cpw/mods/fml/common/network/FMLNetworkHandler/makeEntitySpawnAdjustment (ILnet/minecraft/src/EntityPlayerMP;III)V cpw/mods/fml/common/network/FMLNetworkHandler/makeEntitySpawnAdjustment (ILgu;III)V
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/registerNetworkMod (Lcpw/mods/fml/common/ModContainer;Ljava/lang/Class;Lcpw/mods/fml/common/discovery/ASMDataTable;)Z cpw/mods/fml/common/network/FMLNetworkHandler/registerNetworkMod (Lcpw/mods/fml/common/ModContainer;Ljava/lang/Class;Lcpw/mods/fml/common/discovery/ASMDataTable;)Z
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/handleClientConnection (Lnet/minecraft/src/NetLoginHandler;Lnet/minecraft/server/MinecraftServer;Ljava/net/SocketAddress;Ljava/lang/String;)V cpw/mods/fml/common/network/FMLNetworkHandler/handleClientConnection (Lgx;Lnet/minecraft/server/MinecraftServer;Ljava/net/SocketAddress;Ljava/lang/String;)V
+MD: cpw/mods/fml/common/network/FMLNetworkHandler/onConnectionEstablishedToServer (Lnet/minecraft/src/NetHandler;Lnet/minecraft/src/NetworkManager;Lnet/minecraft/src/Packet1Login;)V cpw/mods/fml/common/network/FMLNetworkHandler/onConnectionEstablishedToServer (Ldc;Laz;Lcs;)V
+MD: cpw/mods/fml/common/network/FMLNetworkHandler/onClientConnectionToRemoteServer (Lnet/minecraft/src/NetHandler;Ljava/lang/String;ILnet/minecraft/src/NetworkManager;)V cpw/mods/fml/common/network/FMLNetworkHandler/onClientConnectionToRemoteServer (Ldc;Ljava/lang/String;ILaz;)V
+MD: cpw/mods/fml/common/network/FMLNetworkHandler/handlePacket250Packet (Lnet/minecraft/src/Packet250CustomPayload;Lnet/minecraft/src/NetworkManager;Lnet/minecraft/src/NetHandler;)V cpw/mods/fml/common/network/FMLNetworkHandler/handlePacket250Packet (Lce;Laz;Ldc;)V
+MD: cpw/mods/fml/common/network/FMLNetworkHandler/getModListRequestPacket ()Lnet/minecraft/src/Packet250CustomPayload; cpw/mods/fml/common/network/FMLNetworkHandler/getModListRequestPacket ()Lce;
+MD: cpw/mods/fml/common/network/FMLNetworkHandler/bindNetworkId (Ljava/lang/String;Ljava/lang/Integer;)V cpw/mods/fml/common/network/FMLNetworkHandler/bindNetworkId (Ljava/lang/String;Ljava/lang/Integer;)V
+MD: cpw/mods/fml/common/network/FMLNetworkHandler/openGui (Lnet/minecraft/src/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/src/World;III)V cpw/mods/fml/common/network/FMLNetworkHandler/openGui (Log;Ljava/lang/Object;ILup;III)V
+MD: cpw/mods/fml/common/network/FMLNetworkHandler/registerNetworkMod (Lcpw/mods/fml/common/network/NetworkModHandler;)V cpw/mods/fml/common/network/FMLNetworkHandler/registerNetworkMod (Lcpw/mods/fml/common/network/NetworkModHandler;)V
+MD: cpw/mods/fml/common/network/FMLNetworkHandler/makeEntitySpawnAdjustment (ILnet/minecraft/src/EntityPlayerMP;III)V cpw/mods/fml/common/network/FMLNetworkHandler/makeEntitySpawnAdjustment (ILgu;III)V
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/instance ()Lcpw/mods/fml/common/network/FMLNetworkHandler; cpw/mods/fml/common/network/FMLNetworkHandler/instance ()Lcpw/mods/fml/common/network/FMLNetworkHandler;
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/handleVanillaLoginKick (Lnet/minecraft/src/NetLoginHandler;Lnet/minecraft/server/MinecraftServer;Ljava/net/SocketAddress;Ljava/lang/String;)Z cpw/mods/fml/common/network/FMLNetworkHandler/handleVanillaLoginKick (Lgx;Lnet/minecraft/server/MinecraftServer;Ljava/net/SocketAddress;Ljava/lang/String;)Z
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/handlePlayerLogin (Lnet/minecraft/src/EntityPlayerMP;Lnet/minecraft/src/NetServerHandler;Lnet/minecraft/src/NetworkManager;)V cpw/mods/fml/common/network/FMLNetworkHandler/handlePlayerLogin (Lgu;Lgz;Laz;)V
-MD: cpw/mods/fml/common/network/FMLNetworkHandler/onConnectionEstablishedToServer (Lnet/minecraft/src/NetHandler;Lnet/minecraft/src/NetworkManager;Lnet/minecraft/src/Packet1Login;)V cpw/mods/fml/common/network/FMLNetworkHandler/onConnectionEstablishedToServer (Ldc;Laz;Lcs;)V
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/sendPacket (Lcpw/mods/fml/common/network/Player;Lnet/minecraft/src/Packet;)V cpw/mods/fml/common/network/FMLNetworkHandler/sendPacket (Lcpw/mods/fml/common/network/Player;Ldb;)V
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/getNetworkModList ()Ljava/util/Set; cpw/mods/fml/common/network/FMLNetworkHandler/getNetworkModList ()Ljava/util/Set;
-MD: cpw/mods/fml/common/network/FMLNetworkHandler/onClientConnectionToRemoteServer (Lnet/minecraft/src/NetHandler;Ljava/lang/String;ILnet/minecraft/src/NetworkManager;)V cpw/mods/fml/common/network/FMLNetworkHandler/onClientConnectionToRemoteServer (Ldc;Ljava/lang/String;ILaz;)V
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/handleFMLPacket (Lnet/minecraft/src/Packet250CustomPayload;Lnet/minecraft/src/NetworkManager;Lnet/minecraft/src/NetHandler;)V cpw/mods/fml/common/network/FMLNetworkHandler/handleFMLPacket (Lce;Laz;Ldc;)V
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/findNetworkModHandler (Ljava/lang/Object;)Lcpw/mods/fml/common/network/NetworkModHandler; cpw/mods/fml/common/network/FMLNetworkHandler/findNetworkModHandler (Ljava/lang/Object;)Lcpw/mods/fml/common/network/NetworkModHandler;
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/getEntitySpawningPacket (Lnet/minecraft/src/Entity;)Lnet/minecraft/src/Packet; cpw/mods/fml/common/network/FMLNetworkHandler/getEntitySpawningPacket (Ljn;)Ldb;
-MD: cpw/mods/fml/common/network/FMLNetworkHandler/handlePacket250Packet (Lnet/minecraft/src/Packet250CustomPayload;Lnet/minecraft/src/NetworkManager;Lnet/minecraft/src/NetHandler;)V cpw/mods/fml/common/network/FMLNetworkHandler/handlePacket250Packet (Lce;Laz;Ldc;)V
-MD: cpw/mods/fml/common/network/FMLNetworkHandler/getNetworkIdMap ()Ljava/util/Map; cpw/mods/fml/common/network/FMLNetworkHandler/getNetworkIdMap ()Ljava/util/Map;
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/handleLoginPacketOnServer (Lnet/minecraft/src/NetLoginHandler;Lnet/minecraft/src/Packet1Login;)V cpw/mods/fml/common/network/FMLNetworkHandler/handleLoginPacketOnServer (Lgx;Lcs;)V
+MD: cpw/mods/fml/common/network/FMLNetworkHandler/getNetworkIdMap ()Ljava/util/Map; cpw/mods/fml/common/network/FMLNetworkHandler/getNetworkIdMap ()Ljava/util/Map;
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/onConnectionReceivedFromClient (Lnet/minecraft/src/NetLoginHandler;Lnet/minecraft/server/MinecraftServer;Ljava/net/SocketAddress;Ljava/lang/String;)V cpw/mods/fml/common/network/FMLNetworkHandler/onConnectionReceivedFromClient (Lgx;Lnet/minecraft/server/MinecraftServer;Ljava/net/SocketAddress;Ljava/lang/String;)V
-MD: cpw/mods/fml/common/network/FMLNetworkHandler/getModListRequestPacket ()Lnet/minecraft/src/Packet250CustomPayload; cpw/mods/fml/common/network/FMLNetworkHandler/getModListRequestPacket ()Lce;
-MD: cpw/mods/fml/common/network/FMLNetworkHandler/openGui (Lnet/minecraft/src/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/src/World;III)V cpw/mods/fml/common/network/FMLNetworkHandler/openGui (Log;Ljava/lang/Object;ILup;III)V
-MD: cpw/mods/fml/common/network/FMLNetworkHandler/bindNetworkId (Ljava/lang/String;Ljava/lang/Integer;)V cpw/mods/fml/common/network/FMLNetworkHandler/bindNetworkId (Ljava/lang/String;Ljava/lang/Integer;)V
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/getFMLFakeLoginPacket ()Lnet/minecraft/src/Packet1Login; cpw/mods/fml/common/network/FMLNetworkHandler/getFMLFakeLoginPacket ()Lcs;
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/onConnectionClosed (Lnet/minecraft/src/NetworkManager;)V cpw/mods/fml/common/network/FMLNetworkHandler/onConnectionClosed (Laz;)V
 CL: cpw/mods/fml/common/network/IPacketHandler cpw/mods/fml/common/network/IPacketHandler
@@ -1269,7 +1278,14 @@ FD: cpw/mods/fml/common/network/EntitySpawnPacket/scaledPitch cpw/mods/fml/commo
 FD: cpw/mods/fml/common/network/EntitySpawnPacket/rawZ cpw/mods/fml/common/network/EntitySpawnPacket/rawZ
 FD: cpw/mods/fml/common/network/EntitySpawnPacket/dataStream cpw/mods/fml/common/network/EntitySpawnPacket/dataStream
 FD: cpw/mods/fml/common/network/EntitySpawnPacket/metadata cpw/mods/fml/common/network/EntitySpawnPacket/metadata
+CL: cpw/mods/fml/common/network/ModMissingPacket$1 cpw/mods/fml/common/network/ModMissingPacket$1
+CL: cpw/mods/fml/common/network/ModMissingPacket$ModData cpw/mods/fml/common/network/ModMissingPacket$ModData
+FD: cpw/mods/fml/common/network/ModMissingPacket$ModData/modVersion cpw/mods/fml/common/network/ModMissingPacket$ModData/modVersion
+FD: cpw/mods/fml/common/network/ModMissingPacket$ModData/modId cpw/mods/fml/common/network/ModMissingPacket$ModData/modId
 CL: cpw/mods/fml/common/network/ModMissingPacket cpw/mods/fml/common/network/ModMissingPacket
+FD: cpw/mods/fml/common/network/ModMissingPacket/missing cpw/mods/fml/common/network/ModMissingPacket/missing
+FD: cpw/mods/fml/common/network/ModMissingPacket/badVersion cpw/mods/fml/common/network/ModMissingPacket/badVersion
+MD: cpw/mods/fml/common/network/ModMissingPacket/getModList ()Ljava/util/List; cpw/mods/fml/common/network/ModMissingPacket/getModList ()Ljava/util/List;
 CL: cpw/mods/fml/common/network/NetworkMod$VersionCheckHandler cpw/mods/fml/common/network/NetworkMod$VersionCheckHandler
 CL: cpw/mods/fml/common/network/NetworkMod$SidedPacketHandler cpw/mods/fml/common/network/NetworkMod$SidedPacketHandler
 MD: cpw/mods/fml/common/network/NetworkMod$SidedPacketHandler/channels ()[Ljava/lang/String; cpw/mods/fml/common/network/NetworkMod$SidedPacketHandler/channels ()[Ljava/lang/String;
@@ -1457,6 +1473,7 @@ MD: cpw/mods/fml/common/asm/transformers/AccessTransformer/readMapFile (Ljava/la
 MD: cpw/mods/fml/common/asm/transformers/AccessTransformer/access$200 (Lcpw/mods/fml/common/asm/transformers/AccessTransformer;)Lcom/google/common/collect/Multimap; cpw/mods/fml/common/asm/transformers/AccessTransformer/access$200 (Lcpw/mods/fml/common/asm/transformers/AccessTransformer;)Lcom/google/common/collect/Multimap;
 MD: cpw/mods/fml/common/asm/transformers/AccessTransformer/processJar (Ljava/io/File;Ljava/io/File;[Lcpw/mods/fml/common/asm/transformers/AccessTransformer;)V cpw/mods/fml/common/asm/transformers/AccessTransformer/processJar (Ljava/io/File;Ljava/io/File;[Lcpw/mods/fml/common/asm/transformers/AccessTransformer;)V
 MD: cpw/mods/fml/common/asm/transformers/AccessTransformer/toBinary (I)Ljava/lang/String; cpw/mods/fml/common/asm/transformers/AccessTransformer/toBinary (I)Ljava/lang/String;
+MD: cpw/mods/fml/common/asm/transformers/AccessTransformer/ensurePublicAccessFor (Ljava/lang/String;)V cpw/mods/fml/common/asm/transformers/AccessTransformer/ensurePublicAccessFor (Ljava/lang/String;)V
 CL: cpw/mods/fml/common/asm/FMLSanityChecker$1 cpw/mods/fml/common/asm/FMLSanityChecker$1
 CL: cpw/mods/fml/common/asm/FMLSanityChecker$MLDetectorClassVisitor cpw/mods/fml/common/asm/FMLSanityChecker$MLDetectorClassVisitor
 FD: cpw/mods/fml/common/asm/FMLSanityChecker$MLDetectorClassVisitor/foundMarker cpw/mods/fml/common/asm/FMLSanityChecker$MLDetectorClassVisitor/foundMarker
@@ -1569,29 +1586,34 @@ MD: cpw/mods/fml/common/Loader/initializeMods ()V cpw/mods/fml/common/Loader/ini
 MD: cpw/mods/fml/common/Loader/getModState (Lcpw/mods/fml/common/ModContainer;)Lcpw/mods/fml/common/LoaderState$ModState; cpw/mods/fml/common/Loader/getModState (Lcpw/mods/fml/common/ModContainer;)Lcpw/mods/fml/common/LoaderState$ModState;
 MD: cpw/mods/fml/common/Loader/getMCVersionString ()Ljava/lang/String; cpw/mods/fml/common/Loader/getMCVersionString ()Ljava/lang/String;
 MD: cpw/mods/fml/common/Loader/getConfigDir ()Ljava/io/File; cpw/mods/fml/common/Loader/getConfigDir ()Ljava/io/File;
+CL: cpw/mods/fml/common/FMLModContainer$2 cpw/mods/fml/common/FMLModContainer$2
+FD: cpw/mods/fml/common/FMLModContainer$2/this$0 cpw/mods/fml/common/FMLModContainer$2/this$0
+MD: cpw/mods/fml/common/FMLModContainer$2/apply (Lcpw/mods/fml/common/ModContainer;)Ljava/lang/Object; cpw/mods/fml/common/FMLModContainer$2/apply (Lcpw/mods/fml/common/ModContainer;)Ljava/lang/Object;
+CL: cpw/mods/fml/common/FMLModContainer$1 cpw/mods/fml/common/FMLModContainer$1
+FD: cpw/mods/fml/common/FMLModContainer$1/this$0 cpw/mods/fml/common/FMLModContainer$1/this$0
+MD: cpw/mods/fml/common/FMLModContainer$1/apply (Lcpw/mods/fml/common/ModContainer;)Ljava/lang/Object; cpw/mods/fml/common/FMLModContainer$1/apply (Lcpw/mods/fml/common/ModContainer;)Ljava/lang/Object;
 CL: cpw/mods/fml/common/FMLModContainer cpw/mods/fml/common/FMLModContainer
 FD: cpw/mods/fml/common/FMLModContainer/modMetadata cpw/mods/fml/common/FMLModContainer/modMetadata
 FD: cpw/mods/fml/common/FMLModContainer/enabled cpw/mods/fml/common/FMLModContainer/enabled
+FD: cpw/mods/fml/common/FMLModContainer/internalVersion cpw/mods/fml/common/FMLModContainer/internalVersion
 FD: cpw/mods/fml/common/FMLModContainer/processedVersion cpw/mods/fml/common/FMLModContainer/processedVersion
 FD: cpw/mods/fml/common/FMLModContainer/modAnnotationTypes cpw/mods/fml/common/FMLModContainer/modAnnotationTypes
 FD: cpw/mods/fml/common/FMLModContainer/isNetworkMod cpw/mods/fml/common/FMLModContainer/isNetworkMod
 FD: cpw/mods/fml/common/FMLModContainer/descriptor cpw/mods/fml/common/FMLModContainer/descriptor
 FD: cpw/mods/fml/common/FMLModContainer/modInstance cpw/mods/fml/common/FMLModContainer/modInstance
-FD: cpw/mods/fml/common/FMLModContainer/requirements cpw/mods/fml/common/FMLModContainer/requirements
 FD: cpw/mods/fml/common/FMLModContainer/overridesMetadata cpw/mods/fml/common/FMLModContainer/overridesMetadata
 FD: cpw/mods/fml/common/FMLModContainer/modTypeAnnotations cpw/mods/fml/common/FMLModContainer/modTypeAnnotations
 FD: cpw/mods/fml/common/FMLModContainer/source cpw/mods/fml/common/FMLModContainer/source
-FD: cpw/mods/fml/common/FMLModContainer/dependencies cpw/mods/fml/common/FMLModContainer/dependencies
-FD: cpw/mods/fml/common/FMLModContainer/dependants cpw/mods/fml/common/FMLModContainer/dependants
 FD: cpw/mods/fml/common/FMLModContainer/modDescriptor cpw/mods/fml/common/FMLModContainer/modDescriptor
 FD: cpw/mods/fml/common/FMLModContainer/className cpw/mods/fml/common/FMLModContainer/className
 FD: cpw/mods/fml/common/FMLModContainer/eventBus cpw/mods/fml/common/FMLModContainer/eventBus
-FD: cpw/mods/fml/common/FMLModContainer/annotations cpw/mods/fml/common/FMLModContainer/annotations
 FD: cpw/mods/fml/common/FMLModContainer/controller cpw/mods/fml/common/FMLModContainer/controller
+FD: cpw/mods/fml/common/FMLModContainer/annotations cpw/mods/fml/common/FMLModContainer/annotations
 FD: cpw/mods/fml/common/FMLModContainer/annotationDependencies cpw/mods/fml/common/FMLModContainer/annotationDependencies
-MD: cpw/mods/fml/common/FMLModContainer/processFieldAnnotations ()V cpw/mods/fml/common/FMLModContainer/processFieldAnnotations ()V
+MD: cpw/mods/fml/common/FMLModContainer/processFieldAnnotations (Lcpw/mods/fml/common/discovery/ASMDataTable;)V cpw/mods/fml/common/FMLModContainer/processFieldAnnotations (Lcpw/mods/fml/common/discovery/ASMDataTable;)V
 MD: cpw/mods/fml/common/FMLModContainer/gatherAnnotations (Ljava/lang/Class;)Lcom/google/common/collect/Multimap; cpw/mods/fml/common/FMLModContainer/gatherAnnotations (Ljava/lang/Class;)Lcom/google/common/collect/Multimap;
 MD: cpw/mods/fml/common/FMLModContainer/handleModStateEvent (Lcpw/mods/fml/common/event/FMLStateEvent;)V cpw/mods/fml/common/FMLModContainer/handleModStateEvent (Lcpw/mods/fml/common/event/FMLStateEvent;)V
+MD: cpw/mods/fml/common/FMLModContainer/parseSimpleFieldAnnotation (Lcom/google/common/collect/SetMultimap;Ljava/lang/String;Lcom/google/common/base/Function;)V cpw/mods/fml/common/FMLModContainer/parseSimpleFieldAnnotation (Lcom/google/common/collect/SetMultimap;Ljava/lang/String;Lcom/google/common/base/Function;)V
 MD: cpw/mods/fml/common/FMLModContainer/constructMod (Lcpw/mods/fml/common/event/FMLConstructionEvent;)V cpw/mods/fml/common/FMLModContainer/constructMod (Lcpw/mods/fml/common/event/FMLConstructionEvent;)V
 CL: cpw/mods/fml/common/FMLDummyContainer cpw/mods/fml/common/FMLDummyContainer
 CL: cpw/mods/fml/common/IFuelHandler cpw/mods/fml/common/IFuelHandler
@@ -1633,6 +1655,7 @@ CL: cpw/mods/fml/common/IFMLSidedHandler cpw/mods/fml/common/IFMLSidedHandler
 MD: cpw/mods/fml/common/IFMLSidedHandler/sendPacket (Lnet/minecraft/src/Packet;)V cpw/mods/fml/common/IFMLSidedHandler/sendPacket (Ldb;)V
 MD: cpw/mods/fml/common/IFMLSidedHandler/adjustEntityLocationOnClient (Lcpw/mods/fml/common/network/EntitySpawnAdjustmentPacket;)V cpw/mods/fml/common/IFMLSidedHandler/adjustEntityLocationOnClient (Lcpw/mods/fml/common/network/EntitySpawnAdjustmentPacket;)V
 MD: cpw/mods/fml/common/IFMLSidedHandler/getAdditionalBrandingInformation ()Ljava/util/List; cpw/mods/fml/common/IFMLSidedHandler/getAdditionalBrandingInformation ()Ljava/util/List;
+MD: cpw/mods/fml/common/IFMLSidedHandler/displayMissingMods (Lcpw/mods/fml/common/network/ModMissingPacket;)V cpw/mods/fml/common/IFMLSidedHandler/displayMissingMods (Lcpw/mods/fml/common/network/ModMissingPacket;)V
 MD: cpw/mods/fml/common/IFMLSidedHandler/getServer ()Lnet/minecraft/server/MinecraftServer; cpw/mods/fml/common/IFMLSidedHandler/getServer ()Lnet/minecraft/server/MinecraftServer;
 MD: cpw/mods/fml/common/IFMLSidedHandler/showGuiScreen (Ljava/lang/Object;)V cpw/mods/fml/common/IFMLSidedHandler/showGuiScreen (Ljava/lang/Object;)V
 MD: cpw/mods/fml/common/IFMLSidedHandler/beginServerLoading (Lnet/minecraft/server/MinecraftServer;)V cpw/mods/fml/common/IFMLSidedHandler/beginServerLoading (Lnet/minecraft/server/MinecraftServer;)V
@@ -1712,11 +1735,13 @@ MD: cpw/mods/fml/common/ModContainer/getDependants ()Ljava/util/List; cpw/mods/f
 MD: cpw/mods/fml/common/ModContainer/setEnabledState (Z)V cpw/mods/fml/common/ModContainer/setEnabledState (Z)V
 MD: cpw/mods/fml/common/ModContainer/getModId ()Ljava/lang/String; cpw/mods/fml/common/ModContainer/getModId ()Ljava/lang/String;
 MD: cpw/mods/fml/common/ModContainer/getMod ()Ljava/lang/Object; cpw/mods/fml/common/ModContainer/getMod ()Ljava/lang/Object;
+MD: cpw/mods/fml/common/ModContainer/getDisplayVersion ()Ljava/lang/String; cpw/mods/fml/common/ModContainer/getDisplayVersion ()Ljava/lang/String;
 MD: cpw/mods/fml/common/ModContainer/getVersion ()Ljava/lang/String; cpw/mods/fml/common/ModContainer/getVersion ()Ljava/lang/String;
 MD: cpw/mods/fml/common/ModContainer/isNetworkMod ()Z cpw/mods/fml/common/ModContainer/isNetworkMod ()Z
 CL: cpw/mods/fml/common/ModClassLoader cpw/mods/fml/common/ModClassLoader
 FD: cpw/mods/fml/common/ModClassLoader/STANDARD_LIBRARIES cpw/mods/fml/common/ModClassLoader/STANDARD_LIBRARIES
 FD: cpw/mods/fml/common/ModClassLoader/mainClassLoader cpw/mods/fml/common/ModClassLoader/mainClassLoader
+MD: cpw/mods/fml/common/ModClassLoader/loadBaseModClass (Ljava/lang/String;)Ljava/lang/Class; cpw/mods/fml/common/ModClassLoader/loadBaseModClass (Ljava/lang/String;)Ljava/lang/Class;
 MD: cpw/mods/fml/common/ModClassLoader/addFile (Ljava/io/File;)V cpw/mods/fml/common/ModClassLoader/addFile (Ljava/io/File;)V
 MD: cpw/mods/fml/common/ModClassLoader/getParentSources ()[Ljava/io/File; cpw/mods/fml/common/ModClassLoader/getParentSources ()[Ljava/io/File;
 MD: cpw/mods/fml/common/ModClassLoader/getDefaultLibraries ()Ljava/util/List; cpw/mods/fml/common/ModClassLoader/getDefaultLibraries ()Ljava/util/List;
@@ -5781,8 +5806,8 @@ MD: net/minecraft/src/ModLoader/addOverride (Ljava/lang/String;Ljava/lang/String
 MD: net/minecraft/src/ModLoader/registerAllTextureOverrides (Lnet/minecraft/src/RenderEngine;)V ModLoader/registerAllTextureOverrides (Lavf;)V
 MD: net/minecraft/src/ModLoader/registerEntityID (Ljava/lang/Class;Ljava/lang/String;III)V ModLoader/registerEntityID (Ljava/lang/Class;Ljava/lang/String;III)V
 MD: net/minecraft/src/ModLoader/addAllRenderers (Ljava/util/Map;)V ModLoader/addAllRenderers (Ljava/util/Map;)V
-MD: net/minecraft/src/ModLoader/genericContainerRemoval (Lnet/minecraft/src/World;III)V ModLoader/genericContainerRemoval (Lup;III)V
 MD: net/minecraft/src/ModLoader/registerContainerID (Lnet/minecraft/src/BaseMod;I)V ModLoader/registerContainerID (LBaseMod;I)V
+MD: net/minecraft/src/ModLoader/genericContainerRemoval (Lnet/minecraft/src/World;III)V ModLoader/genericContainerRemoval (Lup;III)V
 MD: net/minecraft/src/ModLoader/isModLoaded (Ljava/lang/String;)Z ModLoader/isModLoaded (Ljava/lang/String;)Z
 MD: net/minecraft/src/ModLoader/getLoadedMods ()Ljava/util/List; ModLoader/getLoadedMods ()Ljava/util/List;
 MD: net/minecraft/src/ModLoader/takenFromCrafting (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/ItemStack;Lnet/minecraft/src/IInventory;)V ModLoader/takenFromCrafting (Log;Lrj;Lix;)V
@@ -5805,6 +5830,7 @@ MD: net/minecraft/src/ModLoader/removeSpawn (Ljava/lang/String;Lnet/minecraft/sr
 MD: net/minecraft/src/ModLoader/onTick (FLnet/minecraft/client/Minecraft;)V ModLoader/onTick (FLnet/minecraft/client/Minecraft;)V
 MD: net/minecraft/src/ModLoader/clientSendPacket (Lnet/minecraft/src/Packet;)V ModLoader/clientSendPacket (Ldb;)V
 MD: net/minecraft/src/ModLoader/removeSpawn (Ljava/lang/Class;Lnet/minecraft/src/EnumCreatureType;[Lnet/minecraft/src/BiomeGenBase;)V ModLoader/removeSpawn (Ljava/lang/Class;Ljx;[Lvk;)V
+MD: net/minecraft/src/ModLoader/addCommand (Lnet/minecraft/src/ICommand;)V ModLoader/addCommand (Lp;)V
 MD: net/minecraft/src/ModLoader/getUniqueEntityId ()I ModLoader/getUniqueEntityId ()I
 MD: net/minecraft/src/ModLoader/registerBlock (Lnet/minecraft/src/Block;Ljava/lang/Class;)V ModLoader/registerBlock (Laig;Ljava/lang/Class;)V
 MD: net/minecraft/src/ModLoader/getLogger ()Ljava/util/logging/Logger; ModLoader/getLogger ()Ljava/util/logging/Logger;
