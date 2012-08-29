@@ -630,6 +630,7 @@ MD: cpw/mods/fml/client/GuiScrollingList/registerScrollButtons (Ljava/util/List;
 CL: cpw/mods/fml/client/FMLClientHandler cpw/mods/fml/client/FMLClientHandler
 FD: cpw/mods/fml/client/FMLClientHandler/serverIsRunning cpw/mods/fml/client/FMLClientHandler/serverIsRunning
 FD: cpw/mods/fml/client/FMLClientHandler/client cpw/mods/fml/client/FMLClientHandler/client
+FD: cpw/mods/fml/client/FMLClientHandler/loading cpw/mods/fml/client/FMLClientHandler/loading
 FD: cpw/mods/fml/client/FMLClientHandler/optifineContainer cpw/mods/fml/client/FMLClientHandler/optifineContainer
 FD: cpw/mods/fml/client/FMLClientHandler/modsMissing cpw/mods/fml/client/FMLClientHandler/modsMissing
 FD: cpw/mods/fml/client/FMLClientHandler/INSTANCE cpw/mods/fml/client/FMLClientHandler/INSTANCE
@@ -643,6 +644,7 @@ MD: cpw/mods/fml/client/FMLClientHandler/getMinecraftLogger ()Ljava/util/logging
 MD: cpw/mods/fml/client/FMLClientHandler/beginMinecraftLoading (Lnet/minecraft/client/Minecraft;)V cpw/mods/fml/client/FMLClientHandler/beginMinecraftLoading (Lnet/minecraft/client/Minecraft;)V
 MD: cpw/mods/fml/client/FMLClientHandler/displayGuiScreen (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/GuiScreen;)V cpw/mods/fml/client/FMLClientHandler/displayGuiScreen (Log;Lapn;)V
 MD: cpw/mods/fml/client/FMLClientHandler/addSpecialModEntries (Ljava/util/ArrayList;)V cpw/mods/fml/client/FMLClientHandler/addSpecialModEntries (Ljava/util/ArrayList;)V
+MD: cpw/mods/fml/client/FMLClientHandler/isLoading ()Z cpw/mods/fml/client/FMLClientHandler/isLoading ()Z
 CL: cpw/mods/fml/client/GuiSlotModList cpw/mods/fml/client/GuiSlotModList
 FD: cpw/mods/fml/client/GuiSlotModList/parent cpw/mods/fml/client/GuiSlotModList/parent
 FD: cpw/mods/fml/client/GuiSlotModList/mods cpw/mods/fml/client/GuiSlotModList/mods

@@ -6,7 +6,7 @@
 #
 # RetroGuard MCP v3.6.5
 #
-# Logfile created on Mon Aug 27 14:18:29 EDT 2012
+# Logfile created on Wed Aug 29 07:41:16 EDT 2012
 #
 # Jar file to be obfuscated:           client_recomp.jar
 # Target Jar file for obfuscated code: client_reobf.jar
@@ -51,8 +51,8 @@
 #      Your class net/minecraftforge/event/ASMEventHandler$ASMClassLoader calls the java/lang/ClassLoader method defineClass(Ljava/lang/String;[BII)Ljava/lang/Class;
 #      Your class net/minecraftforge/event/EventBus calls the java/lang/Class method getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 #
-# Memory in use after class data structure built: 24037784 bytes
-# Total memory available                        : 369098752 bytes
+# Memory in use after class data structure built: 23975032 bytes
+# Total memory available                        : 369229824 bytes
 #
 #
 # Names reserved from obfuscation:
@@ -2363,6 +2363,7 @@
 .class_map cpw/mods/fml/client/FMLClientHandler FMLClientHandler
 .field_map cpw/mods/fml/client/FMLClientHandler/serverIsRunning serverIsRunning
 .field_map cpw/mods/fml/client/FMLClientHandler/client client
+.field_map cpw/mods/fml/client/FMLClientHandler/loading loading
 .field_map cpw/mods/fml/client/FMLClientHandler/optifineContainer optifineContainer
 .field_map cpw/mods/fml/client/FMLClientHandler/modsMissing modsMissing
 .field_map cpw/mods/fml/client/FMLClientHandler/INSTANCE INSTANCE
@@ -2385,6 +2386,7 @@
 .method_map cpw/mods/fml/client/FMLClientHandler/displayGuiScreen (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/GuiScreen;)V displayGuiScreen
 .method_map cpw/mods/fml/client/FMLClientHandler/beginServerLoading (Lnet/minecraft/server/MinecraftServer;)V beginServerLoading
 .method_map cpw/mods/fml/client/FMLClientHandler/addSpecialModEntries (Ljava/util/ArrayList;)V addSpecialModEntries
+.method_map cpw/mods/fml/client/FMLClientHandler/isLoading ()Z isLoading
 .method_map cpw/mods/fml/client/FMLClientHandler/spawnEntityIntoClientWorld (Lcpw/mods/fml/common/registry/EntityRegistry$EntityRegistration;Lcpw/mods/fml/common/network/EntitySpawnPacket;)Lnet/minecraft/src/Entity; spawnEntityIntoClientWorld
 .method_map cpw/mods/fml/client/FMLClientHandler/haltGame (Ljava/lang/String;Ljava/lang/Throwable;)V haltGame
 .class_map cpw/mods/fml/client/GuiSlotModList GuiSlotModList
