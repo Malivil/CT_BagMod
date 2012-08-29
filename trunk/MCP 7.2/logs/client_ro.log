@@ -6,7 +6,7 @@
 #
 # RetroGuard MCP v3.6.5
 #
-# Logfile created on Wed Aug 29 07:41:16 EDT 2012
+# Logfile created on Wed Aug 29 18:56:14 EDT 2012
 #
 # Jar file to be obfuscated:           client_recomp.jar
 # Target Jar file for obfuscated code: client_reobf.jar
@@ -51,7 +51,7 @@
 #      Your class net/minecraftforge/event/ASMEventHandler$ASMClassLoader calls the java/lang/ClassLoader method defineClass(Ljava/lang/String;[BII)Ljava/lang/Class;
 #      Your class net/minecraftforge/event/EventBus calls the java/lang/Class method getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 #
-# Memory in use after class data structure built: 23975032 bytes
+# Memory in use after class data structure built: 23971448 bytes
 # Total memory available                        : 369229824 bytes
 #
 #
@@ -2434,6 +2434,7 @@
 .method_map cpw/mods/fml/common/modloader/ModLoaderVillageTradeHandler/addTrade (Lnet/minecraft/src/TradeEntry;)V addTrade
 .class_map cpw/mods/fml/common/modloader/ModLoaderEntitySpawnCallback ModLoaderEntitySpawnCallback
 .field_map cpw/mods/fml/common/modloader/ModLoaderEntitySpawnCallback/mod mod
+.field_map cpw/mods/fml/common/modloader/ModLoaderEntitySpawnCallback/isAnimal isAnimal
 .field_map cpw/mods/fml/common/modloader/ModLoaderEntitySpawnCallback/registration registration
 .method_map cpw/mods/fml/common/modloader/ModLoaderEntitySpawnCallback/apply (Ljava/lang/Object;)Ljava/lang/Object; apply
 .method_map cpw/mods/fml/common/modloader/ModLoaderEntitySpawnCallback/apply (Lcpw/mods/fml/common/network/EntitySpawnPacket;)Lnet/minecraft/src/Entity; apply
@@ -2892,6 +2893,7 @@
 .field_map cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/container container
 .field_map cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/trackingRange trackingRange
 .field_map cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/entityClass entityClass
+.field_map cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/usesVanillaSpawning usesVanillaSpawning
 .field_map cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/this$0 this$0
 .field_map cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/sendsVelocityUpdates sendsVelocityUpdates
 .field_map cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/updateFrequency updateFrequency
@@ -2899,12 +2901,13 @@
 .field_map cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/entityName entityName
 .method_map cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/doCustomSpawning (Lcpw/mods/fml/common/network/EntitySpawnPacket;)Lnet/minecraft/src/Entity; doCustomSpawning
 .method_map cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/getUpdateFrequency ()I getUpdateFrequency
-.method_map cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/setCustomSpawning (Lcom/google/common/base/Function;)V setCustomSpawning
 .method_map cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/getContainer ()Lcpw/mods/fml/common/ModContainer; getContainer
 .method_map cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/getEntityClass ()Ljava/lang/Class; getEntityClass
 .method_map cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/getEntityName ()Ljava/lang/String; getEntityName
+.method_map cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/usesVanillaSpawning ()Z usesVanillaSpawning
 .method_map cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/hasCustomSpawning ()Z hasCustomSpawning
 .method_map cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/sendsVelocityUpdates ()Z sendsVelocityUpdates
+.method_map cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/setCustomSpawning (Lcom/google/common/base/Function;Z)V setCustomSpawning
 .method_map cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/getTrackingRange ()I getTrackingRange
 .method_map cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/getModEntityId ()I getModEntityId
 .class_map cpw/mods/fml/common/registry/EntityRegistry EntityRegistry
@@ -18150,8 +18153,8 @@
 .class_map net/minecraft/src/InventoryBasic ja
 .field_map net/minecraft/src/InventoryBasic/field_70480_d d
 .field_map net/minecraft/src/InventoryBasic/inventoryTitle a
-.field_map net/minecraft/src/InventoryBasic/slotsCount b
 .field_map net/minecraft/src/InventoryBasic/inventoryContents c
+.field_map net/minecraft/src/InventoryBasic/slotsCoqnt b
 .method_map net/minecraft/src/InventoryBasic/openChest ()V k_
 .method_map net/minecraft/src/InventoryBasic/closeChest ()V f
 .method_map net/minecraft/src/InventoryBasic/isUseableByPlayer (Lnet/minecraft/src/EntityPlayer;)Z a

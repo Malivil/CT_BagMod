@@ -39,6 +39,7 @@ minecraft/up.class
 minecraft/afp.class
 minecraft/gq.class
 minecraft/axv.class
+minecraft/ava.class
 minecraft/od.class
 minecraft/ModTextureStatic.class
 minecraft/axk.class

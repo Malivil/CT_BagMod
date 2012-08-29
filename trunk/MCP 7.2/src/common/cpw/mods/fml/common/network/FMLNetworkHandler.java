@@ -329,6 +329,10 @@ public class FMLNetworkHandler
         {
             return null;
         }
+        if (er.usesVanillaSpawning())
+        {
+            return null;
+        }
         Packet250CustomPayload pkt = new Packet250CustomPayload();
         pkt.channel = "FML";
         pkt.data = FMLPacket.makePacket(Type.ENTITYSPAWN, er, entity, instance().findNetworkModHandler(er.getContainer()));

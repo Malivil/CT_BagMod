@@ -677,6 +677,7 @@ FD: cpw/mods/fml/common/modloader/ModLoaderVillageTradeHandler/trades cpw/mods/f
 MD: cpw/mods/fml/common/modloader/ModLoaderVillageTradeHandler/addTrade (Lnet/minecraft/src/TradeEntry;)V cpw/mods/fml/common/modloader/ModLoaderVillageTradeHandler/addTrade (LTradeEntry;)V
 CL: cpw/mods/fml/common/modloader/ModLoaderEntitySpawnCallback cpw/mods/fml/common/modloader/ModLoaderEntitySpawnCallback
 FD: cpw/mods/fml/common/modloader/ModLoaderEntitySpawnCallback/mod cpw/mods/fml/common/modloader/ModLoaderEntitySpawnCallback/mod
+FD: cpw/mods/fml/common/modloader/ModLoaderEntitySpawnCallback/isAnimal cpw/mods/fml/common/modloader/ModLoaderEntitySpawnCallback/isAnimal
 FD: cpw/mods/fml/common/modloader/ModLoaderEntitySpawnCallback/registration cpw/mods/fml/common/modloader/ModLoaderEntitySpawnCallback/registration
 MD: cpw/mods/fml/common/modloader/ModLoaderEntitySpawnCallback/apply (Lcpw/mods/fml/common/network/EntitySpawnPacket;)Lnet/minecraft/src/Entity; cpw/mods/fml/common/modloader/ModLoaderEntitySpawnCallback/apply (Lcpw/mods/fml/common/network/EntitySpawnPacket;)Ljn;
 CL: cpw/mods/fml/common/modloader/ModLoaderConnectionHandler cpw/mods/fml/common/modloader/ModLoaderConnectionHandler
@@ -1050,6 +1051,7 @@ FD: cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/modId cpw/mod
 FD: cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/container cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/container
 FD: cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/trackingRange cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/trackingRange
 FD: cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/entityClass cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/entityClass
+FD: cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/usesVanillaSpawning cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/usesVanillaSpawning
 FD: cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/this$0 cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/this$0
 FD: cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/sendsVelocityUpdates cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/sendsVelocityUpdates
 FD: cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/updateFrequency cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/updateFrequency
@@ -1057,12 +1059,13 @@ FD: cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/customSpawnCa
 FD: cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/entityName cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/entityName
 MD: cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/doCustomSpawning (Lcpw/mods/fml/common/network/EntitySpawnPacket;)Lnet/minecraft/src/Entity; cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/doCustomSpawning (Lcpw/mods/fml/common/network/EntitySpawnPacket;)Ljn;
 MD: cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/getUpdateFrequency ()I cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/getUpdateFrequency ()I
-MD: cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/setCustomSpawning (Lcom/google/common/base/Function;)V cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/setCustomSpawning (Lcom/google/common/base/Function;)V
 MD: cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/getContainer ()Lcpw/mods/fml/common/ModContainer; cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/getContainer ()Lcpw/mods/fml/common/ModContainer;
 MD: cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/getEntityClass ()Ljava/lang/Class; cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/getEntityClass ()Ljava/lang/Class;
 MD: cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/getEntityName ()Ljava/lang/String; cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/getEntityName ()Ljava/lang/String;
+MD: cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/usesVanillaSpawning ()Z cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/usesVanillaSpawning ()Z
 MD: cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/hasCustomSpawning ()Z cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/hasCustomSpawning ()Z
 MD: cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/sendsVelocityUpdates ()Z cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/sendsVelocityUpdates ()Z
+MD: cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/setCustomSpawning (Lcom/google/common/base/Function;Z)V cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/setCustomSpawning (Lcom/google/common/base/Function;Z)V
 MD: cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/getTrackingRange ()I cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/getTrackingRange ()I
 MD: cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/getModEntityId ()I cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration/getModEntityId ()I
 CL: cpw/mods/fml/common/registry/EntityRegistry cpw/mods/fml/common/registry/EntityRegistry
@@ -16131,8 +16134,8 @@ MD: net/minecraft/src/BiomeGenEnd/getSkyColorByTemp (F)I we/a (F)I
 CL: net/minecraft/src/InventoryBasic ja
 FD: net/minecraft/src/InventoryBasic/field_70480_d ja/d
 FD: net/minecraft/src/InventoryBasic/inventoryTitle ja/a
-FD: net/minecraft/src/InventoryBasic/slotsCount ja/b
 FD: net/minecraft/src/InventoryBasic/inventoryContents ja/c
+FD: net/minecraft/src/InventoryBasic/slotsCoqnt ja/b
 MD: net/minecraft/src/InventoryBasic/openChest ()V ja/k_ ()V
 MD: net/minecraft/src/InventoryBasic/closeChest ()V ja/f ()V
 MD: net/minecraft/src/InventoryBasic/isUseableByPlayer (Lnet/minecraft/src/EntityPlayer;)Z ja/a (Log;)Z

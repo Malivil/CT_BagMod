@@ -12078,7 +12078,7 @@ MD: acr/b ()Z net/minecraft/src/MaterialPortal/getCanBlockGrass ()Z
 MD: acr/c ()Z net/minecraft/src/MaterialPortal/blocksMovement ()Z
 CL: ja net/minecraft/src/InventoryBasic
 FD: ja/d net/minecraft/src/InventoryBasic/field_70480_d
-FD: ja/b net/minecraft/src/InventoryBasic/slotsCount
+FD: ja/b net/minecraft/src/InventoryBasic/slotsCoqnt
 FD: ja/c net/minecraft/src/InventoryBasic/inventoryContents
 FD: ja/a net/minecraft/src/InventoryBasic/inventoryTitle
 MD: ja/a (I)Lrj; net/minecraft/src/InventoryBasic/getStackInSlot (I)Lnet/minecraft/src/ItemStack;
