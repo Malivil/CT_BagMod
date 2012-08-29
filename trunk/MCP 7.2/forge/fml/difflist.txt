@@ -17,6 +17,7 @@ minecraft/EntityRendererProxy.class
 minecraft/avf.class
 minecraft/va.class
 minecraft/abk.class
+minecraft/anz.class
 minecraft/FMLRenderAccessLibrary.class
 minecraft/pq.class
 minecraft/og.class
