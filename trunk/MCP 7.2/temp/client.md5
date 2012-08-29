@@ -28,7 +28,7 @@ cpw/mods/fml/common/FMLDummyContainer c4303aaaa13b9b333528fa3cad57f774
 cpw/mods/fml/common/FMLLog 7e90d1c0acabaed25a0a0faa9f191af2
 cpw/mods/fml/common/FMLModContainer$1 fc5984a42e62c40421bc109a00b60088
 cpw/mods/fml/common/FMLModContainer$2 7bcde152683f946ecbe298cb0b28d434
-cpw/mods/fml/common/FMLModContainer 1f39a6bc5f544776e61547bb5d62e4f8
+cpw/mods/fml/common/FMLModContainer 43f8fe3c82f3a21f977eb55a02b186f8
 cpw/mods/fml/common/IConsoleHandler fcb6ddd9338cca5587df2b9d407e3458
 cpw/mods/fml/common/ICraftingHandler 755509a79b09473c1f870b11f2b5ccfa
 cpw/mods/fml/common/ICrashCallable b4b0dd54ded54cc3ca35a852bff12ada
@@ -129,10 +129,10 @@ cpw/mods/fml/common/modloader/IModLoaderSidedHelper 7a1cbcddfcb08eef1c0c5de1c907
 cpw/mods/fml/common/modloader/ModLoaderConnectionHandler ec760bbab559600115f516f567c3b749
 cpw/mods/fml/common/modloader/ModLoaderCraftingHelper 8d4f1679fa2535492d8343fab28e1e8d
 cpw/mods/fml/common/modloader/ModLoaderDispenseHelper 40887272aabdbb6ae0b7ca7f55e5c992
-cpw/mods/fml/common/modloader/ModLoaderEntitySpawnCallback e1307b6158aafbf1ea6a2ecfe4fcab5a
+cpw/mods/fml/common/modloader/ModLoaderEntitySpawnCallback 4831f0d080a354cd491e2feada1bfc1e
 cpw/mods/fml/common/modloader/ModLoaderFuelHelper 700f42cccef3dbdaaae5fa28444d7ef6
 cpw/mods/fml/common/modloader/ModLoaderGuiHelper fdebf2231962d3c832fdb2398ad85bd5
-cpw/mods/fml/common/modloader/ModLoaderHelper 59eaaf2c7f190c77a7075efac323b16a
+cpw/mods/fml/common/modloader/ModLoaderHelper 03fa1db0abdc9e92458380f653925297
 cpw/mods/fml/common/modloader/ModLoaderModContainer dbce50267c1e302e00f7274cc2135877
 cpw/mods/fml/common/modloader/ModLoaderNetworkHandler 81daa71deae8eef5d8313c497dca8964
 cpw/mods/fml/common/modloader/ModLoaderPacketHandler 620ec9318eab6bb7dcbe128b6c2ce53a
@@ -143,7 +143,7 @@ cpw/mods/fml/common/modloader/ModProperty e37bbc07f6832707ae6f51ae06979755
 cpw/mods/fml/common/network/EntitySpawnAdjustmentPacket 319077f6fcf71008614bb21796158f9c
 cpw/mods/fml/common/network/EntitySpawnPacket 1ec84cfaaef1d1e9d64f188fdf64413f
 cpw/mods/fml/common/network/FMLNetworkException 1ebea6ac4134955c8cfdc63b75a98d7c
-cpw/mods/fml/common/network/FMLNetworkHandler a02afcdc785604d094eec5e0152d3c2b
+cpw/mods/fml/common/network/FMLNetworkHandler 2805df468a656345f37ad9d8310a848d
 cpw/mods/fml/common/network/FMLPacket$Type 6d3fcab69dbc6fb66688f4f641b22949
 cpw/mods/fml/common/network/FMLPacket d0a636db66469e8004bf197b8244f464
 cpw/mods/fml/common/network/IConnectionHandler b319ac0cd64366d38da32e9099765ab6
@@ -166,8 +166,8 @@ cpw/mods/fml/common/network/PacketDispatcher 4e02fa7bfd5f0e55f0ac1811b396450e
 cpw/mods/fml/common/network/Player 32e0d55922085fa023fde6a7a06a6a84
 cpw/mods/fml/common/registry/BlockProxy f69fc65327f307fa276dfe19548d543e
 cpw/mods/fml/common/registry/BlockTracker 61258b984a19fe898ae7530182098220
-cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration 3a32659d810fc99a2a2d2c4b88f37ddc
-cpw/mods/fml/common/registry/EntityRegistry ae6a88d39b7967ab2573127a1f80e577
+cpw/mods/fml/common/registry/EntityRegistry$EntityRegistration 140a268cb67fd1c9ecb2a20296480b56
+cpw/mods/fml/common/registry/EntityRegistry d74b2215b5abe978c5bba0364264c4e9
 cpw/mods/fml/common/registry/GameRegistry c9671cbdd7e31d42ab0ee48aead2753c
 cpw/mods/fml/common/registry/IEntityAdditionalSpawnData df832e46678e4ba1438aebf2f5759b7c
 cpw/mods/fml/common/registry/ItemProxy b4c05cd03bd0b359e350dec5e9719727
@@ -843,7 +843,7 @@ net/minecraft/src/GuiWinGame 8aab0ee27a5c35c6757b4581b9dc99bc
 net/minecraft/src/GuiWorldSlot 499a2a76df93fe002b1a9841105b1ce5
 net/minecraft/src/GuiYesNo fb9e0e0b1ec61720233b6c9d03dcf045
 net/minecraft/src/HttpUtil 72cbe9e5685a52e433b78fb22579d22e
-net/minecraft/src/HttpUtilRunnable 4fc4efcdfb8cd091695a2d4000972e6d
+net/minecraft/src/HttpUtilRunnable 3582d1450baa02a8e013361e79f710e0
 net/minecraft/src/IAdminCommand fe3869c5681b0163e1dbdf3b50b856a2
 net/minecraft/src/IAnimals 8b3c5e6e0c1563f1440cc2adb03beaed
 net/minecraft/src/IBlockAccess 67c2e2e551c6beef7e4be82296dde1d0
@@ -869,7 +869,7 @@ net/minecraft/src/IntegratedServer bb274f662e6e16923df62e58650675e8
 net/minecraft/src/IntegratedServerListenThread 6c586bdf500d24f4a99908dcea85746e
 net/minecraft/src/IntHashMap ad31f472ed83810bf79afd3ff475a6f1
 net/minecraft/src/IntHashMapEntry 1a4268243a77e0737f7f78404a5d4a03
-net/minecraft/src/InventoryBasic 5115e60c3d3b1822d2c881ad285417fe
+net/minecraft/src/InventoryBasic 40c8283e95035003cd1f4741fbc1b5aa
 net/minecraft/src/InventoryCrafting 56ddbd15c5ca60085f02761bf9adfcdb
 net/minecraft/src/InventoryCraftResult 9d75139a1dd9342586c0cfe01f38100a
 net/minecraft/src/InventoryEffectRenderer a29db97c26f31175b8cc75b7137d7947
@@ -1467,11 +1467,11 @@ net/minecraftforge/common/DungeonHooks$DungeonMob 005b52fd06a300962289592275ecb6
 net/minecraftforge/common/DungeonHooks 904428f2c3dd1b08de713fcb507dcfea
 net/minecraftforge/common/EnumHelper 4bbc317ef9c226af021664656b3d9c00
 net/minecraftforge/common/ForgeDirection a0935c4cc5e3ec11988129ddd33c5c4e
-net/minecraftforge/common/ForgeDummyContainer a5f52fddbdd57696250e909f6dc5b6cf
+net/minecraftforge/common/ForgeDummyContainer f348daa7b936cb89b286a33c74d67c6e
 net/minecraftforge/common/ForgeHooks$GrassEntry 3a12b988ea70cc9065227bdc8c76ced8
 net/minecraftforge/common/ForgeHooks$SeedEntry 1ec67fa165a543e1970c828b5fd63be3
 net/minecraftforge/common/ForgeHooks 48e6a167a7972eabda272c4af92929cc
-net/minecraftforge/common/ForgeVersion 22886edf42c93e68baa625d886103bb5
+net/minecraftforge/common/ForgeVersion 9c43ee530278127ee11118a4f1d2898d
 net/minecraftforge/common/IArmorTextureProvider a639facbb0415144c98360a7ef7621ef
 net/minecraftforge/common/IMinecartCollisionHandler 59a3675b8df84685f13e4d78342a20f3
 net/minecraftforge/common/IShearable 10b821b0fbbeebc622e093f82f80ff41
