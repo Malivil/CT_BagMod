@@ -6,14 +6,14 @@ import java.util.List;
 public class InventoryBasic implements IInventory
 {
     private String inventoryTitle;
-    private int slotsCoqnt;
+    private int slotsCount;
     private ItemStack[] inventoryContents;
     private List field_70480_d;
 
     public InventoryBasic(String par1Str, int par2)
     {
         this.inventoryTitle = par1Str;
-        this.slotsCoqnt = par2;
+        this.slotsCount = par2;
         this.inventoryContents = new ItemStack[par2];
     }
 
@@ -99,7 +99,7 @@ public class InventoryBasic implements IInventory
      */
     public int getSizeInventory()
     {
-        return this.slotsCoqnt;
+        return this.slotsCount;
     }
 
     /**

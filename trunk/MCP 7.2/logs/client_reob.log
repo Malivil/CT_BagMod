@@ -1181,8 +1181,10 @@ MD: cpw/mods/fml/common/discovery/ModCandidate/getModContainer ()Ljava/io/File; 
 MD: cpw/mods/fml/common/discovery/ModCandidate/getClassPathRoot ()Ljava/io/File; cpw/mods/fml/common/discovery/ModCandidate/getClassPathRoot ()Ljava/io/File;
 CL: cpw/mods/fml/common/discovery/ModDiscoverer cpw/mods/fml/common/discovery/ModDiscoverer
 FD: cpw/mods/fml/common/discovery/ModDiscoverer/zipJar cpw/mods/fml/common/discovery/ModDiscoverer/zipJar
+FD: cpw/mods/fml/common/discovery/ModDiscoverer/nonModLibs cpw/mods/fml/common/discovery/ModDiscoverer/nonModLibs
 FD: cpw/mods/fml/common/discovery/ModDiscoverer/dataTable cpw/mods/fml/common/discovery/ModDiscoverer/dataTable
 FD: cpw/mods/fml/common/discovery/ModDiscoverer/candidates cpw/mods/fml/common/discovery/ModDiscoverer/candidates
+MD: cpw/mods/fml/common/discovery/ModDiscoverer/getNonModLibs ()Ljava/util/List; cpw/mods/fml/common/discovery/ModDiscoverer/getNonModLibs ()Ljava/util/List;
 MD: cpw/mods/fml/common/discovery/ModDiscoverer/identifyMods ()Ljava/util/List; cpw/mods/fml/common/discovery/ModDiscoverer/identifyMods ()Ljava/util/List;
 MD: cpw/mods/fml/common/discovery/ModDiscoverer/getASMTable ()Lcpw/mods/fml/common/discovery/ASMDataTable; cpw/mods/fml/common/discovery/ModDiscoverer/getASMTable ()Lcpw/mods/fml/common/discovery/ASMDataTable;
 MD: cpw/mods/fml/common/discovery/ModDiscoverer/findClasspathMods (Lcpw/mods/fml/common/ModClassLoader;)V cpw/mods/fml/common/discovery/ModDiscoverer/findClasspathMods (Lcpw/mods/fml/common/ModClassLoader;)V
@@ -1246,6 +1248,7 @@ MD: cpw/mods/fml/common/network/FMLNetworkHandler/handlePacket250Packet (Lnet/mi
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/getModListRequestPacket ()Lnet/minecraft/src/Packet250CustomPayload; cpw/mods/fml/common/network/FMLNetworkHandler/getModListRequestPacket ()Lce;
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/bindNetworkId (Ljava/lang/String;Ljava/lang/Integer;)V cpw/mods/fml/common/network/FMLNetworkHandler/bindNetworkId (Ljava/lang/String;Ljava/lang/Integer;)V
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/openGui (Lnet/minecraft/src/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/src/World;III)V cpw/mods/fml/common/network/FMLNetworkHandler/openGui (Log;Ljava/lang/Object;ILup;III)V
+MD: cpw/mods/fml/common/network/FMLNetworkHandler/computeLocalHost ()Ljava/net/InetAddress; cpw/mods/fml/common/network/FMLNetworkHandler/computeLocalHost ()Ljava/net/InetAddress;
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/registerNetworkMod (Lcpw/mods/fml/common/network/NetworkModHandler;)V cpw/mods/fml/common/network/FMLNetworkHandler/registerNetworkMod (Lcpw/mods/fml/common/network/NetworkModHandler;)V
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/makeEntitySpawnAdjustment (ILnet/minecraft/src/EntityPlayerMP;III)V cpw/mods/fml/common/network/FMLNetworkHandler/makeEntitySpawnAdjustment (ILgu;III)V
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/instance ()Lcpw/mods/fml/common/network/FMLNetworkHandler; cpw/mods/fml/common/network/FMLNetworkHandler/instance ()Lcpw/mods/fml/common/network/FMLNetworkHandler;
@@ -16134,8 +16137,8 @@ MD: net/minecraft/src/BiomeGenEnd/getSkyColorByTemp (F)I we/a (F)I
 CL: net/minecraft/src/InventoryBasic ja
 FD: net/minecraft/src/InventoryBasic/field_70480_d ja/d
 FD: net/minecraft/src/InventoryBasic/inventoryTitle ja/a
+FD: net/minecraft/src/InventoryBasic/slotsCount ja/b
 FD: net/minecraft/src/InventoryBasic/inventoryContents ja/c
-FD: net/minecraft/src/InventoryBasic/slotsCoqnt ja/b
 MD: net/minecraft/src/InventoryBasic/openChest ()V ja/k_ ()V
 MD: net/minecraft/src/InventoryBasic/closeChest ()V ja/f ()V
 MD: net/minecraft/src/InventoryBasic/isUseableByPlayer (Lnet/minecraft/src/EntityPlayer;)Z ja/a (Log;)Z
