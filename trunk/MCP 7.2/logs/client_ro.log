@@ -6,7 +6,7 @@
 #
 # RetroGuard MCP v3.6.5
 #
-# Logfile created on Wed Aug 29 18:56:14 EDT 2012
+# Logfile created on Sun Sep 02 10:46:50 EDT 2012
 #
 # Jar file to be obfuscated:           client_recomp.jar
 # Target Jar file for obfuscated code: client_reobf.jar
@@ -51,7 +51,7 @@
 #      Your class net/minecraftforge/event/ASMEventHandler$ASMClassLoader calls the java/lang/ClassLoader method defineClass(Ljava/lang/String;[BII)Ljava/lang/Class;
 #      Your class net/minecraftforge/event/EventBus calls the java/lang/Class method getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 #
-# Memory in use after class data structure built: 23971448 bytes
+# Memory in use after class data structure built: 23996824 bytes
 # Total memory available                        : 369229824 bytes
 #
 #
@@ -3042,8 +3042,10 @@
 .method_map cpw/mods/fml/common/discovery/ModCandidate/getClassPathRoot ()Ljava/io/File; getClassPathRoot
 .class_map cpw/mods/fml/common/discovery/ModDiscoverer ModDiscoverer
 .field_map cpw/mods/fml/common/discovery/ModDiscoverer/zipJar zipJar
+.field_map cpw/mods/fml/common/discovery/ModDiscoverer/nonModLibs nonModLibs
 .field_map cpw/mods/fml/common/discovery/ModDiscoverer/dataTable dataTable
 .field_map cpw/mods/fml/common/discovery/ModDiscoverer/candidates candidates
+.method_map cpw/mods/fml/common/discovery/ModDiscoverer/getNonModLibs ()Ljava/util/List; getNonModLibs
 .method_map cpw/mods/fml/common/discovery/ModDiscoverer/identifyMods ()Ljava/util/List; identifyMods
 .method_map cpw/mods/fml/common/discovery/ModDiscoverer/getASMTable ()Lcpw/mods/fml/common/discovery/ASMDataTable; getASMTable
 .method_map cpw/mods/fml/common/discovery/ModDiscoverer/findClasspathMods (Lcpw/mods/fml/common/ModClassLoader;)V findClasspathMods
@@ -3112,6 +3114,7 @@
 .method_map cpw/mods/fml/common/network/FMLNetworkHandler/getModListRequestPacket ()Lnet/minecraft/src/Packet250CustomPayload; getModListRequestPacket
 .method_map cpw/mods/fml/common/network/FMLNetworkHandler/bindNetworkId (Ljava/lang/String;Ljava/lang/Integer;)V bindNetworkId
 .method_map cpw/mods/fml/common/network/FMLNetworkHandler/openGui (Lnet/minecraft/src/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/src/World;III)V openGui
+.method_map cpw/mods/fml/common/network/FMLNetworkHandler/computeLocalHost ()Ljava/net/InetAddress; computeLocalHost
 .method_map cpw/mods/fml/common/network/FMLNetworkHandler/registerNetworkMod (Lcpw/mods/fml/common/network/NetworkModHandler;)V registerNetworkMod
 .method_map cpw/mods/fml/common/network/FMLNetworkHandler/makeEntitySpawnAdjustment (ILnet/minecraft/src/EntityPlayerMP;III)V makeEntitySpawnAdjustment
 .method_map cpw/mods/fml/common/network/FMLNetworkHandler/instance ()Lcpw/mods/fml/common/network/FMLNetworkHandler; instance
@@ -18153,8 +18156,8 @@
 .class_map net/minecraft/src/InventoryBasic ja
 .field_map net/minecraft/src/InventoryBasic/field_70480_d d
 .field_map net/minecraft/src/InventoryBasic/inventoryTitle a
+.field_map net/minecraft/src/InventoryBasic/slotsCount b
 .field_map net/minecraft/src/InventoryBasic/inventoryContents c
-.field_map net/minecraft/src/InventoryBasic/slotsCoqnt b
 .method_map net/minecraft/src/InventoryBasic/openChest ()V k_
 .method_map net/minecraft/src/InventoryBasic/closeChest ()V f
 .method_map net/minecraft/src/InventoryBasic/isUseableByPlayer (Lnet/minecraft/src/EntityPlayer;)Z a
