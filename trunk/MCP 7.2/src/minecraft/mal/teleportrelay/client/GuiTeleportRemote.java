@@ -122,8 +122,8 @@ public class GuiTeleportRemote extends GuiScreen {
 
 					positionData.writeInt(TeleportRelay.PACKET_TYPES.TELEPORT_PLAYER_TO_POS.getType());
 					positionData.writeDouble((double)destinationChunk.posX);
-					positionData.writeDouble((double)destinationChunk.posZ);
 					positionData.writeDouble((double)destinationChunk.posY);
+					positionData.writeDouble((double)destinationChunk.posZ);
 					break;
 			}
 
