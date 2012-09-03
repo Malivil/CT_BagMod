@@ -6,7 +6,7 @@
 #
 # RetroGuard MCP v3.6.5
 #
-# Logfile created on Mon Sep 03 11:29:50 EDT 2012
+# Logfile created on Mon Sep 03 11:44:00 EDT 2012
 #
 # Jar file to be obfuscated:           client_recomp.jar
 # Target Jar file for obfuscated code: client_reobf.jar
@@ -51,8 +51,8 @@
 #      Your class net/minecraftforge/event/ASMEventHandler$ASMClassLoader calls the java/lang/ClassLoader method defineClass(Ljava/lang/String;[BII)Ljava/lang/Class;
 #      Your class net/minecraftforge/event/EventBus calls the java/lang/Class method getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 #
-# Memory in use after class data structure built: 23955120 bytes
-# Total memory available                        : 369229824 bytes
+# Memory in use after class data structure built: 24000888 bytes
+# Total memory available                        : 369164288 bytes
 #
 #
 # Names reserved from obfuscation:
@@ -3031,11 +3031,13 @@
 .field_map cpw/mods/fml/common/discovery/ModCandidate/baseModTypes baseModTypes
 .field_map cpw/mods/fml/common/discovery/ModCandidate/sourceType sourceType
 .field_map cpw/mods/fml/common/discovery/ModCandidate/classPathRoot classPathRoot
+.field_map cpw/mods/fml/common/discovery/ModCandidate/isMinecraft isMinecraft
 .field_map cpw/mods/fml/common/discovery/ModCandidate/modContainer modContainer
 .field_map cpw/mods/fml/common/discovery/ModCandidate/classpath classpath
 .method_map cpw/mods/fml/common/discovery/ModCandidate/getRememberedBaseMods ()Ljava/util/List; getRememberedBaseMods
 .method_map cpw/mods/fml/common/discovery/ModCandidate/isClasspath ()Z isClasspath
 .method_map cpw/mods/fml/common/discovery/ModCandidate/explore (Lcpw/mods/fml/common/discovery/ASMDataTable;)Ljava/util/List; explore
+.method_map cpw/mods/fml/common/discovery/ModCandidate/isMinecraftJar ()Z isMinecraftJar
 .method_map cpw/mods/fml/common/discovery/ModCandidate/rememberBaseModType (Ljava/lang/String;)V rememberBaseModType
 .method_map cpw/mods/fml/common/discovery/ModCandidate/getSourceType ()Lcpw/mods/fml/common/discovery/ContainerType; getSourceType
 .method_map cpw/mods/fml/common/discovery/ModCandidate/getModContainer ()Ljava/io/File; getModContainer

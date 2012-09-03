@@ -1170,11 +1170,13 @@ CL: cpw/mods/fml/common/discovery/ModCandidate cpw/mods/fml/common/discovery/Mod
 FD: cpw/mods/fml/common/discovery/ModCandidate/baseModTypes cpw/mods/fml/common/discovery/ModCandidate/baseModTypes
 FD: cpw/mods/fml/common/discovery/ModCandidate/sourceType cpw/mods/fml/common/discovery/ModCandidate/sourceType
 FD: cpw/mods/fml/common/discovery/ModCandidate/classPathRoot cpw/mods/fml/common/discovery/ModCandidate/classPathRoot
+FD: cpw/mods/fml/common/discovery/ModCandidate/isMinecraft cpw/mods/fml/common/discovery/ModCandidate/isMinecraft
 FD: cpw/mods/fml/common/discovery/ModCandidate/modContainer cpw/mods/fml/common/discovery/ModCandidate/modContainer
 FD: cpw/mods/fml/common/discovery/ModCandidate/classpath cpw/mods/fml/common/discovery/ModCandidate/classpath
 MD: cpw/mods/fml/common/discovery/ModCandidate/getRememberedBaseMods ()Ljava/util/List; cpw/mods/fml/common/discovery/ModCandidate/getRememberedBaseMods ()Ljava/util/List;
 MD: cpw/mods/fml/common/discovery/ModCandidate/isClasspath ()Z cpw/mods/fml/common/discovery/ModCandidate/isClasspath ()Z
 MD: cpw/mods/fml/common/discovery/ModCandidate/explore (Lcpw/mods/fml/common/discovery/ASMDataTable;)Ljava/util/List; cpw/mods/fml/common/discovery/ModCandidate/explore (Lcpw/mods/fml/common/discovery/ASMDataTable;)Ljava/util/List;
+MD: cpw/mods/fml/common/discovery/ModCandidate/isMinecraftJar ()Z cpw/mods/fml/common/discovery/ModCandidate/isMinecraftJar ()Z
 MD: cpw/mods/fml/common/discovery/ModCandidate/rememberBaseModType (Ljava/lang/String;)V cpw/mods/fml/common/discovery/ModCandidate/rememberBaseModType (Ljava/lang/String;)V
 MD: cpw/mods/fml/common/discovery/ModCandidate/getSourceType ()Lcpw/mods/fml/common/discovery/ContainerType; cpw/mods/fml/common/discovery/ModCandidate/getSourceType ()Lcpw/mods/fml/common/discovery/ContainerType;
 MD: cpw/mods/fml/common/discovery/ModCandidate/getModContainer ()Ljava/io/File; cpw/mods/fml/common/discovery/ModCandidate/getModContainer ()Ljava/io/File;
