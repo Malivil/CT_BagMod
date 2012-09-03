@@ -6,7 +6,7 @@
 #
 # RetroGuard MCP v3.6.5
 #
-# Logfile created on Sun Sep 02 10:46:50 EDT 2012
+# Logfile created on Mon Sep 03 11:29:50 EDT 2012
 #
 # Jar file to be obfuscated:           client_recomp.jar
 # Target Jar file for obfuscated code: client_reobf.jar
@@ -51,7 +51,7 @@
 #      Your class net/minecraftforge/event/ASMEventHandler$ASMClassLoader calls the java/lang/ClassLoader method defineClass(Ljava/lang/String;[BII)Ljava/lang/Class;
 #      Your class net/minecraftforge/event/EventBus calls the java/lang/Class method getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 #
-# Memory in use after class data structure built: 23996824 bytes
+# Memory in use after class data structure built: 23955120 bytes
 # Total memory available                        : 369229824 bytes
 #
 #
@@ -18997,11 +18997,9 @@
 .class_map mal/teleportrelay/common/TileEntityTeleportRelayRenderer TileEntityTeleportRelayRenderer
 .field_map mal/teleportrelay/common/TileEntityTeleportRelayRenderer/aModel aModel
 .method_map mal/teleportrelay/common/TileEntityTeleportRelayRenderer/renderTileEntityAt (Lnet/minecraft/src/TileEntity;DDDF)V a
-.method_map mal/teleportrelay/common/TileEntityTeleportRelayRenderer/renderAModelAt (Lmal/teleportrelay/common/TileEntityTeleportRelay;DDDF)V renderAModelAt
 .class_map mal/teleportrelay/common/ModelTeleportRelay ModelTeleportRelay
-.field_map mal/teleportrelay/common/ModelTeleportRelay/Base Base
-.field_map mal/teleportrelay/common/ModelTeleportRelay/Dish Dish
-.method_map mal/teleportrelay/common/ModelTeleportRelay/setRotationAngles (FFFFFF)V a
+.field_map mal/teleportrelay/common/ModelTeleportRelay/baseModel baseModel
+.field_map mal/teleportrelay/common/ModelTeleportRelay/dishModel dishModel
 .method_map mal/teleportrelay/common/ModelTeleportRelay/setRotation (Lnet/minecraft/src/ModelRenderer;FFF)V setRotation
 .method_map mal/teleportrelay/common/ModelTeleportRelay/render (Lnet/minecraft/src/Entity;FFFFFF)V a
 .method_map mal/teleportrelay/common/ModelTeleportRelay/renderModel (F)V renderModel
@@ -19009,6 +19007,7 @@
 .method_map mal/teleportrelay/common/ItemRelayRemote/onItemRightClick (Lnet/minecraft/src/ItemStack;Lnet/minecraft/src/World;Lnet/minecraft/src/EntityPlayer;)Lnet/minecraft/src/ItemStack; a
 .method_map mal/teleportrelay/common/ItemRelayRemote/getTextureFile ()Ljava/lang/String; getTextureFile
 .class_map mal/teleportrelay/common/ServerPacketHandler ServerPacketHandler
+.method_map mal/teleportrelay/common/ServerPacketHandler/getFreeYPosition (Lnet/minecraft/src/EntityPlayerMP;DDD)I getFreeYPosition
 .method_map mal/teleportrelay/common/ServerPacketHandler/onPacketData (Lnet/minecraft/src/NetworkManager;Lnet/minecraft/src/Packet250CustomPayload;Lcpw/mods/fml/common/network/Player;)V onPacketData
 .class_map mal/teleportrelay/common/CommonProxy CommonProxy
 .method_map mal/teleportrelay/common/CommonProxy/registerTickHandler ()V registerTickHandler

@@ -16,7 +16,7 @@ public class TileEntityTeleportRelay extends TileEntity {
 	public boolean publicAccess = true;
 
 	@Override
-	public void writeToNBT(NBTTagCompound nbtTag) {
+	public void writeToNBT(final NBTTagCompound nbtTag) {
 		super.writeToNBT(nbtTag);
 
 		if (this.ownerName != null)
@@ -32,7 +32,7 @@ public class TileEntityTeleportRelay extends TileEntity {
 	}
 
 	@Override
-	public void readFromNBT(NBTTagCompound nbtTag) {
+	public void readFromNBT(final NBTTagCompound nbtTag) {
 		super.readFromNBT(nbtTag);
 
 		this.ownerName = nbtTag.getString("ownerName");
@@ -52,9 +52,9 @@ public class TileEntityTeleportRelay extends TileEntity {
 
 	@Override
 	public Packet getAuxillaryInfoPacket() {
-		Packet250CustomPayload infoPacket = new Packet250CustomPayload();
-		ByteArrayOutputStream infoBytes = new ByteArrayOutputStream();
-		DataOutputStream infoData = new DataOutputStream(infoBytes);
+		final Packet250CustomPayload infoPacket = new Packet250CustomPayload();
+		final ByteArrayOutputStream infoBytes = new ByteArrayOutputStream();
+		final DataOutputStream infoData = new DataOutputStream(infoBytes);
 
 		try {
 			// Type
@@ -72,7 +72,7 @@ public class TileEntityTeleportRelay extends TileEntity {
 			infoPacket.data = infoBytes.toByteArray();
 			infoPacket.length = infoBytes.size();
 		}
-		catch (IOException e) {
+		catch (final IOException e) {
 			e.printStackTrace();
 		}
 

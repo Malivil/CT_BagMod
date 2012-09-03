@@ -16934,14 +16934,14 @@ CL: mal/teleportrelay/client/ClientPacketHandler mal/teleportrelay/client/Client
 PK: mal/teleportrelay/common mal/teleportrelay/common
 CL: mal/teleportrelay/common/TileEntityTeleportRelayRenderer mal/teleportrelay/common/TileEntityTeleportRelayRenderer
 FD: mal/teleportrelay/common/TileEntityTeleportRelayRenderer/aModel mal/teleportrelay/common/TileEntityTeleportRelayRenderer/aModel
-MD: mal/teleportrelay/common/TileEntityTeleportRelayRenderer/renderAModelAt (Lmal/teleportrelay/common/TileEntityTeleportRelay;DDDF)V mal/teleportrelay/common/TileEntityTeleportRelayRenderer/renderAModelAt (Lmal/teleportrelay/common/TileEntityTeleportRelay;DDDF)V
 CL: mal/teleportrelay/common/ModelTeleportRelay mal/teleportrelay/common/ModelTeleportRelay
-FD: mal/teleportrelay/common/ModelTeleportRelay/Base mal/teleportrelay/common/ModelTeleportRelay/Base
-FD: mal/teleportrelay/common/ModelTeleportRelay/Dish mal/teleportrelay/common/ModelTeleportRelay/Dish
+FD: mal/teleportrelay/common/ModelTeleportRelay/baseModel mal/teleportrelay/common/ModelTeleportRelay/baseModel
+FD: mal/teleportrelay/common/ModelTeleportRelay/dishModel mal/teleportrelay/common/ModelTeleportRelay/dishModel
 MD: mal/teleportrelay/common/ModelTeleportRelay/setRotation (Lnet/minecraft/src/ModelRenderer;FFF)V mal/teleportrelay/common/ModelTeleportRelay/setRotation (Last;FFF)V
 MD: mal/teleportrelay/common/ModelTeleportRelay/renderModel (F)V mal/teleportrelay/common/ModelTeleportRelay/renderModel (F)V
 CL: mal/teleportrelay/common/ItemRelayRemote mal/teleportrelay/common/ItemRelayRemote
 CL: mal/teleportrelay/common/ServerPacketHandler mal/teleportrelay/common/ServerPacketHandler
+MD: mal/teleportrelay/common/ServerPacketHandler/getFreeYPosition (Lnet/minecraft/src/EntityPlayerMP;DDD)I mal/teleportrelay/common/ServerPacketHandler/getFreeYPosition (Lgu;DDD)I
 CL: mal/teleportrelay/common/CommonProxy mal/teleportrelay/common/CommonProxy
 MD: mal/teleportrelay/common/CommonProxy/registerTickHandler ()V mal/teleportrelay/common/CommonProxy/registerTickHandler ()V
 MD: mal/teleportrelay/common/CommonProxy/registerRenderInformation (Ljava/lang/String;)V mal/teleportrelay/common/CommonProxy/registerRenderInformation (Ljava/lang/String;)V

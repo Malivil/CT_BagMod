@@ -6,7 +6,6 @@ import java.io.IOException;
 
 import mal.teleportrelay.common.TeleportRelay;
 import mal.teleportrelay.common.TileEntityTeleportRelay;
-import net.minecraft.src.Chunk;
 import net.minecraft.src.ChunkCoordinates;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.GuiButton;
@@ -19,9 +18,9 @@ import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.network.PacketDispatcher;
 
 public class GuiTeleportRemote extends GuiScreen {
-	ItemStack remote = null;
+	final ItemStack remote;
 
-	public GuiTeleportRemote(ItemStack remote) {
+	public GuiTeleportRemote(final ItemStack remote) {
 		this.remote = remote;
 	}
 
@@ -29,9 +28,6 @@ public class GuiTeleportRemote extends GuiScreen {
 	public void initGui() {
 		final EntityPlayer player = mc.thePlayer;
 		final World world = mc.theWorld;
-		ChunkCoordinates loc = null;
-		TileEntityTeleportRelay relay = null;
-		TileEntity entity = null;
 		boolean enabled = true, publicAccess = true, powered = true;
 		String ownerName = "";
 		GuiButton button = null;
@@ -43,17 +39,17 @@ public class GuiTeleportRemote extends GuiScreen {
 		controlList.add(new GuiButton(0, width / 2 - 100, height / 4 + 24, "Spawn"));
 
 		for (int i = 0; i < TeleportRelay.getRelayCount(); i++) {
-			loc = TeleportRelay.getTeleportLocation(i);
+			final ChunkCoordinates loc = TeleportRelay.getTeleportLocation(i);
 			enabled = true;
 			powered = true;
 			publicAccess = true;
 			ownerName = "";
 
 			if (world != null) {
-				entity = world.getBlockTileEntity(loc.posX, loc.posY, loc.posZ);
+				final TileEntity entity = world.getBlockTileEntity(loc.posX, loc.posY, loc.posZ);
 				if (entity != null) {
 					if (entity instanceof TileEntityTeleportRelay) {
-						relay = ((TileEntityTeleportRelay)entity);
+						final TileEntityTeleportRelay relay = ((TileEntityTeleportRelay)entity);
 						enabled = relay.enabled;
 						powered = !TeleportRelay.requirePower || (world.isBlockIndirectlyGettingPowered(loc.posX, loc.posY, loc.posZ) || world.isBlockGettingPowered(loc.posX, loc.posY, loc.posZ));
 						publicAccess = relay.publicAccess;
@@ -99,16 +95,16 @@ public class GuiTeleportRemote extends GuiScreen {
 	}
 
 	@Override
-	protected void actionPerformed(GuiButton guibutton) {
+	protected void actionPerformed(final GuiButton guibutton) {
 		if (!guibutton.enabled)
 			return;
 
-		EntityPlayer player = mc.thePlayer;
-		ChunkCoordinates destinationChunk = null;
+		final EntityPlayer player = mc.thePlayer;
+		final ChunkCoordinates destinationChunk;
 
-		Packet250CustomPayload positionPacket = new Packet250CustomPayload();
-		ByteArrayOutputStream positionBytes = new ByteArrayOutputStream();
-		DataOutputStream positionData = new DataOutputStream(positionBytes);
+		final Packet250CustomPayload positionPacket = new Packet250CustomPayload();
+		final ByteArrayOutputStream positionBytes = new ByteArrayOutputStream();
+		final DataOutputStream positionData = new DataOutputStream(positionBytes);
 
 		try {
 			switch(guibutton.id) {
@@ -134,7 +130,7 @@ public class GuiTeleportRemote extends GuiScreen {
 			// Send the packet to the server
 			PacketDispatcher.sendPacketToServer(positionPacket);
 		}
-		catch (IOException e) {
+		catch (final IOException e) {
 			e.printStackTrace();
 		}
 

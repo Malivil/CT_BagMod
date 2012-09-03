@@ -10,7 +10,7 @@ import cpw.mods.fml.client.FMLClientHandler;
 
 public class ItemRelayRemote extends Item {
 
-	protected ItemRelayRemote(int blockID, int maxUses) {
+	protected ItemRelayRemote(final int blockID, final int maxUses) {
 		super(blockID);
 		maxStackSize = 1;
 		setMaxDamage(maxUses);
@@ -18,7 +18,7 @@ public class ItemRelayRemote extends Item {
 	}
 
 	@Override
-	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer entityplayer) {
+	public ItemStack onItemRightClick(final ItemStack itemstack, final World world, final EntityPlayer entityplayer) {
 		if(itemstack.getItemDamage() < itemstack.getMaxDamage())
 			FMLClientHandler.instance().displayGuiScreen(entityplayer, new GuiTeleportRemote(itemstack));
 		else if (world.isRemote) {
