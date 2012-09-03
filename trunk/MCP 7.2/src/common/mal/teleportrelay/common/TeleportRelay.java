@@ -62,9 +62,9 @@ public class TeleportRelay {
 	public static boolean debug = false;
 
 	@PreInit
-	public void oPreInit(FMLPreInitializationEvent event) {
+	public void oPreInit(final FMLPreInitializationEvent event) {
 		event.getModMetadata().version = TeleportRelay.version;
-		Configuration cfg = new Configuration(event.getSuggestedConfigurationFile());
+		final Configuration cfg = new Configuration(event.getSuggestedConfigurationFile());
 		try {
 			cfg.load();
 			teleportRelayID = cfg.getOrCreateBlockIdProperty("teleportRelayID", 150).getInt(150);
@@ -92,11 +92,11 @@ public class TeleportRelay {
 	}
 
 	@Init
-	public void onInit(FMLInitializationEvent event) {
+	public void onInit(final FMLInitializationEvent event) {
 		teleportRelayBlock = new BlockTeleportRelay(teleportRelayID).setBlockName("teleportRelayBlock").setHardness(2.0f).setResistance(2.0f);
 		relayRemoteItem = new ItemRelayRemote(relayRemoteID, relayRemoteUses).setItemName("relayRemoteItem");
 
-		TileEntityTeleportRelayRenderer teleportRelayRenderer = new TileEntityTeleportRelayRenderer();
+		final TileEntityTeleportRelayRenderer teleportRelayRenderer = new TileEntityTeleportRelayRenderer();
 		ClientRegistry.registerTileEntity(TileEntityTeleportRelay.class, "teleportRelayBlock", teleportRelayRenderer);
 
 		GameRegistry.registerBlock(teleportRelayBlock);
@@ -114,27 +114,27 @@ public class TeleportRelay {
 		proxy.registerTickHandler();
 	}
 
-	public static void addRelayLocation(int x, int y, int z) {
-		ChunkCoordinates loc = new ChunkCoordinates(x, y, z);
+	public static void addRelayLocation(final int x, final int y, final int z) {
+		final ChunkCoordinates loc = new ChunkCoordinates(x, y, z);
 
 		if (!placedRelayBlocks.contains(loc))
 			placedRelayBlocks.add(loc);
 	}
 
-	public static void removeRelayLocation(int x, int y, int z) {
-		ChunkCoordinates loc = new ChunkCoordinates(x, y, z);
+	public static void removeRelayLocation(final int x, final int y, final int z) {
+		final ChunkCoordinates loc = new ChunkCoordinates(x, y, z);
 
 		if (placedRelayBlocks.contains(loc))
 			placedRelayBlocks.remove(loc);
 	}
 
-	public static boolean hasRelayAtLocation(int x, int y, int z) {
-		ChunkCoordinates loc = new ChunkCoordinates(x, y, z);
+	public static boolean hasRelayAtLocation(final int x, final int y, final int z) {
+		final ChunkCoordinates loc = new ChunkCoordinates(x, y, z);
 
 		return placedRelayBlocks.contains(loc);
 	}
 
-	public static ChunkCoordinates getTeleportLocation(int i) {
+	public static ChunkCoordinates getTeleportLocation(final int i) {
 		return placedRelayBlocks.get(i);
 	}
 
@@ -143,17 +143,16 @@ public class TeleportRelay {
 	}
 
 	public static void printRelayLocations() {
-		ChunkCoordinates loc = null;
-		Minecraft minecraft = FMLClientHandler.instance().getClient();
-		ChunkCoordinates spawn = minecraft.theWorld.getSpawnPoint();
-		ChunkCoordinates bed = minecraft.thePlayer.getSpawnChunk();
+		final Minecraft minecraft = FMLClientHandler.instance().getClient();
+		final ChunkCoordinates spawn = minecraft.theWorld.getSpawnPoint();
+		final ChunkCoordinates bed = minecraft.thePlayer.getSpawnChunk();
 
 		minecraft.thePlayer.addChatMessage("[TeleportRelay] World Spawn at: (" + spawn.posX + ", " + spawn.posY + ", " + spawn.posZ + ")");
 		if (bed != null)
 			minecraft.thePlayer.addChatMessage("[TeleportRelay] Bed Spawn at: (" + bed.posX + ", " + bed.posY + ", " + bed.posZ + ")");
 
 		for (int i = 0; i < placedRelayBlocks.size(); i++) {
-			loc = placedRelayBlocks.get(i);
+			final ChunkCoordinates loc = placedRelayBlocks.get(i);
 			minecraft.thePlayer.addChatMessage("[TeleportRelay] Relay " + (i + 1) + " at: (" + loc.posX + ", " + loc.posY + ", " + loc.posZ + ")");
 		}
 	}

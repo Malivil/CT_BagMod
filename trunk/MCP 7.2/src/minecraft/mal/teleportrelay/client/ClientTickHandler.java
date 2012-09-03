@@ -10,13 +10,13 @@ import cpw.mods.fml.common.TickType;
 public class ClientTickHandler implements ITickHandler {
 
 	@Override
-	public void tickStart(EnumSet<TickType> type, Object... tickData) {
+	public void tickStart(final EnumSet<TickType> type, final Object... tickData) {
 	}
 
 	@Override
-	public void tickEnd(EnumSet<TickType> type, Object... tickData) {
+	public void tickEnd(final EnumSet<TickType> type, final Object... tickData) {
 		if (type.equals(EnumSet.of(TickType.CLIENT))) {
-			GuiScreen guiscreen = Minecraft.getMinecraft().currentScreen;
+			final GuiScreen guiscreen = Minecraft.getMinecraft().currentScreen;
 			if (guiscreen != null)
 				onTickInGUI(guiscreen);
 			else
@@ -34,7 +34,7 @@ public class ClientTickHandler implements ITickHandler {
 		return null;
 	}
 
-	public void onTickInGUI(GuiScreen guiscreen) {
+	public void onTickInGUI(final GuiScreen guiscreen) {
     }
 
     public void onTickInGame() {

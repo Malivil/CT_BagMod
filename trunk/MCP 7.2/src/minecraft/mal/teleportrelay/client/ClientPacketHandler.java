@@ -16,12 +16,12 @@ import cpw.mods.fml.common.network.Player;
 public class ClientPacketHandler implements IPacketHandler {
 
 	@Override
-	public void onPacketData(NetworkManager manager, Packet250CustomPayload packet, Player player) {
-		DataInputStream data = new DataInputStream(new ByteArrayInputStream(packet.data));
-		EntityPlayer entityPlayer = (EntityPlayer)player;
+	public void onPacketData(final NetworkManager manager, final Packet250CustomPayload packet, final Player player) {
+		final DataInputStream data = new DataInputStream(new ByteArrayInputStream(packet.data));
+		final EntityPlayer entityPlayer = (EntityPlayer)player;
 
 		try {
-			int type = data.readInt();
+			final int type = data.readInt();
 			// Position change and item damage
 			if (type == TeleportRelay.PACKET_TYPES.TELEPORT_PLAYER_TO_SPAWN.getType() ||
 				type == TeleportRelay.PACKET_TYPES.TELEPORT_PLAYER_TO_POS.getType()) {
@@ -29,18 +29,18 @@ public class ClientPacketHandler implements IPacketHandler {
 			}
 			// Updates the variables associated with the relay at the given location
 			else if (type == TeleportRelay.PACKET_TYPES.UPDATE_TELEPORT_RELAY.getType()) {
-				int x = data.readInt();
-				int y = data.readInt();
-				int z = data.readInt();
-				String ownerName = data.readUTF();
-				String name = data.readUTF();
-				boolean enabled = data.readBoolean();
-				boolean publicAccess = data.readBoolean();
+				final int x = data.readInt();
+				final int y = data.readInt();
+				final int z = data.readInt();
+				final String ownerName = data.readUTF();
+				final String name = data.readUTF();
+				final boolean enabled = data.readBoolean();
+				final boolean publicAccess = data.readBoolean();
 
 				if (entityPlayer.worldObj != null) {
-					TileEntity entity = entityPlayer.worldObj.getBlockTileEntity(x, y, z);
+					final TileEntity entity = entityPlayer.worldObj.getBlockTileEntity(x, y, z);
 					if ((entity != null) && (entity instanceof TileEntityTeleportRelay)) {
-						TileEntityTeleportRelay relay = ((TileEntityTeleportRelay)entity);
+						final TileEntityTeleportRelay relay = ((TileEntityTeleportRelay)entity);
 						relay.ownerName = ownerName;
 						relay.name = name;
 						relay.enabled = enabled;
@@ -53,7 +53,7 @@ public class ClientPacketHandler implements IPacketHandler {
 					TeleportRelay.addRelayLocation(x, y, z);
 			}
 		}
-		catch (IOException e) {
+		catch (final IOException e) {
 			e.printStackTrace();
 		}
 	}

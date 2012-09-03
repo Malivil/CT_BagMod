@@ -1,16 +1,16 @@
 package mal.teleportrelay.client;
 
-import cpw.mods.fml.common.network.PacketDispatcher;
 import mal.teleportrelay.common.TileEntityTeleportRelay;
 import net.minecraft.src.EntityPlayer;
 import net.minecraft.src.GuiButton;
 import net.minecraft.src.GuiScreen;
 import net.minecraft.src.Packet;
+import cpw.mods.fml.common.network.PacketDispatcher;
 
 public class GuiTeleportRelay extends GuiScreen {
 	TileEntityTeleportRelay relay = null;
 
-	public GuiTeleportRelay(TileEntityTeleportRelay relay) {
+	public GuiTeleportRelay(final TileEntityTeleportRelay relay) {
 		this.relay = relay;
 	}
 
@@ -21,7 +21,7 @@ public class GuiTeleportRelay extends GuiScreen {
 			return;
 		}
 
-		EntityPlayer player = mc.thePlayer;
+		final EntityPlayer player = mc.thePlayer;
 		if (!relay.ownerName.equals(player.username)) {
 			player.sendChatToPlayer("You aren't the owner of this Relay. You cannot access its settings.");
 			mc.displayGuiScreen(null);
@@ -35,8 +35,8 @@ public class GuiTeleportRelay extends GuiScreen {
 	}
 
 	@Override
-	protected void actionPerformed(GuiButton guibutton) {
-		EntityPlayer player = mc.thePlayer;
+	protected void actionPerformed(final GuiButton guibutton) {
+		final EntityPlayer player = mc.thePlayer;
 		mc.displayGuiScreen(null);
 	}
 
@@ -49,7 +49,7 @@ public class GuiTeleportRelay extends GuiScreen {
 		if (this.relay == null)
 			return;
 
-		Packet infoPacket = relay.getAuxillaryInfoPacket();
+		final Packet infoPacket = relay.getAuxillaryInfoPacket();
 		PacketDispatcher.sendPacketToServer(infoPacket);
 		PacketDispatcher.sendPacketToAllAround(relay.xCoord, relay.yCoord, relay.zCoord, relay.getRenderDistance(), 0, infoPacket);
 	}

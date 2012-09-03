@@ -14,25 +14,25 @@ import net.minecraftforge.common.ForgeDirection;
 import cpw.mods.fml.client.FMLClientHandler;
 
 public class BlockTeleportRelay extends BlockContainer {
-	protected BlockTeleportRelay(int blockID) {
+	protected BlockTeleportRelay(final int blockID) {
 		super(blockID, 0, Material.wood);
 		this.setCreativeTab(CreativeTabs.tabRedstone);
 	}
 
 	@Override
-	public void onBlockDestroyedByPlayer(World world, int x, int y, int z, int blockID) {
+	public void onBlockDestroyedByPlayer(final World world, final int x, final int y, final int z, final int blockID) {
 		super.onBlockDestroyedByPlayer(world, x, y, z, blockID);
 		TeleportRelay.removeRelayLocation(x, y, z);
 	}
 
 	@Override
-	public void onBlockDestroyedByExplosion(World world, int x, int y, int z) {
+	public void onBlockDestroyedByExplosion(final World world, final int x, final int y, final int z) {
 		super.onBlockDestroyedByExplosion(world, x, y, z);
 		TeleportRelay.removeRelayLocation(x, y, z);
 	}
 
 	@Override
-	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer entityplayer, int par6, float par7, float par8, float par9) {
+	public boolean onBlockActivated(final World world, final int x, final int y, final int z, final EntityPlayer entityplayer, final int par6, final float par7, final float par8, final float par9) {
 		TileEntity entity = world.getBlockTileEntity(x, y, z);
 		// If we can get the TileEntity, open the GUI for this TileEntity
 		if ((entity != null) && (entity instanceof TileEntityTeleportRelay)) {
@@ -43,10 +43,10 @@ public class BlockTeleportRelay extends BlockContainer {
 	}
 
 	@Override
-	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLiving entityLiving) {
+	public void onBlockPlacedBy(final World world, final int x, final int y, final int z, final EntityLiving entityLiving) {
 		// If this was placed by a player
 		if ((entityLiving != null) && (entityLiving instanceof EntityPlayer)) {
-			TileEntity entity = world.getBlockTileEntity(x, y, z);
+			final TileEntity entity = world.getBlockTileEntity(x, y, z);
 			// And we can get the TileEntity, save this user's name as the owner of the TileEntity
 			if ((entity != null) && (entity instanceof TileEntityTeleportRelay))
 				((TileEntityTeleportRelay)entity).ownerName = ((EntityPlayer)entityLiving).username;
@@ -56,12 +56,12 @@ public class BlockTeleportRelay extends BlockContainer {
 	}
 
 	@Override
-	public int idDropped(int i, Random random, int j) {
+	public int idDropped(final int i, final Random random, final int j) {
 		return this.blockID;
 	}
 
 	@Override
-	public int quantityDropped(Random random) {
+	public int quantityDropped(final Random random) {
 		return 1;
 	}
 
@@ -86,17 +86,17 @@ public class BlockTeleportRelay extends BlockContainer {
 	}
 
 	@Override
-	public TileEntity createNewTileEntity(World world) {
+	public TileEntity createNewTileEntity(final World world) {
 		try {
 			return (TileEntity)TileEntityTeleportRelay.class.newInstance();
 		}
-		catch (Exception ex) {
+		catch (final Exception ex) {
 			throw new RuntimeException(ex);
 		}
 	}
 
 	@Override
-	public boolean isBlockSolidOnSide(World world, int x, int y, int z, ForgeDirection side) {
+	public boolean isBlockSolidOnSide(final World world, final int x, final int y, final int z, final ForgeDirection side) {
 		return true;
 	}
 }
