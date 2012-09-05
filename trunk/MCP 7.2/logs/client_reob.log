@@ -358,10 +358,8 @@ FD: cpw/mods/fml/relauncher/Downloader/pokeThread cpw/mods/fml/relauncher/Downlo
 FD: cpw/mods/fml/relauncher/Downloader/progress cpw/mods/fml/relauncher/Downloader/progress
 FD: cpw/mods/fml/relauncher/Downloader/stopIt cpw/mods/fml/relauncher/Downloader/stopIt
 FD: cpw/mods/fml/relauncher/Downloader/container cpw/mods/fml/relauncher/Downloader/container
-FD: cpw/mods/fml/relauncher/Downloader/instance cpw/mods/fml/relauncher/Downloader/instance
 FD: cpw/mods/fml/relauncher/Downloader/currentActivity cpw/mods/fml/relauncher/Downloader/currentActivity
 MD: cpw/mods/fml/relauncher/Downloader/makeHeadless ()V cpw/mods/fml/relauncher/Downloader/makeHeadless ()V
-MD: cpw/mods/fml/relauncher/Downloader/access$000 ()Lcpw/mods/fml/relauncher/Downloader; cpw/mods/fml/relauncher/Downloader/access$000 ()Lcpw/mods/fml/relauncher/Downloader;
 MD: cpw/mods/fml/relauncher/Downloader/makeDialog ()Ljavax/swing/JDialog; cpw/mods/fml/relauncher/Downloader/makeDialog ()Ljavax/swing/JDialog;
 MD: cpw/mods/fml/relauncher/Downloader/updateProgressString (Ljava/lang/String;[Ljava/lang/Object;)V cpw/mods/fml/relauncher/Downloader/updateProgressString (Ljava/lang/String;[Ljava/lang/Object;)V
 MD: cpw/mods/fml/relauncher/Downloader/resetProgress (I)V cpw/mods/fml/relauncher/Downloader/resetProgress (I)V
@@ -416,6 +414,11 @@ CL: cpw/mods/fml/relauncher/ILibrarySet cpw/mods/fml/relauncher/ILibrarySet
 MD: cpw/mods/fml/relauncher/ILibrarySet/getRootURL ()Ljava/lang/String; cpw/mods/fml/relauncher/ILibrarySet/getRootURL ()Ljava/lang/String;
 MD: cpw/mods/fml/relauncher/ILibrarySet/getHashes ()[Ljava/lang/String; cpw/mods/fml/relauncher/ILibrarySet/getHashes ()[Ljava/lang/String;
 MD: cpw/mods/fml/relauncher/ILibrarySet/getLibraries ()[Ljava/lang/String; cpw/mods/fml/relauncher/ILibrarySet/getLibraries ()[Ljava/lang/String;
+CL: cpw/mods/fml/relauncher/FMLRelaunchLog$1 cpw/mods/fml/relauncher/FMLRelaunchLog$1
+CL: cpw/mods/fml/relauncher/FMLRelaunchLog$ConsoleLogWrapper cpw/mods/fml/relauncher/FMLRelaunchLog$ConsoleLogWrapper
+CL: cpw/mods/fml/relauncher/FMLRelaunchLog$ConsoleLogThread cpw/mods/fml/relauncher/FMLRelaunchLog$ConsoleLogThread
+FD: cpw/mods/fml/relauncher/FMLRelaunchLog$ConsoleLogThread/recordQueue cpw/mods/fml/relauncher/FMLRelaunchLog$ConsoleLogThread/recordQueue
+FD: cpw/mods/fml/relauncher/FMLRelaunchLog$ConsoleLogThread/wrappedHandler cpw/mods/fml/relauncher/FMLRelaunchLog$ConsoleLogThread/wrappedHandler
 CL: cpw/mods/fml/relauncher/FMLRelaunchLog$LoggingOutStream cpw/mods/fml/relauncher/FMLRelaunchLog$LoggingOutStream
 FD: cpw/mods/fml/relauncher/FMLRelaunchLog$LoggingOutStream/currentMessage cpw/mods/fml/relauncher/FMLRelaunchLog$LoggingOutStream/currentMessage
 FD: cpw/mods/fml/relauncher/FMLRelaunchLog$LoggingOutStream/log cpw/mods/fml/relauncher/FMLRelaunchLog$LoggingOutStream/log
@@ -423,6 +426,7 @@ CL: cpw/mods/fml/relauncher/FMLRelaunchLog cpw/mods/fml/relauncher/FMLRelaunchLo
 FD: cpw/mods/fml/relauncher/FMLRelaunchLog/myLog cpw/mods/fml/relauncher/FMLRelaunchLog/myLog
 FD: cpw/mods/fml/relauncher/FMLRelaunchLog/configured cpw/mods/fml/relauncher/FMLRelaunchLog/configured
 FD: cpw/mods/fml/relauncher/FMLRelaunchLog/minecraftHome cpw/mods/fml/relauncher/FMLRelaunchLog/minecraftHome
+FD: cpw/mods/fml/relauncher/FMLRelaunchLog/consoleLogThread cpw/mods/fml/relauncher/FMLRelaunchLog/consoleLogThread
 FD: cpw/mods/fml/relauncher/FMLRelaunchLog/log cpw/mods/fml/relauncher/FMLRelaunchLog/log
 MD: cpw/mods/fml/relauncher/FMLRelaunchLog/finest (Ljava/lang/String;[Ljava/lang/Object;)V cpw/mods/fml/relauncher/FMLRelaunchLog/finest (Ljava/lang/String;[Ljava/lang/Object;)V
 MD: cpw/mods/fml/relauncher/FMLRelaunchLog/finer (Ljava/lang/String;[Ljava/lang/Object;)V cpw/mods/fml/relauncher/FMLRelaunchLog/finer (Ljava/lang/String;[Ljava/lang/Object;)V
@@ -672,6 +676,8 @@ MD: cpw/mods/fml/common/functions/ModNameFunction/apply (Lcpw/mods/fml/common/Mo
 CL: cpw/mods/fml/common/functions/ModIdFunction cpw/mods/fml/common/functions/ModIdFunction
 MD: cpw/mods/fml/common/functions/ModIdFunction/apply (Lcpw/mods/fml/common/ModContainer;)Ljava/lang/String; cpw/mods/fml/common/functions/ModIdFunction/apply (Lcpw/mods/fml/common/ModContainer;)Ljava/lang/String;
 PK: cpw/mods/fml/common/modloader cpw/mods/fml/common/modloader
+CL: cpw/mods/fml/common/modloader/ModLoaderChatListener cpw/mods/fml/common/modloader/ModLoaderChatListener
+FD: cpw/mods/fml/common/modloader/ModLoaderChatListener/mod cpw/mods/fml/common/modloader/ModLoaderChatListener/mod
 CL: cpw/mods/fml/common/modloader/ModLoaderVillageTradeHandler cpw/mods/fml/common/modloader/ModLoaderVillageTradeHandler
 FD: cpw/mods/fml/common/modloader/ModLoaderVillageTradeHandler/trades cpw/mods/fml/common/modloader/ModLoaderVillageTradeHandler/trades
 MD: cpw/mods/fml/common/modloader/ModLoaderVillageTradeHandler/addTrade (Lnet/minecraft/src/TradeEntry;)V cpw/mods/fml/common/modloader/ModLoaderVillageTradeHandler/addTrade (LTradeEntry;)V
@@ -703,6 +709,7 @@ FD: cpw/mods/fml/common/modloader/ModLoaderHelper/tradeHelpers cpw/mods/fml/comm
 MD: cpw/mods/fml/common/modloader/ModLoaderHelper/buildFuelHelper (Lcpw/mods/fml/common/modloader/BaseModProxy;)Lcpw/mods/fml/common/IFuelHandler; cpw/mods/fml/common/modloader/ModLoaderHelper/buildFuelHelper (Lcpw/mods/fml/common/modloader/BaseModProxy;)Lcpw/mods/fml/common/IFuelHandler;
 MD: cpw/mods/fml/common/modloader/ModLoaderHelper/getClientSideGui (Lcpw/mods/fml/common/modloader/BaseModProxy;Lnet/minecraft/src/EntityPlayer;IIII)Ljava/lang/Object; cpw/mods/fml/common/modloader/ModLoaderHelper/getClientSideGui (Lcpw/mods/fml/common/modloader/BaseModProxy;Log;IIII)Ljava/lang/Object;
 MD: cpw/mods/fml/common/modloader/ModLoaderHelper/buildPacketHandlerFor (Lcpw/mods/fml/common/modloader/BaseModProxy;)Lcpw/mods/fml/common/network/IPacketHandler; cpw/mods/fml/common/modloader/ModLoaderHelper/buildPacketHandlerFor (Lcpw/mods/fml/common/modloader/BaseModProxy;)Lcpw/mods/fml/common/network/IPacketHandler;
+MD: cpw/mods/fml/common/modloader/ModLoaderHelper/buildDispenseHelper (Lcpw/mods/fml/common/modloader/BaseModProxy;)Lcpw/mods/fml/common/IDispenserHandler; cpw/mods/fml/common/modloader/ModLoaderHelper/buildDispenseHelper (Lcpw/mods/fml/common/modloader/BaseModProxy;)Lcpw/mods/fml/common/IDispenserHandler;
 MD: cpw/mods/fml/common/modloader/ModLoaderHelper/registerTrade (ILnet/minecraft/src/TradeEntry;)V cpw/mods/fml/common/modloader/ModLoaderHelper/registerTrade (ILTradeEntry;)V
 MD: cpw/mods/fml/common/modloader/ModLoaderHelper/updateStandardTicks (Lcpw/mods/fml/common/modloader/BaseModProxy;ZZ)V cpw/mods/fml/common/modloader/ModLoaderHelper/updateStandardTicks (Lcpw/mods/fml/common/modloader/BaseModProxy;ZZ)V
 MD: cpw/mods/fml/common/modloader/ModLoaderHelper/buildPickupHelper (Lcpw/mods/fml/common/modloader/BaseModProxy;)Lcpw/mods/fml/common/IPickupNotifier; cpw/mods/fml/common/modloader/ModLoaderHelper/buildPickupHelper (Lcpw/mods/fml/common/modloader/BaseModProxy;)Lcpw/mods/fml/common/IPickupNotifier;
@@ -714,7 +721,7 @@ MD: cpw/mods/fml/common/modloader/ModLoaderHelper/finishModLoading (Lcpw/mods/fm
 MD: cpw/mods/fml/common/modloader/ModLoaderHelper/addCommand (Lnet/minecraft/src/ICommand;)V cpw/mods/fml/common/modloader/ModLoaderHelper/addCommand (Lp;)V
 MD: cpw/mods/fml/common/modloader/ModLoaderHelper/openGui (ILnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/Container;III)V cpw/mods/fml/common/modloader/ModLoaderHelper/openGui (ILog;Lov;III)V
 MD: cpw/mods/fml/common/modloader/ModLoaderHelper/buildConnectionHelper (Lcpw/mods/fml/common/modloader/BaseModProxy;)Lcpw/mods/fml/common/network/IConnectionHandler; cpw/mods/fml/common/modloader/ModLoaderHelper/buildConnectionHelper (Lcpw/mods/fml/common/modloader/BaseModProxy;)Lcpw/mods/fml/common/network/IConnectionHandler;
-MD: cpw/mods/fml/common/modloader/ModLoaderHelper/buildDispenseHelper (Lcpw/mods/fml/common/modloader/BaseModProxy;)Lcpw/mods/fml/common/IDispenseHandler; cpw/mods/fml/common/modloader/ModLoaderHelper/buildDispenseHelper (Lcpw/mods/fml/common/modloader/BaseModProxy;)Lcpw/mods/fml/common/IDispenseHandler;
+MD: cpw/mods/fml/common/modloader/ModLoaderHelper/buildChatListener (Lcpw/mods/fml/common/modloader/BaseModProxy;)Lcpw/mods/fml/common/network/IChatListener; cpw/mods/fml/common/modloader/ModLoaderHelper/buildChatListener (Lcpw/mods/fml/common/modloader/BaseModProxy;)Lcpw/mods/fml/common/network/IChatListener;
 MD: cpw/mods/fml/common/modloader/ModLoaderHelper/buildGuiHelper (Lcpw/mods/fml/common/modloader/BaseModProxy;I)V cpw/mods/fml/common/modloader/ModLoaderHelper/buildGuiHelper (Lcpw/mods/fml/common/modloader/BaseModProxy;I)V
 CL: cpw/mods/fml/common/modloader/ModProperty cpw/mods/fml/common/modloader/ModProperty
 FD: cpw/mods/fml/common/modloader/ModProperty/field cpw/mods/fml/common/modloader/ModProperty/field
@@ -733,14 +740,13 @@ CL: cpw/mods/fml/common/modloader/ModLoaderPickupNotifier cpw/mods/fml/common/mo
 FD: cpw/mods/fml/common/modloader/ModLoaderPickupNotifier/mod cpw/mods/fml/common/modloader/ModLoaderPickupNotifier/mod
 CL: cpw/mods/fml/common/modloader/BaseModProxy cpw/mods/fml/common/modloader/BaseModProxy
 MD: cpw/mods/fml/common/modloader/BaseModProxy/onClientLogin (Lnet/minecraft/src/EntityPlayer;)V cpw/mods/fml/common/modloader/BaseModProxy/onClientLogin (Log;)V
+MD: cpw/mods/fml/common/modloader/BaseModProxy/serverChat (Lnet/minecraft/src/NetServerHandler;Ljava/lang/String;)V cpw/mods/fml/common/modloader/BaseModProxy/serverChat (Lgz;Ljava/lang/String;)V
 MD: cpw/mods/fml/common/modloader/BaseModProxy/receiveCustomPacket (Lnet/minecraft/src/Packet250CustomPayload;)V cpw/mods/fml/common/modloader/BaseModProxy/receiveCustomPacket (Lce;)V
 MD: cpw/mods/fml/common/modloader/BaseModProxy/getName ()Ljava/lang/String; cpw/mods/fml/common/modloader/BaseModProxy/getName ()Ljava/lang/String;
 MD: cpw/mods/fml/common/modloader/BaseModProxy/serverDisconnect ()V cpw/mods/fml/common/modloader/BaseModProxy/serverDisconnect ()V
 MD: cpw/mods/fml/common/modloader/BaseModProxy/load ()V cpw/mods/fml/common/modloader/BaseModProxy/load ()V
 MD: cpw/mods/fml/common/modloader/BaseModProxy/serverCustomPayload (Lnet/minecraft/src/NetServerHandler;Lnet/minecraft/src/Packet250CustomPayload;)V cpw/mods/fml/common/modloader/BaseModProxy/serverCustomPayload (Lgz;Lce;)V
-MD: cpw/mods/fml/common/modloader/BaseModProxy/dispenseEntity (Lnet/minecraft/src/World;Lnet/minecraft/src/ItemStack;Ljava/util/Random;DDDIIDDD)I cpw/mods/fml/common/modloader/BaseModProxy/dispenseEntity (Lup;Lrj;Ljava/util/Random;DDDIIDDD)I
-MD: cpw/mods/fml/common/modloader/BaseModProxy/onPacket250Received (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/Packet250CustomPayload;)V cpw/mods/fml/common/modloader/BaseModProxy/onPacket250Received (Log;Lce;)V
-MD: cpw/mods/fml/common/modloader/BaseModProxy/receiveChatPacket (Ljava/lang/String;)V cpw/mods/fml/common/modloader/BaseModProxy/receiveChatPacket (Ljava/lang/String;)V
+MD: cpw/mods/fml/common/modloader/BaseModProxy/dispenseEntity (Lnet/minecraft/src/World;Lnet/minecraft/src/ItemStack;Ljava/util/Random;IIIIIDDD)I cpw/mods/fml/common/modloader/BaseModProxy/dispenseEntity (Lup;Lrj;Ljava/util/Random;IIIIIDDD)I
 MD: cpw/mods/fml/common/modloader/BaseModProxy/doTickInGame (Lcpw/mods/fml/common/TickType;Z[Ljava/lang/Object;)Z cpw/mods/fml/common/modloader/BaseModProxy/doTickInGame (Lcpw/mods/fml/common/TickType;Z[Ljava/lang/Object;)Z
 MD: cpw/mods/fml/common/modloader/BaseModProxy/doTickInGUI (Lcpw/mods/fml/common/TickType;Z[Ljava/lang/Object;)Z cpw/mods/fml/common/modloader/BaseModProxy/doTickInGUI (Lcpw/mods/fml/common/TickType;Z[Ljava/lang/Object;)Z
 MD: cpw/mods/fml/common/modloader/BaseModProxy/generateNether (Lnet/minecraft/src/World;Ljava/util/Random;II)V cpw/mods/fml/common/modloader/BaseModProxy/generateNether (Lup;Ljava/util/Random;II)V
@@ -751,6 +757,7 @@ MD: cpw/mods/fml/common/modloader/BaseModProxy/onItemPickup (Lnet/minecraft/src/
 MD: cpw/mods/fml/common/modloader/BaseModProxy/serverConnect (Lnet/minecraft/src/NetHandler;)V cpw/mods/fml/common/modloader/BaseModProxy/serverConnect (Ldc;)V
 MD: cpw/mods/fml/common/modloader/BaseModProxy/addFuel (II)I cpw/mods/fml/common/modloader/BaseModProxy/addFuel (II)I
 MD: cpw/mods/fml/common/modloader/BaseModProxy/modsLoaded ()V cpw/mods/fml/common/modloader/BaseModProxy/modsLoaded ()V
+MD: cpw/mods/fml/common/modloader/BaseModProxy/clientChat (Ljava/lang/String;)V cpw/mods/fml/common/modloader/BaseModProxy/clientChat (Ljava/lang/String;)V
 MD: cpw/mods/fml/common/modloader/BaseModProxy/getVersion ()Ljava/lang/String; cpw/mods/fml/common/modloader/BaseModProxy/getVersion ()Ljava/lang/String;
 MD: cpw/mods/fml/common/modloader/BaseModProxy/takenFromFurnace (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/ItemStack;)V cpw/mods/fml/common/modloader/BaseModProxy/takenFromFurnace (Log;Lrj;)V
 MD: cpw/mods/fml/common/modloader/BaseModProxy/onClientLogout (Lnet/minecraft/src/NetworkManager;)V cpw/mods/fml/common/modloader/BaseModProxy/onClientLogout (Laz;)V
@@ -768,6 +775,7 @@ MD: cpw/mods/fml/common/modloader/ModLoaderGuiHelper/injectContainer (Lnet/minec
 MD: cpw/mods/fml/common/modloader/ModLoaderGuiHelper/getMod ()Ljava/lang/Object; cpw/mods/fml/common/modloader/ModLoaderGuiHelper/getMod ()Ljava/lang/Object;
 CL: cpw/mods/fml/common/modloader/ModLoaderNetworkHandler cpw/mods/fml/common/modloader/ModLoaderNetworkHandler
 FD: cpw/mods/fml/common/modloader/ModLoaderNetworkHandler/baseMod cpw/mods/fml/common/modloader/ModLoaderNetworkHandler/baseMod
+MD: cpw/mods/fml/common/modloader/ModLoaderNetworkHandler/setBaseMod (Lcpw/mods/fml/common/modloader/BaseModProxy;)V cpw/mods/fml/common/modloader/ModLoaderNetworkHandler/setBaseMod (Lcpw/mods/fml/common/modloader/BaseModProxy;)V
 CL: cpw/mods/fml/common/modloader/ModLoaderModContainer cpw/mods/fml/common/modloader/ModLoaderModContainer
 FD: cpw/mods/fml/common/modloader/ModLoaderModContainer/enabled cpw/mods/fml/common/modloader/ModLoaderModContainer/enabled
 FD: cpw/mods/fml/common/modloader/ModLoaderModContainer/sourceType cpw/mods/fml/common/modloader/ModLoaderModContainer/sourceType
@@ -963,6 +971,8 @@ MD: cpw/mods/fml/common/registry/TickRegistry/getCounter (Lcpw/mods/fml/common/S
 MD: cpw/mods/fml/common/registry/TickRegistry/registerTickHandler (Lcpw/mods/fml/common/ITickHandler;Lcpw/mods/fml/common/Side;)V cpw/mods/fml/common/registry/TickRegistry/registerTickHandler (Lcpw/mods/fml/common/ITickHandler;Lcpw/mods/fml/common/Side;)V
 MD: cpw/mods/fml/common/registry/TickRegistry/registerScheduledTickHandler (Lcpw/mods/fml/common/IScheduledTickHandler;Lcpw/mods/fml/common/Side;)V cpw/mods/fml/common/registry/TickRegistry/registerScheduledTickHandler (Lcpw/mods/fml/common/IScheduledTickHandler;Lcpw/mods/fml/common/Side;)V
 CL: cpw/mods/fml/common/registry/ItemProxy cpw/mods/fml/common/registry/ItemProxy
+CL: cpw/mods/fml/common/registry/GameRegistry$1 cpw/mods/fml/common/registry/GameRegistry$1
+FD: cpw/mods/fml/common/registry/GameRegistry$1/val$handler cpw/mods/fml/common/registry/GameRegistry$1/val$handler
 CL: cpw/mods/fml/common/registry/GameRegistry cpw/mods/fml/common/registry/GameRegistry
 FD: cpw/mods/fml/common/registry/GameRegistry/fuelHandlers cpw/mods/fml/common/registry/GameRegistry/fuelHandlers
 FD: cpw/mods/fml/common/registry/GameRegistry/$assertionsDisabled cpw/mods/fml/common/registry/GameRegistry/$assertionsDisabled
@@ -974,7 +984,6 @@ FD: cpw/mods/fml/common/registry/GameRegistry/worldGenerators cpw/mods/fml/commo
 FD: cpw/mods/fml/common/registry/GameRegistry/dispenserHandlers cpw/mods/fml/common/registry/GameRegistry/dispenserHandlers
 FD: cpw/mods/fml/common/registry/GameRegistry/pickupHandlers cpw/mods/fml/common/registry/GameRegistry/pickupHandlers
 MD: cpw/mods/fml/common/registry/GameRegistry/onPlayerRespawn (Lnet/minecraft/src/EntityPlayer;)V cpw/mods/fml/common/registry/GameRegistry/onPlayerRespawn (Log;)V
-MD: cpw/mods/fml/common/registry/GameRegistry/tryDispense (Lnet/minecraft/src/World;DDDIILnet/minecraft/src/ItemStack;Ljava/util/Random;DDD)I cpw/mods/fml/common/registry/GameRegistry/tryDispense (Lup;DDDIILrj;Ljava/util/Random;DDD)I
 MD: cpw/mods/fml/common/registry/GameRegistry/registerPlayerTracker (Lcpw/mods/fml/common/IPlayerTracker;)V cpw/mods/fml/common/registry/GameRegistry/registerPlayerTracker (Lcpw/mods/fml/common/IPlayerTracker;)V
 MD: cpw/mods/fml/common/registry/GameRegistry/addSmelting (ILnet/minecraft/src/ItemStack;F)V cpw/mods/fml/common/registry/GameRegistry/addSmelting (ILrj;F)V
 MD: cpw/mods/fml/common/registry/GameRegistry/registerTileEntity (Ljava/lang/Class;Ljava/lang/String;)V cpw/mods/fml/common/registry/GameRegistry/registerTileEntity (Ljava/lang/Class;Ljava/lang/String;)V
@@ -983,14 +992,16 @@ MD: cpw/mods/fml/common/registry/GameRegistry/addBiome (Lnet/minecraft/src/Biome
 MD: cpw/mods/fml/common/registry/GameRegistry/registerPickupHandler (Lcpw/mods/fml/common/IPickupNotifier;)V cpw/mods/fml/common/registry/GameRegistry/registerPickupHandler (Lcpw/mods/fml/common/IPickupNotifier;)V
 MD: cpw/mods/fml/common/registry/GameRegistry/addRecipe (Lnet/minecraft/src/IRecipe;)V cpw/mods/fml/common/registry/GameRegistry/addRecipe (Ltf;)V
 MD: cpw/mods/fml/common/registry/GameRegistry/registerBlock (Lnet/minecraft/src/Block;)V cpw/mods/fml/common/registry/GameRegistry/registerBlock (Laig;)V
+MD: cpw/mods/fml/common/registry/GameRegistry/tryDispense (Lnet/minecraft/src/World;IIIIILnet/minecraft/src/ItemStack;Ljava/util/Random;DDD)I cpw/mods/fml/common/registry/GameRegistry/tryDispense (Lup;IIIIILrj;Ljava/util/Random;DDD)I
 MD: cpw/mods/fml/common/registry/GameRegistry/onPlayerLogin (Lnet/minecraft/src/EntityPlayer;)V cpw/mods/fml/common/registry/GameRegistry/onPlayerLogin (Log;)V
+MD: cpw/mods/fml/common/registry/GameRegistry/registerDispenserHandler (Lcpw/mods/fml/common/IDispenserHandler;)V cpw/mods/fml/common/registry/GameRegistry/registerDispenserHandler (Lcpw/mods/fml/common/IDispenserHandler;)V
 MD: cpw/mods/fml/common/registry/GameRegistry/onItemCrafted (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/ItemStack;Lnet/minecraft/src/IInventory;)V cpw/mods/fml/common/registry/GameRegistry/onItemCrafted (Log;Lrj;Lix;)V
 MD: cpw/mods/fml/common/registry/GameRegistry/getFuelValue (Lnet/minecraft/src/ItemStack;)I cpw/mods/fml/common/registry/GameRegistry/getFuelValue (Lrj;)I
 MD: cpw/mods/fml/common/registry/GameRegistry/addRecipe (Lnet/minecraft/src/ItemStack;[Ljava/lang/Object;)V cpw/mods/fml/common/registry/GameRegistry/addRecipe (Lrj;[Ljava/lang/Object;)V
 MD: cpw/mods/fml/common/registry/GameRegistry/registerCraftingHandler (Lcpw/mods/fml/common/ICraftingHandler;)V cpw/mods/fml/common/registry/GameRegistry/registerCraftingHandler (Lcpw/mods/fml/common/ICraftingHandler;)V
 MD: cpw/mods/fml/common/registry/GameRegistry/addShapelessRecipe (Lnet/minecraft/src/ItemStack;[Ljava/lang/Object;)V cpw/mods/fml/common/registry/GameRegistry/addShapelessRecipe (Lrj;[Ljava/lang/Object;)V
-MD: cpw/mods/fml/common/registry/GameRegistry/generateWorld (IILnet/minecraft/src/World;Lnet/minecraft/src/IChunkProvider;Lnet/minecraft/src/IChunkProvider;)V cpw/mods/fml/common/registry/GameRegistry/generateWorld (IILup;Lwi;Lwi;)V
 MD: cpw/mods/fml/common/registry/GameRegistry/onPlayerLogout (Lnet/minecraft/src/EntityPlayer;)V cpw/mods/fml/common/registry/GameRegistry/onPlayerLogout (Log;)V
+MD: cpw/mods/fml/common/registry/GameRegistry/generateWorld (IILnet/minecraft/src/World;Lnet/minecraft/src/IChunkProvider;Lnet/minecraft/src/IChunkProvider;)V cpw/mods/fml/common/registry/GameRegistry/generateWorld (IILup;Lwi;Lwi;)V
 MD: cpw/mods/fml/common/registry/GameRegistry/registerFuelHandler (Lcpw/mods/fml/common/IFuelHandler;)V cpw/mods/fml/common/registry/GameRegistry/registerFuelHandler (Lcpw/mods/fml/common/IFuelHandler;)V
 MD: cpw/mods/fml/common/registry/GameRegistry/onPickupNotification (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/EntityItem;)V cpw/mods/fml/common/registry/GameRegistry/onPickupNotification (Log;Lnj;)V
 MD: cpw/mods/fml/common/registry/GameRegistry/registerDispenserHandler (Lcpw/mods/fml/common/IDispenseHandler;)V cpw/mods/fml/common/registry/GameRegistry/registerDispenserHandler (Lcpw/mods/fml/common/IDispenseHandler;)V
@@ -1170,9 +1181,11 @@ CL: cpw/mods/fml/common/discovery/ModCandidate cpw/mods/fml/common/discovery/Mod
 FD: cpw/mods/fml/common/discovery/ModCandidate/baseModTypes cpw/mods/fml/common/discovery/ModCandidate/baseModTypes
 FD: cpw/mods/fml/common/discovery/ModCandidate/sourceType cpw/mods/fml/common/discovery/ModCandidate/sourceType
 FD: cpw/mods/fml/common/discovery/ModCandidate/classPathRoot cpw/mods/fml/common/discovery/ModCandidate/classPathRoot
+FD: cpw/mods/fml/common/discovery/ModCandidate/baseModCandidateTypes cpw/mods/fml/common/discovery/ModCandidate/baseModCandidateTypes
 FD: cpw/mods/fml/common/discovery/ModCandidate/isMinecraft cpw/mods/fml/common/discovery/ModCandidate/isMinecraft
 FD: cpw/mods/fml/common/discovery/ModCandidate/modContainer cpw/mods/fml/common/discovery/ModCandidate/modContainer
 FD: cpw/mods/fml/common/discovery/ModCandidate/classpath cpw/mods/fml/common/discovery/ModCandidate/classpath
+MD: cpw/mods/fml/common/discovery/ModCandidate/rememberModCandidateType (Lcpw/mods/fml/common/discovery/asm/ASMModParser;)V cpw/mods/fml/common/discovery/ModCandidate/rememberModCandidateType (Lcpw/mods/fml/common/discovery/asm/ASMModParser;)V
 MD: cpw/mods/fml/common/discovery/ModCandidate/getRememberedBaseMods ()Ljava/util/List; cpw/mods/fml/common/discovery/ModCandidate/getRememberedBaseMods ()Ljava/util/List;
 MD: cpw/mods/fml/common/discovery/ModCandidate/isClasspath ()Z cpw/mods/fml/common/discovery/ModCandidate/isClasspath ()Z
 MD: cpw/mods/fml/common/discovery/ModCandidate/explore (Lcpw/mods/fml/common/discovery/ASMDataTable;)Ljava/util/List; cpw/mods/fml/common/discovery/ModCandidate/explore (Lcpw/mods/fml/common/discovery/ASMDataTable;)Ljava/util/List;
@@ -1260,6 +1273,7 @@ MD: cpw/mods/fml/common/network/FMLNetworkHandler/sendPacket (Lcpw/mods/fml/comm
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/getNetworkModList ()Ljava/util/Set; cpw/mods/fml/common/network/FMLNetworkHandler/getNetworkModList ()Ljava/util/Set;
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/handleFMLPacket (Lnet/minecraft/src/Packet250CustomPayload;Lnet/minecraft/src/NetworkManager;Lnet/minecraft/src/NetHandler;)V cpw/mods/fml/common/network/FMLNetworkHandler/handleFMLPacket (Lce;Laz;Ldc;)V
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/findNetworkModHandler (Ljava/lang/Object;)Lcpw/mods/fml/common/network/NetworkModHandler; cpw/mods/fml/common/network/FMLNetworkHandler/findNetworkModHandler (Ljava/lang/Object;)Lcpw/mods/fml/common/network/NetworkModHandler;
+MD: cpw/mods/fml/common/network/FMLNetworkHandler/handleChatMessage (Lnet/minecraft/src/NetHandler;Lnet/minecraft/src/Packet3Chat;)Lnet/minecraft/src/Packet3Chat; cpw/mods/fml/common/network/FMLNetworkHandler/handleChatMessage (Ldc;Lbq;)Lbq;
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/getEntitySpawningPacket (Lnet/minecraft/src/Entity;)Lnet/minecraft/src/Packet; cpw/mods/fml/common/network/FMLNetworkHandler/getEntitySpawningPacket (Ljn;)Ldb;
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/handleLoginPacketOnServer (Lnet/minecraft/src/NetLoginHandler;Lnet/minecraft/src/Packet1Login;)V cpw/mods/fml/common/network/FMLNetworkHandler/handleLoginPacketOnServer (Lgx;Lcs;)V
 MD: cpw/mods/fml/common/network/FMLNetworkHandler/getNetworkIdMap ()Ljava/util/Map; cpw/mods/fml/common/network/FMLNetworkHandler/getNetworkIdMap ()Ljava/util/Map;
@@ -1385,32 +1399,38 @@ FD: cpw/mods/fml/common/network/NetworkRegistry/activeChannels cpw/mods/fml/comm
 FD: cpw/mods/fml/common/network/NetworkRegistry/clientPacketHandlers cpw/mods/fml/common/network/NetworkRegistry/clientPacketHandlers
 FD: cpw/mods/fml/common/network/NetworkRegistry/clientGuiHandlers cpw/mods/fml/common/network/NetworkRegistry/clientGuiHandlers
 FD: cpw/mods/fml/common/network/NetworkRegistry/serverPacketHandlers cpw/mods/fml/common/network/NetworkRegistry/serverPacketHandlers
+FD: cpw/mods/fml/common/network/NetworkRegistry/chatListeners cpw/mods/fml/common/network/NetworkRegistry/chatListeners
 FD: cpw/mods/fml/common/network/NetworkRegistry/serverGuiHandlers cpw/mods/fml/common/network/NetworkRegistry/serverGuiHandlers
 FD: cpw/mods/fml/common/network/NetworkRegistry/INSTANCE cpw/mods/fml/common/network/NetworkRegistry/INSTANCE
 FD: cpw/mods/fml/common/network/NetworkRegistry/universalPacketHandlers cpw/mods/fml/common/network/NetworkRegistry/universalPacketHandlers
-MD: cpw/mods/fml/common/network/NetworkRegistry/openLocalGui (Lcpw/mods/fml/common/ModContainer;Lnet/minecraft/src/EntityPlayer;ILnet/minecraft/src/World;III)V cpw/mods/fml/common/network/NetworkRegistry/openLocalGui (Lcpw/mods/fml/common/ModContainer;Log;ILup;III)V
-MD: cpw/mods/fml/common/network/NetworkRegistry/registerChannel (Lcpw/mods/fml/common/network/IPacketHandler;Ljava/lang/String;)V cpw/mods/fml/common/network/NetworkRegistry/registerChannel (Lcpw/mods/fml/common/network/IPacketHandler;Ljava/lang/String;)V
-MD: cpw/mods/fml/common/network/NetworkRegistry/handleUnregistrationPacket (Lnet/minecraft/src/Packet250CustomPayload;Lcpw/mods/fml/common/network/Player;)V cpw/mods/fml/common/network/NetworkRegistry/handleUnregistrationPacket (Lce;Lcpw/mods/fml/common/network/Player;)V
 MD: cpw/mods/fml/common/network/NetworkRegistry/generateChannelRegistration (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/NetHandler;Lnet/minecraft/src/NetworkManager;)V cpw/mods/fml/common/network/NetworkRegistry/generateChannelRegistration (Log;Ldc;Laz;)V
-MD: cpw/mods/fml/common/network/NetworkRegistry/registerConnectionHandler (Lcpw/mods/fml/common/network/IConnectionHandler;)V cpw/mods/fml/common/network/NetworkRegistry/registerConnectionHandler (Lcpw/mods/fml/common/network/IConnectionHandler;)V
-MD: cpw/mods/fml/common/network/NetworkRegistry/handlePacket (Lnet/minecraft/src/Packet250CustomPayload;Lnet/minecraft/src/NetworkManager;Lcpw/mods/fml/common/network/Player;)V cpw/mods/fml/common/network/NetworkRegistry/handlePacket (Lce;Laz;Lcpw/mods/fml/common/network/Player;)V
+MD: cpw/mods/fml/common/network/NetworkRegistry/handleUnregistrationPacket (Lnet/minecraft/src/Packet250CustomPayload;Lcpw/mods/fml/common/network/Player;)V cpw/mods/fml/common/network/NetworkRegistry/handleUnregistrationPacket (Lce;Lcpw/mods/fml/common/network/Player;)V
 MD: cpw/mods/fml/common/network/NetworkRegistry/connectionReceived (Lnet/minecraft/src/NetLoginHandler;Lnet/minecraft/src/NetworkManager;)Ljava/lang/String; cpw/mods/fml/common/network/NetworkRegistry/connectionReceived (Lgx;Laz;)Ljava/lang/String;
-MD: cpw/mods/fml/common/network/NetworkRegistry/registerChannel (Lcpw/mods/fml/common/network/IPacketHandler;Ljava/lang/String;Lcpw/mods/fml/common/Side;)V cpw/mods/fml/common/network/NetworkRegistry/registerChannel (Lcpw/mods/fml/common/network/IPacketHandler;Ljava/lang/String;Lcpw/mods/fml/common/Side;)V
-MD: cpw/mods/fml/common/network/NetworkRegistry/handleRegistrationPacket (Lnet/minecraft/src/Packet250CustomPayload;Lcpw/mods/fml/common/network/Player;)V cpw/mods/fml/common/network/NetworkRegistry/handleRegistrationPacket (Lce;Lcpw/mods/fml/common/network/Player;)V
+MD: cpw/mods/fml/common/network/NetworkRegistry/handleChat (Lnet/minecraft/src/NetHandler;Lnet/minecraft/src/Packet3Chat;)Lnet/minecraft/src/Packet3Chat; cpw/mods/fml/common/network/NetworkRegistry/handleChat (Ldc;Lbq;)Lbq;
 MD: cpw/mods/fml/common/network/NetworkRegistry/activateChannel (Lcpw/mods/fml/common/network/Player;Ljava/lang/String;)V cpw/mods/fml/common/network/NetworkRegistry/activateChannel (Lcpw/mods/fml/common/network/Player;Ljava/lang/String;)V
-MD: cpw/mods/fml/common/network/NetworkRegistry/getPacketRegistry (Lcpw/mods/fml/common/Side;)[B cpw/mods/fml/common/network/NetworkRegistry/getPacketRegistry (Lcpw/mods/fml/common/Side;)[B
 MD: cpw/mods/fml/common/network/NetworkRegistry/extractChannelList (Lnet/minecraft/src/Packet250CustomPayload;)Ljava/util/List; cpw/mods/fml/common/network/NetworkRegistry/extractChannelList (Lce;)Ljava/util/List;
-MD: cpw/mods/fml/common/network/NetworkRegistry/isChannelActive (Ljava/lang/String;Lcpw/mods/fml/common/network/Player;)Z cpw/mods/fml/common/network/NetworkRegistry/isChannelActive (Ljava/lang/String;Lcpw/mods/fml/common/network/Player;)Z
 MD: cpw/mods/fml/common/network/NetworkRegistry/connectionClosed (Lnet/minecraft/src/NetworkManager;)V cpw/mods/fml/common/network/NetworkRegistry/connectionClosed (Laz;)V
-MD: cpw/mods/fml/common/network/NetworkRegistry/clientLoggedIn (Lnet/minecraft/src/NetHandler;Lnet/minecraft/src/NetworkManager;Lnet/minecraft/src/Packet1Login;)V cpw/mods/fml/common/network/NetworkRegistry/clientLoggedIn (Ldc;Laz;Lcs;)V
 MD: cpw/mods/fml/common/network/NetworkRegistry/playerLoggedIn (Lnet/minecraft/src/EntityPlayerMP;Lnet/minecraft/src/NetServerHandler;Lnet/minecraft/src/NetworkManager;)V cpw/mods/fml/common/network/NetworkRegistry/playerLoggedIn (Lgu;Lgz;Laz;)V
 MD: cpw/mods/fml/common/network/NetworkRegistry/deactivateChannel (Lcpw/mods/fml/common/network/Player;Ljava/lang/String;)V cpw/mods/fml/common/network/NetworkRegistry/deactivateChannel (Lcpw/mods/fml/common/network/Player;Ljava/lang/String;)V
 MD: cpw/mods/fml/common/network/NetworkRegistry/handleCustomPacket (Lnet/minecraft/src/Packet250CustomPayload;Lnet/minecraft/src/NetworkManager;Lnet/minecraft/src/NetHandler;)V cpw/mods/fml/common/network/NetworkRegistry/handleCustomPacket (Lce;Laz;Ldc;)V
-MD: cpw/mods/fml/common/network/NetworkRegistry/registerGuiHandler (Ljava/lang/Object;Lcpw/mods/fml/common/network/IGuiHandler;)V cpw/mods/fml/common/network/NetworkRegistry/registerGuiHandler (Ljava/lang/Object;Lcpw/mods/fml/common/network/IGuiHandler;)V
 MD: cpw/mods/fml/common/network/NetworkRegistry/openRemoteGui (Lcpw/mods/fml/common/ModContainer;Lnet/minecraft/src/EntityPlayerMP;ILnet/minecraft/src/World;III)V cpw/mods/fml/common/network/NetworkRegistry/openRemoteGui (Lcpw/mods/fml/common/ModContainer;Lgu;ILup;III)V
-MD: cpw/mods/fml/common/network/NetworkRegistry/instance ()Lcpw/mods/fml/common/network/NetworkRegistry; cpw/mods/fml/common/network/NetworkRegistry/instance ()Lcpw/mods/fml/common/network/NetworkRegistry;
 MD: cpw/mods/fml/common/network/NetworkRegistry/connectionOpened (Lnet/minecraft/src/NetHandler;Ljava/lang/String;ILnet/minecraft/src/NetworkManager;)V cpw/mods/fml/common/network/NetworkRegistry/connectionOpened (Ldc;Ljava/lang/String;ILaz;)V
+MD: cpw/mods/fml/common/network/NetworkRegistry/instance ()Lcpw/mods/fml/common/network/NetworkRegistry; cpw/mods/fml/common/network/NetworkRegistry/instance ()Lcpw/mods/fml/common/network/NetworkRegistry;
+MD: cpw/mods/fml/common/network/NetworkRegistry/registerChannel (Lcpw/mods/fml/common/network/IPacketHandler;Ljava/lang/String;)V cpw/mods/fml/common/network/NetworkRegistry/registerChannel (Lcpw/mods/fml/common/network/IPacketHandler;Ljava/lang/String;)V
+MD: cpw/mods/fml/common/network/NetworkRegistry/openLocalGui (Lcpw/mods/fml/common/ModContainer;Lnet/minecraft/src/EntityPlayer;ILnet/minecraft/src/World;III)V cpw/mods/fml/common/network/NetworkRegistry/openLocalGui (Lcpw/mods/fml/common/ModContainer;Log;ILup;III)V
+MD: cpw/mods/fml/common/network/NetworkRegistry/registerConnectionHandler (Lcpw/mods/fml/common/network/IConnectionHandler;)V cpw/mods/fml/common/network/NetworkRegistry/registerConnectionHandler (Lcpw/mods/fml/common/network/IConnectionHandler;)V
+MD: cpw/mods/fml/common/network/NetworkRegistry/handlePacket (Lnet/minecraft/src/Packet250CustomPayload;Lnet/minecraft/src/NetworkManager;Lcpw/mods/fml/common/network/Player;)V cpw/mods/fml/common/network/NetworkRegistry/handlePacket (Lce;Laz;Lcpw/mods/fml/common/network/Player;)V
+MD: cpw/mods/fml/common/network/NetworkRegistry/registerChannel (Lcpw/mods/fml/common/network/IPacketHandler;Ljava/lang/String;Lcpw/mods/fml/common/Side;)V cpw/mods/fml/common/network/NetworkRegistry/registerChannel (Lcpw/mods/fml/common/network/IPacketHandler;Ljava/lang/String;Lcpw/mods/fml/common/Side;)V
+MD: cpw/mods/fml/common/network/NetworkRegistry/handleRegistrationPacket (Lnet/minecraft/src/Packet250CustomPayload;Lcpw/mods/fml/common/network/Player;)V cpw/mods/fml/common/network/NetworkRegistry/handleRegistrationPacket (Lce;Lcpw/mods/fml/common/network/Player;)V
+MD: cpw/mods/fml/common/network/NetworkRegistry/registerChatListener (Lcpw/mods/fml/common/network/IChatListener;)V cpw/mods/fml/common/network/NetworkRegistry/registerChatListener (Lcpw/mods/fml/common/network/IChatListener;)V
+MD: cpw/mods/fml/common/network/NetworkRegistry/getPacketRegistry (Lcpw/mods/fml/common/Side;)[B cpw/mods/fml/common/network/NetworkRegistry/getPacketRegistry (Lcpw/mods/fml/common/Side;)[B
+MD: cpw/mods/fml/common/network/NetworkRegistry/isChannelActive (Ljava/lang/String;Lcpw/mods/fml/common/network/Player;)Z cpw/mods/fml/common/network/NetworkRegistry/isChannelActive (Ljava/lang/String;Lcpw/mods/fml/common/network/Player;)Z
+MD: cpw/mods/fml/common/network/NetworkRegistry/clientLoggedIn (Lnet/minecraft/src/NetHandler;Lnet/minecraft/src/NetworkManager;Lnet/minecraft/src/Packet1Login;)V cpw/mods/fml/common/network/NetworkRegistry/clientLoggedIn (Ldc;Laz;Lcs;)V
+MD: cpw/mods/fml/common/network/NetworkRegistry/registerGuiHandler (Ljava/lang/Object;Lcpw/mods/fml/common/network/IGuiHandler;)V cpw/mods/fml/common/network/NetworkRegistry/registerGuiHandler (Ljava/lang/Object;Lcpw/mods/fml/common/network/IGuiHandler;)V
 MD: cpw/mods/fml/common/network/NetworkRegistry/connectionOpened (Lnet/minecraft/src/NetHandler;Lnet/minecraft/server/MinecraftServer;Lnet/minecraft/src/NetworkManager;)V cpw/mods/fml/common/network/NetworkRegistry/connectionOpened (Ldc;Lnet/minecraft/server/MinecraftServer;Laz;)V
+CL: cpw/mods/fml/common/network/IChatListener cpw/mods/fml/common/network/IChatListener
+MD: cpw/mods/fml/common/network/IChatListener/clientChat (Lnet/minecraft/src/NetHandler;Lnet/minecraft/src/Packet3Chat;)Lnet/minecraft/src/Packet3Chat; cpw/mods/fml/common/network/IChatListener/clientChat (Ldc;Lbq;)Lbq;
+MD: cpw/mods/fml/common/network/IChatListener/serverChat (Lnet/minecraft/src/NetHandler;Lnet/minecraft/src/Packet3Chat;)Lnet/minecraft/src/Packet3Chat; cpw/mods/fml/common/network/IChatListener/serverChat (Ldc;Lbq;)Lbq;
 CL: cpw/mods/fml/common/network/FMLNetworkException cpw/mods/fml/common/network/FMLNetworkException
 CL: cpw/mods/fml/common/network/ModListResponsePacket cpw/mods/fml/common/network/ModListResponsePacket
 FD: cpw/mods/fml/common/network/ModListResponsePacket/missingMods cpw/mods/fml/common/network/ModListResponsePacket/missingMods
@@ -1872,6 +1892,8 @@ MD: cpw/mods/fml/common/FMLLog/getLogger ()Ljava/util/logging/Logger; cpw/mods/f
 MD: cpw/mods/fml/common/FMLLog/warning (Ljava/lang/String;[Ljava/lang/Object;)V cpw/mods/fml/common/FMLLog/warning (Ljava/lang/String;[Ljava/lang/Object;)V
 MD: cpw/mods/fml/common/FMLLog/log (Ljava/util/logging/Level;Ljava/lang/Throwable;Ljava/lang/String;[Ljava/lang/Object;)V cpw/mods/fml/common/FMLLog/log (Ljava/util/logging/Level;Ljava/lang/Throwable;Ljava/lang/String;[Ljava/lang/Object;)V
 MD: cpw/mods/fml/common/FMLLog/fine (Ljava/lang/String;[Ljava/lang/Object;)V cpw/mods/fml/common/FMLLog/fine (Ljava/lang/String;[Ljava/lang/Object;)V
+CL: cpw/mods/fml/common/IDispenserHandler cpw/mods/fml/common/IDispenserHandler
+MD: cpw/mods/fml/common/IDispenserHandler/dispense (IIIIILnet/minecraft/src/World;Lnet/minecraft/src/ItemStack;Ljava/util/Random;DDD)I cpw/mods/fml/common/IDispenserHandler/dispense (IIIIILup;Lrj;Ljava/util/Random;DDD)I
 CL: cpw/mods/fml/common/SingleIntervalHandler cpw/mods/fml/common/SingleIntervalHandler
 FD: cpw/mods/fml/common/SingleIntervalHandler/wrapped cpw/mods/fml/common/SingleIntervalHandler/wrapped
 CL: cpw/mods/fml/common/IPlayerTracker cpw/mods/fml/common/IPlayerTracker
@@ -9281,13 +9303,10 @@ MD: net/minecraft/src/WorldGenMinable/generate (Lnet/minecraft/src/World;Ljava/u
 CL: net/minecraft/src/BaseMod BaseMod
 MD: net/minecraft/src/BaseMod/renderWorldBlock (Lnet/minecraft/src/RenderBlocks;Lnet/minecraft/src/IBlockAccess;IIILnet/minecraft/src/Block;I)Z BaseMod/renderWorldBlock (Lavg;Luz;IIILaig;I)Z
 MD: net/minecraft/src/BaseMod/onTickInGUI (FLnet/minecraft/client/Minecraft;Lnet/minecraft/src/GuiScreen;)Z BaseMod/onTickInGUI (FLnet/minecraft/client/Minecraft;Lapn;)Z
-MD: net/minecraft/src/BaseMod/onChatMessageReceived (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/Packet3Chat;)Z BaseMod/onChatMessageReceived (Log;Lbq;)Z
 MD: net/minecraft/src/BaseMod/onTickInGame (Lnet/minecraft/server/MinecraftServer;)Z BaseMod/onTickInGame (Lnet/minecraft/server/MinecraftServer;)Z
 MD: net/minecraft/src/BaseMod/clientCustomPayload (Lnet/minecraft/src/NetClientHandler;Lnet/minecraft/src/Packet250CustomPayload;)V BaseMod/clientCustomPayload (Lasv;Lce;)V
-MD: net/minecraft/src/BaseMod/onClientDimensionChanged (Lnet/minecraft/src/EntityPlayer;)V BaseMod/onClientDimensionChanged (Log;)V
 MD: net/minecraft/src/BaseMod/getContainerGUI (Lnet/minecraft/src/EntityClientPlayerMP;IIII)Lnet/minecraft/src/GuiContainer; BaseMod/getContainerGUI (Latg;IIII)Laqh;
 MD: net/minecraft/src/BaseMod/spawnEntity (ILnet/minecraft/src/World;DDD)Lnet/minecraft/src/Entity; BaseMod/spawnEntity (ILup;DDD)Ljn;
-MD: net/minecraft/src/BaseMod/onServerCommand (Ljava/lang/String;Ljava/lang/String;Lnet/minecraft/src/ICommandManager;)Z BaseMod/onServerCommand (Ljava/lang/String;Ljava/lang/String;Lq;)Z
 MD: net/minecraft/src/BaseMod/onTickInGame (FLnet/minecraft/client/Minecraft;)Z BaseMod/onTickInGame (FLnet/minecraft/client/Minecraft;)Z
 MD: net/minecraft/src/BaseMod/registerAnimation (Lnet/minecraft/client/Minecraft;)V BaseMod/registerAnimation (Lnet/minecraft/client/Minecraft;)V
 MD: net/minecraft/src/BaseMod/renderInvBlock (Lnet/minecraft/src/RenderBlocks;Lnet/minecraft/src/Block;II)V BaseMod/renderInvBlock (Lavg;Laig;II)V
