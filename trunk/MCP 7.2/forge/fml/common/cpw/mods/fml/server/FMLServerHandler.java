@@ -16,7 +16,10 @@ import java.util.List;
 
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.src.Entity;
+import net.minecraft.src.NetClientHandler;
+import net.minecraft.src.NetHandler;
 import net.minecraft.src.Packet;
+import net.minecraft.src.Packet131MapData;
 import net.minecraft.src.World;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.IFMLSidedHandler;
@@ -155,5 +158,20 @@ public class FMLServerHandler implements IFMLSidedHandler
     public void displayMissingMods(ModMissingPacket modMissingPacket)
     {
         // NOOP on server
+    }
+    @Override
+    public void handleTinyPacket(NetHandler handler, Packet131MapData mapData)
+    {
+        // NOOP on server
+    }
+    @Override
+    public void setClientCompatibilityLevel(byte compatibilityLevel)
+    {
+        // NOOP on server
+    }
+    @Override
+    public byte getClientCompatibilityLevel()
+    {
+        return 0;
     }
 }

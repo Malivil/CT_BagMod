@@ -1098,6 +1098,16 @@ public class NetServerHandler extends NetHandler
         }
     }
 
+    @Override
+
+    /**
+     * Contains logic for handling packets containing arbitrary unique item data. Currently this is only for maps.
+     */
+    public void handleMapData(Packet131MapData par1Packet131MapData)
+    {
+        FMLNetworkHandler.handlePacket131Packet(this, par1Packet131MapData);
+    }
+
     // modloader compat -- yuk!
     @Override
     public EntityPlayerMP getPlayer()
