@@ -61,6 +61,8 @@ public class NetClientHandler extends NetHandler
     /** RNG. */
     Random rand = new Random();
 
+    private static byte connectionCompatibilityLevel;
+
     public NetClientHandler(Minecraft par1Minecraft, String par2Str, int par3) throws IOException
     {
         this.mc = par1Minecraft;
@@ -1166,6 +1168,11 @@ public class NetClientHandler extends NetHandler
      */
     public void handleMapData(Packet131MapData par1Packet131MapData)
     {
+        FMLNetworkHandler.handlePacket131Packet(this, par1Packet131MapData);
+    }
+
+    public void fmlPacket131Callback(Packet131MapData par1Packet131MapData)
+    {
         if (par1Packet131MapData.itemID == Item.map.shiftedIndex)
         {
             ItemMap.getMPMapData(par1Packet131MapData.uniqueID, this.mc.theWorld).updateMPMapData(par1Packet131MapData.itemData);
@@ -1345,5 +1352,15 @@ public class NetClientHandler extends NetHandler
     public EntityPlayer getPlayer()
     {
         return mc.thePlayer;
+    }
+
+    public static void setConnectionCompatibilityLevel(byte connectionCompatibilityLevel)
+    {
+        NetClientHandler.connectionCompatibilityLevel = connectionCompatibilityLevel;
+    }
+
+    public static byte getConnectionCompatibilityLevel()
+    {
+        return connectionCompatibilityLevel;
     }
 }

@@ -6,7 +6,7 @@
 #
 # RetroGuard MCP v3.6.5
 #
-# Logfile created on Thu Sep 06 08:06:35 EDT 2012
+# Logfile created on Sun Sep 09 11:12:54 EDT 2012
 #
 # Jar file to be obfuscated:           client_recomp.jar
 # Target Jar file for obfuscated code: client_reobf.jar
@@ -51,7 +51,7 @@
 #      Your class net/minecraftforge/event/ASMEventHandler$ASMClassLoader calls the java/lang/ClassLoader method defineClass(Ljava/lang/String;[BII)Ljava/lang/Class;
 #      Your class net/minecraftforge/event/EventBus calls the java/lang/Class method getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 #
-# Memory in use after class data structure built: 24036896 bytes
+# Memory in use after class data structure built: 24085256 bytes
 # Total memory available                        : 369229824 bytes
 #
 #
@@ -2034,12 +2034,16 @@
 .field_map cpw/mods/fml/relauncher/RelaunchClassLoader/cachedClasses cachedClasses
 .field_map cpw/mods/fml/relauncher/RelaunchClassLoader/parent parent
 .field_map cpw/mods/fml/relauncher/RelaunchClassLoader/excludedPackages excludedPackages
+.field_map cpw/mods/fml/relauncher/RelaunchClassLoader/transformerExceptions transformerExceptions
 .field_map cpw/mods/fml/relauncher/RelaunchClassLoader/sources sources
+.field_map cpw/mods/fml/relauncher/RelaunchClassLoader/classLoaderExceptions classLoaderExceptions
 .method_map cpw/mods/fml/relauncher/RelaunchClassLoader/findClass (Ljava/lang/String;)Ljava/lang/Class; findClass
 .method_map cpw/mods/fml/relauncher/RelaunchClassLoader/getTransformers ()Ljava/util/List; getTransformers
 .method_map cpw/mods/fml/relauncher/RelaunchClassLoader/readFully (Ljava/io/InputStream;)[B readFully
+.method_map cpw/mods/fml/relauncher/RelaunchClassLoader/addTransformerExclusion (Ljava/lang/String;)V addTransformerExclusion
 .method_map cpw/mods/fml/relauncher/RelaunchClassLoader/getSources ()Ljava/util/List; getSources
 .method_map cpw/mods/fml/relauncher/RelaunchClassLoader/runTransformers (Ljava/lang/String;[B)[B runTransformers
+.method_map cpw/mods/fml/relauncher/RelaunchClassLoader/addClassLoaderExclusion (Ljava/lang/String;)V addClassLoaderExclusion
 .method_map cpw/mods/fml/relauncher/RelaunchClassLoader/registerTransformer (Ljava/lang/String;)V registerTransformer
 .method_map cpw/mods/fml/relauncher/RelaunchClassLoader/getClassBytes (Ljava/lang/String;)[B getClassBytes
 .method_map cpw/mods/fml/relauncher/RelaunchClassLoader/addURL (Ljava/net/URL;)V addURL
@@ -2085,6 +2089,8 @@
 .field_map cpw/mods/fml/relauncher/FMLLogFormatter/dateFormat dateFormat
 .field_map cpw/mods/fml/relauncher/FMLLogFormatter/LINE_SEPARATOR LINE_SEPARATOR
 .method_map cpw/mods/fml/relauncher/FMLLogFormatter/format (Ljava/util/logging/LogRecord;)Ljava/lang/String; format
+.class_map cpw/mods/fml/relauncher/IFMLLoadingPlugin$TransformerExclusions TransformerExclusions
+.method_map cpw/mods/fml/relauncher/IFMLLoadingPlugin$TransformerExclusions/value ()[Ljava/lang/String; value
 .class_map cpw/mods/fml/relauncher/IFMLLoadingPlugin IFMLLoadingPlugin
 .method_map cpw/mods/fml/relauncher/IFMLLoadingPlugin/injectData (Ljava/util/Map;)V injectData
 .method_map cpw/mods/fml/relauncher/IFMLLoadingPlugin/getModContainerClass ()Ljava/lang/String; getModContainerClass
@@ -2379,6 +2385,7 @@
 .method_map cpw/mods/fml/client/FMLClientHandler/sendPacket (Lnet/minecraft/src/Packet;)V sendPacket
 .method_map cpw/mods/fml/client/FMLClientHandler/displayMissingMods (Lcpw/mods/fml/common/network/ModMissingPacket;)V displayMissingMods
 .method_map cpw/mods/fml/client/FMLClientHandler/instance ()Lcpw/mods/fml/client/FMLClientHandler; instance
+.method_map cpw/mods/fml/client/FMLClientHandler/handleTinyPacket (Lnet/minecraft/src/NetHandler;Lnet/minecraft/src/Packet131MapData;)V handleTinyPacket
 .method_map cpw/mods/fml/client/FMLClientHandler/finishMinecraftLoading ()V finishMinecraftLoading
 .method_map cpw/mods/fml/client/FMLClientHandler/getServer ()Lnet/minecraft/server/MinecraftServer; getServer
 .method_map cpw/mods/fml/client/FMLClientHandler/showGuiScreen (Ljava/lang/Object;)V showGuiScreen
@@ -2395,6 +2402,8 @@
 .method_map cpw/mods/fml/client/FMLClientHandler/beginServerLoading (Lnet/minecraft/server/MinecraftServer;)V beginServerLoading
 .method_map cpw/mods/fml/client/FMLClientHandler/addSpecialModEntries (Ljava/util/ArrayList;)V addSpecialModEntries
 .method_map cpw/mods/fml/client/FMLClientHandler/isLoading ()Z isLoading
+.method_map cpw/mods/fml/client/FMLClientHandler/getClientCompatibilityLevel ()B getClientCompatibilityLevel
+.method_map cpw/mods/fml/client/FMLClientHandler/setClientCompatibilityLevel (B)V setClientCompatibilityLevel
 .method_map cpw/mods/fml/client/FMLClientHandler/spawnEntityIntoClientWorld (Lcpw/mods/fml/common/registry/EntityRegistry$EntityRegistration;Lcpw/mods/fml/common/network/EntitySpawnPacket;)Lnet/minecraft/src/Entity; spawnEntityIntoClientWorld
 .method_map cpw/mods/fml/client/FMLClientHandler/haltGame (Ljava/lang/String;Ljava/lang/Throwable;)V haltGame
 .class_map cpw/mods/fml/client/GuiSlotModList GuiSlotModList
@@ -2676,7 +2685,6 @@
 .field_map cpw/mods/fml/common/toposort/ModSorter/modGraph modGraph
 .field_map cpw/mods/fml/common/toposort/ModSorter/before before
 .field_map cpw/mods/fml/common/toposort/ModSorter/afterAll afterAll
-.field_map cpw/mods/fml/common/toposort/ModSorter/immutableMods immutableMods
 .field_map cpw/mods/fml/common/toposort/ModSorter/beforeAll beforeAll
 .method_map cpw/mods/fml/common/toposort/ModSorter/buildGraph (Ljava/util/List;Ljava/util/Map;)V buildGraph
 .method_map cpw/mods/fml/common/toposort/ModSorter/sort ()Ljava/util/List; sort
@@ -3122,9 +3130,13 @@
 .class_map cpw/mods/fml/common/network/FMLNetworkHandler FMLNetworkHandler
 .field_map cpw/mods/fml/common/network/FMLNetworkHandler/networkIdLookup networkIdLookup
 .field_map cpw/mods/fml/common/network/FMLNetworkHandler/PROTOCOL_VERSION PROTOCOL_VERSION
+.field_map cpw/mods/fml/common/network/FMLNetworkHandler/LOGIN_RECEIVED LOGIN_RECEIVED
 .field_map cpw/mods/fml/common/network/FMLNetworkHandler/networkModHandlers networkModHandlers
+.field_map cpw/mods/fml/common/network/FMLNetworkHandler/CONNECTION_VALID CONNECTION_VALID
+.field_map cpw/mods/fml/common/network/FMLNetworkHandler/FML_OUT_OF_DATE FML_OUT_OF_DATE
 .field_map cpw/mods/fml/common/network/FMLNetworkHandler/INSTANCE INSTANCE
 .field_map cpw/mods/fml/common/network/FMLNetworkHandler/FML_HASH FML_HASH
+.field_map cpw/mods/fml/common/network/FMLNetworkHandler/MISSING_MODS_OR_VERSIONS MISSING_MODS_OR_VERSIONS
 .field_map cpw/mods/fml/common/network/FMLNetworkHandler/loginStates loginStates
 .method_map cpw/mods/fml/common/network/FMLNetworkHandler/setHandlerState (Lnet/minecraft/src/NetLoginHandler;I)V setHandlerState
 .method_map cpw/mods/fml/common/network/FMLNetworkHandler/onClientConnectionToIntegratedServer (Lnet/minecraft/src/NetHandler;Lnet/minecraft/server/MinecraftServer;Lnet/minecraft/src/NetworkManager;)V onClientConnectionToIntegratedServer
@@ -3134,15 +3146,17 @@
 .method_map cpw/mods/fml/common/network/FMLNetworkHandler/onClientConnectionToRemoteServer (Lnet/minecraft/src/NetHandler;Ljava/lang/String;ILnet/minecraft/src/NetworkManager;)V onClientConnectionToRemoteServer
 .method_map cpw/mods/fml/common/network/FMLNetworkHandler/handlePacket250Packet (Lnet/minecraft/src/Packet250CustomPayload;Lnet/minecraft/src/NetworkManager;Lnet/minecraft/src/NetHandler;)V handlePacket250Packet
 .method_map cpw/mods/fml/common/network/FMLNetworkHandler/getModListRequestPacket ()Lnet/minecraft/src/Packet250CustomPayload; getModListRequestPacket
+.method_map cpw/mods/fml/common/network/FMLNetworkHandler/vanillaLoginPacketCompatibility ()Z vanillaLoginPacketCompatibility
 .method_map cpw/mods/fml/common/network/FMLNetworkHandler/bindNetworkId (Ljava/lang/String;Ljava/lang/Integer;)V bindNetworkId
 .method_map cpw/mods/fml/common/network/FMLNetworkHandler/openGui (Lnet/minecraft/src/EntityPlayer;Ljava/lang/Object;ILnet/minecraft/src/World;III)V openGui
 .method_map cpw/mods/fml/common/network/FMLNetworkHandler/computeLocalHost ()Ljava/net/InetAddress; computeLocalHost
+.method_map cpw/mods/fml/common/network/FMLNetworkHandler/getCompatibilityLevel ()I getCompatibilityLevel
 .method_map cpw/mods/fml/common/network/FMLNetworkHandler/registerNetworkMod (Lcpw/mods/fml/common/network/NetworkModHandler;)V registerNetworkMod
 .method_map cpw/mods/fml/common/network/FMLNetworkHandler/makeEntitySpawnAdjustment (ILnet/minecraft/src/EntityPlayerMP;III)V makeEntitySpawnAdjustment
 .method_map cpw/mods/fml/common/network/FMLNetworkHandler/instance ()Lcpw/mods/fml/common/network/FMLNetworkHandler; instance
 .method_map cpw/mods/fml/common/network/FMLNetworkHandler/handleVanillaLoginKick (Lnet/minecraft/src/NetLoginHandler;Lnet/minecraft/server/MinecraftServer;Ljava/net/SocketAddress;Ljava/lang/String;)Z handleVanillaLoginKick
 .method_map cpw/mods/fml/common/network/FMLNetworkHandler/handlePlayerLogin (Lnet/minecraft/src/EntityPlayerMP;Lnet/minecraft/src/NetServerHandler;Lnet/minecraft/src/NetworkManager;)V handlePlayerLogin
-.method_map cpw/mods/fml/common/network/FMLNetworkHandler/sendPacket (Lcpw/mods/fml/common/network/Player;Lnet/minecraft/src/Packet;)V sendPacket
+.method_map cpw/mods/fml/common/network/FMLNetworkHandler/handlePacket131Packet (Lnet/minecraft/src/NetHandler;Lnet/minecraft/src/Packet131MapData;)V handlePacket131Packet
 .method_map cpw/mods/fml/common/network/FMLNetworkHandler/getNetworkModList ()Ljava/util/Set; getNetworkModList
 .method_map cpw/mods/fml/common/network/FMLNetworkHandler/handleFMLPacket (Lnet/minecraft/src/Packet250CustomPayload;Lnet/minecraft/src/NetworkManager;Lnet/minecraft/src/NetHandler;)V handleFMLPacket
 .method_map cpw/mods/fml/common/network/FMLNetworkHandler/findNetworkModHandler (Ljava/lang/Object;)Lcpw/mods/fml/common/network/NetworkModHandler; findNetworkModHandler
@@ -3196,6 +3210,7 @@
 .class_map cpw/mods/fml/common/network/NetworkMod$NULL NULL
 .class_map cpw/mods/fml/common/network/NetworkMod NetworkMod
 .method_map cpw/mods/fml/common/network/NetworkMod/versionBounds ()Ljava/lang/String; versionBounds
+.method_map cpw/mods/fml/common/network/NetworkMod/tinyPacketHandler ()Ljava/lang/Class; tinyPacketHandler
 .method_map cpw/mods/fml/common/network/NetworkMod/channels ()[Ljava/lang/String; channels
 .method_map cpw/mods/fml/common/network/NetworkMod/clientPacketHandlerSpec ()Lcpw/mods/fml/common/network/NetworkMod$SidedPacketHandler; clientPacketHandlerSpec
 .method_map cpw/mods/fml/common/network/NetworkMod/serverSideRequired ()Z serverSideRequired
@@ -3206,18 +3221,21 @@
 .class_map cpw/mods/fml/common/network/NetworkModHandler NetworkModHandler
 .field_map cpw/mods/fml/common/network/NetworkModHandler/assignedIds assignedIds
 .field_map cpw/mods/fml/common/network/NetworkModHandler/acceptableRange acceptableRange
-.field_map cpw/mods/fml/common/network/NetworkModHandler/container container
-.field_map cpw/mods/fml/common/network/NetworkModHandler/mod mod
 .field_map cpw/mods/fml/common/network/NetworkModHandler/networkId networkId
+.field_map cpw/mods/fml/common/network/NetworkModHandler/mod mod
 .field_map cpw/mods/fml/common/network/NetworkModHandler/packetHandlerDefaultValue packetHandlerDefaultValue
-.field_map cpw/mods/fml/common/network/NetworkModHandler/localId localId
-.field_map cpw/mods/fml/common/network/NetworkModHandler/serverHandlerDefaultValue serverHandlerDefaultValue
 .field_map cpw/mods/fml/common/network/NetworkModHandler/connectionHandlerDefaultValue connectionHandlerDefaultValue
+.field_map cpw/mods/fml/common/network/NetworkModHandler/localId localId
 .field_map cpw/mods/fml/common/network/NetworkModHandler/checkHandler checkHandler
+.field_map cpw/mods/fml/common/network/NetworkModHandler/container container
+.field_map cpw/mods/fml/common/network/NetworkModHandler/tinyPacketHandler tinyPacketHandler
+.field_map cpw/mods/fml/common/network/NetworkModHandler/serverHandlerDefaultValue serverHandlerDefaultValue
+.field_map cpw/mods/fml/common/network/NetworkModHandler/tinyPacketHandlerDefaultValue tinyPacketHandlerDefaultValue
 .field_map cpw/mods/fml/common/network/NetworkModHandler/clientHandlerDefaultValue clientHandlerDefaultValue
 .method_map cpw/mods/fml/common/network/NetworkModHandler/getConnectionHandlerDefaultValue ()Ljava/lang/Object; getConnectionHandlerDefaultValue
 .method_map cpw/mods/fml/common/network/NetworkModHandler/getLocalId ()I getLocalId
 .method_map cpw/mods/fml/common/network/NetworkModHandler/getNetworkId ()I getNetworkId
+.method_map cpw/mods/fml/common/network/NetworkModHandler/getTinyPacketHandler ()Lcpw/mods/fml/common/network/ITinyPacketHandler; getTinyPacketHandler
 .method_map cpw/mods/fml/common/network/NetworkModHandler/acceptVersion (Ljava/lang/String;)Z acceptVersion
 .method_map cpw/mods/fml/common/network/NetworkModHandler/getContainer ()Lcpw/mods/fml/common/ModContainer; getContainer
 .method_map cpw/mods/fml/common/network/NetworkModHandler/getPacketHandlerDefaultValue ()Ljava/lang/Object; getPacketHandlerDefaultValue
@@ -3225,8 +3243,10 @@
 .method_map cpw/mods/fml/common/network/NetworkModHandler/requiresClientSide ()Z requiresClientSide
 .method_map cpw/mods/fml/common/network/NetworkModHandler/getServerHandlerSpecDefaultValue ()Ljava/lang/Object; getServerHandlerSpecDefaultValue
 .method_map cpw/mods/fml/common/network/NetworkModHandler/requiresServerSide ()Z requiresServerSide
+.method_map cpw/mods/fml/common/network/NetworkModHandler/hasTinyPacketHandler ()Z hasTinyPacketHandler
 .method_map cpw/mods/fml/common/network/NetworkModHandler/getClientHandlerSpecDefaultValue ()Ljava/lang/Object; getClientHandlerSpecDefaultValue
 .method_map cpw/mods/fml/common/network/NetworkModHandler/setNetworkId (I)V setNetworkId
+.method_map cpw/mods/fml/common/network/NetworkModHandler/getTinyPacketHandlerDefaultValue ()Ljava/lang/Object; getTinyPacketHandlerDefaultValue
 .method_map cpw/mods/fml/common/network/NetworkModHandler/isNetworkMod ()Z isNetworkMod
 .method_map cpw/mods/fml/common/network/NetworkModHandler/tryCreatingPacketHandler (Lcpw/mods/fml/common/ModContainer;Ljava/lang/Class;[Ljava/lang/String;Lcpw/mods/fml/common/Side;)V tryCreatingPacketHandler
 .class_map cpw/mods/fml/common/network/IConnectionHandler IConnectionHandler
@@ -3238,6 +3258,7 @@
 .method_map cpw/mods/fml/common/network/IConnectionHandler/playerLoggedIn (Lcpw/mods/fml/common/network/Player;Lnet/minecraft/src/NetHandler;Lnet/minecraft/src/NetworkManager;)V playerLoggedIn
 .class_map cpw/mods/fml/common/network/ModListRequestPacket ModListRequestPacket
 .field_map cpw/mods/fml/common/network/ModListRequestPacket/sentModList sentModList
+.field_map cpw/mods/fml/common/network/ModListRequestPacket/compatibilityLevel compatibilityLevel
 .method_map cpw/mods/fml/common/network/ModListRequestPacket/generatePacket ([Ljava/lang/Object;)[B generatePacket
 .method_map cpw/mods/fml/common/network/ModListRequestPacket/execute (Lnet/minecraft/src/NetworkManager;Lcpw/mods/fml/common/network/FMLNetworkHandler;Lnet/minecraft/src/NetHandler;Ljava/lang/String;)V execute
 .method_map cpw/mods/fml/common/network/ModListRequestPacket/consumePacket ([B)Lcpw/mods/fml/common/network/FMLPacket; consumePacket
@@ -3260,6 +3281,8 @@
 .method_map cpw/mods/fml/common/network/FMLPacket/makePacket (Lcpw/mods/fml/common/network/FMLPacket$Type;[Ljava/lang/Object;)[B makePacket
 .method_map cpw/mods/fml/common/network/FMLPacket/execute (Lnet/minecraft/src/NetworkManager;Lcpw/mods/fml/common/network/FMLNetworkHandler;Lnet/minecraft/src/NetHandler;Ljava/lang/String;)V execute
 .method_map cpw/mods/fml/common/network/FMLPacket/consumePacket ([B)Lcpw/mods/fml/common/network/FMLPacket; consumePacket
+.class_map cpw/mods/fml/common/network/ITinyPacketHandler ITinyPacketHandler
+.method_map cpw/mods/fml/common/network/ITinyPacketHandler/handle (Lnet/minecraft/src/NetHandler;Lnet/minecraft/src/Packet131MapData;)V handle
 .class_map cpw/mods/fml/common/network/ModIdentifiersPacket ModIdentifiersPacket
 .field_map cpw/mods/fml/common/network/ModIdentifiersPacket/modIds modIds
 .method_map cpw/mods/fml/common/network/ModIdentifiersPacket/generatePacket ([Ljava/lang/Object;)[B generatePacket
@@ -3267,9 +3290,12 @@
 .method_map cpw/mods/fml/common/network/ModIdentifiersPacket/consumePacket ([B)Lcpw/mods/fml/common/network/FMLPacket; consumePacket
 .class_map cpw/mods/fml/common/network/PacketDispatcher PacketDispatcher
 .method_map cpw/mods/fml/common/network/PacketDispatcher/sendPacketToAllAround (DDDDILnet/minecraft/src/Packet;)V sendPacketToAllAround
+.method_map cpw/mods/fml/common/network/PacketDispatcher/sendPacketToAllInDimension (Lnet/minecraft/src/Packet;I)V sendPacketToAllInDimension
 .method_map cpw/mods/fml/common/network/PacketDispatcher/sendPacketToServer (Lnet/minecraft/src/Packet;)V sendPacketToServer
 .method_map cpw/mods/fml/common/network/PacketDispatcher/getPacket (Ljava/lang/String;[B)Lnet/minecraft/src/Packet250CustomPayload; getPacket
 .method_map cpw/mods/fml/common/network/PacketDispatcher/sendPacketToPlayer (Lnet/minecraft/src/Packet;Lcpw/mods/fml/common/network/Player;)V sendPacketToPlayer
+.method_map cpw/mods/fml/common/network/PacketDispatcher/getTinyPacket (Ljava/lang/Object;S[B)Lnet/minecraft/src/Packet131MapData; getTinyPacket
+.method_map cpw/mods/fml/common/network/PacketDispatcher/sendPacketToAllPlayers (Lnet/minecraft/src/Packet;)V sendPacketToAllPlayers
 .class_map cpw/mods/fml/common/network/EntitySpawnAdjustmentPacket EntitySpawnAdjustmentPacket
 .field_map cpw/mods/fml/common/network/EntitySpawnAdjustmentPacket/entityId entityId
 .field_map cpw/mods/fml/common/network/EntitySpawnAdjustmentPacket/serverX serverX
@@ -3291,6 +3317,7 @@
 .field_map cpw/mods/fml/common/network/NetworkRegistry/serverGuiHandlers serverGuiHandlers
 .field_map cpw/mods/fml/common/network/NetworkRegistry/INSTANCE INSTANCE
 .field_map cpw/mods/fml/common/network/NetworkRegistry/universalPacketHandlers universalPacketHandlers
+.method_map cpw/mods/fml/common/network/NetworkRegistry/handleTinyPacket (Lnet/minecraft/src/NetHandler;Lnet/minecraft/src/Packet131MapData;)V handleTinyPacket
 .method_map cpw/mods/fml/common/network/NetworkRegistry/generateChannelRegistration (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/NetHandler;Lnet/minecraft/src/NetworkManager;)V generateChannelRegistration
 .method_map cpw/mods/fml/common/network/NetworkRegistry/handleUnregistrationPacket (Lnet/minecraft/src/Packet250CustomPayload;Lcpw/mods/fml/common/network/Player;)V handleUnregistrationPacket
 .method_map cpw/mods/fml/common/network/NetworkRegistry/connectionReceived (Lnet/minecraft/src/NetLoginHandler;Lnet/minecraft/src/NetworkManager;)Ljava/lang/String; connectionReceived
@@ -3611,16 +3638,19 @@
 .method_map cpw/mods/fml/common/ModMetadata/processReferences (Ljava/lang/Object;Ljava/lang/Class;)Ljava/util/Collection; processReferences
 .class_map cpw/mods/fml/common/IFMLSidedHandler IFMLSidedHandler
 .method_map cpw/mods/fml/common/IFMLSidedHandler/sendPacket (Lnet/minecraft/src/Packet;)V sendPacket
-.method_map cpw/mods/fml/common/IFMLSidedHandler/adjustEntityLocationOnClient (Lcpw/mods/fml/common/network/EntitySpawnAdjustmentPacket;)V adjustEntityLocationOnClient
-.method_map cpw/mods/fml/common/IFMLSidedHandler/getAdditionalBrandingInformation ()Ljava/util/List; getAdditionalBrandingInformation
 .method_map cpw/mods/fml/common/IFMLSidedHandler/displayMissingMods (Lcpw/mods/fml/common/network/ModMissingPacket;)V displayMissingMods
-.method_map cpw/mods/fml/common/IFMLSidedHandler/getServer ()Lnet/minecraft/server/MinecraftServer; getServer
+.method_map cpw/mods/fml/common/IFMLSidedHandler/handleTinyPacket (Lnet/minecraft/src/NetHandler;Lnet/minecraft/src/Packet131MapData;)V handleTinyPacket
 .method_map cpw/mods/fml/common/IFMLSidedHandler/showGuiScreen (Ljava/lang/Object;)V showGuiScreen
-.method_map cpw/mods/fml/common/IFMLSidedHandler/beginServerLoading (Lnet/minecraft/server/MinecraftServer;)V beginServerLoading
-.method_map cpw/mods/fml/common/IFMLSidedHandler/finishServerLoading ()V finishServerLoading
+.method_map cpw/mods/fml/common/IFMLSidedHandler/getServer ()Lnet/minecraft/server/MinecraftServer; getServer
 .method_map cpw/mods/fml/common/IFMLSidedHandler/getSide ()Lcpw/mods/fml/common/Side; getSide
-.method_map cpw/mods/fml/common/IFMLSidedHandler/spawnEntityIntoClientWorld (Lcpw/mods/fml/common/registry/EntityRegistry$EntityRegistration;Lcpw/mods/fml/common/network/EntitySpawnPacket;)Lnet/minecraft/src/Entity; spawnEntityIntoClientWorld
+.method_map cpw/mods/fml/common/IFMLSidedHandler/finishServerLoading ()V finishServerLoading
+.method_map cpw/mods/fml/common/IFMLSidedHandler/getAdditionalBrandingInformation ()Ljava/util/List; getAdditionalBrandingInformation
+.method_map cpw/mods/fml/common/IFMLSidedHandler/adjustEntityLocationOnClient (Lcpw/mods/fml/common/network/EntitySpawnAdjustmentPacket;)V adjustEntityLocationOnClient
+.method_map cpw/mods/fml/common/IFMLSidedHandler/beginServerLoading (Lnet/minecraft/server/MinecraftServer;)V beginServerLoading
+.method_map cpw/mods/fml/common/IFMLSidedHandler/getClientCompatibilityLevel ()B getClientCompatibilityLevel
+.method_map cpw/mods/fml/common/IFMLSidedHandler/setClientCompatibilityLevel (B)V setClientCompatibilityLevel
 .method_map cpw/mods/fml/common/IFMLSidedHandler/haltGame (Ljava/lang/String;Ljava/lang/Throwable;)V haltGame
+.method_map cpw/mods/fml/common/IFMLSidedHandler/spawnEntityIntoClientWorld (Lcpw/mods/fml/common/registry/EntityRegistry$EntityRegistration;Lcpw/mods/fml/common/network/EntitySpawnPacket;)Lnet/minecraft/src/Entity; spawnEntityIntoClientWorld
 .class_map cpw/mods/fml/common/LoadController LoadController
 .field_map cpw/mods/fml/common/LoadController/errors errors
 .field_map cpw/mods/fml/common/LoadController/activeModList activeModList
@@ -3806,6 +3836,7 @@
 .field_map cpw/mods/fml/common/FMLCommonHandler/scheduledClientTicks scheduledClientTicks
 .field_map cpw/mods/fml/common/FMLCommonHandler/INSTANCE INSTANCE
 .field_map cpw/mods/fml/common/FMLCommonHandler/forge forge
+.method_map cpw/mods/fml/common/FMLCommonHandler/handleTinyPacket (Lnet/minecraft/src/NetHandler;Lnet/minecraft/src/Packet131MapData;)V handleTinyPacket
 .method_map cpw/mods/fml/common/FMLCommonHandler/callForgeMethod (Ljava/lang/String;)Ljava/lang/Object; callForgeMethod
 .method_map cpw/mods/fml/common/FMLCommonHandler/showGuiScreen (Ljava/lang/Object;)V showGuiScreen
 .method_map cpw/mods/fml/common/FMLCommonHandler/getSide ()Lcpw/mods/fml/common/Side; getSide
@@ -3877,17 +3908,20 @@
 .field_map cpw/mods/fml/server/FMLServerHandler/server server
 .field_map cpw/mods/fml/server/FMLServerHandler/INSTANCE INSTANCE
 .method_map cpw/mods/fml/server/FMLServerHandler/sendPacket (Lnet/minecraft/src/Packet;)V sendPacket
-.method_map cpw/mods/fml/server/FMLServerHandler/adjustEntityLocationOnClient (Lcpw/mods/fml/common/network/EntitySpawnAdjustmentPacket;)V adjustEntityLocationOnClient
-.method_map cpw/mods/fml/server/FMLServerHandler/getAdditionalBrandingInformation ()Ljava/util/List; getAdditionalBrandingInformation
 .method_map cpw/mods/fml/server/FMLServerHandler/displayMissingMods (Lcpw/mods/fml/common/network/ModMissingPacket;)V displayMissingMods
-.method_map cpw/mods/fml/server/FMLServerHandler/showGuiScreen (Ljava/lang/Object;)V showGuiScreen
+.method_map cpw/mods/fml/server/FMLServerHandler/handleTinyPacket (Lnet/minecraft/src/NetHandler;Lnet/minecraft/src/Packet131MapData;)V handleTinyPacket
 .method_map cpw/mods/fml/server/FMLServerHandler/getServer ()Lnet/minecraft/server/MinecraftServer; getServer
-.method_map cpw/mods/fml/server/FMLServerHandler/beginServerLoading (Lnet/minecraft/server/MinecraftServer;)V beginServerLoading
-.method_map cpw/mods/fml/server/FMLServerHandler/getSide ()Lcpw/mods/fml/common/Side; getSide
+.method_map cpw/mods/fml/server/FMLServerHandler/showGuiScreen (Ljava/lang/Object;)V showGuiScreen
 .method_map cpw/mods/fml/server/FMLServerHandler/finishServerLoading ()V finishServerLoading
+.method_map cpw/mods/fml/server/FMLServerHandler/getSide ()Lcpw/mods/fml/common/Side; getSide
 .method_map cpw/mods/fml/server/FMLServerHandler/instance ()Lcpw/mods/fml/server/FMLServerHandler; instance
-.method_map cpw/mods/fml/server/FMLServerHandler/spawnEntityIntoClientWorld (Lcpw/mods/fml/common/registry/EntityRegistry$EntityRegistration;Lcpw/mods/fml/common/network/EntitySpawnPacket;)Lnet/minecraft/src/Entity; spawnEntityIntoClientWorld
+.method_map cpw/mods/fml/server/FMLServerHandler/getAdditionalBrandingInformation ()Ljava/util/List; getAdditionalBrandingInformation
+.method_map cpw/mods/fml/server/FMLServerHandler/adjustEntityLocationOnClient (Lcpw/mods/fml/common/network/EntitySpawnAdjustmentPacket;)V adjustEntityLocationOnClient
+.method_map cpw/mods/fml/server/FMLServerHandler/beginServerLoading (Lnet/minecraft/server/MinecraftServer;)V beginServerLoading
+.method_map cpw/mods/fml/server/FMLServerHandler/getClientCompatibilityLevel ()B getClientCompatibilityLevel
+.method_map cpw/mods/fml/server/FMLServerHandler/setClientCompatibilityLevel (B)V setClientCompatibilityLevel
 .method_map cpw/mods/fml/server/FMLServerHandler/haltGame (Ljava/lang/String;Ljava/lang/Throwable;)V haltGame
+.method_map cpw/mods/fml/server/FMLServerHandler/spawnEntityIntoClientWorld (Lcpw/mods/fml/common/registry/EntityRegistry$EntityRegistration;Lcpw/mods/fml/common/network/EntitySpawnPacket;)Lnet/minecraft/src/Entity; spawnEntityIntoClientWorld
 .package_map org org
 .package_map org/bouncycastle bouncycastle
 .package_map org/bouncycastle/jcajce jcajce
@@ -10442,9 +10476,11 @@
 .field_map net/minecraft/src/NetClientHandler/rand e
 .field_map net/minecraft/src/NetClientHandler/doneLoadingTerrain j
 .field_map net/minecraft/src/NetClientHandler/field_72560_a a
+.field_map net/minecraft/src/NetClientHandler/connectionCompatibilityLevel connectionCompatibilityLevel
 .method_map net/minecraft/src/NetClientHandler/handleNamedEntitySpawn (Lnet/minecraft/src/Packet20NamedEntitySpawn;)V a
 .method_map net/minecraft/src/NetClientHandler/handlePlayerInfo (Lnet/minecraft/src/Packet201PlayerInfo;)V a
 .method_map net/minecraft/src/NetClientHandler/handleServerAuthData (Lnet/minecraft/src/Packet253ServerAuthData;)V a
+.method_map net/minecraft/src/NetClientHandler/getConnectionCompatibilityLevel ()B getConnectionCompatibilityLevel
 .method_map net/minecraft/src/NetClientHandler/handleWindowItems (Lnet/minecraft/src/Packet104WindowItems;)V a
 .method_map net/minecraft/src/NetClientHandler/handleMultiBlockChange (Lnet/minecraft/src/Packet52MultiBlockChange;)V a
 .method_map net/minecraft/src/NetClientHandler/handleAnimation (Lnet/minecraft/src/Packet18Animation;)V a
@@ -10489,12 +10525,14 @@
 .method_map net/minecraft/src/NetClientHandler/addToSendQueue (Lnet/minecraft/src/Packet;)V c
 .method_map net/minecraft/src/NetClientHandler/handleExplosion (Lnet/minecraft/src/Packet60Explosion;)V a
 .method_map net/minecraft/src/NetClientHandler/handleRemoveEntityEffect (Lnet/minecraft/src/Packet42RemoveEntityEffect;)V a
+.method_map net/minecraft/src/NetClientHandler/setConnectionCompatibilityLevel (B)V setConnectionCompatibilityLevel
 .method_map net/minecraft/src/NetClientHandler/func_72549_a (Ljava/lang/String;)Ljava/lang/String; a
 .method_map net/minecraft/src/NetClientHandler/handleCustomPayload (Lnet/minecraft/src/Packet250CustomPayload;)V a
 .method_map net/minecraft/src/NetClientHandler/getEntityByID (I)Lnet/minecraft/src/Entity; a
 .method_map net/minecraft/src/NetClientHandler/handleBlockChange (Lnet/minecraft/src/Packet53BlockChange;)V a
 .method_map net/minecraft/src/NetClientHandler/handleKickDisconnect (Lnet/minecraft/src/Packet255KickDisconnect;)V a
 .method_map net/minecraft/src/NetClientHandler/handleTransaction (Lnet/minecraft/src/Packet106Transaction;)V a
+.method_map net/minecraft/src/NetClientHandler/fmlPacket131Callback (Lnet/minecraft/src/Packet131MapData;)V fmlPacket131Callback
 .method_map net/minecraft/src/NetClientHandler/disconnect ()V e
 .method_map net/minecraft/src/NetClientHandler/handleBlockEvent (Lnet/minecraft/src/Packet54PlayNoteBlock;)V a
 .method_map net/minecraft/src/NetClientHandler/handleEntityStatus (Lnet/minecraft/src/Packet38EntityStatus;)V a
@@ -14166,6 +14204,7 @@
 .method_map net/minecraft/src/NetServerHandler/handleAnimation (Lnet/minecraft/src/Packet18Animation;)V a
 .method_map net/minecraft/src/NetServerHandler/handleCloseWindow (Lnet/minecraft/src/Packet101CloseWindow;)V a
 .method_map net/minecraft/src/NetServerHandler/handleUpdateSign (Lnet/minecraft/src/Packet130UpdateSign;)V a
+.method_map net/minecraft/src/NetServerHandler/handleMapData (Lnet/minecraft/src/Packet131MapData;)V a
 .method_map net/minecraft/src/NetServerHandler/getPlayer ()Lnet/minecraft/src/EntityPlayerMP; getPlayer
 .method_map net/minecraft/src/NetServerHandler/handleAutoComplete (Lnet/minecraft/src/Packet203AutoComplete;)V a
 .method_map net/minecraft/src/NetServerHandler/handleBlockDig (Lnet/minecraft/src/Packet14BlockDig;)V a
@@ -18291,6 +18330,7 @@
 .field_map net/minecraft/src/Packet1Login/maxPlayers h
 .field_map net/minecraft/src/Packet1Login/gameType d
 .field_map net/minecraft/src/Packet1Login/difficultySetting f
+.field_map net/minecraft/src/Packet1Login/vanillaCompatible vanillaCompatible
 .field_map net/minecraft/src/Packet1Login/clientEntityId a
 .method_map net/minecraft/src/Packet1Login/processPacket (Lnet/minecraft/src/NetHandler;)V a
 .method_map net/minecraft/src/Packet1Login/readPacketData (Ljava/io/DataInputStream;)V a
