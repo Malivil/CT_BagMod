@@ -1687,12 +1687,21 @@ class Commands(object):
         # HINT: We extract the source files for the modified class files
         for in_class in trgclasses:
             src_file = os.path.normpath(os.path.join(src[side], in_class + '.java'))
+            cmn_file = os.path.normpath(os.path.join(self.srcshared, in_class + '.java'))
             dest_file = os.path.normpath(os.path.join(outpathlk[side], in_class + '.java'))
             if os.path.isfile(src_file):
                 if not os.path.exists(os.path.dirname(dest_file)):
                     os.makedirs(os.path.dirname(dest_file))
                 try:
                     shutil.copyfile(src_file, dest_file)
+                    self.logger.info('> Outputted %s to %s', in_class.ljust(35), outpathlk[side])
+                except IOError:
+                    self.logger.error('* File %s copy failed', in_class)
+            elif os.path.isfile(cmn_file):
+                if not os.path.exists(os.path.dirname(dest_file)):
+                    os.makedirs(os.path.dirname(dest_file))
+                try:
+                    shutil.copyfile(cmn_file, dest_file)
                     self.logger.info('> Outputted %s to %s', in_class.ljust(35), outpathlk[side])
                 except IOError:
                     self.logger.error('* File %s copy failed', in_class)

@@ -27,6 +27,8 @@ import net.minecraft.src.Tessellator;
 
 import org.lwjgl.opengl.GL11;
 
+import com.google.common.base.Strings;
+
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.ModContainer;
 
@@ -44,7 +46,7 @@ public class GuiModList extends GuiScreen
     private ArrayList<ModContainer> mods;
 
     /**
-     * @param guiMainMenu
+     * @param mainMenu
      */
     public GuiModList(GuiScreen mainMenu)
     {
@@ -52,8 +54,14 @@ public class GuiModList extends GuiScreen
         this.mods=new ArrayList<ModContainer>();
         FMLClientHandler.instance().addSpecialModEntries(mods);
         for (ModContainer mod : Loader.instance().getModList()) {
-            if (mod.getMetadata()!=null && mod.getMetadata().parentMod != null) {
-                continue;
+            if (mod.getMetadata()!=null && !Strings.isNullOrEmpty(mod.getMetadata().parent)) {
+                String parentMod = mod.getMetadata().parent;
+                ModContainer parentContainer = Loader.instance().getIndexedModList().get(parentMod);
+                if (parentContainer != null)
+                {
+                    mod.getMetadata().parentMod = parentContainer;
+                    continue;
+                }
             }
             mods.add(mod);
         }
@@ -166,10 +174,6 @@ public class GuiModList extends GuiScreen
         }
     }
 
-    /**
-     * @param var1
-     * @return
-     */
     public boolean modIndexSelected(int var1)
     {
         return var1==selected;

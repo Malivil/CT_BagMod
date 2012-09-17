@@ -14,7 +14,7 @@ public class ItemRelayRemote extends Item {
 		super(blockID);
 		maxStackSize = 1;
 		setMaxDamage(maxUses);
-		this.setTabToDisplayOn(CreativeTabs.tabRedstone);
+		this.setCreativeTab(CreativeTabs.tabRedstone);
 	}
 
 	@Override

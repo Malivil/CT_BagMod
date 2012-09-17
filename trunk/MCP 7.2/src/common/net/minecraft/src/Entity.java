@@ -190,8 +190,8 @@ public abstract class Entity
     public EnumEntitySize myEntitySize;
     /** Forge: Used to store custom data for each entity. */
     private NBTTagCompound customEntityData;
-    protected boolean captureDrops = false;
-    protected ArrayList<EntityItem> capturedDrops = new ArrayList<EntityItem>();
+    public boolean captureDrops = false;
+    public ArrayList<EntityItem> capturedDrops = new ArrayList<EntityItem>();
 
     public Entity(World par1World)
     {

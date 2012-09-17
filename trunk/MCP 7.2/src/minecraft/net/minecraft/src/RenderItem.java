@@ -186,10 +186,10 @@ public class RenderItem extends Render
 
     public void drawItemIntoGui(FontRenderer par1FontRenderer, RenderEngine par2RenderEngine, int par3, int par4, int par5, int par6, int par7)
     {
+        float var16;
         int var9;
         float var11;
         float var12;
-        float var16;
 
         if (Item.itemsList[par3] instanceof ItemBlock && RenderBlocks.renderItemIn3d(Block.blocksList[par3].getRenderType()))
         {

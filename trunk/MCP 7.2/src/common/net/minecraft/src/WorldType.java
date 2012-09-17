@@ -203,8 +203,19 @@ public class WorldType
     {
         return this == FLAT ? random.nextInt(4) != 1 : false;
     }
+
     /**
      * Called when 'Create New World' button is pressed before starting game
      */
     public void onGUICreateWorldPress() { }
+
+    /**
+     * Gets the spawn fuzz for players who join the world.
+     * Useful for void world types.
+     * @return Fuzz for entity initial spawn in blocks.
+     */
+    public int getSpawnFuzz()
+    {
+        return 20;
+    }
 }

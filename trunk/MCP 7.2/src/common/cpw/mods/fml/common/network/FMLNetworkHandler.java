@@ -304,9 +304,9 @@ public class FMLNetworkHandler
         NetworkRegistry.instance().connectionOpened(netClientHandler, server, networkManager);
     }
 
-    public static void onConnectionClosed(NetworkManager manager)
+    public static void onConnectionClosed(NetworkManager manager, EntityPlayer player)
     {
-        NetworkRegistry.instance().connectionClosed(manager);
+        NetworkRegistry.instance().connectionClosed(manager, player);
     }
 
 
@@ -353,7 +353,7 @@ public class FMLNetworkHandler
     public static void makeEntitySpawnAdjustment(int entityId, EntityPlayerMP player, int serverX, int serverY, int serverZ)
     {
         Packet250CustomPayload pkt = PacketDispatcher.getPacket("FML", FMLPacket.makePacket(Type.ENTITYSPAWNADJUSTMENT, entityId, serverX, serverY, serverZ));
-        player.serverForThisPlayer.sendPacketToPlayer(pkt);
+        player.playerNetServerHandler.sendPacketToPlayer(pkt);
     }
 
     public static InetAddress computeLocalHost() throws IOException

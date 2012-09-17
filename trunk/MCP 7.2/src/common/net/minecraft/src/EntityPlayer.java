@@ -15,6 +15,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
 import net.minecraftforge.event.entity.player.PlayerDestroyItemEvent;
+import net.minecraftforge.event.entity.player.PlayerDropsEvent;
 import net.minecraftforge.event.entity.player.PlayerSleepInBedEvent;
 
 public abstract class EntityPlayer extends EntityLiving implements ICommandSender
@@ -584,12 +585,28 @@ public abstract class EntityPlayer extends EntityLiving implements ICommandSende
         this.setPosition(this.posX, this.posY, this.posZ);
         this.motionY = 0.10000000149011612D;
 
+        captureDrops = true;
+        capturedDrops.clear();
+
         if (this.username.equals("Notch"))
         {
             this.dropPlayerItemWithRandomChoice(new ItemStack(Item.appleRed, 1), true);
         }
 
         this.inventory.dropAllItems();
+        captureDrops = false;
+
+        if (!worldObj.isRemote)
+        {
+            PlayerDropsEvent event = new PlayerDropsEvent(this, par1DamageSource, capturedDrops, recentlyHit > 0);
+            if (!MinecraftForge.EVENT_BUS.post(event))
+            {
+                for (EntityItem item : capturedDrops)
+                {
+                    joinEntityItemWithWorld(item);
+                }
+            }
+        }
 
         if (par1DamageSource != null)
         {
@@ -644,7 +661,7 @@ public abstract class EntityPlayer extends EntityLiving implements ICommandSende
         }
         if (stack.getItem().onDroppedByPlayer(stack, this))
         {
-            return dropPlayerItemWithRandomChoice(inventory.decrStackSize(inventory.currentItem, 1), false);
+            return ForgeHooks.onPlayerTossEvent(this, inventory.decrStackSize(inventory.currentItem, 1));
         }
         return null;
     }
@@ -655,7 +672,7 @@ public abstract class EntityPlayer extends EntityLiving implements ICommandSende
      */
     public EntityItem dropPlayerItem(ItemStack par1ItemStack)
     {
-        return this.dropPlayerItemWithRandomChoice(par1ItemStack, false);
+        return ForgeHooks.onPlayerTossEvent(this, par1ItemStack);
     }
 
     /**
@@ -705,14 +722,21 @@ public abstract class EntityPlayer extends EntityLiving implements ICommandSende
     /**
      * Joins the passed in entity item with the world. Args: entityItem
      */
-    protected void joinEntityItemWithWorld(EntityItem par1EntityItem)
+    public void joinEntityItemWithWorld(EntityItem par1EntityItem)
     {
-        this.worldObj.spawnEntityInWorld(par1EntityItem);
+        if (captureDrops)
+        {
+            capturedDrops.add(par1EntityItem);
+        }
+        else
+        {
+            this.worldObj.spawnEntityInWorld(par1EntityItem);
+        }
     }
 
     /**
      * Returns how strong the player is against the specified block at this moment
-     * Deprecated in favor of the moresensitive version
+     * Deprecated in favor of the more sensitive version
      */
     @Deprecated
     public float getCurrentPlayerStrVsBlock(Block par1Block)

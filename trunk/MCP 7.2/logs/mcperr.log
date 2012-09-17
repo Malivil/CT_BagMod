@@ -1,3 +1,25 @@
-11:05:00 - !! renaming disabled !!
-11:07:26 - !! renaming disabled !!
-11:13:30 - !! Can not find server bins, try recompiling !!
+07:37:01 - !! renaming disabled !!
+07:39:26 - !! renaming disabled !!
+08:04:15 - '"C:\Program Files\Java\jdk1.7.0_07\bin\javac" -encoding UTF-8 -Xlint:-options -deprecation -g -sourc...' failed : 1
+08:04:15 - 
+08:04:15 - == ERRORS FOUND ==
+08:04:15 - 
+08:04:15 - src\common\mal\teleportrelay\common\TileEntityTeleportRelay.java:53: error: method does not override or implement a method from a supertype
+08:04:15 - 	@Override
+08:04:15 - 	^
+08:04:15 - 
+08:04:15 - src\common\mal\teleportrelay\common\ItemRelayRemote.java:17: error: cannot find symbol
+08:04:15 - 		this.setTabToDisplayOn(CreativeTabs.tabRedstone);
+08:04:15 - 		    ^
+08:04:15 - 
+08:04:15 -   symbol: method setTabToDisplayOn(CreativeTabs)
+08:04:15 - src\common\mal\teleportrelay\common\ServerPacketHandler.java:82: error: cannot find symbol
+08:04:15 - 				entityPlayer.serverForThisPlayer.setPlayerLocation(xPos + 0.5, yPos, zPos + 0.5, entityPlayer.rotationYaw, entityPlayer.rotationPitch);
+08:04:15 - 				            ^
+08:04:15 - 
+08:04:15 -   symbol:   variable serverForThisPlayer
+08:04:15 -   location: variable entityPlayer of type EntityPlayerMP
+08:04:15 - 3 errors
+08:04:15 - ==================
+08:04:15 - 
+09:14:12 - !! Can not find server bins, try recompiling !!

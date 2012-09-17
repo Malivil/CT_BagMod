@@ -51,7 +51,7 @@ public class TileEntityTeleportRelay extends TileEntity {
 	}
 
 	@Override
-	public Packet getAuxillaryInfoPacket() {
+	public Packet getDescriptionPacket() {
 		final Packet250CustomPayload infoPacket = new Packet250CustomPayload();
 		final ByteArrayOutputStream infoBytes = new ByteArrayOutputStream();
 		final DataOutputStream infoData = new DataOutputStream(infoBytes);

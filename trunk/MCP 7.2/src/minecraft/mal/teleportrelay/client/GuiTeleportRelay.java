@@ -49,7 +49,7 @@ public class GuiTeleportRelay extends GuiScreen {
 		if (this.relay == null)
 			return;
 
-		final Packet infoPacket = relay.getAuxillaryInfoPacket();
+		final Packet infoPacket = relay.getDescriptionPacket();
 		PacketDispatcher.sendPacketToServer(infoPacket);
 		PacketDispatcher.sendPacketToAllAround(relay.xCoord, relay.yCoord, relay.zCoord, relay.getRenderDistance(), 0, infoPacket);
 	}

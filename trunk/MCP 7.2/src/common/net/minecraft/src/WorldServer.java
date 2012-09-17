@@ -36,7 +36,7 @@ public class WorldServer extends World
 
     /** is false if there are no players */
     private boolean allPlayersSleeping;
-    private int field_80004_Q = 0;
+    private int updateEntityTick = 0;
 
     /**
      * Double buffer of ServerBlockEventList[] for holding pending BlockEventData's
@@ -424,14 +424,14 @@ public class WorldServer extends World
     {
         if (this.playerEntities.isEmpty())
         {
-            if (this.field_80004_Q++ >= 60)
+            if (this.updateEntityTick++ >= 60)
             {
                 return;
             }
         }
         else
         {
-            this.field_80004_Q = 0;
+            this.updateEntityTick = 0;
         }
 
         super.updateEntities();
@@ -528,7 +528,7 @@ public class WorldServer extends World
             par1Entity.setDead();
         }
 
-        if (!this.mcServer.getCanNPCsSpawn() && par1Entity instanceof INpc)
+        if (!this.mcServer.getCanSpawnNPCs() && par1Entity instanceof INpc)
         {
             par1Entity.setDead();
         }
@@ -701,6 +701,9 @@ public class WorldServer extends World
         }
     }
 
+    /**
+     * Gets the hard-coded portal location to use when entering this dimension.
+     */
     public ChunkCoordinates getEntrancePortalLocation()
     {
         return this.provider.getEntrancePortalLocation();
@@ -799,7 +802,7 @@ public class WorldServer extends World
     {
         if (super.addWeatherEffect(par1Entity))
         {
-            this.mcServer.getConfigurationManager().sendToAllNear(par1Entity.posX, par1Entity.posY, par1Entity.posZ, 512.0D, this.provider.worldType, new Packet71Weather(par1Entity));
+            this.mcServer.getConfigurationManager().sendToAllNear(par1Entity.posX, par1Entity.posY, par1Entity.posZ, 512.0D, this.provider.dimensionId, new Packet71Weather(par1Entity));
             return true;
         }
         else
@@ -834,7 +837,7 @@ public class WorldServer extends World
 
             if (var12.getDistanceSq(par2, par4, par6) < 4096.0D)
             {
-                ((EntityPlayerMP)var12).serverForThisPlayer.sendPacketToPlayer(new Packet60Explosion(par2, par4, par6, par8, var10.field_77281_g, (Vec3)var10.func_77277_b().get(var12)));
+                ((EntityPlayerMP)var12).playerNetServerHandler.sendPacketToPlayer(new Packet60Explosion(par2, par4, par6, par8, var10.field_77281_g, (Vec3)var10.func_77277_b().get(var12)));
             }
         }
 
@@ -881,7 +884,7 @@ public class WorldServer extends World
 
                 if (this.onBlockEventReceived(var3))
                 {
-                    this.mcServer.getConfigurationManager().sendToAllNear((double)var3.getX(), (double)var3.getY(), (double)var3.getZ(), 64.0D, this.provider.worldType, new Packet54PlayNoteBlock(var3.getX(), var3.getY(), var3.getZ(), var3.getBlockID(), var3.getEventID(), var3.getEventParameter()));
+                    this.mcServer.getConfigurationManager().sendToAllNear((double)var3.getX(), (double)var3.getY(), (double)var3.getZ(), 64.0D, this.provider.dimensionId, new Packet54PlayNoteBlock(var3.getX(), var3.getY(), var3.getZ(), var3.getBlockID(), var3.getEventID(), var3.getEventParameter()));
                 }
             }
 

@@ -13,6 +13,7 @@ import java.util.Set;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.event.entity.EntityEvent;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.world.WorldEvent;
 import net.minecraftforge.event.entity.PlaySoundAtEntityEvent;
 
@@ -938,7 +939,10 @@ public abstract class World implements IBlockAccess
         }
     }
 
-    public void func_72902_n(int par1, int par2, int par3)
+    /**
+     * all WorldAcceses mark this block as dirty
+     */
+    public void markBlockNeedsUpdateForAll(int par1, int par2, int par3)
     {
         Iterator var4 = this.worldAccesses.iterator();
 
@@ -1334,6 +1338,11 @@ public abstract class World implements IBlockAccess
                 this.updateAllPlayersSleepingFlag();
             }
 
+            if (!var4 && MinecraftForge.EVENT_BUS.post(new EntityJoinWorldEvent(par1Entity, this)))
+            {
+                return false;
+            }
+
             this.getChunkFromChunkCoords(var2, var3).addEntity(par1Entity);
             this.loadedEntityList.add(par1Entity);
             this.obtainEntitySkin(par1Entity);
@@ -1394,6 +1403,9 @@ public abstract class World implements IBlockAccess
         }
     }
 
+    /**
+     * remove dat player from dem servers
+     */
     public void removeEntity(Entity par1Entity)
     {
         par1Entity.setDead();
@@ -1753,7 +1765,7 @@ public abstract class World implements IBlockAccess
         {
             int var5 = var3.getBlockID(par1, var4, par2);
 
-            if (var5 != 0 && Block.blocksList[var5].blockMaterial.blocksMovement() && Block.blocksList[var5].blockMaterial != Material.leaves)
+            if (var5 != 0 && Block.blocksList[var5].blockMaterial.blocksMovement() && Block.blocksList[var5].blockMaterial != Material.leaves && !Block.blocksList[var5].isBlockFoliage(this, par1, var4, par2))
             {
                 return var4 + 1;
             }
@@ -3439,11 +3451,14 @@ public abstract class World implements IBlockAccess
      */
     public void addLoadedEntities(List par1List)
     {
-        this.loadedEntityList.addAll(par1List);
-
         for (int var2 = 0; var2 < par1List.size(); ++var2)
         {
-            this.obtainEntitySkin((Entity)par1List.get(var2));
+            Entity entity = (Entity)par1List.get(var2);
+            if (!MinecraftForge.EVENT_BUS.post(new EntityJoinWorldEvent(entity, this)))
+            {
+                loadedEntityList.add(entity);
+                this.obtainEntitySkin(entity);
+            }
         }
     }
 
@@ -3724,7 +3739,10 @@ public abstract class World implements IBlockAccess
 
         if (!this.loadedEntityList.contains(par1Entity))
         {
-            this.loadedEntityList.add(par1Entity);
+            if (!MinecraftForge.EVENT_BUS.post(new EntityJoinWorldEvent(par1Entity, this)))
+            {
+                loadedEntityList.add(par1Entity);
+            }
         }
     }
 
