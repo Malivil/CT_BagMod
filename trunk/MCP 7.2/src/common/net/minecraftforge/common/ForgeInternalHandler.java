@@ -13,14 +13,14 @@ public class ForgeInternalHandler
         if (entity instanceof EntityItem)
         {
             ItemStack item = ((EntityItem)entity).item;
-            if (item.getItem().hasCustomEntity(item))
+            if (item != null && item.getItem().hasCustomEntity(item))
             {
                 Entity newEntity = item.getItem().createEntity(event.world, entity, item);
                 if (newEntity != null)
                 {
                     entity.setDead();
                     event.setCanceled(true);
-                    event.world.spawnEntityInWorld(entity);
+                    event.world.spawnEntityInWorld(newEntity);
                 }
             }
         }
