@@ -27,8 +27,8 @@ public abstract class WorldProvider
     /** Light to brightness conversion table */
     public float[] lightBrightnessTable = new float[16];
 
-    /** 0 for normal world -1 for hell */
-    public int worldType = 0;
+    /** The id for the dimension (ex. -1: Nether, 0: Overworld, 1: The End) */
+    public int dimensionId = 0;
 
     /** Array for sunrise/sunset colors (RGBA) */
     private float[] colorsSunriseSunset = new float[4];
@@ -209,7 +209,7 @@ public abstract class WorldProvider
     }
 
     /**
-     * Gets the hard-coded portal location to use when entering this dimension
+     * Gets the hard-coded portal location to use when entering this dimension.
      */
     public ChunkCoordinates getEntrancePortalLocation()
     {
@@ -254,7 +254,11 @@ public abstract class WorldProvider
         return false;
     }
 
-    public abstract String func_80007_l();
+    /**
+     * Returns the dimension's name, e.g. "The End", "Nether", or "Overworld".
+     */
+    public abstract String getDimensionName();
+    
 
     /*======================================= Forge Start =========================================*/
     private int dimensionID = 0;
@@ -343,4 +347,21 @@ public abstract class WorldProvider
         this.skyProvider = skyProvider;
     }
 
+    public ChunkCoordinates getRandomizedSpawnPoint()
+    {
+        ChunkCoordinates var5 = new ChunkCoordinates(this.worldObj.getSpawnPoint());
+
+        boolean isAdventure = worldObj.getWorldInfo().getGameType() != EnumGameType.ADVENTURE;
+        int spawnFuzz = terrainType.getSpawnFuzz();
+        int spawnFuzzHalf = spawnFuzz / 2;
+
+        if (!this.hasNoSky && !isAdventure)
+        {
+            var5.posX += this.worldObj.rand.nextInt(spawnFuzz) - spawnFuzzHalf;
+            var5.posZ += this.worldObj.rand.nextInt(spawnFuzz) - spawnFuzzHalf;
+            var5.posY = this.worldObj.getTopSolidOrLiquidBlock(var5.posX, var5.posZ);
+        }
+
+        return var5;
+    }
 }

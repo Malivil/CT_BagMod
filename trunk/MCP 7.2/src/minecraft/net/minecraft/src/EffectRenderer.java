@@ -157,7 +157,7 @@ public class EffectRenderer
         }
     }
 
-    public void func_78872_b(Entity par1Entity, float par2)
+    public void renderLitParticles(Entity par1Entity, float par2)
     {
         float var4 = MathHelper.cos(par1Entity.rotationYaw * 0.017453292F);
         float var5 = MathHelper.sin(par1Entity.rotationYaw * 0.017453292F);

@@ -80,7 +80,6 @@ public class NetworkRegistry
      * Is the specified channel active for the player?
      * @param channel
      * @param player
-     * @return
      */
     public boolean isChannelActive(String channel, Player player)
     {
@@ -207,12 +206,13 @@ public class NetworkRegistry
         }
     }
 
-    void connectionClosed(NetworkManager manager)
+    void connectionClosed(NetworkManager manager, EntityPlayer player)
     {
         for (IConnectionHandler handler : connectionHandlers)
         {
             handler.connectionClosed(manager);
         }
+        activeChannels.removeAll(player);
     }
 
     void generateChannelRegistration(EntityPlayer player, NetHandler netHandler, NetworkManager manager)
@@ -266,10 +266,7 @@ public class NetworkRegistry
             deactivateChannel(player, channel);
         }
     }
-    /**
-     * @param packet
-     * @return
-     */
+
     private List<String> extractChannelList(Packet250CustomPayload packet)
     {
         String request = new String(packet.data, Charsets.UTF_8);
@@ -312,7 +309,7 @@ public class NetworkRegistry
                 pkt.channel = "FML";
                 pkt.data = FMLPacket.makePacket(Type.GUIOPEN, windowId, nmh.getNetworkId(), modGuiId, x, y, z);
                 pkt.length = pkt.data.length;
-                player.serverForThisPlayer.sendPacketToPlayer(pkt);
+                player.playerNetServerHandler.sendPacketToPlayer(pkt);
                 player.craftingInventory = container;
                 player.craftingInventory.windowId = windowId;
                 player.craftingInventory.addCraftingToCrafters(player);

@@ -30,7 +30,7 @@ public class PacketDispatcher
     {
         if (player instanceof EntityPlayerMP)
         {
-            ((EntityPlayerMP)player).serverForThisPlayer.sendPacketToPlayer(packet);
+            ((EntityPlayerMP)player).playerNetServerHandler.sendPacketToPlayer(packet);
         }
     }
 

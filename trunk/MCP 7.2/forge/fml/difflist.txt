@@ -18,10 +18,12 @@ minecraft/avf.class
 minecraft/va.class
 minecraft/abk.class
 minecraft/anz.class
+minecraft/ro.class
 minecraft/FMLRenderAccessLibrary.class
 minecraft/pq.class
 minecraft/og.class
 minecraft/dc.class
+minecraft/lc.class
 minecraft/ModLoader.class
 minecraft/ba.class
 minecraft/bb.class

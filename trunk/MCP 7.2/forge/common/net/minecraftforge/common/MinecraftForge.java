@@ -3,6 +3,8 @@ package net.minecraftforge.common;
 import java.lang.reflect.Constructor;
 import java.util.*;
 
+import cpw.mods.fml.common.FMLLog;
+
 import net.minecraft.src.*;
 import net.minecraftforge.common.ForgeHooks.GrassEntry;
 import net.minecraftforge.common.ForgeHooks.SeedEntry;
@@ -19,6 +21,7 @@ public class MinecraftForge
      */
     public static final EventBus EVENT_BUS = new EventBus();
     public static boolean SPAWNER_ALLOW_ON_INVERTED = false;
+    private static final ForgeInternalHandler INTERNAL_HANDLER = new ForgeInternalHandler();
     
     
     /** Register a new plant to be planted when bonemeal is used on grass.
@@ -71,7 +74,7 @@ public class MinecraftForge
     *                  classes, if multiple tool types can be used to harvest this block.
     * @param harvestLevel The minimum tool harvest level required to successfully
     * harvest the block.
-    * @see setToolClass for details on tool classes.
+    * @see MinecraftForge#setToolClass for details on tool classes.
     */
    public static void setBlockHarvestLevel(Block block, int metadata, String toolClass, int harvestLevel)
    {
@@ -90,7 +93,7 @@ public class MinecraftForge
     * @param block The block to remove effectiveness from.
     * @param metadata The metadata for the block subtype.
     * @param toolClass The tool class to remove the effectiveness mapping from.
-    * @see setToolClass for details on tool classes.
+    * @see MinecraftForge#setToolClass for details on tool classes.
     */
    public static void removeBlockEffectiveness(Block block, int metadata, String toolClass)
    {
@@ -108,7 +111,7 @@ public class MinecraftForge
     *                  classes, if multiple tool types can be used to harvest this block.
     * @param harvestLevel The minimum tool harvest level required to successfully
     *                     harvest the block.
-    * @see setToolClass for details on tool classes.
+    * @see MinecraftForge#setToolClass for details on tool classes.
     */
    public static void setBlockHarvestLevel(Block block, String toolClass, int harvestLevel)
    {
@@ -126,7 +129,7 @@ public class MinecraftForge
     * @param block The block to check.
     * @param metadata The metadata for the block subtype.
     * @param toolClass The tool class to check as able to remove this block.
-    * @see setToolClass for details on tool classes.
+    * @see MinecraftForge#setToolClass for details on tool classes.
     * @return The harvest level or -1 if no mapping exists.
     */
    public static int getBlockHarvestLevel(Block block, int metadata, String toolClass)
@@ -150,7 +153,7 @@ public class MinecraftForge
     * 
     * @param block The block to remove effectiveness from.
     * @param toolClass The tool class to remove the effectiveness mapping from.
-    * @see setToolClass for details on tool classes.
+    * @see MinecraftForge#setToolClass for details on tool classes.
     */
    public static void removeBlockEffectiveness(Block block, String toolClass)
    {
@@ -166,6 +169,9 @@ public class MinecraftForge
     */
    public static void initialize()
    {
+       System.out.printf("MinecraftForge v%s Initialized\n", ForgeVersion.getVersion());
+       FMLLog.info("MinecraftForge v%s Initialized", ForgeVersion.getVersion());
+
        Block filler = new Block(0, Material.air);
        Block.blocksList[0] = null;
        Block.opaqueCubeLookup[0] = false;
@@ -185,6 +191,8 @@ public class MinecraftForge
            temp[x] = EntityEnderman.carriableBlocks[x];
        }
        EntityEnderman.carriableBlocks = temp;
+
+       EVENT_BUS.register(INTERNAL_HANDLER);
    }
    
    public static String getBrandingVersion()

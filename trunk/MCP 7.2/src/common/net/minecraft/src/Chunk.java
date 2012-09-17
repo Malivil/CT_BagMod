@@ -155,9 +155,9 @@ public class Chunk
      * @param chunkX The chunk's X position
      * @param chunkZ The Chunk's Z position
      */
-    public Chunk(World world, byte[] ids, byte[] metadata, int chunkX, int chunkY)
+    public Chunk(World world, byte[] ids, byte[] metadata, int chunkX, int chunkZ)
     {
-        this(world, chunkX, chunkY);
+        this(world, chunkX, chunkZ);
         int var5 = ids.length / 256;
 
         for (int x = 0; x < 16; ++x)
@@ -316,7 +316,7 @@ public class Chunk
                                 if (var6 != null)
                                 {
                                     var6.setExtSkylightValue(var2, var5 & 15, var3, var4);
-                                    this.worldObj.func_72902_n((this.xPosition << 4) + var2, var5, (this.zPosition << 4) + var3);
+                                    this.worldObj.markBlockNeedsUpdateForAll((this.xPosition << 4) + var2, var5, (this.zPosition << 4) + var3);
                                 }
                             }
 
@@ -475,7 +475,7 @@ public class Chunk
                         if (var9 != null)
                         {
                             var9.setExtSkylightValue(par1, var8 & 15, par3, 15);
-                            this.worldObj.func_72902_n((this.xPosition << 4) + par1, var8, (this.zPosition << 4) + par3);
+                            this.worldObj.markBlockNeedsUpdateForAll((this.xPosition << 4) + par1, var8, (this.zPosition << 4) + par3);
                         }
                     }
                 }
@@ -488,7 +488,7 @@ public class Chunk
                         if (var9 != null)
                         {
                             var9.setExtSkylightValue(par1, var8 & 15, par3, 0);
-                            this.worldObj.func_72902_n((this.xPosition << 4) + par1, var8, (this.zPosition << 4) + par3);
+                            this.worldObj.markBlockNeedsUpdateForAll((this.xPosition << 4) + par1, var8, (this.zPosition << 4) + par3);
                         }
                     }
                 }
@@ -957,7 +957,7 @@ public class Chunk
     public void setChunkBlockTileEntity(int par1, int par2, int par3, TileEntity par4TileEntity)
     {
         ChunkPosition var5 = new ChunkPosition(par1, par2, par3);
-        par4TileEntity.func_70308_a(this.worldObj);
+        par4TileEntity.setWorldObj(this.worldObj);
         par4TileEntity.xCoord = this.xPosition * 16 + par1;
         par4TileEntity.yCoord = par2;
         par4TileEntity.zCoord = this.zPosition * 16 + par3;
@@ -1370,7 +1370,7 @@ public class Chunk
             }
             else if (par4 && this.storageArrays[var6] != null && this.storageArrays[var6].getBlockMSBArray() != null)
             {
-                this.storageArrays[var6].func_76676_h();
+                this.storageArrays[var6].clearMSBArray();
             }
         }
 

@@ -79,7 +79,7 @@ public class ServerPacketHandler implements IPacketHandler {
 				entityPlayer.setVelocity(0.0, 0.0, 0.0);
 				entityPlayer.fallDistance = 0.0f;
 				// Add small amounts to the x and z position to center the player
-				entityPlayer.serverForThisPlayer.setPlayerLocation(xPos + 0.5, yPos, zPos + 0.5, entityPlayer.rotationYaw, entityPlayer.rotationPitch);
+				entityPlayer.setPositionAndUpdate(xPos + 0.5, yPos, zPos + 0.5);
 
 				// Use up 1 charge of the remote
 				final ItemStack remote = entityPlayer.getCurrentEquippedItem();

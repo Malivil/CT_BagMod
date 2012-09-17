@@ -381,7 +381,7 @@ public class RenderBlocks
         case 0:
             return this.renderStandardBlock(par1Block, par2, par3, par4);
         case 31:
-            return this.func_78581_r(par1Block, par2, par3, par4);
+            return this.renderBlockLog(par1Block, par2, par3, par4);
         case 4:
             return this.renderBlockFluids(par1Block, par2, par3, par4);
         case 13:
@@ -415,9 +415,9 @@ public class RenderBlocks
         case 12:
             return this.renderBlockLever(par1Block, par2, par3, par4);
         case 29:
-            return this.func_78577_f(par1Block, par2, par3, par4);
+            return this.renderBlockTripWireSource(par1Block, par2, par3, par4);
         case 30:
-            return this.func_78619_g(par1Block, par2, par3, par4);
+            return this.renderBlockTripWire(par1Block, par2, par3, par4);
         case 14:
             return this.renderBlockBed(par1Block, par2, par3, par4);
         case 15:
@@ -439,7 +439,7 @@ public class RenderBlocks
         case 26:
             return this.renderBlockEndPortalFrame(par1Block, par2, par3, par4);
         case 28:
-            return this.func_78616_a((BlockCocoa) par1Block, par2, par3, par4);
+            return this.renderBlockCocoa((BlockCocoa) par1Block, par2, par3, par4);
         default:
             return FMLRenderAccessLibrary.renderWorldBlock(this, blockAccess, par2, par3, par4, par1Block, var5);
         }
@@ -1412,7 +1412,10 @@ public class RenderBlocks
         return true;
     }
 
-    public boolean func_78577_f(Block par1Block, int par2, int par3, int par4)
+    /**
+     * Renders a trip wire source block at the given coordinates
+     */
+    public boolean renderBlockTripWireSource(Block par1Block, int par2, int par3, int par4)
     {
         Tessellator var5 = Tessellator.instance;
         int var6 = this.blockAccess.getBlockMetadata(par2, par3, par4);
@@ -1794,7 +1797,10 @@ public class RenderBlocks
         return true;
     }
 
-    public boolean func_78619_g(Block par1Block, int par2, int par3, int par4)
+    /**
+     * Renders a trip wire block at the given coordinates
+     */
+    public boolean renderBlockTripWire(Block par1Block, int par2, int par3, int par4)
     {
         Tessellator var5 = Tessellator.instance;
         int var6 = par1Block.getBlockTextureFromSide(0);
@@ -1952,13 +1958,13 @@ public class RenderBlocks
         double var13 = (double)((float)var8 / 256.0F);
         double var15 = (double)(((float)var8 + 15.99F) / 256.0F);
         float var17 = 1.4F;
+        double var32;
         double var20;
         double var22;
         double var24;
         double var26;
         double var28;
         double var30;
-        double var32;
 
         if (!this.blockAccess.doesBlockHaveSolidTopSurface(par2, par3 - 1, par4) && !Block.fire.canBlockCatchFire(this.blockAccess, par2, par3 - 1, par4, UP))
         {
@@ -3779,7 +3785,10 @@ public class RenderBlocks
         return Minecraft.isAmbientOcclusionEnabled() && Block.lightValue[par1Block.blockID] == 0 ? this.renderStandardBlockWithAmbientOcclusion(par1Block, par2, par3, par4, var6, var7, var8) : this.renderStandardBlockWithColorMultiplier(par1Block, par2, par3, par4, var6, var7, var8);
     }
 
-    public boolean func_78581_r(Block par1Block, int par2, int par3, int par4)
+    /**
+     * Renders a log block at the given coordinates
+     */
+    public boolean renderBlockLog(Block par1Block, int par2, int par3, int par4)
     {
         int var5 = this.blockAccess.getBlockMetadata(par2, par3, par4);
         int var6 = var5 & 12;
@@ -4753,7 +4762,10 @@ public class RenderBlocks
         return var9;
     }
 
-    public boolean func_78616_a(BlockCocoa par1BlockCocoa, int par2, int par3, int par4)
+    /**
+     * Renders a Cocoa block at the given coordinates
+     */
+    public boolean renderBlockCocoa(BlockCocoa par1BlockCocoa, int par2, int par3, int par4)
     {
         Tessellator var5 = Tessellator.instance;
         var5.setBrightness(par1BlockCocoa.getMixedBrightnessForBlock(this.blockAccess, par2, par3, par4));
@@ -5166,10 +5178,10 @@ public class RenderBlocks
         int var6 = this.blockAccess.getBlockMetadata(par2, par3, par4);
         boolean var7 = BlockFenceGate.isFenceGateOpen(var6);
         int var8 = BlockDirectional.getDirection(var6);
-        float var15;
         float var17;
         float var16;
         float var18;
+        float var15;
 
         if (var8 != 3 && var8 != 1)
         {
