@@ -6,7 +6,7 @@
 #
 # RetroGuard MCP v3.6.5
 #
-# Logfile created on Mon Sep 17 13:56:37 EDT 2012
+# Logfile created on Wed Sep 19 19:32:03 EDT 2012
 #
 # Jar file to be obfuscated:           client_recomp.jar
 # Target Jar file for obfuscated code: client_reobf.jar
@@ -51,7 +51,7 @@
 #      Your class net/minecraftforge/event/ASMEventHandler$ASMClassLoader calls the java/lang/ClassLoader method defineClass(Ljava/lang/String;[BII)Ljava/lang/Class;
 #      Your class net/minecraftforge/event/EventBus calls the java/lang/Class method getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 #
-# Memory in use after class data structure built: 20367808 bytes
+# Memory in use after class data structure built: 20499136 bytes
 # Total memory available                        : 229310464 bytes
 #
 #
@@ -2005,6 +2005,702 @@
 #
 # Obfuscated name mappings (some of these may be unchanged due to polymorphism constraints):
 #
+.package_map metadark metadark
+.package_map metadark/mods mods
+.package_map metadark/mods/SuperSlopes SuperSlopes
+.package_map metadark/mods/SuperSlopes/IntCorners IntCorners
+.class_map metadark/mods/SuperSlopes/IntCorners/BlockIntCorners BlockIntCorners
+.method_map metadark/mods/SuperSlopes/IntCorners/BlockIntCorners/renderAsNormalBlock ()Z c
+.method_map metadark/mods/SuperSlopes/IntCorners/BlockIntCorners/addCollidingBlockToList (Lnet/minecraft/src/World;IIILnet/minecraft/src/AxisAlignedBB;Ljava/util/List;Lnet/minecraft/src/Entity;)V a
+.method_map metadark/mods/SuperSlopes/IntCorners/BlockIntCorners/onBlockClicked (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityPlayer;)V a
+.method_map metadark/mods/SuperSlopes/IntCorners/BlockIntCorners/isOpaqueCube ()Z d
+.method_map metadark/mods/SuperSlopes/IntCorners/BlockIntCorners/getRenderType ()I b
+.method_map metadark/mods/SuperSlopes/IntCorners/BlockIntCorners/onBlockPlacedBy (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityLiving;)V a
+.method_map metadark/mods/SuperSlopes/IntCorners/BlockIntCorners/shouldSideBeRendered (Lnet/minecraft/src/IBlockAccess;IIII)Z c
+.method_map metadark/mods/SuperSlopes/IntCorners/BlockIntCorners/damageDropped (I)I b
+.class_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners RenderIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueTopLeft_TopFace colorBlueTopLeft_TopFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenTopLeft_TopFace colorGreenTopLeft_TopFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenTopRight_SouthFace colorGreenTopRight_SouthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueSlopes colorBlueSlopes
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedTopLeft_SouthFace colorRedTopLeft_SouthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueBottomRight_EastFace colorBlueBottomRight_EastFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueYPosZNeg aoLightValueYPosZNeg
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueTopLeft_EastFace colorBlueTopLeft_EastFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueYNeg aoLightValueYNeg
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueXNegZPos aoLightValueXNegZPos
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenBottomRight_SouthFace colorGreenBottomRight_SouthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedTopLeft_BottomFace colorRedTopLeft_BottomFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueBottomLeft_EastFace colorBlueBottomLeft_EastFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedTopRight_TopFace colorRedTopRight_TopFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueYNegZPos aoLightValueYNegZPos
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueBottomLeft_WestFace colorBlueBottomLeft_WestFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/factorWest factorWest
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedTopRight_SouthFace colorRedTopRight_SouthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenBottomLeft_EastFace colorGreenBottomLeft_EastFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueBottomRight_NorthFace colorBlueBottomRight_NorthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenBottomRight_WestFace colorGreenBottomRight_WestFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueXNegZNeg aoLightValueXNegZNeg
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/factorNorth factorNorth
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/field_22352_G field_22352_G
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedBottomLeft_BottomFace colorRedBottomLeft_BottomFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueBottomRight_TopFace colorBlueBottomRight_TopFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/factorSouth factorSouth
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/factorBottom factorBottom
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedTopLeft_EastFace colorRedTopLeft_EastFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueXNeg aoLightValueXNeg
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueYNegZNeg aoLightValueYNegZNeg
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueXNegYPosZNeg aoLightValueXNegYPosZNeg
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenTopLeft_SouthFace colorGreenTopLeft_SouthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenTopRight_EastFace colorGreenTopRight_EastFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/factorTop factorTop
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/field_27511_cfgGrassFix field_27511_cfgGrassFix
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedBottomLeft_TopFace colorRedBottomLeft_TopFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueTopRight_BottomFace colorBlueTopRight_BottomFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedBottomRight_SouthFace colorRedBottomRight_SouthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueTopLeft_SouthFace colorBlueTopLeft_SouthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenBottomRight_EastFace colorGreenBottomRight_EastFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueTopRight_SouthFace colorBlueTopRight_SouthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueBottomRight_BottomFace colorBlueBottomRight_BottomFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedBottomLeft_SouthFace colorRedBottomLeft_SouthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueXNegYNeg aoLightValueXNegYNeg
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenTopLeft_WestFace colorGreenTopLeft_WestFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueTopRight_WestFace colorBlueTopRight_WestFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenTopRight_BottomFace colorGreenTopRight_BottomFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueZNeg aoLightValueZNeg
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedBottomLeft_WestFace colorRedBottomLeft_WestFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueThis aoLightValueThis
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueBottomLeft_TopFace colorBlueBottomLeft_TopFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueBottomRight_SouthFace colorBlueBottomRight_SouthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/enableAO enableAO
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedBottomLeft_NorthFace colorRedBottomLeft_NorthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueTopRight_EastFace colorBlueTopRight_EastFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedSlopes colorRedSlopes
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueXPos aoLightValueXPos
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenBottomLeft_NorthFace colorGreenBottomLeft_NorthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenBottomLeft_SouthFace colorGreenBottomLeft_SouthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenTopRight_TopFace colorGreenTopRight_TopFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedBottomRight_EastFace colorRedBottomRight_EastFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedTopRight_EastFace colorRedTopRight_EastFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueXNegYNegZNeg aoLightValueXNegYNegZNeg
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/factorEast factorEast
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedBottomRight_BottomFace colorRedBottomRight_BottomFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueBottomLeft_NorthFace colorBlueBottomLeft_NorthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueTopLeft_BottomFace colorBlueTopLeft_BottomFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedTopLeft_WestFace colorRedTopLeft_WestFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueXNegYPos aoLightValueXNegYPos
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueXPosZPos aoLightValueXPosZPos
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenBottomLeft_BottomFace colorGreenBottomLeft_BottomFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedTopRight_NorthFace colorRedTopRight_NorthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedBottomRight_NorthFace colorRedBottomRight_NorthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueXPosYNegZPos aoLightValueXPosYNegZPos
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenTopLeft_BottomFace colorGreenTopLeft_BottomFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedTopRight_WestFace colorRedTopRight_WestFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenTopRight_WestFace colorGreenTopRight_WestFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueTopLeft_NorthFace colorBlueTopLeft_NorthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueXPosYNeg aoLightValueXPosYNeg
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenBottomLeft_WestFace colorGreenBottomLeft_WestFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueTopLeft_WestFace colorBlueTopLeft_WestFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueXPosYPosZPos aoLightValueXPosYPosZPos
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueTopRight_TopFace colorBlueTopRight_TopFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueXNegYPosZPos aoLightValueXNegYPosZPos
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedTopLeft_NorthFace colorRedTopLeft_NorthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedTopLeft_TopFace colorRedTopLeft_TopFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenBottomRight_BottomFace colorGreenBottomRight_BottomFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenTopLeft_EastFace colorGreenTopLeft_EastFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueBottomRight_WestFace colorBlueBottomRight_WestFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedBottomRight_TopFace colorRedBottomRight_TopFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenBottomRight_TopFace colorGreenBottomRight_TopFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueXNegYNegZPos aoLightValueXNegYNegZPos
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenBottomLeft_TopFace colorGreenBottomLeft_TopFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueXPosYPosZNeg aoLightValueXPosYPosZNeg
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenBottomRight_NorthFace colorGreenBottomRight_NorthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueYPosZPos aoLightValueYPosZPos
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedTopRight_BottomFace colorRedTopRight_BottomFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueZPos aoLightValueZPos
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueYPos aoLightValueYPos
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenTopRight_NorthFace colorGreenTopRight_NorthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueXPosYNegZNeg aoLightValueXPosYNegZNeg
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueBottomLeft_BottomFace colorBlueBottomLeft_BottomFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedBottomRight_WestFace colorRedBottomRight_WestFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenSlopes colorGreenSlopes
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueBottomLeft_SouthFace colorBlueBottomLeft_SouthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorBlueTopRight_NorthFace colorBlueTopRight_NorthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorGreenTopLeft_NorthFace colorGreenTopLeft_NorthFace
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueXPosZNeg aoLightValueXPosZNeg
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/aoLightValueXPosYPos aoLightValueXPosYPos
+.field_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/colorRedBottomLeft_EastFace colorRedBottomLeft_EastFace
+.method_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/shouldRender3DInInventory ()Z shouldRender3DInInventory
+.method_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/renderIntCornersNorthFace (Lnet/minecraft/src/Block;DDDIILnet/minecraft/src/RenderBlocks;I)V renderIntCornersNorthFace
+.method_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/renderIntCornersEastFace (Lnet/minecraft/src/Block;DDDIILnet/minecraft/src/RenderBlocks;I)V renderIntCornersEastFace
+.method_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/getRenderId ()I getRenderId
+.method_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/renderIntCornersBlockWithAmbientOcclusion (Lnet/minecraft/src/Block;IIIFFFILnet/minecraft/src/RenderBlocks;Lnet/minecraft/src/IBlockAccess;)Z renderIntCornersBlockWithAmbientOcclusion
+.method_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/renderIntCornersBottomFace (Lnet/minecraft/src/Block;DDDIILnet/minecraft/src/RenderBlocks;I)V renderIntCornersBottomFace
+.method_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/renderWorldBlock (Lnet/minecraft/src/IBlockAccess;IIILnet/minecraft/src/Block;ILnet/minecraft/src/RenderBlocks;)Z renderWorldBlock
+.method_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/renderIntCornersBlockWithColorMultiplier (Lnet/minecraft/src/Block;IIIFFFILnet/minecraft/src/RenderBlocks;Lnet/minecraft/src/IBlockAccess;)Z renderIntCornersBlockWithColorMultiplier
+.method_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/renderIntCornersTopFace (Lnet/minecraft/src/Block;DDDIILnet/minecraft/src/RenderBlocks;I)V renderIntCornersTopFace
+.method_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/renderInventoryBlock (Lnet/minecraft/src/Block;IILnet/minecraft/src/RenderBlocks;)V renderInventoryBlock
+.method_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/renderIntCornersWestFace (Lnet/minecraft/src/Block;DDDIILnet/minecraft/src/RenderBlocks;I)V renderIntCornersWestFace
+.method_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/renderIntCornersSouthFace (Lnet/minecraft/src/Block;DDDIILnet/minecraft/src/RenderBlocks;I)V renderIntCornersSouthFace
+.method_map metadark/mods/SuperSlopes/IntCorners/RenderIntCorners/renderBlockIntCorners (Lnet/minecraft/src/Block;IIILnet/minecraft/src/RenderBlocks;Lnet/minecraft/src/IBlockAccess;)Z renderBlockIntCorners
+.class_map metadark/mods/SuperSlopes/IntCorners/IntCorners IntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevOrangeWoolIntCorners BlockKaevOrangeWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevSnowIntCorners ItemKaevSnowIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevSteelIntCorners ItemKaevSteelIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevBricksIntCorners BlockKaevBricksIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevLimeWoolIntCorners BlockKaevLimeWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevSandstoneIntCorners BlockKaevSandstoneIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevCobblestoneIntCorners BlockKaevCobblestoneIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevGrayWoolIntCorners ItemKaevGrayWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevDiamondIntCorners BlockKaevDiamondIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevPinkWoolIntCorners ItemKaevPinkWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevObsidianIntCorners ItemKaevObsidianIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevBlueWoolIntCorners BlockKaevBlueWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevMagentaWoolIntCorners ItemKaevMagentaWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevPurpleWoolIntCorners ItemKaevPurpleWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevOrangeWoolIntCorners ItemKaevOrangeWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevBlueWoolIntCorners ItemKaevBlueWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/instance instance
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevWoodIntCorners BlockKaevWoodIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevGreenWoolIntCorners ItemKaevGreenWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevObsidianIntCorners BlockKaevObsidianIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevYellowWoolIntCorners ItemKaevYellowWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevGravelIntCorners ItemKaevGravelIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevGoldIntCorners ItemKaevGoldIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/init init
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevDiamondIntCorners ItemKaevDiamondIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevStoneIntCorners BlockKaevStoneIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevCyanWoolIntCorners BlockKaevCyanWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevBrownWoolIntCorners ItemKaevBrownWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/LightOpacity LightOpacity
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevBlackWoolIntCorners ItemKaevBlackWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevSnowIntCorners BlockKaevSnowIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevGrassIntCorners ItemKaevGrassIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevRedWoolIntCorners BlockKaevRedWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevSandIntCorners ItemKaevSandIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevLimeWoolIntCorners ItemKaevLimeWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevRedWoolIntCorners ItemKaevRedWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevSilverWoolIntCorners ItemKaevSilverWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevMagentaWoolIntCorners BlockKaevMagentaWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevPurpleWoolIntCorners BlockKaevPurpleWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevWoodIntCorners ItemKaevWoodIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevSilverWoolIntCorners BlockKaevSilverWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevGreenWoolIntCorners BlockKaevGreenWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevGrassIntCorners BlockKaevGrassIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevBricksIntCorners ItemKaevBricksIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevSandstoneIntCorners ItemKaevSandstoneIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevGlassIntCorners BlockKaevGlassIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevPinkWoolIntCorners BlockKaevPinkWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevLightBlueWoolIntCorners BlockKaevLightBlueWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevCyanWoolIntCorners ItemKaevCyanWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevWhiteWoolIntCorners BlockKaevWhiteWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevDirtIntCorners ItemKaevDirtIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevStoneIntCorners ItemKaevStoneIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevWhiteWoolIntCorners ItemKaevWhiteWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevGravelIntCorners BlockKaevGravelIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevGrayWoolIntCorners BlockKaevGrayWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevSteelIntCorners BlockKaevSteelIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/IntCornersRenderID IntCornersRenderID
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevLightBlueWoolIntCorners ItemKaevLightBlueWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevDirtIntCorners BlockKaevDirtIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevGoldIntCorners BlockKaevGoldIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevCobblestoneIntCorners ItemKaevCobblestoneIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevYellowWoolIntCorners BlockKaevYellowWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevBrownWoolIntCorners BlockKaevBrownWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevSandIntCorners BlockKaevSandIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/BlockKaevBlackWoolIntCorners BlockKaevBlackWoolIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/props props
+.field_map metadark/mods/SuperSlopes/IntCorners/IntCorners/ItemKaevGlassIntCorners ItemKaevGlassIntCorners
+.method_map metadark/mods/SuperSlopes/IntCorners/IntCorners/prepareProps ()V prepareProps
+.method_map metadark/mods/SuperSlopes/IntCorners/IntCorners/load (Lcpw/mods/fml/common/event/FMLInitializationEvent;)V load
+.method_map metadark/mods/SuperSlopes/IntCorners/IntCorners/preload (Lcpw/mods/fml/common/event/FMLPreInitializationEvent;)V preload
+.class_map metadark/mods/SuperSlopes/IntCorners/CommonInit CommonInit
+.method_map metadark/mods/SuperSlopes/IntCorners/CommonInit/loadConfig ()V loadConfig
+.method_map metadark/mods/SuperSlopes/IntCorners/CommonInit/registerBlockModel ()V registerBlockModel
+.method_map metadark/mods/SuperSlopes/IntCorners/CommonInit/addRecipes ()V addRecipes
+.method_map metadark/mods/SuperSlopes/IntCorners/CommonInit/addLocalizations ()V addLocalizations
+.class_map metadark/mods/SuperSlopes/IntCorners/ClientInit ClientInit
+.method_map metadark/mods/SuperSlopes/IntCorners/ClientInit/registerBlockModel ()V registerBlockModel
+.method_map metadark/mods/SuperSlopes/IntCorners/ClientInit/addLocalizations ()V addLocalizations
+.class_map metadark/mods/SuperSlopes/IntCorners/ItemIntCorners ItemIntCorners
+.field_map metadark/mods/SuperSlopes/IntCorners/ItemIntCorners/Kaevator_Materials Kaevator_Materials
+.field_map metadark/mods/SuperSlopes/IntCorners/ItemIntCorners/material material
+.method_map metadark/mods/SuperSlopes/IntCorners/ItemIntCorners/func_77640_w ()Lnet/minecraft/src/CreativeTabs; func_77640_w
+.method_map metadark/mods/SuperSlopes/IntCorners/ItemIntCorners/func_77647_b (I)I func_77647_b
+.method_map metadark/mods/SuperSlopes/IntCorners/ItemIntCorners/func_77667_c (Lnet/minecraft/src/ItemStack;)Ljava/lang/String; func_77667_c
+.method_map metadark/mods/SuperSlopes/IntCorners/ItemIntCorners/func_77633_a (ILnet/minecraft/src/CreativeTabs;Ljava/util/List;)V func_77633_a
+.package_map metadark/mods/SuperSlopes/Slopes Slopes
+.class_map metadark/mods/SuperSlopes/Slopes/ItemSlopes ItemSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/ItemSlopes/Kaevator_Materials Kaevator_Materials
+.field_map metadark/mods/SuperSlopes/Slopes/ItemSlopes/material material
+.method_map metadark/mods/SuperSlopes/Slopes/ItemSlopes/func_77640_w ()Lnet/minecraft/src/CreativeTabs; func_77640_w
+.method_map metadark/mods/SuperSlopes/Slopes/ItemSlopes/func_77647_b (I)I func_77647_b
+.method_map metadark/mods/SuperSlopes/Slopes/ItemSlopes/func_77667_c (Lnet/minecraft/src/ItemStack;)Ljava/lang/String; func_77667_c
+.method_map metadark/mods/SuperSlopes/Slopes/ItemSlopes/func_77633_a (ILnet/minecraft/src/CreativeTabs;Ljava/util/List;)V func_77633_a
+.class_map metadark/mods/SuperSlopes/Slopes/BlockSlopes BlockSlopes
+.method_map metadark/mods/SuperSlopes/Slopes/BlockSlopes/renderAsNormalBlock ()Z c
+.method_map metadark/mods/SuperSlopes/Slopes/BlockSlopes/addCollidingBlockToList (Lnet/minecraft/src/World;IIILnet/minecraft/src/AxisAlignedBB;Ljava/util/List;Lnet/minecraft/src/Entity;)V a
+.method_map metadark/mods/SuperSlopes/Slopes/BlockSlopes/onBlockClicked (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityPlayer;)V a
+.method_map metadark/mods/SuperSlopes/Slopes/BlockSlopes/isOpaqueCube ()Z d
+.method_map metadark/mods/SuperSlopes/Slopes/BlockSlopes/getRenderType ()I b
+.method_map metadark/mods/SuperSlopes/Slopes/BlockSlopes/onBlockPlacedBy (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityLiving;)V a
+.method_map metadark/mods/SuperSlopes/Slopes/BlockSlopes/shouldSideBeRendered (Lnet/minecraft/src/IBlockAccess;IIII)Z c
+.method_map metadark/mods/SuperSlopes/Slopes/BlockSlopes/damageDropped (I)I b
+.class_map metadark/mods/SuperSlopes/Slopes/CommonInit CommonInit
+.method_map metadark/mods/SuperSlopes/Slopes/CommonInit/loadConfig ()V loadConfig
+.method_map metadark/mods/SuperSlopes/Slopes/CommonInit/registerBlockModel ()V registerBlockModel
+.method_map metadark/mods/SuperSlopes/Slopes/CommonInit/addRecipes ()V addRecipes
+.method_map metadark/mods/SuperSlopes/Slopes/CommonInit/addLocalizations ()V addLocalizations
+.class_map metadark/mods/SuperSlopes/Slopes/Slopes Slopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevCobblestoneSlopes ItemKaevCobblestoneSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevDirtSlopes BlockKaevDirtSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevObsidianSlopes ItemKaevObsidianSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevSilverWoolSlopes ItemKaevSilverWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevGravelSlopes ItemKaevGravelSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevBlackWoolSlopes BlockKaevBlackWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevGrayWoolSlopes BlockKaevGrayWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevSteelSlopes BlockKaevSteelSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevBrownWoolSlopes ItemKaevBrownWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevStoneSlopes BlockKaevStoneSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevSandstoneSlopes ItemKaevSandstoneSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevWhiteWoolSlopes BlockKaevWhiteWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevDiamondSlopes ItemKaevDiamondSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/instance instance
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevBlueWoolSlopes BlockKaevBlueWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevSandSlopes BlockKaevSandSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevCyanWoolSlopes ItemKaevCyanWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevRedWoolSlopes ItemKaevRedWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevBricksSlopes BlockKaevBricksSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/init init
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevBlackWoolSlopes ItemKaevBlackWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevGreenWoolSlopes BlockKaevGreenWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevCyanWoolSlopes BlockKaevCyanWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevRedWoolSlopes BlockKaevRedWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/SlopesRenderID SlopesRenderID
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/LightOpacity LightOpacity
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevLimeWoolSlopes BlockKaevLimeWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevGoldSlopes ItemKaevGoldSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevGravelSlopes BlockKaevGravelSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevGlassSlopes ItemKaevGlassSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevSandstoneSlopes BlockKaevSandstoneSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevPinkWoolSlopes BlockKaevPinkWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevGrassSlopes ItemKaevGrassSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevSnowSlopes ItemKaevSnowSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevMagentaWoolSlopes ItemKaevMagentaWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevWoodSlopes ItemKaevWoodSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevGreenWoolSlopes ItemKaevGreenWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevBricksSlopes ItemKaevBricksSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevSteelSlopes ItemKaevSteelSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevStoneSlopes ItemKaevStoneSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevPinkWoolSlopes ItemKaevPinkWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevYellowWoolSlopes BlockKaevYellowWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevGrassSlopes BlockKaevGrassSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevYellowWoolSlopes ItemKaevYellowWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevOrangeWoolSlopes BlockKaevOrangeWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevWhiteWoolSlopes ItemKaevWhiteWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevGoldSlopes BlockKaevGoldSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevSandSlopes ItemKaevSandSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevDiamondSlopes BlockKaevDiamondSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevBlueWoolSlopes ItemKaevBlueWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevSnowSlopes BlockKaevSnowSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevPurpleWoolSlopes BlockKaevPurpleWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevLightBlueWoolSlopes BlockKaevLightBlueWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevSilverWoolSlopes BlockKaevSilverWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevLightBlueWoolSlopes ItemKaevLightBlueWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevMagentaWoolSlopes BlockKaevMagentaWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevWoodSlopes BlockKaevWoodSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevLimeWoolSlopes ItemKaevLimeWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevCobblestoneSlopes BlockKaevCobblestoneSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevBrownWoolSlopes BlockKaevBrownWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevOrangeWoolSlopes ItemKaevOrangeWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevGrayWoolSlopes ItemKaevGrayWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevPurpleWoolSlopes ItemKaevPurpleWoolSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/ItemKaevDirtSlopes ItemKaevDirtSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevObsidianSlopes BlockKaevObsidianSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/props props
+.field_map metadark/mods/SuperSlopes/Slopes/Slopes/BlockKaevGlassSlopes BlockKaevGlassSlopes
+.method_map metadark/mods/SuperSlopes/Slopes/Slopes/prepareProps ()V prepareProps
+.method_map metadark/mods/SuperSlopes/Slopes/Slopes/load (Lcpw/mods/fml/common/event/FMLInitializationEvent;)V load
+.method_map metadark/mods/SuperSlopes/Slopes/Slopes/preload (Lcpw/mods/fml/common/event/FMLPreInitializationEvent;)V preload
+.class_map metadark/mods/SuperSlopes/Slopes/ClientInit ClientInit
+.method_map metadark/mods/SuperSlopes/Slopes/ClientInit/registerBlockModel ()V registerBlockModel
+.method_map metadark/mods/SuperSlopes/Slopes/ClientInit/addLocalizations ()V addLocalizations
+.class_map metadark/mods/SuperSlopes/Slopes/RenderSlopes RenderSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueTopLeft_TopFace colorBlueTopLeft_TopFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenTopLeft_TopFace colorGreenTopLeft_TopFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenTopRight_SouthFace colorGreenTopRight_SouthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueSlopes colorBlueSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedTopLeft_SouthFace colorRedTopLeft_SouthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueBottomRight_EastFace colorBlueBottomRight_EastFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueYPosZNeg aoLightValueYPosZNeg
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueTopLeft_EastFace colorBlueTopLeft_EastFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueYNeg aoLightValueYNeg
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueXNegZPos aoLightValueXNegZPos
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenBottomRight_SouthFace colorGreenBottomRight_SouthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedTopLeft_BottomFace colorRedTopLeft_BottomFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueBottomLeft_EastFace colorBlueBottomLeft_EastFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedTopRight_TopFace colorRedTopRight_TopFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueYNegZPos aoLightValueYNegZPos
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueBottomLeft_WestFace colorBlueBottomLeft_WestFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/factorWest factorWest
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedTopRight_SouthFace colorRedTopRight_SouthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenBottomLeft_EastFace colorGreenBottomLeft_EastFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueBottomRight_NorthFace colorBlueBottomRight_NorthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenBottomRight_WestFace colorGreenBottomRight_WestFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueXNegZNeg aoLightValueXNegZNeg
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/factorNorth factorNorth
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/field_22352_G field_22352_G
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedBottomLeft_BottomFace colorRedBottomLeft_BottomFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueBottomRight_TopFace colorBlueBottomRight_TopFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/factorSouth factorSouth
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/factorBottom factorBottom
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedTopLeft_EastFace colorRedTopLeft_EastFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueXNeg aoLightValueXNeg
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueYNegZNeg aoLightValueYNegZNeg
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueXNegYPosZNeg aoLightValueXNegYPosZNeg
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenTopLeft_SouthFace colorGreenTopLeft_SouthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenTopRight_EastFace colorGreenTopRight_EastFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/factorTop factorTop
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/field_27511_cfgGrassFix field_27511_cfgGrassFix
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedBottomLeft_TopFace colorRedBottomLeft_TopFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueTopRight_BottomFace colorBlueTopRight_BottomFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedBottomRight_SouthFace colorRedBottomRight_SouthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueTopLeft_SouthFace colorBlueTopLeft_SouthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenBottomRight_EastFace colorGreenBottomRight_EastFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueTopRight_SouthFace colorBlueTopRight_SouthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueBottomRight_BottomFace colorBlueBottomRight_BottomFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedBottomLeft_SouthFace colorRedBottomLeft_SouthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueXNegYNeg aoLightValueXNegYNeg
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenTopLeft_WestFace colorGreenTopLeft_WestFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueTopRight_WestFace colorBlueTopRight_WestFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenTopRight_BottomFace colorGreenTopRight_BottomFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueZNeg aoLightValueZNeg
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedBottomLeft_WestFace colorRedBottomLeft_WestFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueThis aoLightValueThis
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueBottomLeft_TopFace colorBlueBottomLeft_TopFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueBottomRight_SouthFace colorBlueBottomRight_SouthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/enableAO enableAO
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedBottomLeft_NorthFace colorRedBottomLeft_NorthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueTopRight_EastFace colorBlueTopRight_EastFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedSlopes colorRedSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueXPos aoLightValueXPos
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenBottomLeft_NorthFace colorGreenBottomLeft_NorthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenBottomLeft_SouthFace colorGreenBottomLeft_SouthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenTopRight_TopFace colorGreenTopRight_TopFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedBottomRight_EastFace colorRedBottomRight_EastFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedTopRight_EastFace colorRedTopRight_EastFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueXNegYNegZNeg aoLightValueXNegYNegZNeg
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/factorEast factorEast
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedBottomRight_BottomFace colorRedBottomRight_BottomFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueBottomLeft_NorthFace colorBlueBottomLeft_NorthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueTopLeft_BottomFace colorBlueTopLeft_BottomFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedTopLeft_WestFace colorRedTopLeft_WestFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueXNegYPos aoLightValueXNegYPos
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueXPosZPos aoLightValueXPosZPos
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenBottomLeft_BottomFace colorGreenBottomLeft_BottomFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedTopRight_NorthFace colorRedTopRight_NorthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedBottomRight_NorthFace colorRedBottomRight_NorthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueXPosYNegZPos aoLightValueXPosYNegZPos
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenTopLeft_BottomFace colorGreenTopLeft_BottomFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedTopRight_WestFace colorRedTopRight_WestFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenTopRight_WestFace colorGreenTopRight_WestFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueTopLeft_NorthFace colorBlueTopLeft_NorthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueXPosYNeg aoLightValueXPosYNeg
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenBottomLeft_WestFace colorGreenBottomLeft_WestFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueTopLeft_WestFace colorBlueTopLeft_WestFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueXPosYPosZPos aoLightValueXPosYPosZPos
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueTopRight_TopFace colorBlueTopRight_TopFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueXNegYPosZPos aoLightValueXNegYPosZPos
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedTopLeft_NorthFace colorRedTopLeft_NorthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedTopLeft_TopFace colorRedTopLeft_TopFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenBottomRight_BottomFace colorGreenBottomRight_BottomFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenTopLeft_EastFace colorGreenTopLeft_EastFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueBottomRight_WestFace colorBlueBottomRight_WestFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedBottomRight_TopFace colorRedBottomRight_TopFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenBottomRight_TopFace colorGreenBottomRight_TopFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueXNegYNegZPos aoLightValueXNegYNegZPos
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenBottomLeft_TopFace colorGreenBottomLeft_TopFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueXPosYPosZNeg aoLightValueXPosYPosZNeg
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenBottomRight_NorthFace colorGreenBottomRight_NorthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueYPosZPos aoLightValueYPosZPos
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedTopRight_BottomFace colorRedTopRight_BottomFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueZPos aoLightValueZPos
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueYPos aoLightValueYPos
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenTopRight_NorthFace colorGreenTopRight_NorthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueXPosYNegZNeg aoLightValueXPosYNegZNeg
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueBottomLeft_BottomFace colorBlueBottomLeft_BottomFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedBottomRight_WestFace colorRedBottomRight_WestFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenSlopes colorGreenSlopes
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueBottomLeft_SouthFace colorBlueBottomLeft_SouthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorBlueTopRight_NorthFace colorBlueTopRight_NorthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorGreenTopLeft_NorthFace colorGreenTopLeft_NorthFace
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueXPosZNeg aoLightValueXPosZNeg
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/aoLightValueXPosYPos aoLightValueXPosYPos
+.field_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/colorRedBottomLeft_EastFace colorRedBottomLeft_EastFace
+.method_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/shouldRender3DInInventory ()Z shouldRender3DInInventory
+.method_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/renderBlockSlopes (Lnet/minecraft/src/Block;IIILnet/minecraft/src/RenderBlocks;Lnet/minecraft/src/IBlockAccess;)Z renderBlockSlopes
+.method_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/getRenderId ()I getRenderId
+.method_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/renderSlopesTopFace (Lnet/minecraft/src/Block;DDDIILnet/minecraft/src/RenderBlocks;I)V renderSlopesTopFace
+.method_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/renderBlockStairsUp (Lnet/minecraft/src/Block;IIILnet/minecraft/src/RenderBlocks;Lnet/minecraft/src/IBlockAccess;)Z renderBlockStairsUp
+.method_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/renderSlopesBlockWithColorMultiplier (Lnet/minecraft/src/Block;IIIFFFILnet/minecraft/src/RenderBlocks;Lnet/minecraft/src/IBlockAccess;)Z renderSlopesBlockWithColorMultiplier
+.method_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/renderWorldBlock (Lnet/minecraft/src/IBlockAccess;IIILnet/minecraft/src/Block;ILnet/minecraft/src/RenderBlocks;)Z renderWorldBlock
+.method_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/renderSlopesBlockWithAmbientOcclusion (Lnet/minecraft/src/Block;IIIFFFILnet/minecraft/src/RenderBlocks;Lnet/minecraft/src/IBlockAccess;)Z renderSlopesBlockWithAmbientOcclusion
+.method_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/renderSlopesBottomFace (Lnet/minecraft/src/Block;DDDIILnet/minecraft/src/RenderBlocks;I)V renderSlopesBottomFace
+.method_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/renderSlopesNorthFace (Lnet/minecraft/src/Block;DDDIILnet/minecraft/src/RenderBlocks;I)V renderSlopesNorthFace
+.method_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/renderInventoryBlock (Lnet/minecraft/src/Block;IILnet/minecraft/src/RenderBlocks;)V renderInventoryBlock
+.method_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/renderSlopesEastFace (Lnet/minecraft/src/Block;DDDIILnet/minecraft/src/RenderBlocks;I)V renderSlopesEastFace
+.method_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/renderSlopesSouthFace (Lnet/minecraft/src/Block;DDDIILnet/minecraft/src/RenderBlocks;I)V renderSlopesSouthFace
+.method_map metadark/mods/SuperSlopes/Slopes/RenderSlopes/renderSlopesWestFace (Lnet/minecraft/src/Block;DDDIILnet/minecraft/src/RenderBlocks;I)V renderSlopesWestFace
+.package_map metadark/mods/SuperSlopes/Corners Corners
+.class_map metadark/mods/SuperSlopes/Corners/RenderCorners RenderCorners
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueTopLeft_TopFace colorBlueTopLeft_TopFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopLeft_TopFace colorGreenTopLeft_TopFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopRight_SouthFace colorGreenTopRight_SouthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueSlopes colorBlueSlopes
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedTopLeft_SouthFace colorRedTopLeft_SouthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueBottomRight_EastFace colorBlueBottomRight_EastFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueYPosZNeg aoLightValueYPosZNeg
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueTopLeft_EastFace colorBlueTopLeft_EastFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueYNeg aoLightValueYNeg
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXNegZPos aoLightValueXNegZPos
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenBottomRight_SouthFace colorGreenBottomRight_SouthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedTopLeft_BottomFace colorRedTopLeft_BottomFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueBottomLeft_EastFace colorBlueBottomLeft_EastFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedTopRight_TopFace colorRedTopRight_TopFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueYNegZPos aoLightValueYNegZPos
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueBottomLeft_WestFace colorBlueBottomLeft_WestFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/factorWest factorWest
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedTopRight_SouthFace colorRedTopRight_SouthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenBottomLeft_EastFace colorGreenBottomLeft_EastFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueBottomRight_NorthFace colorBlueBottomRight_NorthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenBottomRight_WestFace colorGreenBottomRight_WestFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXNegZNeg aoLightValueXNegZNeg
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/factorNorth factorNorth
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/field_22352_G field_22352_G
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedBottomLeft_BottomFace colorRedBottomLeft_BottomFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueBottomRight_TopFace colorBlueBottomRight_TopFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/factorSouth factorSouth
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/factorBottom factorBottom
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedTopLeft_EastFace colorRedTopLeft_EastFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXNeg aoLightValueXNeg
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueYNegZNeg aoLightValueYNegZNeg
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXNegYPosZNeg aoLightValueXNegYPosZNeg
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopLeft_SouthFace colorGreenTopLeft_SouthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopRight_EastFace colorGreenTopRight_EastFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/factorTop factorTop
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/field_27511_cfgGrassFix field_27511_cfgGrassFix
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedBottomLeft_TopFace colorRedBottomLeft_TopFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueTopRight_BottomFace colorBlueTopRight_BottomFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedBottomRight_SouthFace colorRedBottomRight_SouthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueTopLeft_SouthFace colorBlueTopLeft_SouthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenBottomRight_EastFace colorGreenBottomRight_EastFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueTopRight_SouthFace colorBlueTopRight_SouthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueBottomRight_BottomFace colorBlueBottomRight_BottomFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedBottomLeft_SouthFace colorRedBottomLeft_SouthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXNegYNeg aoLightValueXNegYNeg
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopLeft_WestFace colorGreenTopLeft_WestFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueTopRight_WestFace colorBlueTopRight_WestFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopRight_BottomFace colorGreenTopRight_BottomFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueZNeg aoLightValueZNeg
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedBottomLeft_WestFace colorRedBottomLeft_WestFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueThis aoLightValueThis
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueBottomLeft_TopFace colorBlueBottomLeft_TopFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueBottomRight_SouthFace colorBlueBottomRight_SouthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/enableAO enableAO
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedBottomLeft_NorthFace colorRedBottomLeft_NorthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueTopRight_EastFace colorBlueTopRight_EastFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedSlopes colorRedSlopes
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXPos aoLightValueXPos
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenBottomLeft_NorthFace colorGreenBottomLeft_NorthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenBottomLeft_SouthFace colorGreenBottomLeft_SouthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopRight_TopFace colorGreenTopRight_TopFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedBottomRight_EastFace colorRedBottomRight_EastFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedTopRight_EastFace colorRedTopRight_EastFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXNegYNegZNeg aoLightValueXNegYNegZNeg
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/factorEast factorEast
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedBottomRight_BottomFace colorRedBottomRight_BottomFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueBottomLeft_NorthFace colorBlueBottomLeft_NorthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueTopLeft_BottomFace colorBlueTopLeft_BottomFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedTopLeft_WestFace colorRedTopLeft_WestFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXNegYPos aoLightValueXNegYPos
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXPosZPos aoLightValueXPosZPos
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenBottomLeft_BottomFace colorGreenBottomLeft_BottomFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedTopRight_NorthFace colorRedTopRight_NorthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedBottomRight_NorthFace colorRedBottomRight_NorthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXPosYNegZPos aoLightValueXPosYNegZPos
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopLeft_BottomFace colorGreenTopLeft_BottomFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedTopRight_WestFace colorRedTopRight_WestFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopRight_WestFace colorGreenTopRight_WestFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueTopLeft_NorthFace colorBlueTopLeft_NorthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXPosYNeg aoLightValueXPosYNeg
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenBottomLeft_WestFace colorGreenBottomLeft_WestFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueTopLeft_WestFace colorBlueTopLeft_WestFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXPosYPosZPos aoLightValueXPosYPosZPos
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueTopRight_TopFace colorBlueTopRight_TopFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXNegYPosZPos aoLightValueXNegYPosZPos
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedTopLeft_NorthFace colorRedTopLeft_NorthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedTopLeft_TopFace colorRedTopLeft_TopFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenBottomRight_BottomFace colorGreenBottomRight_BottomFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopLeft_EastFace colorGreenTopLeft_EastFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueBottomRight_WestFace colorBlueBottomRight_WestFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedBottomRight_TopFace colorRedBottomRight_TopFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenBottomRight_TopFace colorGreenBottomRight_TopFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXNegYNegZPos aoLightValueXNegYNegZPos
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenBottomLeft_TopFace colorGreenBottomLeft_TopFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXPosYPosZNeg aoLightValueXPosYPosZNeg
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenBottomRight_NorthFace colorGreenBottomRight_NorthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueYPosZPos aoLightValueYPosZPos
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedTopRight_BottomFace colorRedTopRight_BottomFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueZPos aoLightValueZPos
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueYPos aoLightValueYPos
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopRight_NorthFace colorGreenTopRight_NorthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXPosYNegZNeg aoLightValueXPosYNegZNeg
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueBottomLeft_BottomFace colorBlueBottomLeft_BottomFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedBottomRight_WestFace colorRedBottomRight_WestFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenSlopes colorGreenSlopes
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueBottomLeft_SouthFace colorBlueBottomLeft_SouthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueTopRight_NorthFace colorBlueTopRight_NorthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopLeft_NorthFace colorGreenTopLeft_NorthFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXPosZNeg aoLightValueXPosZNeg
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXPosYPos aoLightValueXPosYPos
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedBottomLeft_EastFace colorRedBottomLeft_EastFace
+.method_map metadark/mods/SuperSlopes/Corners/RenderCorners/shouldRender3DInInventory ()Z shouldRender3DInInventory
+.method_map metadark/mods/SuperSlopes/Corners/RenderCorners/renderCornersSouthFace (Lnet/minecraft/src/Block;DDDIILnet/minecraft/src/RenderBlocks;I)V renderCornersSouthFace
+.method_map metadark/mods/SuperSlopes/Corners/RenderCorners/renderCornersTopFace (Lnet/minecraft/src/Block;DDDIILnet/minecraft/src/RenderBlocks;I)V renderCornersTopFace
+.method_map metadark/mods/SuperSlopes/Corners/RenderCorners/renderCornersBlockWithAmbientOcclusion (Lnet/minecraft/src/Block;IIIFFFILnet/minecraft/src/RenderBlocks;Lnet/minecraft/src/IBlockAccess;)Z renderCornersBlockWithAmbientOcclusion
+.method_map metadark/mods/SuperSlopes/Corners/RenderCorners/renderCornersBottomFace (Lnet/minecraft/src/Block;DDDIILnet/minecraft/src/RenderBlocks;I)V renderCornersBottomFace
+.method_map metadark/mods/SuperSlopes/Corners/RenderCorners/getRenderId ()I getRenderId
+.method_map metadark/mods/SuperSlopes/Corners/RenderCorners/renderBlockCorners (Lnet/minecraft/src/Block;IIILnet/minecraft/src/RenderBlocks;Lnet/minecraft/src/IBlockAccess;)Z renderBlockCorners
+.method_map metadark/mods/SuperSlopes/Corners/RenderCorners/renderCornersNorthFace (Lnet/minecraft/src/Block;DDDIILnet/minecraft/src/RenderBlocks;I)V renderCornersNorthFace
+.method_map metadark/mods/SuperSlopes/Corners/RenderCorners/renderWorldBlock (Lnet/minecraft/src/IBlockAccess;IIILnet/minecraft/src/Block;ILnet/minecraft/src/RenderBlocks;)Z renderWorldBlock
+.method_map metadark/mods/SuperSlopes/Corners/RenderCorners/renderCornersEastFace (Lnet/minecraft/src/Block;DDDIILnet/minecraft/src/RenderBlocks;I)V renderCornersEastFace
+.method_map metadark/mods/SuperSlopes/Corners/RenderCorners/renderInventoryBlock (Lnet/minecraft/src/Block;IILnet/minecraft/src/RenderBlocks;)V renderInventoryBlock
+.method_map metadark/mods/SuperSlopes/Corners/RenderCorners/renderCornersBlockWithColorMultiplier (Lnet/minecraft/src/Block;IIIFFFILnet/minecraft/src/RenderBlocks;Lnet/minecraft/src/IBlockAccess;)Z renderCornersBlockWithColorMultiplier
+.method_map metadark/mods/SuperSlopes/Corners/RenderCorners/renderCornersWestFace (Lnet/minecraft/src/Block;DDDIILnet/minecraft/src/RenderBlocks;I)V renderCornersWestFace
+.class_map metadark/mods/SuperSlopes/Corners/CommonInit CommonInit
+.method_map metadark/mods/SuperSlopes/Corners/CommonInit/loadConfig ()V loadConfig
+.method_map metadark/mods/SuperSlopes/Corners/CommonInit/registerBlockModel ()V registerBlockModel
+.method_map metadark/mods/SuperSlopes/Corners/CommonInit/addRecipes ()V addRecipes
+.method_map metadark/mods/SuperSlopes/Corners/CommonInit/addLocalizations ()V addLocalizations
+.class_map metadark/mods/SuperSlopes/Corners/ClientInit ClientInit
+.method_map metadark/mods/SuperSlopes/Corners/ClientInit/registerBlockModel ()V registerBlockModel
+.method_map metadark/mods/SuperSlopes/Corners/ClientInit/addLocalizations ()V addLocalizations
+.class_map metadark/mods/SuperSlopes/Corners/Corners Corners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevLimeWoolCorners BlockKaevLimeWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevSnowCorners BlockKaevSnowCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevLimeWoolCorners ItemKaevLimeWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevBlueWoolCorners BlockKaevBlueWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevStoneCorners BlockKaevStoneCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevPinkWoolCorners BlockKaevPinkWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevBlackWoolCorners ItemKaevBlackWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevStoneCorners ItemKaevStoneCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevGrassCorners ItemKaevGrassCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevGrayWoolCorners BlockKaevGrayWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevCobblestoneCorners ItemKaevCobblestoneCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevWoodCorners BlockKaevWoodCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevCyanWoolCorners BlockKaevCyanWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevMagentaWoolCorners BlockKaevMagentaWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevMagentaWoolCorners ItemKaevMagentaWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevRedWoolCorners ItemKaevRedWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevSilverWoolCorners ItemKaevSilverWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/instance instance
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevGrayWoolCorners ItemKaevGrayWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevGreenWoolCorners BlockKaevGreenWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevWhiteWoolCorners BlockKaevWhiteWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevGoldCorners BlockKaevGoldCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevGravelCorners BlockKaevGravelCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/init init
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevWoodCorners ItemKaevWoodCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevGrassCorners BlockKaevGrassCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevObsidianCorners ItemKaevObsidianCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/LightOpacity LightOpacity
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevSandstoneCorners ItemKaevSandstoneCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevDirtCorners BlockKaevDirtCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevPurpleWoolCorners ItemKaevPurpleWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevGlassCorners BlockKaevGlassCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevPurpleWoolCorners BlockKaevPurpleWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevCyanWoolCorners ItemKaevCyanWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevSilverWoolCorners BlockKaevSilverWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevOrangeWoolCorners ItemKaevOrangeWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevLightBlueWoolCorners ItemKaevLightBlueWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevYellowWoolCorners BlockKaevYellowWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevWhiteWoolCorners ItemKaevWhiteWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevOrangeWoolCorners BlockKaevOrangeWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevSandCorners ItemKaevSandCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevGravelCorners ItemKaevGravelCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevGlassCorners ItemKaevGlassCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevDirtCorners ItemKaevDirtCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevDiamondCorners BlockKaevDiamondCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevSnowCorners ItemKaevSnowCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevSteelCorners BlockKaevSteelCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevBrownWoolCorners ItemKaevBrownWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevDiamondCorners ItemKaevDiamondCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevBlueWoolCorners ItemKaevBlueWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevObsidianCorners BlockKaevObsidianCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevBrownWoolCorners BlockKaevBrownWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevRedWoolCorners BlockKaevRedWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevGoldCorners ItemKaevGoldCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevSandCorners BlockKaevSandCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/CornersRenderID CornersRenderID
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevPinkWoolCorners ItemKaevPinkWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevCobblestoneCorners BlockKaevCobblestoneCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevLightBlueWoolCorners BlockKaevLightBlueWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevYellowWoolCorners ItemKaevYellowWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevSteelCorners ItemKaevSteelCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevBlackWoolCorners BlockKaevBlackWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevBricksCorners BlockKaevBricksCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevBricksCorners ItemKaevBricksCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/ItemKaevGreenWoolCorners ItemKaevGreenWoolCorners
+.field_map metadark/mods/SuperSlopes/Corners/Corners/props props
+.field_map metadark/mods/SuperSlopes/Corners/Corners/BlockKaevSandstoneCorners BlockKaevSandstoneCorners
+.method_map metadark/mods/SuperSlopes/Corners/Corners/prepareProps ()V prepareProps
+.method_map metadark/mods/SuperSlopes/Corners/Corners/load (Lcpw/mods/fml/common/event/FMLInitializationEvent;)V load
+.method_map metadark/mods/SuperSlopes/Corners/Corners/preload (Lcpw/mods/fml/common/event/FMLPreInitializationEvent;)V preload
+.class_map metadark/mods/SuperSlopes/Corners/ItemCorners ItemCorners
+.field_map metadark/mods/SuperSlopes/Corners/ItemCorners/Kaevator_Materials Kaevator_Materials
+.field_map metadark/mods/SuperSlopes/Corners/ItemCorners/material material
+.method_map metadark/mods/SuperSlopes/Corners/ItemCorners/func_77640_w ()Lnet/minecraft/src/CreativeTabs; func_77640_w
+.method_map metadark/mods/SuperSlopes/Corners/ItemCorners/func_77647_b (I)I func_77647_b
+.method_map metadark/mods/SuperSlopes/Corners/ItemCorners/func_77667_c (Lnet/minecraft/src/ItemStack;)Ljava/lang/String; func_77667_c
+.method_map metadark/mods/SuperSlopes/Corners/ItemCorners/func_77633_a (ILnet/minecraft/src/CreativeTabs;Ljava/util/List;)V func_77633_a
+.class_map metadark/mods/SuperSlopes/Corners/BlockCorners BlockCorners
+.method_map metadark/mods/SuperSlopes/Corners/BlockCorners/renderAsNormalBlock ()Z c
+.method_map metadark/mods/SuperSlopes/Corners/BlockCorners/addCollidingBlockToList (Lnet/minecraft/src/World;IIILnet/minecraft/src/AxisAlignedBB;Ljava/util/List;Lnet/minecraft/src/Entity;)V a
+.method_map metadark/mods/SuperSlopes/Corners/BlockCorners/onBlockClicked (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityPlayer;)V a
+.method_map metadark/mods/SuperSlopes/Corners/BlockCorners/isOpaqueCube ()Z d
+.method_map metadark/mods/SuperSlopes/Corners/BlockCorners/getRenderType ()I b
+.method_map metadark/mods/SuperSlopes/Corners/BlockCorners/onBlockPlacedBy (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityLiving;)V a
+.method_map metadark/mods/SuperSlopes/Corners/BlockCorners/shouldSideBeRendered (Lnet/minecraft/src/IBlockAccess;IIII)Z c
+.method_map metadark/mods/SuperSlopes/Corners/BlockCorners/damageDropped (I)I b
+.class_map metadark/mods/SuperSlopes/PropertyManager PropertyManager
+.field_map metadark/mods/SuperSlopes/PropertyManager/fileName fileName
+.field_map metadark/mods/SuperSlopes/PropertyManager/lines lines
+.field_map metadark/mods/SuperSlopes/PropertyManager/props props
+.method_map metadark/mods/SuperSlopes/PropertyManager/save ()V save
+.method_map metadark/mods/SuperSlopes/PropertyManager/getString (Ljava/lang/String;)Ljava/lang/String; getString
+.method_map metadark/mods/SuperSlopes/PropertyManager/containsKey (Ljava/lang/String;)Z containsKey
+.method_map metadark/mods/SuperSlopes/PropertyManager/getBoolean (Ljava/lang/String;)Z getBoolean
+.method_map metadark/mods/SuperSlopes/PropertyManager/setString (Ljava/lang/String;Ljava/lang/String;)V setString
+.method_map metadark/mods/SuperSlopes/PropertyManager/getFloat (Ljava/lang/String;)F getFloat
+.method_map metadark/mods/SuperSlopes/PropertyManager/getLong (Ljava/lang/String;)J getLong
+.method_map metadark/mods/SuperSlopes/PropertyManager/keyExists (Ljava/lang/String;)Z keyExists
+.method_map metadark/mods/SuperSlopes/PropertyManager/getProperty (Ljava/lang/String;)Ljava/lang/String; getProperty
+.method_map metadark/mods/SuperSlopes/PropertyManager/getDouble (Ljava/lang/String;)D getDouble
+.method_map metadark/mods/SuperSlopes/PropertyManager/getInt (Ljava/lang/String;)I getInt
+.method_map metadark/mods/SuperSlopes/PropertyManager/setBoolean (Ljava/lang/String;Z)V setBoolean
+.method_map metadark/mods/SuperSlopes/PropertyManager/getLong (Ljava/lang/String;J)J getLong
+.method_map metadark/mods/SuperSlopes/PropertyManager/removeKey (Ljava/lang/String;)V removeKey
+.method_map metadark/mods/SuperSlopes/PropertyManager/load ()V load
+.method_map metadark/mods/SuperSlopes/PropertyManager/setDouble (Ljava/lang/String;D)V setDouble
+.method_map metadark/mods/SuperSlopes/PropertyManager/setInt (Ljava/lang/String;I)V setInt
+.method_map metadark/mods/SuperSlopes/PropertyManager/getFloat (Ljava/lang/String;F)F getFloat
+.method_map metadark/mods/SuperSlopes/PropertyManager/getDouble (Ljava/lang/String;D)D getDouble
+.method_map metadark/mods/SuperSlopes/PropertyManager/getString (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; getString
+.method_map metadark/mods/SuperSlopes/PropertyManager/getInt (Ljava/lang/String;I)I getInt
+.method_map metadark/mods/SuperSlopes/PropertyManager/getBoolean (Ljava/lang/String;Z)Z getBoolean
+.method_map metadark/mods/SuperSlopes/PropertyManager/setFloat (Ljava/lang/String;F)V setFloat
+.method_map metadark/mods/SuperSlopes/PropertyManager/returnMap ()Ljava/util/Map; returnMap
+.method_map metadark/mods/SuperSlopes/PropertyManager/setLong (Ljava/lang/String;J)V setLong
 .package_map cpw/mods/fml/relauncher relauncher
 .class_map cpw/mods/fml/relauncher/FMLRelauncher FMLRelauncher
 .field_map cpw/mods/fml/relauncher/FMLRelauncher/popupWindow popupWindow
