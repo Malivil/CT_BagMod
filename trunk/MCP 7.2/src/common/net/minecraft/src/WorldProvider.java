@@ -33,8 +33,6 @@ public abstract class WorldProvider
     /** Array for sunrise/sunset colors (RGBA) */
     private float[] colorsSunriseSunset = new float[4];
 
-    private SkyProvider skyProvider = null;
-
     /**
      * associate an existing world with a World provider, and setup its lightbrightness table
      */
@@ -258,11 +256,9 @@ public abstract class WorldProvider
      * Returns the dimension's name, e.g. "The End", "Nether", or "Overworld".
      */
     public abstract String getDimensionName();
-    
 
     /*======================================= Forge Start =========================================*/
-    private int dimensionID = 0;
-
+    private SkyProvider skyProvider = null;
     /**
      * Sets the providers current dimension ID, used in default getSaveFolder()
      * Added to allow default providers to be registered for multiple dimensions.
@@ -271,7 +267,7 @@ public abstract class WorldProvider
      */
     public void setDimension(int dim)
     {
-        this.dimensionID = dim;
+        this.dimensionId = dim;
     }
 
     /**
@@ -281,7 +277,7 @@ public abstract class WorldProvider
      */
     public String getSaveFolder()
     {
-        return (dimensionID == 0 ? null : "DIM" + dimensionID);
+        return (dimensionId == 0 ? null : "DIM" + dimensionId);
     }
 
     /**
@@ -363,5 +359,135 @@ public abstract class WorldProvider
         }
 
         return var5;
+    }
+
+    /*======================================= Start Moved From World =========================================*/
+
+    public BiomeGenBase getBiomeGenForCoords(int x, int z)
+    {
+        return worldObj.getBiomeGenForCoordsBody(x, z);
+    }
+
+    public boolean isDaytime()
+    {
+        return worldObj.skylightSubtracted < 4;
+    }
+
+    @SideOnly(Side.CLIENT)
+    public Vec3 getSkyColor(Entity cameraEntity, float partialTicks)
+    {
+        return worldObj.getSkyColorBody(cameraEntity, partialTicks);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public Vec3 drawClouds(float partialTicks)
+    {
+        return worldObj.drawCloudsBody(partialTicks);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public float getStarBrightness(float par1)
+    {
+        return worldObj.getStarBrightnessBody(par1);
+    }
+
+    public void setAllowedSpawnTypes(boolean allowHostile, boolean allowPeaceful)
+    {
+        worldObj.spawnHostileMobs = allowHostile;
+        worldObj.spawnPeacefulMobs = allowPeaceful;
+    }
+
+    public void calculateInitialWeather()
+    {
+        worldObj.calculateInitialWeatherBody();
+    }
+
+    public void updateWeather()
+    {
+        worldObj.updateWeatherBody();
+    }
+
+    public void toggleRain()
+    {
+        worldObj.worldInfo.setRainTime(1);
+    }
+
+    public boolean canBlockFreeze(int x, int y, int z, boolean byWater)
+    {
+        return worldObj.canBlockFreezeBody(x, y, z, byWater);
+    }
+
+    public boolean canSnowAt(int x, int y, int z)
+    {
+        return worldObj.canSnowAtBody(x, y, z);
+    }
+
+    public void setWorldTime(long time)
+    {
+        worldObj.worldInfo.setWorldTime(time);
+    }
+
+    public long getSeed()
+    {
+        return worldObj.worldInfo.getSeed();
+    }
+
+    public long getWorldTime()
+    {
+        return worldObj.worldInfo.getWorldTime();
+    }
+
+    public ChunkCoordinates getSpawnPoint()
+    {
+        WorldInfo info = worldObj.worldInfo;
+        return new ChunkCoordinates(info.getSpawnX(), info.getSpawnY(), info.getSpawnZ());
+    }
+
+    public void setSpawnPoint(int x, int y, int z)
+    {
+        worldObj.worldInfo.setSpawnPosition(x, y, z);
+    }
+
+    public boolean canMineBlock(EntityPlayer player, int x, int y, int z)
+    {
+        return worldObj.canMineBlockBody(player, x, y, z);
+    }
+
+    public boolean isBlockHighHumidity(int x, int y, int z)
+    {
+        return worldObj.getBiomeGenForCoords(x, z).isHighHumidity();
+    }
+
+    public int getHeight()
+    {
+        return 256;
+    }
+
+    public int getActualHeight()
+    {
+        return hasNoSky ? 128 : 256;
+    }
+
+    public double getHorizon()
+    {
+        return worldObj.worldInfo.getTerrainType().getHorizon(worldObj);
+    }
+
+    public void resetRainAndThunder()
+    {
+        worldObj.worldInfo.setRainTime(0);
+        worldObj.worldInfo.setRaining(false);
+        worldObj.worldInfo.setThunderTime(0);
+        worldObj.worldInfo.setThundering(false);
+    }
+    
+    public boolean canDoLightning(Chunk chunk)
+    {
+        return true;
+    }
+    
+    public boolean canDoRainSnowIce(Chunk chunk)
+    {
+        return true;
     }
 }

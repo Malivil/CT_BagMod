@@ -1246,7 +1246,7 @@ public abstract class Minecraft implements Runnable, IPlayerUsage
 
                 if (this.thePlayer.canPlayerEdit(var3, var4, var5))
                 {
-                    this.effectRenderer.addBlockHitEffects(var3, var4, var5, this.objectMouseOver.sideHit);
+                    this.effectRenderer.addBlockHitEffects(var3, var4, var5, this.objectMouseOver);
                     this.thePlayer.swingItem();
                 }
             }

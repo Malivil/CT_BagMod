@@ -7,6 +7,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
+import net.minecraftforge.common.ForgeChunkManager;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class ChunkProviderServer implements IChunkProvider
@@ -18,7 +20,7 @@ public class ChunkProviderServer implements IChunkProvider
     private Set chunksToUnload = new HashSet();
     private Chunk defaultEmptyChunk;
     private IChunkProvider currentChunkProvider;
-    private IChunkLoader currentChunkLoader;
+    IChunkLoader currentChunkLoader;
 
     /**
      * if this is false, the defaultEmptyChunk will be returned by the provider
@@ -93,7 +95,11 @@ public class ChunkProviderServer implements IChunkProvider
 
         if (var5 == null)
         {
-            var5 = this.safeLoadChunk(par1, par2);
+            var5 = ForgeChunkManager.fetchDormantChunk(var3);
+            if (var5 == null)
+            {
+                var5 = this.safeLoadChunk(par1, par2);
+            }
 
             if (var5 == null)
             {
@@ -274,6 +280,11 @@ public class ChunkProviderServer implements IChunkProvider
     {
         if (!this.currentServer.canNotSave)
         {
+            for (ChunkCoordIntPair forced : currentServer.getPersistentChunks().keySet())
+            {
+                this.chunksToUnload.remove(ChunkCoordIntPair.chunkXZ2Int(forced.chunkXPos, forced.chunkZPos));
+            }
+
             for (int var1 = 0; var1 < 100; ++var1)
             {
                 if (!this.chunksToUnload.isEmpty())
@@ -286,6 +297,7 @@ public class ChunkProviderServer implements IChunkProvider
                     this.chunksToUnload.remove(var2);
                     this.loadedChunkHashMap.remove(var2.longValue());
                     this.loadedChunks.remove(var3);
+                    ForgeChunkManager.putDormantChunk(ChunkCoordIntPair.chunkXZ2Int(var3.xPosition, var3.zPosition), var3);
                 }
             }
 

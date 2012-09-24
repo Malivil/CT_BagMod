@@ -1,6 +1,9 @@
 package net.minecraft.src;
 
-public class ItemSeeds extends Item
+import net.minecraftforge.common.EnumPlantType;
+import net.minecraftforge.common.IPlantable;
+
+public class ItemSeeds extends Item implements IPlantable
 {
     /**
      * The type of block this seed turns into (wheat or pumpkin stems for instance)
@@ -47,5 +50,23 @@ public class ItemSeeds extends Item
         {
             return false;
         }
+    }
+
+    @Override
+    public EnumPlantType getPlantType(World world, int x, int y, int z)
+    {
+        return (blockType == Block.netherStalk.blockID ? EnumPlantType.Nether : EnumPlantType.Crop);
+    }
+
+    @Override
+    public int getPlantID(World world, int x, int y, int z)
+    {
+        return blockType;
+    }
+
+    @Override
+    public int getPlantMetadata(World world, int x, int y, int z)
+    {
+        return 0;
     }
 }

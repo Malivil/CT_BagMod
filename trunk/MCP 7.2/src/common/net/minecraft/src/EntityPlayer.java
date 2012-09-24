@@ -430,7 +430,7 @@ public abstract class EntityPlayer extends EntityLiving implements ICommandSende
     /**
      * sets current screen to null (used on escape buttons of GUIs)
      */
-    protected void closeScreen()
+    public void closeScreen()
     {
         this.craftingInventory = this.inventorySlots;
     }

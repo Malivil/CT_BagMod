@@ -1,8 +1,13 @@
 package net.minecraftforge.common;
 
 import java.util.*;
+import java.util.Map.Entry;
+
+import com.google.common.collect.ArrayListMultimap;
+import com.google.common.collect.ListMultimap;
 
 import cpw.mods.fml.common.FMLLog;
+import cpw.mods.fml.common.Loader;
 
 import net.minecraft.src.*;
 import net.minecraftforge.event.entity.item.ItemTossEvent;
