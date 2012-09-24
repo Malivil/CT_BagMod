@@ -2,6 +2,8 @@ package net.minecraft.src;
 
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
+
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -10,6 +12,8 @@ import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
 import net.minecraft.server.MinecraftServer;
+import net.minecraftforge.common.ChestGenHooks;
+import static net.minecraftforge.common.ChestGenHooks.*;
 import net.minecraftforge.common.DimensionManager;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.WorldEvent;
@@ -48,7 +52,7 @@ public class WorldServer extends World
      * applied locally and send to clients.
      */
     private int blockEventCacheIndex = 0;
-    private static final WeightedRandomChestContent[] bonusChestContent = new WeightedRandomChestContent[] {new WeightedRandomChestContent(Item.stick.shiftedIndex, 0, 1, 3, 10), new WeightedRandomChestContent(Block.planks.blockID, 0, 1, 3, 10), new WeightedRandomChestContent(Block.wood.blockID, 0, 1, 3, 10), new WeightedRandomChestContent(Item.axeStone.shiftedIndex, 0, 1, 1, 3), new WeightedRandomChestContent(Item.axeWood.shiftedIndex, 0, 1, 1, 5), new WeightedRandomChestContent(Item.pickaxeStone.shiftedIndex, 0, 1, 1, 3), new WeightedRandomChestContent(Item.pickaxeWood.shiftedIndex, 0, 1, 1, 5), new WeightedRandomChestContent(Item.appleRed.shiftedIndex, 0, 2, 3, 5), new WeightedRandomChestContent(Item.bread.shiftedIndex, 0, 2, 3, 3)};
+    public static final WeightedRandomChestContent[] bonusChestContent = new WeightedRandomChestContent[] {new WeightedRandomChestContent(Item.stick.shiftedIndex, 0, 1, 3, 10), new WeightedRandomChestContent(Block.planks.blockID, 0, 1, 3, 10), new WeightedRandomChestContent(Block.wood.blockID, 0, 1, 3, 10), new WeightedRandomChestContent(Item.axeStone.shiftedIndex, 0, 1, 1, 3), new WeightedRandomChestContent(Item.axeWood.shiftedIndex, 0, 1, 1, 5), new WeightedRandomChestContent(Item.pickaxeStone.shiftedIndex, 0, 1, 1, 3), new WeightedRandomChestContent(Item.pickaxeWood.shiftedIndex, 0, 1, 1, 5), new WeightedRandomChestContent(Item.appleRed.shiftedIndex, 0, 2, 3, 5), new WeightedRandomChestContent(Item.bread.shiftedIndex, 0, 2, 3, 3)};
 
     /** An IntHashMap of entity IDs (integers) to their Entity objects. */
     private IntHashMap entityIdMap;
@@ -74,6 +78,7 @@ public class WorldServer extends World
         {
             this.pendingTickListEntries = new TreeSet();
         }
+        MinecraftForge.EVENT_BUS.post(new WorldEvent.Load(this));
         DimensionManager.setWorld(par4, this);
     }
 
@@ -183,10 +188,7 @@ public class WorldServer extends World
 
     private void resetRainAndThunder()
     {
-        this.worldInfo.setRainTime(0);
-        this.worldInfo.setRaining(false);
-        this.worldInfo.setThunderTime(0);
-        this.worldInfo.setThundering(false);
+        provider.resetRainAndThunder();
     }
 
     public boolean areAllPlayersAsleep()
@@ -274,7 +276,7 @@ public class WorldServer extends World
             int var10;
             int var11;
 
-            if (this.rand.nextInt(100000) == 0 && this.isRaining() && this.isThundering())
+            if (provider.canDoLightning(var7) && this.rand.nextInt(100000) == 0 && this.isRaining() && this.isThundering())
             {
                 this.updateLCG = this.updateLCG * 3 + 1013904223;
                 var8 = this.updateLCG >> 2;
@@ -292,7 +294,7 @@ public class WorldServer extends World
             this.theProfiler.endStartSection("iceandsnow");
             int var13;
 
-            if (this.rand.nextInt(16) == 0)
+            if (provider.canDoRainSnowIce(var7) && this.rand.nextInt(16) == 0)
             {
                 this.updateLCG = this.updateLCG * 3 + 1013904223;
                 var8 = this.updateLCG >> 2;
@@ -366,7 +368,8 @@ public class WorldServer extends World
     public void scheduleBlockUpdate(int par1, int par2, int par3, int par4, int par5)
     {
         NextTickListEntry var6 = new NextTickListEntry(par1, par2, par3, par4);
-        byte var7 = 8;
+        boolean isForced = getPersistentChunks().containsKey(new ChunkCoordIntPair(var6.xCoord >> 4, var6.zCoord >> 4));
+        byte var7 = isForced ? (byte)0 : 8;
 
         if (this.scheduledUpdatesAreImmediate)
         {
@@ -422,7 +425,7 @@ public class WorldServer extends World
      */
     public void updateEntities()
     {
-        if (this.playerEntities.isEmpty())
+        if (this.playerEntities.isEmpty() && getPersistentChunks().isEmpty())
         {
             if (this.updateEntityTick++ >= 60)
             {
@@ -466,7 +469,8 @@ public class WorldServer extends World
 
                 this.pendingTickListEntries.remove(var4);
                 this.field_73064_N.remove(var4);
-                byte var5 = 8;
+                boolean isForced = getPersistentChunks().containsKey(new ChunkCoordIntPair(var4.xCoord >> 4, var4.zCoord >> 4));
+                byte var5 = isForced ? (byte)0 : 8;
 
                 if (this.checkChunksExist(var4.xCoord - var5, var4.yCoord - var5, var4.zCoord - var5, var4.xCoord + var5, var4.yCoord + var5, var4.zCoord + var5))
                 {
@@ -576,7 +580,7 @@ public class WorldServer extends World
                         TileEntity entity = (TileEntity)obj;
                         if (!entity.isInvalid())
                         {
-                            if (entity.xCoord >= par1 && entity.yCoord >= par2 && entity.zCoord >= par3 && 
+                            if (entity.xCoord >= par1 && entity.yCoord >= par2 && entity.zCoord >= par3 &&
                                 entity.xCoord <= par4 && entity.yCoord <= par5 && entity.zCoord <= par6)
                             {
                                 var7.add(entity);
@@ -594,6 +598,11 @@ public class WorldServer extends World
      * Called when checking if a certain block can be mined or not. The 'spawn safe zone' check is located here.
      */
     public boolean canMineBlock(EntityPlayer par1EntityPlayer, int par2, int par3, int par4)
+    {
+        return super.canMineBlock(par1EntityPlayer, par2, par3, par4);
+    }
+
+    public boolean canMineBlockBody(EntityPlayer par1EntityPlayer, int par2, int par3, int par4)
     {
         int var5 = MathHelper.abs_int(par2 - this.worldInfo.getSpawnX());
         int var6 = MathHelper.abs_int(par4 - this.worldInfo.getSpawnZ());
@@ -686,7 +695,7 @@ public class WorldServer extends World
      */
     protected void createBonusChest()
     {
-        WorldGeneratorBonusChest var1 = new WorldGeneratorBonusChest(bonusChestContent, 10);
+        WorldGeneratorBonusChest var1 = new WorldGeneratorBonusChest(ChestGenHooks.getItems(BONUS_CHEST), ChestGenHooks.getCount(BONUS_CHEST, rand));
 
         for (int var2 = 0; var2 < 10; ++var2)
         {
@@ -987,5 +996,10 @@ public class WorldServer extends World
     public PlayerManager getPlayerManager()
     {
         return this.thePlayerManager;
+    }
+
+    public File getChunkSaveLocation()
+    {
+        return ((AnvilChunkLoader)theChunkProviderServer.currentChunkLoader).chunkSaveLocation;
     }
 }

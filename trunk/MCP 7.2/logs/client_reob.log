@@ -4028,38 +4028,61 @@ FD: net/minecraft/src/WorldProvider/hasNoSky xc/e
 FD: net/minecraft/src/WorldProvider/isHellWorld xc/d
 FD: net/minecraft/src/WorldProvider/worldChunkMgr xc/c
 FD: net/minecraft/src/WorldProvider/skyProvider xc/skyProvider
-FD: net/minecraft/src/WorldProvider/dimensionID xc/dimensionID
 FD: net/minecraft/src/WorldProvider/lightBrightnessTable xc/f
 FD: net/minecraft/src/WorldProvider/colorsSunriseSunset xc/h
 FD: net/minecraft/src/WorldProvider/dimensionId xc/g
+MD: net/minecraft/src/WorldProvider/canDoRainSnowIce (Lnet/minecraft/src/Chunk;)Z xc/canDoRainSnowIce (Lwl;)Z
 MD: net/minecraft/src/WorldProvider/getDepartMessage ()Ljava/lang/String; xc/getDepartMessage ()Ljava/lang/String;
 MD: net/minecraft/src/WorldProvider/getCloudHeight ()F xc/f ()F
-MD: net/minecraft/src/WorldProvider/isSkyColored ()Z xc/g ()Z
-MD: net/minecraft/src/WorldProvider/getMoonPhase (JF)I xc/b (JF)I
-MD: net/minecraft/src/WorldProvider/registerWorld (Lnet/minecraft/src/World;)V xc/a (Lup;)V
-MD: net/minecraft/src/WorldProvider/getSkyProvider ()Lnet/minecraftforge/client/SkyProvider; xc/getSkyProvider ()Lnet/minecraftforge/client/SkyProvider;
 MD: net/minecraft/src/WorldProvider/doesXZShowFog (II)Z xc/b (II)Z
-MD: net/minecraft/src/WorldProvider/getFogColor (FF)Lnet/minecraft/src/Vec3; xc/b (FF)Lajs;
 MD: net/minecraft/src/WorldProvider/getWorldHasVoidParticles ()Z xc/j ()Z
-MD: net/minecraft/src/WorldProvider/getAverageGroundLevel ()I xc/i ()I
 MD: net/minecraft/src/WorldProvider/getMovementFactor ()D xc/getMovementFactor ()D
+MD: net/minecraft/src/WorldProvider/canBlockFreeze (IIIZ)Z xc/canBlockFreeze (IIIZ)Z
 MD: net/minecraft/src/WorldProvider/getEntrancePortalLocation ()Lnet/minecraft/src/ChunkCoordinates; xc/h ()Lj;
-MD: net/minecraft/src/WorldProvider/canCoordinateBeSpawn (II)Z xc/a (II)Z
-MD: net/minecraft/src/WorldProvider/getDimensionName ()Ljava/lang/String; xc/l ()Ljava/lang/String;
+MD: net/minecraft/src/WorldProvider/canDoLightning (Lnet/minecraft/src/Chunk;)Z xc/canDoLightning (Lwl;)Z
+MD: net/minecraft/src/WorldProvider/getWorldTime ()J xc/getWorldTime ()J
+MD: net/minecraft/src/WorldProvider/canSnowAt (III)Z xc/canSnowAt (III)Z
+MD: net/minecraft/src/WorldProvider/getStarBrightness (F)F xc/getStarBrightness (F)F
 MD: net/minecraft/src/WorldProvider/calculateCelestialAngle (JF)F xc/a (JF)F
-MD: net/minecraft/src/WorldProvider/isSurfaceWorld ()Z xc/d ()Z
-MD: net/minecraft/src/WorldProvider/generateLightBrightnessTable ()V xc/a ()V
-MD: net/minecraft/src/WorldProvider/getWelcomeMessage ()Ljava/lang/String; xc/getWelcomeMessage ()Ljava/lang/String;
-MD: net/minecraft/src/WorldProvider/calcSunriseSunsetColors (FF)[F xc/a (FF)[F
 MD: net/minecraft/src/WorldProvider/getSaveFolder ()Ljava/lang/String; xc/getSaveFolder ()Ljava/lang/String;
-MD: net/minecraft/src/WorldProvider/setSkyProvider (Lnet/minecraftforge/client/SkyProvider;)V xc/setSkyProvider (Lnet/minecraftforge/client/SkyProvider;)V
-MD: net/minecraft/src/WorldProvider/getRandomizedSpawnPoint ()Lnet/minecraft/src/ChunkCoordinates; xc/getRandomizedSpawnPoint ()Lj;
-MD: net/minecraft/src/WorldProvider/getChunkProvider ()Lnet/minecraft/src/IChunkProvider; xc/c ()Lwi;
+MD: net/minecraft/src/WorldProvider/getSkyColor (Lnet/minecraft/src/Entity;F)Lnet/minecraft/src/Vec3; xc/getSkyColor (Ljn;F)Lajs;
+MD: net/minecraft/src/WorldProvider/setWorldTime (J)V xc/setWorldTime (J)V
 MD: net/minecraft/src/WorldProvider/registerWorldChunkManager ()V xc/b ()V
 MD: net/minecraft/src/WorldProvider/setDimension (I)V xc/setDimension (I)V
+MD: net/minecraft/src/WorldProvider/getSpawnPoint ()Lnet/minecraft/src/ChunkCoordinates; xc/getSpawnPoint ()Lj;
 MD: net/minecraft/src/WorldProvider/canRespawnHere ()Z xc/e ()Z
-MD: net/minecraft/src/WorldProvider/getProviderForDimension (I)Lnet/minecraft/src/WorldProvider; xc/a (I)Lxc;
+MD: net/minecraft/src/WorldProvider/getActualHeight ()I xc/getActualHeight ()I
+MD: net/minecraft/src/WorldProvider/getSeed ()J xc/getSeed ()J
 MD: net/minecraft/src/WorldProvider/getVoidFogYFactor ()D xc/k ()D
+MD: net/minecraft/src/WorldProvider/isSkyColored ()Z xc/g ()Z
+MD: net/minecraft/src/WorldProvider/registerWorld (Lnet/minecraft/src/World;)V xc/a (Lup;)V
+MD: net/minecraft/src/WorldProvider/getMoonPhase (JF)I xc/b (JF)I
+MD: net/minecraft/src/WorldProvider/isBlockHighHumidity (III)Z xc/isBlockHighHumidity (III)Z
+MD: net/minecraft/src/WorldProvider/getSkyProvider ()Lnet/minecraftforge/client/SkyProvider; xc/getSkyProvider ()Lnet/minecraftforge/client/SkyProvider;
+MD: net/minecraft/src/WorldProvider/getFogColor (FF)Lnet/minecraft/src/Vec3; xc/b (FF)Lajs;
+MD: net/minecraft/src/WorldProvider/calculateInitialWeather ()V xc/calculateInitialWeather ()V
+MD: net/minecraft/src/WorldProvider/isDaytime ()Z xc/isDaytime ()Z
+MD: net/minecraft/src/WorldProvider/getAverageGroundLevel ()I xc/i ()I
+MD: net/minecraft/src/WorldProvider/updateWeather ()V xc/updateWeather ()V
+MD: net/minecraft/src/WorldProvider/getHeight ()I xc/getHeight ()I
+MD: net/minecraft/src/WorldProvider/canCoordinateBeSpawn (II)Z xc/a (II)Z
+MD: net/minecraft/src/WorldProvider/setAllowedSpawnTypes (ZZ)V xc/setAllowedSpawnTypes (ZZ)V
+MD: net/minecraft/src/WorldProvider/getDimensionName ()Ljava/lang/String; xc/l ()Ljava/lang/String;
+MD: net/minecraft/src/WorldProvider/getHorizon ()D xc/getHorizon ()D
+MD: net/minecraft/src/WorldProvider/resetRainAndThunder ()V xc/resetRainAndThunder ()V
+MD: net/minecraft/src/WorldProvider/isSurfaceWorld ()Z xc/d ()Z
+MD: net/minecraft/src/WorldProvider/getWelcomeMessage ()Ljava/lang/String; xc/getWelcomeMessage ()Ljava/lang/String;
+MD: net/minecraft/src/WorldProvider/generateLightBrightnessTable ()V xc/a ()V
+MD: net/minecraft/src/WorldProvider/calcSunriseSunsetColors (FF)[F xc/a (FF)[F
+MD: net/minecraft/src/WorldProvider/canMineBlock (Lnet/minecraft/src/EntityPlayer;III)Z xc/canMineBlock (Log;III)Z
+MD: net/minecraft/src/WorldProvider/setSkyProvider (Lnet/minecraftforge/client/SkyProvider;)V xc/setSkyProvider (Lnet/minecraftforge/client/SkyProvider;)V
+MD: net/minecraft/src/WorldProvider/getRandomizedSpawnPoint ()Lnet/minecraft/src/ChunkCoordinates; xc/getRandomizedSpawnPoint ()Lj;
+MD: net/minecraft/src/WorldProvider/toggleRain ()V xc/toggleRain ()V
+MD: net/minecraft/src/WorldProvider/getChunkProvider ()Lnet/minecraft/src/IChunkProvider; xc/c ()Lwi;
+MD: net/minecraft/src/WorldProvider/getBiomeGenForCoords (II)Lnet/minecraft/src/BiomeGenBase; xc/getBiomeGenForCoords (II)Lvk;
+MD: net/minecraft/src/WorldProvider/getProviderForDimension (I)Lnet/minecraft/src/WorldProvider; xc/a (I)Lxc;
+MD: net/minecraft/src/WorldProvider/drawClouds (F)Lnet/minecraft/src/Vec3; xc/drawClouds (F)Lajs;
+MD: net/minecraft/src/WorldProvider/setSpawnPoint (III)V xc/setSpawnPoint (III)V
 CL: net/minecraft/src/Potion ji
 FD: net/minecraft/src/Potion/digSlowdown ji/f
 FD: net/minecraft/src/Potion/field_76444_x ji/x
@@ -5425,6 +5448,7 @@ FD: net/minecraft/src/EntityHeartFX/particleScaleOverTime atv/a
 MD: net/minecraft/src/EntityHeartFX/onUpdate ()V atv/h_ ()V
 MD: net/minecraft/src/EntityHeartFX/renderParticle (Lnet/minecraft/src/Tessellator;FFFFFF)V atv/a (Lave;FFFFFF)V
 CL: net/minecraft/src/EntityDiggingFX aum
+FD: net/minecraft/src/EntityDiggingFX/side aum/side
 FD: net/minecraft/src/EntityDiggingFX/blockInstance aum/a
 MD: net/minecraft/src/EntityDiggingFX/getFXLayer ()I aum/b ()I
 MD: net/minecraft/src/EntityDiggingFX/func_70596_a (III)Lnet/minecraft/src/EntityDiggingFX; aum/a (III)Laum;
@@ -6725,6 +6749,7 @@ MD: net/minecraft/src/EffectRenderer/addBlockDestroyEffects (IIIII)V aub/a (IIII
 MD: net/minecraft/src/EffectRenderer/renderLitParticles (Lnet/minecraft/src/Entity;F)V aub/b (Ljn;F)V
 MD: net/minecraft/src/EffectRenderer/addEffect (Lnet/minecraft/src/EntityFX;)V aub/a (Laua;)V
 MD: net/minecraft/src/EffectRenderer/clearEffects (Lnet/minecraft/src/World;)V aub/a (Lup;)V
+MD: net/minecraft/src/EffectRenderer/addBlockHitEffects (IIILnet/minecraft/src/MovingObjectPosition;)V aub/addBlockHitEffects (IIILajq;)V
 MD: net/minecraft/src/EffectRenderer/renderParticles (Lnet/minecraft/src/Entity;F)V aub/a (Ljn;F)V
 MD: net/minecraft/src/EffectRenderer/addBlockHitEffects (IIII)V aub/a (IIII)V
 MD: net/minecraft/src/EffectRenderer/updateEffects ()V aub/a ()V
@@ -6750,19 +6775,19 @@ CL: net/minecraft/src/BlockStem ahy
 FD: net/minecraft/src/BlockStem/fruitType ahy/a
 MD: net/minecraft/src/BlockStem/fertilizeStem (Lnet/minecraft/src/World;III)V ahy/l (Lup;III)V
 MD: net/minecraft/src/BlockStem/getRenderColor (I)I ahy/f_ (I)I
+MD: net/minecraft/src/BlockStem/idDropped (ILjava/util/Random;I)I ahy/a (ILjava/util/Random;I)I
+MD: net/minecraft/src/BlockStem/colorMultiplier (Lnet/minecraft/src/IBlockAccess;III)I ahy/b (Luz;III)I
+MD: net/minecraft/src/BlockStem/getState (Lnet/minecraft/src/IBlockAccess;III)I ahy/d (Luz;III)I
+MD: net/minecraft/src/BlockStem/getBlockTextureFromSideAndMetadata (II)I ahy/a (II)I
+MD: net/minecraft/src/BlockStem/setBlockBoundsBasedOnState (Lnet/minecraft/src/IBlockAccess;III)V ahy/a (Luz;III)V
+MD: net/minecraft/src/BlockStem/quantityDropped (Ljava/util/Random;)I ahy/a (Ljava/util/Random;)I
 MD: net/minecraft/src/BlockStem/canThisPlantGrowOnThisBlockID (I)Z ahy/d_ (I)Z
 MD: net/minecraft/src/BlockStem/idPicked (Lnet/minecraft/src/World;III)I ahy/a (Lup;III)I
 MD: net/minecraft/src/BlockStem/getGrowthModifier (Lnet/minecraft/src/World;III)F ahy/n (Lup;III)F
-MD: net/minecraft/src/BlockStem/idDropped (ILjava/util/Random;I)I ahy/a (ILjava/util/Random;I)I
 MD: net/minecraft/src/BlockStem/setBlockBoundsForItemRender ()V ahy/f ()V
-MD: net/minecraft/src/BlockStem/colorMultiplier (Lnet/minecraft/src/IBlockAccess;III)I ahy/b (Luz;III)I
 MD: net/minecraft/src/BlockStem/getRenderType ()I ahy/b ()I
-MD: net/minecraft/src/BlockStem/getState (Lnet/minecraft/src/IBlockAccess;III)I ahy/d (Luz;III)I
-MD: net/minecraft/src/BlockStem/getBlockTextureFromSideAndMetadata (II)I ahy/a (II)I
 MD: net/minecraft/src/BlockStem/updateTick (Lnet/minecraft/src/World;IIILjava/util/Random;)V ahy/b (Lup;IIILjava/util/Random;)V
 MD: net/minecraft/src/BlockStem/dropBlockAsItemWithChance (Lnet/minecraft/src/World;IIIIFI)V ahy/a (Lup;IIIIFI)V
-MD: net/minecraft/src/BlockStem/setBlockBoundsBasedOnState (Lnet/minecraft/src/IBlockAccess;III)V ahy/a (Luz;III)V
-MD: net/minecraft/src/BlockStem/quantityDropped (Ljava/util/Random;)I ahy/a (Ljava/util/Random;)I
 CL: net/minecraft/src/Direction h
 FD: net/minecraft/src/Direction/vineGrowth h/d
 FD: net/minecraft/src/Direction/headInvisibleFace h/c
@@ -6857,6 +6882,7 @@ FD: net/minecraft/src/WeightedRandomChestContent/theMinimumChanceToGenerateItem 
 FD: net/minecraft/src/WeightedRandomChestContent/theItemDamage it/c
 FD: net/minecraft/src/WeightedRandomChestContent/theItemId it/b
 FD: net/minecraft/src/WeightedRandomChestContent/theMaximumChanceToGenerateItem it/e
+FD: net/minecraft/src/WeightedRandomChestContent/itemStack it/itemStack
 MD: net/minecraft/src/WeightedRandomChestContent/generateDispenserContents (Ljava/util/Random;[Lnet/minecraft/src/WeightedRandomChestContent;Lnet/minecraft/src/TileEntityDispenser;I)V it/a (Ljava/util/Random;[Lit;Laja;I)V
 MD: net/minecraft/src/WeightedRandomChestContent/generateChestContents (Ljava/util/Random;[Lnet/minecraft/src/WeightedRandomChestContent;Lnet/minecraft/src/TileEntityChest;I)V it/a (Ljava/util/Random;[Lit;Laiz;I)V
 CL: net/minecraft/src/AnvilSaveHandler adx
@@ -7172,6 +7198,7 @@ MD: net/minecraft/src/WorldServer/flush ()V gr/l ()V
 MD: net/minecraft/src/WorldServer/createChunkProvider ()Lnet/minecraft/src/IChunkProvider; gr/i ()Lwi;
 MD: net/minecraft/src/WorldServer/updateEntities ()V gr/h ()V
 MD: net/minecraft/src/WorldServer/updateWeather ()V gr/m ()V
+MD: net/minecraft/src/WorldServer/getChunkSaveLocation ()Ljava/io/File; gr/getChunkSaveLocation ()Ljava/io/File;
 MD: net/minecraft/src/WorldServer/updateAllPlayersSleepingFlag ()V gr/c ()V
 MD: net/minecraft/src/WorldServer/initialize (Lnet/minecraft/src/WorldSettings;)V gr/a (Lux;)V
 MD: net/minecraft/src/WorldServer/tickBlocksAndAmbiance ()V gr/g ()V
@@ -7186,9 +7213,9 @@ MD: net/minecraft/src/WorldServer/updateEntityWithOptionalForce (Lnet/minecraft/
 MD: net/minecraft/src/WorldServer/obtainEntitySkin (Lnet/minecraft/src/Entity;)V gr/a (Ljn;)V
 MD: net/minecraft/src/WorldServer/resetRainAndThunder ()V gr/P ()V
 MD: net/minecraft/src/WorldServer/scheduleBlockUpdateFromLoad (IIIII)V gr/b (IIIII)V
+MD: net/minecraft/src/WorldServer/saveLevel ()V gr/a ()V
 MD: net/minecraft/src/WorldServer/uncheckedUpdateEntity (Lnet/minecraft/src/Entity;Z)V gr/b (Ljn;Z)V
 MD: net/minecraft/src/WorldServer/canMineBlock (Lnet/minecraft/src/EntityPlayer;III)Z gr/a (Log;III)Z
-MD: net/minecraft/src/WorldServer/saveLevel ()V gr/a ()V
 MD: net/minecraft/src/WorldServer/addBlockEvent (IIIIII)V gr/b (IIIIII)V
 MD: net/minecraft/src/WorldServer/addWeatherEffect (Lnet/minecraft/src/Entity;)Z gr/c (Ljn;)Z
 MD: net/minecraft/src/WorldServer/wakeAllPlayers ()V gr/d ()V
@@ -10963,6 +10990,7 @@ FD: net/minecraft/src/Entity/hurtResistantTime jn/ad
 FD: net/minecraft/src/Entity/dataWatcher jn/af
 FD: net/minecraft/src/Entity/capturedDrops jn/capturedDrops
 FD: net/minecraft/src/Entity/addedToChunk jn/ag
+FD: net/minecraft/src/Entity/persistentID jn/persistentID
 FD: net/minecraft/src/Entity/fire jn/c
 FD: net/minecraft/src/Entity/ignoreFrustumCheck jn/ak
 FD: net/minecraft/src/Entity/worldObj jn/p
@@ -11018,6 +11046,7 @@ MD: net/minecraft/src/Entity/setPosition (DDD)V jn/b (DDD)V
 MD: net/minecraft/src/Entity/interact (Lnet/minecraft/src/EntityPlayer;)Z jn/c (Log;)Z
 MD: net/minecraft/src/Entity/setAir (I)V jn/g (I)V
 MD: net/minecraft/src/Entity/getEyeHeight ()F jn/e ()F
+MD: net/minecraft/src/Entity/getPersistentID ()Ljava/util/UUID; jn/getPersistentID ()Ljava/util/UUID;
 MD: net/minecraft/src/Entity/setWorld (Lnet/minecraft/src/World;)V jn/a (Lup;)V
 MD: net/minecraft/src/Entity/readFromNBT (Lnet/minecraft/src/NBTTagCompound;)V jn/e (Lan;)V
 MD: net/minecraft/src/Entity/writeEntityToNBT (Lnet/minecraft/src/NBTTagCompound;)V jn/b (Lan;)V
@@ -11048,6 +11077,7 @@ MD: net/minecraft/src/Entity/getFlag (I)Z jn/f (I)Z
 MD: net/minecraft/src/Entity/setDead ()V jn/y ()V
 MD: net/minecraft/src/Entity/newFloatNBTList ([F)Lnet/minecraft/src/NBTTagList; jn/a ([F)Lat;
 MD: net/minecraft/src/Entity/unmountEntity (Lnet/minecraft/src/Entity;)V jn/h (Ljn;)V
+MD: net/minecraft/src/Entity/generatePersistentID ()V jn/generatePersistentID ()V
 MD: net/minecraft/src/Entity/onKillEntity (Lnet/minecraft/src/EntityLiving;)V jn/a (Ljw;)V
 MD: net/minecraft/src/Entity/getShadowSize ()F jn/R ()F
 MD: net/minecraft/src/Entity/getPickedResult (Lnet/minecraft/src/MovingObjectPosition;)Lnet/minecraft/src/ItemStack; jn/getPickedResult (Lajq;)Lrj;
@@ -11641,7 +11671,6 @@ FD: net/minecraft/src/ModTextureAnimation/targetTex ModTextureAnimation/targetTe
 FD: net/minecraft/src/ModTextureAnimation/images ModTextureAnimation/images
 FD: net/minecraft/src/ModTextureAnimation/imgData ModTextureAnimation/imgData
 FD: net/minecraft/src/ModTextureAnimation/tickRate ModTextureAnimation/tickRate
-MD: net/minecraft/src/ModTextureAnimation/func_783_a ()V ModTextureAnimation/func_783_a ()V
 CL: net/minecraft/src/PacketCount ii
 FD: net/minecraft/src/PacketCount/lock ii/d
 FD: net/minecraft/src/PacketCount/sizeCountForID ii/c
@@ -12479,15 +12508,15 @@ MD: net/minecraft/src/RenderSheep/doRenderSheep (Lnet/minecraft/src/EntitySheep;
 MD: net/minecraft/src/RenderSheep/setWoolColorAndRender (Lnet/minecraft/src/EntitySheep;IF)I aws/a (Lmu;IF)I
 MD: net/minecraft/src/RenderSheep/doRenderLiving (Lnet/minecraft/src/EntityLiving;DDDFF)V aws/a (Ljw;DDDFF)V
 CL: net/minecraft/src/BlockCactus afb
-MD: net/minecraft/src/BlockCactus/onEntityCollidedWithBlock (Lnet/minecraft/src/World;IIILnet/minecraft/src/Entity;)V afb/a (Lup;IIILjn;)V
-MD: net/minecraft/src/BlockCactus/canPlaceBlockAt (Lnet/minecraft/src/World;III)Z afb/b (Lup;III)Z
 MD: net/minecraft/src/BlockCactus/renderAsNormalBlock ()Z afb/c ()Z
-MD: net/minecraft/src/BlockCactus/getSelectedBoundingBoxFromPool (Lnet/minecraft/src/World;III)Lnet/minecraft/src/AxisAlignedBB; afb/a_ (Lup;III)Lajn;
-MD: net/minecraft/src/BlockCactus/isOpaqueCube ()Z afb/d ()Z
-MD: net/minecraft/src/BlockCactus/getRenderType ()I afb/b ()I
 MD: net/minecraft/src/BlockCactus/getBlockTextureFromSide (I)I afb/a (I)I
 MD: net/minecraft/src/BlockCactus/canBlockStay (Lnet/minecraft/src/World;III)Z afb/d (Lup;III)Z
 MD: net/minecraft/src/BlockCactus/getCollisionBoundingBoxFromPool (Lnet/minecraft/src/World;III)Lnet/minecraft/src/AxisAlignedBB; afb/e (Lup;III)Lajn;
+MD: net/minecraft/src/BlockCactus/onEntityCollidedWithBlock (Lnet/minecraft/src/World;IIILnet/minecraft/src/Entity;)V afb/a (Lup;IIILjn;)V
+MD: net/minecraft/src/BlockCactus/getSelectedBoundingBoxFromPool (Lnet/minecraft/src/World;III)Lnet/minecraft/src/AxisAlignedBB; afb/a_ (Lup;III)Lajn;
+MD: net/minecraft/src/BlockCactus/canPlaceBlockAt (Lnet/minecraft/src/World;III)Z afb/b (Lup;III)Z
+MD: net/minecraft/src/BlockCactus/isOpaqueCube ()Z afb/d ()Z
+MD: net/minecraft/src/BlockCactus/getRenderType ()I afb/b ()I
 MD: net/minecraft/src/BlockCactus/updateTick (Lnet/minecraft/src/World;IIILjava/util/Random;)V afb/b (Lup;IIILjava/util/Random;)V
 MD: net/minecraft/src/BlockCactus/onNeighborBlockChange (Lnet/minecraft/src/World;IIII)V afb/a (Lup;IIII)V
 CL: net/minecraft/src/EnumStatus oh
@@ -14165,6 +14194,8 @@ MD: net/minecraft/src/World/playAuxSFX (IIIII)V up/e (IIIII)V
 MD: net/minecraft/src/World/getLoadedEntityList ()Ljava/util/List; up/y ()Ljava/util/List;
 MD: net/minecraft/src/World/playAuxSFXAtEntity (Lnet/minecraft/src/EntityPlayer;IIIII)V up/a (Log;IIIII)V
 MD: net/minecraft/src/World/checkChunksExist (IIIIII)Z up/c (IIIIII)Z
+MD: net/minecraft/src/World/getSkyColorBody (Lnet/minecraft/src/Entity;F)Lnet/minecraft/src/Vec3; up/getSkyColorBody (Ljn;F)Lajs;
+MD: net/minecraft/src/World/getStarBrightnessBody (F)F up/getStarBrightnessBody (F)F
 MD: net/minecraft/src/World/getLightBrightness (III)F up/o (III)F
 MD: net/minecraft/src/World/getAllCollidingBoundingBoxes (Lnet/minecraft/src/AxisAlignedBB;)Ljava/util/List; up/a (Lajn;)Ljava/util/List;
 MD: net/minecraft/src/World/findClosestStructure (Ljava/lang/String;III)Lnet/minecraft/src/ChunkPosition; up/b (Ljava/lang/String;III)Lvh;
@@ -14177,6 +14208,7 @@ MD: net/minecraft/src/World/getActualHeight ()I up/L ()I
 MD: net/minecraft/src/World/getPendingBlockUpdates (Lnet/minecraft/src/Chunk;Z)Ljava/util/List; up/a (Lwl;Z)Ljava/util/List;
 MD: net/minecraft/src/World/releaseEntitySkin (Lnet/minecraft/src/Entity;)V up/b (Ljn;)V
 MD: net/minecraft/src/World/blockExists (III)Z up/e (III)Z
+MD: net/minecraft/src/World/canBlockFreezeBody (IIIZ)Z up/canBlockFreezeBody (IIIZ)Z
 MD: net/minecraft/src/World/getHeightValue (II)I up/f (II)I
 MD: net/minecraft/src/World/sendQuittingDisconnectingPacket ()V up/A ()V
 MD: net/minecraft/src/World/setBlockAndMetadataWithNotify (IIIII)Z up/d (IIIII)Z
@@ -14189,6 +14221,7 @@ MD: net/minecraft/src/World/notifyBlockOfNeighborChange (IIII)V up/m (IIII)V
 MD: net/minecraft/src/World/extinguishFire (Lnet/minecraft/src/EntityPlayer;IIII)Z up/a (Log;IIII)Z
 MD: net/minecraft/src/World/isBlockIndirectlyGettingPowered (III)Z up/z (III)Z
 MD: net/minecraft/src/World/updateEntities ()V up/h ()V
+MD: net/minecraft/src/World/canSnowAtBody (III)Z up/canSnowAtBody (III)Z
 MD: net/minecraft/src/World/getClosestPlayer (DDDD)Lnet/minecraft/src/EntityPlayer; up/a (DDDD)Log;
 MD: net/minecraft/src/World/tickBlocksAndAmbiance ()V up/g ()V
 MD: net/minecraft/src/World/setEntityState (Lnet/minecraft/src/Entity;B)V up/a (Ljn;B)V
@@ -14246,6 +14279,7 @@ MD: net/minecraft/src/World/obtainEntitySkin (Lnet/minecraft/src/Entity;)V up/a 
 MD: net/minecraft/src/World/isRaining ()Z up/J ()Z
 MD: net/minecraft/src/World/isBlockSolidOnSide (IIILnet/minecraftforge/common/ForgeDirection;)Z up/isBlockSolidOnSide (IIILnet/minecraftforge/common/ForgeDirection;)Z
 MD: net/minecraft/src/World/getDebugLoadedEntities ()Ljava/lang/String; up/t ()Ljava/lang/String;
+MD: net/minecraft/src/World/drawCloudsBody (F)Lnet/minecraft/src/Vec3; up/drawCloudsBody (F)Lajs;
 MD: net/minecraft/src/World/getSkyColor (Lnet/minecraft/src/Entity;F)Lnet/minecraft/src/Vec3; up/a (Ljn;F)Lajs;
 MD: net/minecraft/src/World/setWorldTime (J)V up/b (J)V
 MD: net/minecraft/src/World/setBlockTileEntity (IIILnet/minecraft/src/TileEntity;)V up/a (IIILaji;)V
@@ -14261,6 +14295,7 @@ MD: net/minecraft/src/World/chunkExists (II)Z up/c (II)Z
 MD: net/minecraft/src/World/setActivePlayerChunksAndCheckLight ()V up/x ()V
 MD: net/minecraft/src/World/addTileEntity (Ljava/util/Collection;)V up/a (Ljava/util/Collection;)V
 MD: net/minecraft/src/World/markBlockNeedsUpdate (III)V up/h (III)V
+MD: net/minecraft/src/World/updateWeatherBody ()V up/updateWeatherBody ()V
 MD: net/minecraft/src/World/setBlockAndMetadata (IIIII)Z up/c (IIIII)Z
 MD: net/minecraft/src/World/checkIfAABBIsClear (Lnet/minecraft/src/AxisAlignedBB;)Z up/b (Lajn;)Z
 MD: net/minecraft/src/World/handleMaterialAcceleration (Lnet/minecraft/src/AxisAlignedBB;Lnet/minecraft/src/Material;Lnet/minecraft/src/Entity;)Z up/a (Lajn;Laco;Ljn;)Z
@@ -14290,10 +14325,13 @@ MD: net/minecraft/src/World/moodSoundAndLightCheck (IILnet/minecraft/src/Chunk;)
 MD: net/minecraft/src/World/markBlocksDirty (IIIIII)V up/d (IIIIII)V
 MD: net/minecraft/src/World/notifyBlockChange (IIII)V up/f (IIII)V
 MD: net/minecraft/src/World/addWorldInfoToCrashReport (Lnet/minecraft/src/CrashReport;)Lnet/minecraft/src/CrashReport; up/a (La;)La;
+MD: net/minecraft/src/World/calculateInitialWeatherBody ()V up/calculateInitialWeatherBody ()V
+MD: net/minecraft/src/World/canMineBlockBody (Lnet/minecraft/src/EntityPlayer;III)Z up/canMineBlockBody (Log;III)Z
 MD: net/minecraft/src/World/getWorldChunkManager ()Lnet/minecraft/src/WorldChunkManager; up/r ()Lvp;
 MD: net/minecraft/src/World/getHorizon ()D up/O ()D
 MD: net/minecraft/src/World/setEntityDead (Lnet/minecraft/src/Entity;)V up/e (Ljn;)V
 MD: net/minecraft/src/World/countEntities (Ljava/lang/Class;)I up/a (Ljava/lang/Class;)I
+MD: net/minecraft/src/World/getPersistentChunks ()Lcom/google/common/collect/SetMultimap; up/getPersistentChunks ()Lcom/google/common/collect/SetMultimap;
 MD: net/minecraft/src/World/canMineBlock (Lnet/minecraft/src/EntityPlayer;III)Z up/a (Log;III)Z
 MD: net/minecraft/src/World/isMaterialInBB (Lnet/minecraft/src/AxisAlignedBB;Lnet/minecraft/src/Material;)Z up/a (Lajn;Laco;)Z
 MD: net/minecraft/src/World/getEntitiesWithinAABBExcludingEntity (Lnet/minecraft/src/Entity;Lnet/minecraft/src/AxisAlignedBB;)Ljava/util/List; up/b (Ljn;Lajn;)Ljava/util/List;
@@ -14302,12 +14340,15 @@ MD: net/minecraft/src/World/toggleRain ()V up/w ()V
 MD: net/minecraft/src/World/getBlockTileEntity (III)Lnet/minecraft/src/TileEntity; up/p (III)Laji;
 MD: net/minecraft/src/World/getChunkProvider ()Lnet/minecraft/src/IChunkProvider; up/F ()Lwi;
 MD: net/minecraft/src/World/isBlockSolidOnSide (IIILnet/minecraftforge/common/ForgeDirection;Z)Z up/isBlockSolidOnSide (IIILnet/minecraftforge/common/ForgeDirection;Z)Z
+MD: net/minecraft/src/World/getBiomeGenForCoordsBody (II)Lnet/minecraft/src/BiomeGenBase; up/getBiomeGenForCoordsBody (II)Lvk;
 MD: net/minecraft/src/World/updateLightByType (Lnet/minecraft/src/EnumSkyBlock;III)V up/c (Lvb;III)V
 MD: net/minecraft/src/World/computeBlockLightValue (IIIIII)I up/f (IIIIII)I
 MD: net/minecraft/src/World/getBlockId (III)I up/a (III)I
 MD: net/minecraft/src/World/getBiomeGenForCoords (II)Lnet/minecraft/src/BiomeGenBase; up/a (II)Lvk;
 MD: net/minecraft/src/World/isAirBlock (III)Z up/c (III)Z
 MD: net/minecraft/src/World/updateTileEntityChunkAndDoNothing (IIILnet/minecraft/src/TileEntity;)V up/b (IIILaji;)V
+CL: net/minecraft/src/Block$1 aig$1
+FD: net/minecraft/src/Block$1/$SwitchMap$net$minecraftforge$common$EnumPlantType aig$1/$SwitchMap$net$minecraftforge$common$EnumPlantType
 CL: net/minecraft/src/Block aig
 FD: net/minecraft/src/Block/torchRedstoneIdle aig/aP
 FD: net/minecraft/src/Block/pistonExtension aig/aa
@@ -14490,6 +14531,7 @@ MD: net/minecraft/src/Block/canSilkHarvest ()Z aig/q_ ()Z
 MD: net/minecraft/src/Block/isFireSource (Lnet/minecraft/src/World;IIIILnet/minecraftforge/common/ForgeDirection;)Z aig/isFireSource (Lup;IIIILnet/minecraftforge/common/ForgeDirection;)Z
 MD: net/minecraft/src/Block/beginLeavesDecay (Lnet/minecraft/src/World;III)V aig/beginLeavesDecay (Lup;III)V
 MD: net/minecraft/src/Block/isBed (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityLiving;)Z aig/isBed (Lup;IIILjw;)Z
+MD: net/minecraft/src/Block/isFertile (Lnet/minecraft/src/World;III)Z aig/isFertile (Lup;III)Z
 MD: net/minecraft/src/Block/quantityDropped (IILjava/util/Random;)I aig/quantityDropped (IILjava/util/Random;)I
 MD: net/minecraft/src/Block/onTimeChanged (Lnet/minecraft/src/World;JJ)V aig/a (Lup;JJ)V
 MD: net/minecraft/src/Block/setBedOccupied (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityPlayer;Z)V aig/setBedOccupied (Lup;IIILog;Z)V
@@ -14510,12 +14552,14 @@ MD: net/minecraft/src/Block/getBlockDropped (Lnet/minecraft/src/World;IIIII)Ljav
 MD: net/minecraft/src/Block/isVecInsideXYBounds (Lnet/minecraft/src/Vec3;)Z aig/c (Lajs;)Z
 MD: net/minecraft/src/Block/isVecInsideXZBounds (Lnet/minecraft/src/Vec3;)Z aig/b (Lajs;)Z
 MD: net/minecraft/src/Block/getFlammability (Lnet/minecraft/src/IBlockAccess;IIIILnet/minecraftforge/common/ForgeDirection;)I aig/getFlammability (Luz;IIIILnet/minecraftforge/common/ForgeDirection;)I
+MD: net/minecraft/src/Block/addBlockHitEffects (Lnet/minecraft/src/World;Lnet/minecraft/src/MovingObjectPosition;Lnet/minecraft/src/EffectRenderer;)Z aig/addBlockHitEffects (Lup;Lajq;Laub;)Z
 MD: net/minecraft/src/Block/getBedDirection (Lnet/minecraft/src/IBlockAccess;III)I aig/getBedDirection (Luz;III)I
 MD: net/minecraft/src/Block/getSubBlocks (ILnet/minecraft/src/CreativeTabs;Ljava/util/List;)V aig/a (ILqg;Ljava/util/List;)V
 MD: net/minecraft/src/Block/setTickRandomly (Z)Lnet/minecraft/src/Block; aig/b (Z)Laig;
 MD: net/minecraft/src/Block/dropBlockAsItemWithChance (Lnet/minecraft/src/World;IIIIFI)V aig/a (Lup;IIIIFI)V
 MD: net/minecraft/src/Block/isBlockNormalCube (Lnet/minecraft/src/World;III)Z aig/isBlockNormalCube (Lup;III)Z
 MD: net/minecraft/src/Block/collisionRayTrace (Lnet/minecraft/src/World;IIILnet/minecraft/src/Vec3;Lnet/minecraft/src/Vec3;)Lnet/minecraft/src/MovingObjectPosition; aig/a (Lup;IIILajs;Lajs;)Lajq;
+MD: net/minecraft/src/Block/canSustainPlant (Lnet/minecraft/src/World;IIILnet/minecraftforge/common/ForgeDirection;Lnet/minecraftforge/common/IPlantable;)Z aig/canSustainPlant (Lup;IIILnet/minecraftforge/common/ForgeDirection;Lnet/minecraftforge/common/IPlantable;)Z
 MD: net/minecraft/src/Block/quantityDroppedWithBonus (ILjava/util/Random;)I aig/a (ILjava/util/Random;)I
 MD: net/minecraft/src/Block/isWood (Lnet/minecraft/src/World;III)Z aig/isWood (Lup;III)Z
 MD: net/minecraft/src/Block/setHardness (F)Lnet/minecraft/src/Block; aig/c (F)Laig;
@@ -14607,6 +14651,7 @@ MD: net/minecraft/src/Block/getPlayerRelativeBlockHardness (Lnet/minecraft/src/E
 MD: net/minecraft/src/Block/idDropped (ILjava/util/Random;I)I aig/a (ILjava/util/Random;I)I
 MD: net/minecraft/src/Block/disableStats ()Lnet/minecraft/src/Block; aig/v ()Laig;
 MD: net/minecraft/src/Block/colorMultiplier (Lnet/minecraft/src/IBlockAccess;III)I aig/b (Luz;III)I
+MD: net/minecraft/src/Block/addBlockDestroyEffects (Lnet/minecraft/src/World;IIIILnet/minecraft/src/EffectRenderer;)Z aig/addBlockDestroyEffects (Lup;IIIILaub;)Z
 MD: net/minecraft/src/Block/damageDropped (I)I aig/b (I)I
 MD: net/minecraft/src/Block/getBlockName ()Ljava/lang/String; aig/a ()Ljava/lang/String;
 MD: net/minecraft/src/Block/translateBlockName ()Ljava/lang/String; aig/t ()Ljava/lang/String;
@@ -17219,6 +17264,10 @@ MD: net/minecraftforge/client/GuiControlsScrollPanel/keyTyped (CI)Z net/minecraf
 CL: net/minecraftforge/client/SkyProvider net/minecraftforge/client/SkyProvider
 MD: net/minecraftforge/client/SkyProvider/render (FLnet/minecraft/src/WorldClient;Lnet/minecraft/client/Minecraft;)V net/minecraftforge/client/SkyProvider/render (FLatd;Lnet/minecraft/client/Minecraft;)V
 PK: net/minecraftforge/common net/minecraftforge/common
+CL: net/minecraftforge/common/IPlantable net/minecraftforge/common/IPlantable
+MD: net/minecraftforge/common/IPlantable/getPlantMetadata (Lnet/minecraft/src/World;III)I net/minecraftforge/common/IPlantable/getPlantMetadata (Lup;III)I
+MD: net/minecraftforge/common/IPlantable/getPlantID (Lnet/minecraft/src/World;III)I net/minecraftforge/common/IPlantable/getPlantID (Lup;III)I
+MD: net/minecraftforge/common/IPlantable/getPlantType (Lnet/minecraft/src/World;III)Lnet/minecraftforge/common/EnumPlantType; net/minecraftforge/common/IPlantable/getPlantType (Lup;III)Lnet/minecraftforge/common/EnumPlantType;
 CL: net/minecraftforge/common/ISidedInventory net/minecraftforge/common/ISidedInventory
 MD: net/minecraftforge/common/ISidedInventory/getSizeInventorySide (Lnet/minecraftforge/common/ForgeDirection;)I net/minecraftforge/common/ISidedInventory/getSizeInventorySide (Lnet/minecraftforge/common/ForgeDirection;)I
 MD: net/minecraftforge/common/ISidedInventory/getStartInventorySide (Lnet/minecraftforge/common/ForgeDirection;)I net/minecraftforge/common/ISidedInventory/getStartInventorySide (Lnet/minecraftforge/common/ForgeDirection;)I
@@ -17267,10 +17316,85 @@ CL: net/minecraftforge/common/ISpecialArmor net/minecraftforge/common/ISpecialAr
 MD: net/minecraftforge/common/ISpecialArmor/getProperties (Lnet/minecraft/src/EntityLiving;Lnet/minecraft/src/ItemStack;Lnet/minecraft/src/DamageSource;DI)Lnet/minecraftforge/common/ISpecialArmor$ArmorProperties; net/minecraftforge/common/ISpecialArmor/getProperties (Ljw;Lrj;Lje;DI)Lnet/minecraftforge/common/ISpecialArmor$ArmorProperties;
 MD: net/minecraftforge/common/ISpecialArmor/getArmorDisplay (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/ItemStack;I)I net/minecraftforge/common/ISpecialArmor/getArmorDisplay (Log;Lrj;I)I
 MD: net/minecraftforge/common/ISpecialArmor/damageArmor (Lnet/minecraft/src/EntityLiving;Lnet/minecraft/src/ItemStack;Lnet/minecraft/src/DamageSource;II)V net/minecraftforge/common/ISpecialArmor/damageArmor (Ljw;Lrj;Lje;II)V
-CL: net/minecraftforge/common/ForgeInternalHandler net/minecraftforge/common/ForgeInternalHandler
-MD: net/minecraftforge/common/ForgeInternalHandler/onEntityJoinWorld (Lnet/minecraftforge/event/entity/EntityJoinWorldEvent;)V net/minecraftforge/common/ForgeInternalHandler/onEntityJoinWorld (Lnet/minecraftforge/event/entity/EntityJoinWorldEvent;)V
+CL: net/minecraftforge/common/EnumPlantType net/minecraftforge/common/EnumPlantType
+FD: net/minecraftforge/common/EnumPlantType/Desert net/minecraftforge/common/EnumPlantType/Desert
+FD: net/minecraftforge/common/EnumPlantType/Crop net/minecraftforge/common/EnumPlantType/Crop
+FD: net/minecraftforge/common/EnumPlantType/Beach net/minecraftforge/common/EnumPlantType/Beach
+FD: net/minecraftforge/common/EnumPlantType/Plains net/minecraftforge/common/EnumPlantType/Plains
+FD: net/minecraftforge/common/EnumPlantType/$VALUES net/minecraftforge/common/EnumPlantType/$VALUES
+FD: net/minecraftforge/common/EnumPlantType/Cave net/minecraftforge/common/EnumPlantType/Cave
+FD: net/minecraftforge/common/EnumPlantType/Nether net/minecraftforge/common/EnumPlantType/Nether
+FD: net/minecraftforge/common/EnumPlantType/Water net/minecraftforge/common/EnumPlantType/Water
+MD: net/minecraftforge/common/EnumPlantType/values ()[Lnet/minecraftforge/common/EnumPlantType; net/minecraftforge/common/EnumPlantType/values ()[Lnet/minecraftforge/common/EnumPlantType;
 CL: net/minecraftforge/common/IArmorTextureProvider net/minecraftforge/common/IArmorTextureProvider
 MD: net/minecraftforge/common/IArmorTextureProvider/getArmorTextureFile (Lnet/minecraft/src/ItemStack;)Ljava/lang/String; net/minecraftforge/common/IArmorTextureProvider/getArmorTextureFile (Lrj;)Ljava/lang/String;
+CL: net/minecraftforge/common/ForgeChunkManager$Ticket net/minecraftforge/common/ForgeChunkManager$Ticket
+FD: net/minecraftforge/common/ForgeChunkManager$Ticket/entityClazz net/minecraftforge/common/ForgeChunkManager$Ticket/entityClazz
+FD: net/minecraftforge/common/ForgeChunkManager$Ticket/entityChunkZ net/minecraftforge/common/ForgeChunkManager$Ticket/entityChunkZ
+FD: net/minecraftforge/common/ForgeChunkManager$Ticket/maxDepth net/minecraftforge/common/ForgeChunkManager$Ticket/maxDepth
+FD: net/minecraftforge/common/ForgeChunkManager$Ticket/requestedChunks net/minecraftforge/common/ForgeChunkManager$Ticket/requestedChunks
+FD: net/minecraftforge/common/ForgeChunkManager$Ticket/ticketType net/minecraftforge/common/ForgeChunkManager$Ticket/ticketType
+FD: net/minecraftforge/common/ForgeChunkManager$Ticket/modId net/minecraftforge/common/ForgeChunkManager$Ticket/modId
+FD: net/minecraftforge/common/ForgeChunkManager$Ticket/entity net/minecraftforge/common/ForgeChunkManager$Ticket/entity
+FD: net/minecraftforge/common/ForgeChunkManager$Ticket/modData net/minecraftforge/common/ForgeChunkManager$Ticket/modData
+FD: net/minecraftforge/common/ForgeChunkManager$Ticket/entityChunkX net/minecraftforge/common/ForgeChunkManager$Ticket/entityChunkX
+FD: net/minecraftforge/common/ForgeChunkManager$Ticket/world net/minecraftforge/common/ForgeChunkManager$Ticket/world
+MD: net/minecraftforge/common/ForgeChunkManager$Ticket/getMaxChunkListDepth ()I net/minecraftforge/common/ForgeChunkManager$Ticket/getMaxChunkListDepth ()I
+MD: net/minecraftforge/common/ForgeChunkManager$Ticket/access$200 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)I net/minecraftforge/common/ForgeChunkManager$Ticket/access$200 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)I
+MD: net/minecraftforge/common/ForgeChunkManager$Ticket/access$100 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Lnet/minecraft/src/NBTTagCompound; net/minecraftforge/common/ForgeChunkManager$Ticket/access$100 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Lan;
+MD: net/minecraftforge/common/ForgeChunkManager$Ticket/setChunkListDepth (I)V net/minecraftforge/common/ForgeChunkManager$Ticket/setChunkListDepth (I)V
+MD: net/minecraftforge/common/ForgeChunkManager$Ticket/access$900 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)I net/minecraftforge/common/ForgeChunkManager$Ticket/access$900 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)I
+MD: net/minecraftforge/common/ForgeChunkManager$Ticket/access$600 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Ljava/lang/String; net/minecraftforge/common/ForgeChunkManager$Ticket/access$600 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Ljava/lang/String;
+MD: net/minecraftforge/common/ForgeChunkManager$Ticket/access$800 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Lnet/minecraft/src/World; net/minecraftforge/common/ForgeChunkManager$Ticket/access$800 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Lup;
+MD: net/minecraftforge/common/ForgeChunkManager$Ticket/access$500 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Lnet/minecraft/src/Entity; net/minecraftforge/common/ForgeChunkManager$Ticket/access$500 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Ljn;
+MD: net/minecraftforge/common/ForgeChunkManager$Ticket/bindEntity (Lnet/minecraft/src/Entity;)V net/minecraftforge/common/ForgeChunkManager$Ticket/bindEntity (Ljn;)V
+MD: net/minecraftforge/common/ForgeChunkManager$Ticket/getEntity ()Lnet/minecraft/src/Entity; net/minecraftforge/common/ForgeChunkManager$Ticket/getEntity ()Ljn;
+MD: net/minecraftforge/common/ForgeChunkManager$Ticket/access$300 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)I net/minecraftforge/common/ForgeChunkManager$Ticket/access$300 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)I
+MD: net/minecraftforge/common/ForgeChunkManager$Ticket/access$700 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Ljava/util/LinkedHashSet; net/minecraftforge/common/ForgeChunkManager$Ticket/access$700 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Ljava/util/LinkedHashSet;
+MD: net/minecraftforge/common/ForgeChunkManager$Ticket/access$302 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;I)I net/minecraftforge/common/ForgeChunkManager$Ticket/access$302 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;I)I
+MD: net/minecraftforge/common/ForgeChunkManager$Ticket/getModData ()Lnet/minecraft/src/NBTTagCompound; net/minecraftforge/common/ForgeChunkManager$Ticket/getModData ()Lan;
+MD: net/minecraftforge/common/ForgeChunkManager$Ticket/access$102 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;Lnet/minecraft/src/NBTTagCompound;)Lnet/minecraft/src/NBTTagCompound; net/minecraftforge/common/ForgeChunkManager$Ticket/access$102 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;Lan;)Lan;
+MD: net/minecraftforge/common/ForgeChunkManager$Ticket/access$202 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;I)I net/minecraftforge/common/ForgeChunkManager$Ticket/access$202 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;I)I
+MD: net/minecraftforge/common/ForgeChunkManager$Ticket/access$400 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Lnet/minecraftforge/common/ForgeChunkManager$Type; net/minecraftforge/common/ForgeChunkManager$Ticket/access$400 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Lnet/minecraftforge/common/ForgeChunkManager$Type;
+CL: net/minecraftforge/common/ForgeChunkManager$Type net/minecraftforge/common/ForgeChunkManager$Type
+FD: net/minecraftforge/common/ForgeChunkManager$Type/$VALUES net/minecraftforge/common/ForgeChunkManager$Type/$VALUES
+FD: net/minecraftforge/common/ForgeChunkManager$Type/NORMAL net/minecraftforge/common/ForgeChunkManager$Type/NORMAL
+FD: net/minecraftforge/common/ForgeChunkManager$Type/ENTITY net/minecraftforge/common/ForgeChunkManager$Type/ENTITY
+MD: net/minecraftforge/common/ForgeChunkManager$Type/values ()[Lnet/minecraftforge/common/ForgeChunkManager$Type; net/minecraftforge/common/ForgeChunkManager$Type/values ()[Lnet/minecraftforge/common/ForgeChunkManager$Type;
+CL: net/minecraftforge/common/ForgeChunkManager$LoadingCallback net/minecraftforge/common/ForgeChunkManager$LoadingCallback
+MD: net/minecraftforge/common/ForgeChunkManager$LoadingCallback/ticketsLoaded (Ljava/util/List;Lnet/minecraft/src/World;)V net/minecraftforge/common/ForgeChunkManager$LoadingCallback/ticketsLoaded (Ljava/util/List;Lup;)V
+CL: net/minecraftforge/common/ForgeChunkManager net/minecraftforge/common/ForgeChunkManager
+FD: net/minecraftforge/common/ForgeChunkManager/pendingEntities net/minecraftforge/common/ForgeChunkManager/pendingEntities
+FD: net/minecraftforge/common/ForgeChunkManager/dormantChunkCache net/minecraftforge/common/ForgeChunkManager/dormantChunkCache
+FD: net/minecraftforge/common/ForgeChunkManager/defaultMaxCount net/minecraftforge/common/ForgeChunkManager/defaultMaxCount
+FD: net/minecraftforge/common/ForgeChunkManager/callbacks net/minecraftforge/common/ForgeChunkManager/callbacks
+FD: net/minecraftforge/common/ForgeChunkManager/forcedChunks net/minecraftforge/common/ForgeChunkManager/forcedChunks
+FD: net/minecraftforge/common/ForgeChunkManager/ticketConstraints net/minecraftforge/common/ForgeChunkManager/ticketConstraints
+FD: net/minecraftforge/common/ForgeChunkManager/defaultMaxChunks net/minecraftforge/common/ForgeChunkManager/defaultMaxChunks
+FD: net/minecraftforge/common/ForgeChunkManager/chunkConstraints net/minecraftforge/common/ForgeChunkManager/chunkConstraints
+FD: net/minecraftforge/common/ForgeChunkManager/tickets net/minecraftforge/common/ForgeChunkManager/tickets
+FD: net/minecraftforge/common/ForgeChunkManager/overridesEnabled net/minecraftforge/common/ForgeChunkManager/overridesEnabled
+MD: net/minecraftforge/common/ForgeChunkManager/unforceChunk (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;Lnet/minecraft/src/ChunkCoordIntPair;)V net/minecraftforge/common/ForgeChunkManager/unforceChunk (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;Luk;)V
+MD: net/minecraftforge/common/ForgeChunkManager/saveWorld (Lnet/minecraft/src/World;)V net/minecraftforge/common/ForgeChunkManager/saveWorld (Lup;)V
+MD: net/minecraftforge/common/ForgeChunkManager/putDormantChunk (JLnet/minecraft/src/Chunk;)V net/minecraftforge/common/ForgeChunkManager/putDormantChunk (JLwl;)V
+MD: net/minecraftforge/common/ForgeChunkManager/loadEntity (Lnet/minecraft/src/Entity;)V net/minecraftforge/common/ForgeChunkManager/loadEntity (Ljn;)V
+MD: net/minecraftforge/common/ForgeChunkManager/ticketCountAvailableFor (Ljava/lang/Object;Lnet/minecraft/src/World;)I net/minecraftforge/common/ForgeChunkManager/ticketCountAvailableFor (Ljava/lang/Object;Lup;)I
+MD: net/minecraftforge/common/ForgeChunkManager/loadConfiguration (Ljava/io/File;)V net/minecraftforge/common/ForgeChunkManager/loadConfiguration (Ljava/io/File;)V
+MD: net/minecraftforge/common/ForgeChunkManager/getPersistentChunksFor (Lnet/minecraft/src/World;)Lcom/google/common/collect/SetMultimap; net/minecraftforge/common/ForgeChunkManager/getPersistentChunksFor (Lup;)Lcom/google/common/collect/SetMultimap;
+MD: net/minecraftforge/common/ForgeChunkManager/fetchDormantChunk (J)Lnet/minecraft/src/Chunk; net/minecraftforge/common/ForgeChunkManager/fetchDormantChunk (J)Lwl;
+MD: net/minecraftforge/common/ForgeChunkManager/loadWorld (Lnet/minecraft/src/World;)V net/minecraftforge/common/ForgeChunkManager/loadWorld (Lup;)V
+MD: net/minecraftforge/common/ForgeChunkManager/access$000 (Ljava/lang/String;)I net/minecraftforge/common/ForgeChunkManager/access$000 (Ljava/lang/String;)I
+MD: net/minecraftforge/common/ForgeChunkManager/requestTicket (Ljava/lang/Object;Lnet/minecraft/src/World;Lnet/minecraftforge/common/ForgeChunkManager$Type;)Lnet/minecraftforge/common/ForgeChunkManager$Ticket; net/minecraftforge/common/ForgeChunkManager/requestTicket (Ljava/lang/Object;Lup;Lnet/minecraftforge/common/ForgeChunkManager$Type;)Lnet/minecraftforge/common/ForgeChunkManager$Ticket;
+MD: net/minecraftforge/common/ForgeChunkManager/releaseTicket (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)V net/minecraftforge/common/ForgeChunkManager/releaseTicket (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)V
+MD: net/minecraftforge/common/ForgeChunkManager/getContainer (Ljava/lang/Object;)Lcpw/mods/fml/common/ModContainer; net/minecraftforge/common/ForgeChunkManager/getContainer (Ljava/lang/Object;)Lcpw/mods/fml/common/ModContainer;
+MD: net/minecraftforge/common/ForgeChunkManager/forceChunk (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;Lnet/minecraft/src/ChunkCoordIntPair;)V net/minecraftforge/common/ForgeChunkManager/forceChunk (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;Luk;)V
+MD: net/minecraftforge/common/ForgeChunkManager/getMaxChunkDepthFor (Ljava/lang/String;)I net/minecraftforge/common/ForgeChunkManager/getMaxChunkDepthFor (Ljava/lang/String;)I
+MD: net/minecraftforge/common/ForgeChunkManager/setForcedChunkLoadingCallback (Ljava/lang/Object;Lnet/minecraftforge/common/ForgeChunkManager$LoadingCallback;)V net/minecraftforge/common/ForgeChunkManager/setForcedChunkLoadingCallback (Ljava/lang/Object;Lnet/minecraftforge/common/ForgeChunkManager$LoadingCallback;)V
+MD: net/minecraftforge/common/ForgeChunkManager/getMaxTicketLengthFor (Ljava/lang/String;)I net/minecraftforge/common/ForgeChunkManager/getMaxTicketLengthFor (Ljava/lang/String;)I
+CL: net/minecraftforge/common/ForgeInternalHandler net/minecraftforge/common/ForgeInternalHandler
+MD: net/minecraftforge/common/ForgeInternalHandler/onDimensionSave (Lnet/minecraftforge/event/world/WorldEvent$Save;)V net/minecraftforge/common/ForgeInternalHandler/onDimensionSave (Lnet/minecraftforge/event/world/WorldEvent$Save;)V
+MD: net/minecraftforge/common/ForgeInternalHandler/onEntityJoinWorld (Lnet/minecraftforge/event/entity/EntityJoinWorldEvent;)V net/minecraftforge/common/ForgeInternalHandler/onEntityJoinWorld (Lnet/minecraftforge/event/entity/EntityJoinWorldEvent;)V
+MD: net/minecraftforge/common/ForgeInternalHandler/onDimensionLoad (Lnet/minecraftforge/event/world/WorldEvent$Load;)V net/minecraftforge/common/ForgeInternalHandler/onDimensionLoad (Lnet/minecraftforge/event/world/WorldEvent$Load;)V
 CL: net/minecraftforge/common/IMinecartCollisionHandler net/minecraftforge/common/IMinecartCollisionHandler
 MD: net/minecraftforge/common/IMinecartCollisionHandler/getMinecartCollisionBox (Lnet/minecraft/src/EntityMinecart;)Lnet/minecraft/src/AxisAlignedBB; net/minecraftforge/common/IMinecartCollisionHandler/getMinecartCollisionBox (Lnk;)Lajn;
 MD: net/minecraftforge/common/IMinecartCollisionHandler/getCollisionBox (Lnet/minecraft/src/EntityMinecart;Lnet/minecraft/src/Entity;)Lnet/minecraft/src/AxisAlignedBB; net/minecraftforge/common/IMinecartCollisionHandler/getCollisionBox (Lnk;Ljn;)Lajn;
@@ -17305,6 +17429,8 @@ CL: net/minecraftforge/common/Configuration net/minecraftforge/common/Configurat
 FD: net/minecraftforge/common/Configuration/generalProperties net/minecraftforge/common/Configuration/generalProperties
 FD: net/minecraftforge/common/Configuration/configBlocks net/minecraftforge/common/Configuration/configBlocks
 FD: net/minecraftforge/common/Configuration/itemProperties net/minecraftforge/common/Configuration/itemProperties
+FD: net/minecraftforge/common/Configuration/caseSensitiveCustomCategories net/minecraftforge/common/Configuration/caseSensitiveCustomCategories
+FD: net/minecraftforge/common/Configuration/customCategoryComments net/minecraftforge/common/Configuration/customCategoryComments
 FD: net/minecraftforge/common/Configuration/file net/minecraftforge/common/Configuration/file
 FD: net/minecraftforge/common/Configuration/blockProperties net/minecraftforge/common/Configuration/blockProperties
 FD: net/minecraftforge/common/Configuration/CATEGORY_GENERAL net/minecraftforge/common/Configuration/CATEGORY_GENERAL
@@ -17313,6 +17439,7 @@ FD: net/minecraftforge/common/Configuration/categories net/minecraftforge/common
 FD: net/minecraftforge/common/Configuration/CATEGORY_ITEM net/minecraftforge/common/Configuration/CATEGORY_ITEM
 FD: net/minecraftforge/common/Configuration/CATEGORY_BLOCK net/minecraftforge/common/Configuration/CATEGORY_BLOCK
 MD: net/minecraftforge/common/Configuration/save ()V net/minecraftforge/common/Configuration/save ()V
+MD: net/minecraftforge/common/Configuration/addCustomCategoryComment (Ljava/lang/String;Ljava/lang/String;)V net/minecraftforge/common/Configuration/addCustomCategoryComment (Ljava/lang/String;Ljava/lang/String;)V
 MD: net/minecraftforge/common/Configuration/getOrCreateBooleanProperty (Ljava/lang/String;Ljava/lang/String;Z)Lnet/minecraftforge/common/Property; net/minecraftforge/common/Configuration/getOrCreateBooleanProperty (Ljava/lang/String;Ljava/lang/String;Z)Lnet/minecraftforge/common/Property;
 MD: net/minecraftforge/common/Configuration/writeProperties (Ljava/io/BufferedWriter;Ljava/util/Collection;)V net/minecraftforge/common/Configuration/writeProperties (Ljava/io/BufferedWriter;Ljava/util/Collection;)V
 MD: net/minecraftforge/common/Configuration/load ()V net/minecraftforge/common/Configuration/load ()V
@@ -17322,6 +17449,7 @@ MD: net/minecraftforge/common/Configuration/getOrCreateProperty (Ljava/lang/Stri
 CL: net/minecraftforge/common/DimensionManager net/minecraftforge/common/DimensionManager
 FD: net/minecraftforge/common/DimensionManager/hasInit net/minecraftforge/common/DimensionManager/hasInit
 FD: net/minecraftforge/common/DimensionManager/providers net/minecraftforge/common/DimensionManager/providers
+FD: net/minecraftforge/common/DimensionManager/persistentChunkStore net/minecraftforge/common/DimensionManager/persistentChunkStore
 FD: net/minecraftforge/common/DimensionManager/dimensions net/minecraftforge/common/DimensionManager/dimensions
 FD: net/minecraftforge/common/DimensionManager/worlds net/minecraftforge/common/DimensionManager/worlds
 FD: net/minecraftforge/common/DimensionManager/spawnSettings net/minecraftforge/common/DimensionManager/spawnSettings
@@ -17337,9 +17465,42 @@ MD: net/minecraftforge/common/DimensionManager/setWorld (ILnet/minecraft/src/Wor
 MD: net/minecraftforge/common/DimensionManager/getProvider (I)Lnet/minecraft/src/WorldProvider; net/minecraftforge/common/DimensionManager/getProvider (I)Lxc;
 MD: net/minecraftforge/common/DimensionManager/getProviderType (I)I net/minecraftforge/common/DimensionManager/getProviderType (I)I
 CL: net/minecraftforge/common/ForgeDummyContainer net/minecraftforge/common/ForgeDummyContainer
+MD: net/minecraftforge/common/ForgeDummyContainer/preInit (Lcpw/mods/fml/common/event/FMLPreInitializationEvent;)V net/minecraftforge/common/ForgeDummyContainer/preInit (Lcpw/mods/fml/common/event/FMLPreInitializationEvent;)V
 CL: net/minecraftforge/common/ISpawnHandler net/minecraftforge/common/ISpawnHandler
 MD: net/minecraftforge/common/ISpawnHandler/readSpawnData (Ljava/io/DataInputStream;)V net/minecraftforge/common/ISpawnHandler/readSpawnData (Ljava/io/DataInputStream;)V
 MD: net/minecraftforge/common/ISpawnHandler/writeSpawnData (Ljava/io/DataOutputStream;)V net/minecraftforge/common/ISpawnHandler/writeSpawnData (Ljava/io/DataOutputStream;)V
+CL: net/minecraftforge/common/ChestGenHooks net/minecraftforge/common/ChestGenHooks
+FD: net/minecraftforge/common/ChestGenHooks/STRONGHOLD_CROSSING net/minecraftforge/common/ChestGenHooks/STRONGHOLD_CROSSING
+FD: net/minecraftforge/common/ChestGenHooks/VILLAGE_BLACKSMITH net/minecraftforge/common/ChestGenHooks/VILLAGE_BLACKSMITH
+FD: net/minecraftforge/common/ChestGenHooks/countMin net/minecraftforge/common/ChestGenHooks/countMin
+FD: net/minecraftforge/common/ChestGenHooks/hasInit net/minecraftforge/common/ChestGenHooks/hasInit
+FD: net/minecraftforge/common/ChestGenHooks/countMax net/minecraftforge/common/ChestGenHooks/countMax
+FD: net/minecraftforge/common/ChestGenHooks/PYRAMID_DESERT_CHEST net/minecraftforge/common/ChestGenHooks/PYRAMID_DESERT_CHEST
+FD: net/minecraftforge/common/ChestGenHooks/contents net/minecraftforge/common/ChestGenHooks/contents
+FD: net/minecraftforge/common/ChestGenHooks/MINESHAFT_CORRIDOR net/minecraftforge/common/ChestGenHooks/MINESHAFT_CORRIDOR
+FD: net/minecraftforge/common/ChestGenHooks/PYRAMID_JUNGLE_DISPENSER net/minecraftforge/common/ChestGenHooks/PYRAMID_JUNGLE_DISPENSER
+FD: net/minecraftforge/common/ChestGenHooks/STRONGHOLD_LIBRARY net/minecraftforge/common/ChestGenHooks/STRONGHOLD_LIBRARY
+FD: net/minecraftforge/common/ChestGenHooks/category net/minecraftforge/common/ChestGenHooks/category
+FD: net/minecraftforge/common/ChestGenHooks/chestInfo net/minecraftforge/common/ChestGenHooks/chestInfo
+FD: net/minecraftforge/common/ChestGenHooks/BONUS_CHEST net/minecraftforge/common/ChestGenHooks/BONUS_CHEST
+FD: net/minecraftforge/common/ChestGenHooks/PYRAMID_JUNGLE_CHEST net/minecraftforge/common/ChestGenHooks/PYRAMID_JUNGLE_CHEST
+FD: net/minecraftforge/common/ChestGenHooks/STRONGHOLD_CORRIDOR net/minecraftforge/common/ChestGenHooks/STRONGHOLD_CORRIDOR
+MD: net/minecraftforge/common/ChestGenHooks/init ()V net/minecraftforge/common/ChestGenHooks/init ()V
+MD: net/minecraftforge/common/ChestGenHooks/generateStacks (Ljava/util/Random;Lnet/minecraft/src/ItemStack;II)[Lnet/minecraft/src/ItemStack; net/minecraftforge/common/ChestGenHooks/generateStacks (Ljava/util/Random;Lrj;II)[Lrj;
+MD: net/minecraftforge/common/ChestGenHooks/getCount (Ljava/lang/String;Ljava/util/Random;)I net/minecraftforge/common/ChestGenHooks/getCount (Ljava/lang/String;Ljava/util/Random;)I
+MD: net/minecraftforge/common/ChestGenHooks/addInfo (Ljava/lang/String;[Lnet/minecraft/src/WeightedRandomChestContent;II)V net/minecraftforge/common/ChestGenHooks/addInfo (Ljava/lang/String;[Lit;II)V
+MD: net/minecraftforge/common/ChestGenHooks/setMax (I)V net/minecraftforge/common/ChestGenHooks/setMax (I)V
+MD: net/minecraftforge/common/ChestGenHooks/getMin ()I net/minecraftforge/common/ChestGenHooks/getMin ()I
+MD: net/minecraftforge/common/ChestGenHooks/getMax ()I net/minecraftforge/common/ChestGenHooks/getMax ()I
+MD: net/minecraftforge/common/ChestGenHooks/removeItem (Lnet/minecraft/src/ItemStack;)V net/minecraftforge/common/ChestGenHooks/removeItem (Lrj;)V
+MD: net/minecraftforge/common/ChestGenHooks/getCount (Ljava/util/Random;)I net/minecraftforge/common/ChestGenHooks/getCount (Ljava/util/Random;)I
+MD: net/minecraftforge/common/ChestGenHooks/getItems ()[Lnet/minecraft/src/WeightedRandomChestContent; net/minecraftforge/common/ChestGenHooks/getItems ()[Lit;
+MD: net/minecraftforge/common/ChestGenHooks/addItem (Lnet/minecraft/src/WeightedRandomChestContent;)V net/minecraftforge/common/ChestGenHooks/addItem (Lit;)V
+MD: net/minecraftforge/common/ChestGenHooks/setMin (I)V net/minecraftforge/common/ChestGenHooks/setMin (I)V
+MD: net/minecraftforge/common/ChestGenHooks/removeItem (Ljava/lang/String;Lnet/minecraft/src/ItemStack;)V net/minecraftforge/common/ChestGenHooks/removeItem (Ljava/lang/String;Lrj;)V
+MD: net/minecraftforge/common/ChestGenHooks/getItems (Ljava/lang/String;)[Lnet/minecraft/src/WeightedRandomChestContent; net/minecraftforge/common/ChestGenHooks/getItems (Ljava/lang/String;)[Lit;
+MD: net/minecraftforge/common/ChestGenHooks/getInfo (Ljava/lang/String;)Lnet/minecraftforge/common/ChestGenHooks; net/minecraftforge/common/ChestGenHooks/getInfo (Ljava/lang/String;)Lnet/minecraftforge/common/ChestGenHooks;
+MD: net/minecraftforge/common/ChestGenHooks/addItem (Ljava/lang/String;Lnet/minecraft/src/WeightedRandomChestContent;)V net/minecraftforge/common/ChestGenHooks/addItem (Ljava/lang/String;Lit;)V
 CL: net/minecraftforge/common/AchievementPage net/minecraftforge/common/AchievementPage
 FD: net/minecraftforge/common/AchievementPage/achievements net/minecraftforge/common/AchievementPage/achievements
 FD: net/minecraftforge/common/AchievementPage/achievementPages net/minecraftforge/common/AchievementPage/achievementPages
@@ -17426,6 +17587,16 @@ MD: net/minecraftforge/common/MinecartRegistry/getCartTypeForItem (Lnet/minecraf
 MD: net/minecraftforge/common/MinecartRegistry/getItemForCart (Ljava/lang/Class;I)Lnet/minecraft/src/ItemStack; net/minecraftforge/common/MinecartRegistry/getItemForCart (Ljava/lang/Class;I)Lrj;
 MD: net/minecraftforge/common/MinecartRegistry/getItemForCart (Lnet/minecraft/src/EntityMinecart;)Lnet/minecraft/src/ItemStack; net/minecraftforge/common/MinecartRegistry/getItemForCart (Lnk;)Lrj;
 MD: net/minecraftforge/common/MinecartRegistry/getItemForCart (Ljava/lang/Class;)Lnet/minecraft/src/ItemStack; net/minecraftforge/common/MinecartRegistry/getItemForCart (Ljava/lang/Class;)Lrj;
+CL: net/minecraftforge/common/ForgeVersion net/minecraftforge/common/ForgeVersion
+FD: net/minecraftforge/common/ForgeVersion/majorVersion net/minecraftforge/common/ForgeVersion/majorVersion
+FD: net/minecraftforge/common/ForgeVersion/revisionVersion net/minecraftforge/common/ForgeVersion/revisionVersion
+FD: net/minecraftforge/common/ForgeVersion/minorVersion net/minecraftforge/common/ForgeVersion/minorVersion
+FD: net/minecraftforge/common/ForgeVersion/buildVersion net/minecraftforge/common/ForgeVersion/buildVersion
+MD: net/minecraftforge/common/ForgeVersion/getMinorVersion ()I net/minecraftforge/common/ForgeVersion/getMinorVersion ()I
+MD: net/minecraftforge/common/ForgeVersion/getRevisionVersion ()I net/minecraftforge/common/ForgeVersion/getRevisionVersion ()I
+MD: net/minecraftforge/common/ForgeVersion/getVersion ()Ljava/lang/String; net/minecraftforge/common/ForgeVersion/getVersion ()Ljava/lang/String;
+MD: net/minecraftforge/common/ForgeVersion/getBuildVersion ()I net/minecraftforge/common/ForgeVersion/getBuildVersion ()I
+MD: net/minecraftforge/common/ForgeVersion/getMajorVersion ()I net/minecraftforge/common/ForgeVersion/getMajorVersion ()I
 CL: net/minecraftforge/common/ForgeDirection net/minecraftforge/common/ForgeDirection
 FD: net/minecraftforge/common/ForgeDirection/WEST net/minecraftforge/common/ForgeDirection/WEST
 FD: net/minecraftforge/common/ForgeDirection/NORTH net/minecraftforge/common/ForgeDirection/NORTH
@@ -17443,16 +17614,6 @@ FD: net/minecraftforge/common/ForgeDirection/$VALUES net/minecraftforge/common/F
 MD: net/minecraftforge/common/ForgeDirection/getOrientation (I)Lnet/minecraftforge/common/ForgeDirection; net/minecraftforge/common/ForgeDirection/getOrientation (I)Lnet/minecraftforge/common/ForgeDirection;
 MD: net/minecraftforge/common/ForgeDirection/values ()[Lnet/minecraftforge/common/ForgeDirection; net/minecraftforge/common/ForgeDirection/values ()[Lnet/minecraftforge/common/ForgeDirection;
 MD: net/minecraftforge/common/ForgeDirection/getOpposite ()Lnet/minecraftforge/common/ForgeDirection; net/minecraftforge/common/ForgeDirection/getOpposite ()Lnet/minecraftforge/common/ForgeDirection;
-CL: net/minecraftforge/common/ForgeVersion net/minecraftforge/common/ForgeVersion
-FD: net/minecraftforge/common/ForgeVersion/majorVersion net/minecraftforge/common/ForgeVersion/majorVersion
-FD: net/minecraftforge/common/ForgeVersion/revisionVersion net/minecraftforge/common/ForgeVersion/revisionVersion
-FD: net/minecraftforge/common/ForgeVersion/minorVersion net/minecraftforge/common/ForgeVersion/minorVersion
-FD: net/minecraftforge/common/ForgeVersion/buildVersion net/minecraftforge/common/ForgeVersion/buildVersion
-MD: net/minecraftforge/common/ForgeVersion/getMinorVersion ()I net/minecraftforge/common/ForgeVersion/getMinorVersion ()I
-MD: net/minecraftforge/common/ForgeVersion/getRevisionVersion ()I net/minecraftforge/common/ForgeVersion/getRevisionVersion ()I
-MD: net/minecraftforge/common/ForgeVersion/getVersion ()Ljava/lang/String; net/minecraftforge/common/ForgeVersion/getVersion ()Ljava/lang/String;
-MD: net/minecraftforge/common/ForgeVersion/getBuildVersion ()I net/minecraftforge/common/ForgeVersion/getBuildVersion ()I
-MD: net/minecraftforge/common/ForgeVersion/getMajorVersion ()I net/minecraftforge/common/ForgeVersion/getMajorVersion ()I
 PK: net/minecraftforge/event net/minecraftforge/event
 PK: net/minecraftforge/event/entity net/minecraftforge/event/entity
 PK: net/minecraftforge/event/entity/player net/minecraftforge/event/entity/player

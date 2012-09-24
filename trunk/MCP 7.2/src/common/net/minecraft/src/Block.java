@@ -7,9 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.ForgeDirection;
+import net.minecraftforge.common.*;
 import static net.minecraftforge.common.ForgeDirection.*;
 
 public class Block
@@ -1933,4 +1931,121 @@ public class Block
     {
         return false;
     }
+
+    /**
+     * Spawn a digging particle effect in the world, this is a wrapper 
+     * around EffectRenderer.addBlockHitEffects to allow the block more 
+     * control over the particles. Useful when you have entirely different
+     * texture sheets for different sides/locations in the world.
+     * 
+     * @param world The current world
+     * @param target The target the player is looking at {x/y/z/side/sub}
+     * @param effectRenderer A reference to the current effect renderer.
+     * @return True to prevent vanilla digging particles form spawning.
+     */
+    @SideOnly(Side.CLIENT)
+    public boolean addBlockHitEffects(World worldObj, MovingObjectPosition target, EffectRenderer effectRenderer)
+    {
+        return false;
+    }
+
+    /**
+     * Spawn particles for when the block is destroyed. Due to the nature 
+     * of how this is invoked, the x/y/z locations are not always guaranteed 
+     * to host your block. So be sure to do proper sanity checks before assuming
+     * that the location is this block.
+     * 
+     * @param world The current world
+     * @param x X position to spawn the particle
+     * @param y Y position to spawn the particle
+     * @param z Z position to spawn the particle
+     * @param meta The metadata for the block before it was destroyed.
+     * @param effectRenderer A reference to the current effect renderer.
+     * @return True to prevent vanilla break particles from spawning.
+     */
+    @SideOnly(Side.CLIENT)
+    public boolean addBlockDestroyEffects(World world, int x, int y, int z, int meta, EffectRenderer effectRenderer)
+    {
+        return false;
+    }
+
+    /**
+     * Determines if this block can support the passed in plant, allowing it to be planted and grow.
+     * Some examples:
+     *   Reeds check if its a reed, or if its sand/dirt/grass and adjacent to water
+     *   Cacti checks if its a cacti, or if its sand
+     *   Nether types check for soul sand
+     *   Crops check for tilled soil
+     *   Caves check if it's a colid surface
+     *   Plains check if its grass or dirt
+     *   Water check if its still water
+     *   
+     * @param world The current world
+     * @param x X Position
+     * @param y Y Position
+     * @param z Z position
+     * @param direction The direction relative to the given position the plant wants to be, typically its UP
+     * @param plant The plant that wants to check
+     * @return True to allow the plant to be planted/stay.
+     */
+    public boolean canSustainPlant(World world, int x, int y, int z, ForgeDirection direction, IPlantable plant)
+    {
+        int plantID = plant.getPlantID(world, x, y + 1, z);
+        EnumPlantType plantType = plant.getPlantType(world, x, y + 1, z);
+
+        if (plantID == cactus.blockID && blockID == cactus.blockID)
+        {
+            return true;
+        }
+
+        if (plantID == reed.blockID && blockID == reed.blockID)
+        {
+            return true;
+        }
+
+        if (plant instanceof BlockFlower && ((BlockFlower)plant).canThisPlantGrowOnThisBlockID(blockID))
+        {
+            return true;
+        }
+
+        switch (plantType)
+        {
+            case Desert: return blockID == sand.blockID;
+            case Nether: return blockID == slowSand.blockID;
+            case Crop:   return blockID == tilledField.blockID;
+            case Cave:   return isBlockSolidOnSide(world, x, y, z, UP);
+            case Plains: return blockID == grass.blockID || blockID == dirt.blockID;
+            case Water:  return world.getBlockMaterial(x, y, z) == Material.water && world.getBlockMetadata(x, y, z) == 0;
+            case Beach:
+                boolean isBeach = (blockID == Block.grass.blockID || blockID == Block.dirt.blockID || blockID == Block.sand.blockID);
+                boolean hasWater = (world.getBlockMaterial(x - 1, y - 1, z    ) == Material.water || 
+                                    world.getBlockMaterial(x + 1, y - 1, z    ) == Material.water || 
+                                    world.getBlockMaterial(x,     y - 1, z - 1) == Material.water ||
+                                    world.getBlockMaterial(x,     y - 1, z + 1) == Material.water);
+                return isBeach && hasWater;
+        }
+
+        return false;
+    }
+
+    /**
+     * Checks if this soil is fertile, typically this means that growth rates 
+     * of plants on this soil will be slightly sped up.
+     * Only vanilla case is tilledField when it is within range of water.
+     * 
+     * @param world The current world
+     * @param x X Position
+     * @param y Y Position
+     * @param z Z position
+     * @return True if the soil should be considered fertile.
+     */
+    public boolean isFertile(World world, int x, int y, int z)
+    {
+        if (blockID == tilledField.blockID)
+        {
+            return world.getBlockMetadata(x, y, z) > 0;
+        }
+
+        return false;
+    }    
 }

@@ -1,5 +1,6 @@
 package net.minecraft.src;
 
+import net.minecraftforge.common.ForgeHooks;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
 

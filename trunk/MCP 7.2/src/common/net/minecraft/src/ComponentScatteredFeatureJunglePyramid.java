@@ -2,6 +2,9 @@ package net.minecraft.src;
 
 import java.util.Random;
 
+import net.minecraftforge.common.ChestGenHooks;
+import static net.minecraftforge.common.ChestGenHooks.*;
+
 public class ComponentScatteredFeatureJunglePyramid extends ComponentScatteredFeature
 {
     private boolean field_74947_h;
@@ -10,12 +13,12 @@ public class ComponentScatteredFeatureJunglePyramid extends ComponentScatteredFe
     private boolean field_74946_k;
 
     /** List of Chest contents to be generated in the Jungle Pyramid chests. */
-    private static final WeightedRandomChestContent[] junglePyramidsChestContents = new WeightedRandomChestContent[] {new WeightedRandomChestContent(Item.diamond.shiftedIndex, 0, 1, 3, 3), new WeightedRandomChestContent(Item.ingotIron.shiftedIndex, 0, 1, 5, 10), new WeightedRandomChestContent(Item.ingotGold.shiftedIndex, 0, 2, 7, 15), new WeightedRandomChestContent(Item.emerald.shiftedIndex, 0, 1, 3, 2), new WeightedRandomChestContent(Item.bone.shiftedIndex, 0, 4, 6, 20), new WeightedRandomChestContent(Item.rottenFlesh.shiftedIndex, 0, 3, 7, 16)};
+    public static final WeightedRandomChestContent[] junglePyramidsChestContents = new WeightedRandomChestContent[] {new WeightedRandomChestContent(Item.diamond.shiftedIndex, 0, 1, 3, 3), new WeightedRandomChestContent(Item.ingotIron.shiftedIndex, 0, 1, 5, 10), new WeightedRandomChestContent(Item.ingotGold.shiftedIndex, 0, 2, 7, 15), new WeightedRandomChestContent(Item.emerald.shiftedIndex, 0, 1, 3, 2), new WeightedRandomChestContent(Item.bone.shiftedIndex, 0, 4, 6, 20), new WeightedRandomChestContent(Item.rottenFlesh.shiftedIndex, 0, 3, 7, 16)};
 
     /**
      * List of Dispenser contents to be generated in the Jungle Pyramid dispensers.
      */
-    private static final WeightedRandomChestContent[] junglePyramidsDispenserContents = new WeightedRandomChestContent[] {new WeightedRandomChestContent(Item.arrow.shiftedIndex, 0, 2, 7, 30)};
+    public static final WeightedRandomChestContent[] junglePyramidsDispenserContents = new WeightedRandomChestContent[] {new WeightedRandomChestContent(Item.arrow.shiftedIndex, 0, 2, 7, 30)};
 
     /** List of random stones to be generated in the Jungle Pyramid. */
     private static StructureScatteredFeatureStones junglePyramidsRandomScatteredStones = new StructureScatteredFeatureStones((ComponentScatteredFeaturePieces2)null);
@@ -159,9 +162,12 @@ public class ComponentScatteredFeatureJunglePyramid extends ComponentScatteredFe
             this.placeBlockAtCurrentPosition(par1World, Block.redstoneWire.blockID, 0, 4, -3, 1, par3StructureBoundingBox);
             this.placeBlockAtCurrentPosition(par1World, Block.cobblestoneMossy.blockID, 0, 3, -3, 1, par3StructureBoundingBox);
 
+            ChestGenHooks dispenser = ChestGenHooks.getInfo(PYRAMID_JUNGLE_DISPENSER);
+            ChestGenHooks chest = ChestGenHooks.getInfo(PYRAMID_JUNGLE_CHEST);
+
             if (!this.field_74945_j)
             {
-                this.field_74945_j = this.generateStructureDispenserContents(par1World, par3StructureBoundingBox, par2Random, 3, -2, 1, 2, junglePyramidsDispenserContents, 2);
+                this.field_74945_j = this.generateStructureDispenserContents(par1World, par3StructureBoundingBox, par2Random, 3, -2, 1, 2, dispenser.getItems(), dispenser.getCount(par2Random));
             }
 
             this.placeBlockAtCurrentPosition(par1World, Block.vine.blockID, 15, 3, -2, 2, par3StructureBoundingBox);
@@ -178,7 +184,7 @@ public class ComponentScatteredFeatureJunglePyramid extends ComponentScatteredFe
 
             if (!this.field_74946_k)
             {
-                this.field_74946_k = this.generateStructureDispenserContents(par1World, par3StructureBoundingBox, par2Random, 9, -2, 3, 4, junglePyramidsDispenserContents, 2);
+                this.field_74946_k = this.generateStructureDispenserContents(par1World, par3StructureBoundingBox, par2Random, 9, -2, 3, 4, dispenser.getItems(), dispenser.getCount(par2Random));
             }
 
             this.placeBlockAtCurrentPosition(par1World, Block.vine.blockID, 15, 8, -1, 3, par3StructureBoundingBox);
@@ -186,7 +192,7 @@ public class ComponentScatteredFeatureJunglePyramid extends ComponentScatteredFe
 
             if (!this.field_74947_h)
             {
-                this.field_74947_h = this.generateStructureChestContents(par1World, par3StructureBoundingBox, par2Random, 8, -3, 3, junglePyramidsChestContents, 2 + par2Random.nextInt(5));
+                this.field_74947_h = this.generateStructureChestContents(par1World, par3StructureBoundingBox, par2Random, 8, -3, 3, chest.getItems(), chest.getCount(par2Random));
             }
 
             this.placeBlockAtCurrentPosition(par1World, Block.cobblestoneMossy.blockID, 0, 9, -3, 2, par3StructureBoundingBox);
@@ -219,7 +225,7 @@ public class ComponentScatteredFeatureJunglePyramid extends ComponentScatteredFe
 
             if (!this.field_74948_i)
             {
-                this.field_74948_i = this.generateStructureChestContents(par1World, par3StructureBoundingBox, par2Random, 9, -3, 10, junglePyramidsChestContents, 2 + par2Random.nextInt(5));
+                this.field_74948_i = this.generateStructureChestContents(par1World, par3StructureBoundingBox, par2Random, 9, -3, 10, chest.getItems(), chest.getCount(par2Random));
             }
 
             return true;

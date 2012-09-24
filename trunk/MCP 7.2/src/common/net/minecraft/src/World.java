@@ -10,6 +10,11 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
+import com.google.common.collect.SetMultimap;
+
+import net.minecraftforge.common.ForgeChunkManager;
+import net.minecraftforge.common.ForgeChunkManager.Ticket;
+import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.event.entity.EntityEvent;
@@ -21,7 +26,7 @@ public abstract class World implements IBlockAccess
 {
     /**
      * Used in the getEntitiesWithinAABB functions to expand the search area for entities.
-     * Modders should change this variable to a higher value if it is less then the radius 
+     * Modders should change this variable to a higher value if it is less then the radius
      * of one of there entities.
      */
     public static double MAX_ENTITY_RADIUS = 2.0D;
@@ -147,6 +152,11 @@ public abstract class World implements IBlockAccess
      */
     public BiomeGenBase getBiomeGenForCoords(int par1, int par2)
     {
+        return provider.getBiomeGenForCoords(par1, par2);
+    }
+
+    public BiomeGenBase getBiomeGenForCoordsBody(int par1, int par2)
+    {
         if (this.blockExists(par1, 0, par2))
         {
             Chunk var3 = this.getChunkFromBlockCoords(par1, par2);
@@ -181,7 +191,6 @@ public abstract class World implements IBlockAccess
         this.chunkProvider = this.createChunkProvider();
         this.calculateInitialSkylight();
         this.calculateInitialWeather();
-        MinecraftForge.EVENT_BUS.post(new WorldEvent.Load(this));
     }
 
     public World(ISaveHandler par1ISaveHandler, String par2Str, WorldSettings par3WorldSettings, WorldProvider par4WorldProvider, Profiler par5Profiler)
@@ -228,7 +237,6 @@ public abstract class World implements IBlockAccess
 
         this.calculateInitialSkylight();
         this.calculateInitialWeather();
-        MinecraftForge.EVENT_BUS.post(new WorldEvent.Load(this));
     }
 
     /**
@@ -998,7 +1006,7 @@ public abstract class World implements IBlockAccess
      */
     public boolean isDaytime()
     {
-        return this.skylightSubtracted < 4;
+        return provider.isDaytime();
     }
 
     /**
@@ -1593,6 +1601,12 @@ public abstract class World implements IBlockAccess
      */
     public Vec3 getSkyColor(Entity par1Entity, float par2)
     {
+        return provider.getSkyColor(par1Entity, par2);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public Vec3 getSkyColorBody(Entity par1Entity, float par2)
+    {
         float var3 = this.getCelestialAngle(par2);
         float var4 = MathHelper.cos(var3 * (float)Math.PI * 2.0F) * 2.0F + 0.5F;
 
@@ -1687,6 +1701,12 @@ public abstract class World implements IBlockAccess
     @SideOnly(Side.CLIENT)
     public Vec3 drawClouds(float par1)
     {
+        return provider.drawClouds(par1);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public Vec3 drawCloudsBody(float par1)
+    {
         float var2 = this.getCelestialAngle(par1);
         float var3 = MathHelper.cos(var2 * (float)Math.PI * 2.0F) * 2.0F + 0.5F;
 
@@ -1780,6 +1800,12 @@ public abstract class World implements IBlockAccess
      * How bright are stars in the sky
      */
     public float getStarBrightness(float par1)
+    {
+        return provider.getStarBrightness(par1);
+    }
+
+    @SideOnly(Side.CLIENT)
+    public float getStarBrightnessBody(float par1)
     {
         float var2 = this.getCelestialAngle(par1);
         float var3 = 1.0F - (MathHelper.cos(var2 * (float)Math.PI * 2.0F) * 2.0F + 0.25F);
@@ -1934,7 +1960,7 @@ public abstract class World implements IBlockAccess
         {
             for (Object tile : entityRemoval)
             {
-               ((TileEntity)tile).onChunkUnload(); 
+               ((TileEntity)tile).onChunkUnload();
             }
             this.loadedTileEntityList.removeAll(this.entityRemoval);
             this.entityRemoval.clear();
@@ -2006,7 +2032,9 @@ public abstract class World implements IBlockAccess
     {
         int var3 = MathHelper.floor_double(par1Entity.posX);
         int var4 = MathHelper.floor_double(par1Entity.posZ);
-        byte var5 = 32;
+
+        boolean isForced = getPersistentChunks().containsKey(new ChunkCoordIntPair(var3 >> 4, var4 >> 4));
+        byte var5 = isForced ? (byte)0 : 32;
         boolean canUpdate = !par2 || this.checkChunksExist(var3 - var5, 0, var4 - var5, var3 + var5, 0, var4 + var5);
         if (!canUpdate)
         {
@@ -2671,8 +2699,7 @@ public abstract class World implements IBlockAccess
      */
     public void setAllowedSpawnTypes(boolean par1, boolean par2)
     {
-        this.spawnHostileMobs = par1;
-        this.spawnPeacefulMobs = par2;
+        provider.setAllowedSpawnTypes(par1, par2);
     }
 
     /**
@@ -2687,6 +2714,11 @@ public abstract class World implements IBlockAccess
      * Called from World constructor to set rainingStrength and thunderingStrength
      */
     private void calculateInitialWeather()
+    {
+        provider.calculateInitialWeather();
+    }
+
+    public void calculateInitialWeatherBody()
     {
         if (this.worldInfo.isRaining())
         {
@@ -2703,6 +2735,11 @@ public abstract class World implements IBlockAccess
      * Updates all weather states.
      */
     protected void updateWeather()
+    {
+        provider.updateWeather();
+    }
+
+    public void updateWeatherBody()
     {
         if (!this.provider.hasNoSky)
         {
@@ -2805,12 +2842,14 @@ public abstract class World implements IBlockAccess
 
     public void toggleRain()
     {
-        this.worldInfo.setRainTime(1);
+        provider.toggleRain();
     }
 
     protected void setActivePlayerChunksAndCheckLight()
     {
         this.activeChunkSet.clear();
+        this.activeChunkSet.addAll(getPersistentChunks().keySet());
+
         this.theProfiler.startSection("buildList");
         int var1;
         EntityPlayer var2;
@@ -2917,6 +2956,11 @@ public abstract class World implements IBlockAccess
      */
     public boolean canBlockFreeze(int par1, int par2, int par3, boolean par4)
     {
+        return provider.canBlockFreeze(par1, par2, par3, par4);
+    }
+
+    public boolean canBlockFreezeBody(int par1, int par2, int par3, boolean par4)
+    {
         BiomeGenBase var5 = this.getBiomeGenForCoords(par1, par3);
         float var6 = var5.getFloatTemperature();
 
@@ -2974,6 +3018,11 @@ public abstract class World implements IBlockAccess
      * Tests whether or not snow can be placed at a given location
      */
     public boolean canSnowAt(int par1, int par2, int par3)
+    {
+        return provider.canSnowAt(par1, par2, par3);
+    }
+
+    public boolean canSnowAtBody(int par1, int par2, int par3)
     {
         BiomeGenBase var4 = this.getBiomeGenForCoords(par1, par3);
         float var5 = var4.getFloatTemperature();
@@ -3688,7 +3737,7 @@ public abstract class World implements IBlockAccess
      */
     public void setWorldTime(long par1)
     {
-        this.worldInfo.setWorldTime(par1);
+        provider.setWorldTime(par1);
     }
 
     /**
@@ -3696,12 +3745,12 @@ public abstract class World implements IBlockAccess
      */
     public long getSeed()
     {
-        return this.worldInfo.getSeed();
+        return provider.getSeed();
     }
 
     public long getWorldTime()
     {
-        return this.worldInfo.getWorldTime();
+        return provider.getWorldTime();
     }
 
     /**
@@ -3709,13 +3758,13 @@ public abstract class World implements IBlockAccess
      */
     public ChunkCoordinates getSpawnPoint()
     {
-        return new ChunkCoordinates(this.worldInfo.getSpawnX(), this.worldInfo.getSpawnY(), this.worldInfo.getSpawnZ());
+        return provider.getSpawnPoint();
     }
 
     @SideOnly(Side.CLIENT)
     public void setSpawnLocation(int par1, int par2, int par3)
     {
-        this.worldInfo.setSpawnPosition(par1, par2, par3);
+        provider.setSpawnPoint(par1, par2, par3);
     }
 
     @SideOnly(Side.CLIENT)
@@ -3750,6 +3799,11 @@ public abstract class World implements IBlockAccess
      * Called when checking if a certain block can be mined or not. The 'spawn safe zone' check is located here.
      */
     public boolean canMineBlock(EntityPlayer par1EntityPlayer, int par2, int par3, int par4)
+    {
+        return provider.canMineBlock(par1EntityPlayer, par2, par3, par4);
+    }
+
+    public boolean canMineBlockBody(EntityPlayer par1EntityPlayer, int par2, int par3, int par4)
     {
         return true;
     }
@@ -3862,8 +3916,7 @@ public abstract class World implements IBlockAccess
      */
     public boolean isBlockHighHumidity(int par1, int par2, int par3)
     {
-        BiomeGenBase var4 = this.getBiomeGenForCoords(par1, par3);
-        return var4.isHighHumidity();
+        return provider.isBlockHighHumidity(par1, par2, par3);
     }
 
     /**
@@ -3917,7 +3970,7 @@ public abstract class World implements IBlockAccess
      */
     public int getHeight()
     {
-        return 256;
+        return provider.getHeight();
     }
 
     /**
@@ -3925,7 +3978,7 @@ public abstract class World implements IBlockAccess
      */
     public int getActualHeight()
     {
-        return this.provider.hasNoSky ? 128 : 256;
+        return provider.getActualHeight();
     }
 
     /**
@@ -3971,7 +4024,7 @@ public abstract class World implements IBlockAccess
      */
     public double getHorizon()
     {
-        return this.worldInfo.getTerrainType().getHorizon(this);
+        return provider.getHorizon();
     }
 
     /**
@@ -4004,7 +4057,7 @@ public abstract class World implements IBlockAccess
      * Adds a single TileEntity to the world.
      * @param entity The TileEntity to be added.
      */
-    public void addTileEntity(TileEntity entity) 
+    public void addTileEntity(TileEntity entity)
     {
         List dest = scanningTileEntities ? addedTileEntityList : loadedTileEntityList;
         if(entity.canUpdate())
@@ -4016,7 +4069,7 @@ public abstract class World implements IBlockAccess
     /**
      * Determine if the given block is considered solid on the
      * specified side.  Used by placement logic.
-     * 
+     *
      * @param X Block X Position
      * @param Y Block Y Position
      * @param Z Block Z Position
@@ -4031,7 +4084,7 @@ public abstract class World implements IBlockAccess
     /**
      * Determine if the given block is considered solid on the
      * specified side.  Used by placement logic.
-     * 
+     *
      * @param X Block X Position
      * @param Y Block Y Position
      * @param Z Block Z Position
@@ -4059,5 +4112,15 @@ public abstract class World implements IBlockAccess
         }
 
         return block.isBlockSolidOnSide(this, X, Y, Z, side);
+    }
+
+    /**
+     * Get the persistent chunks for this world
+     *
+     * @return
+     */
+    SetMultimap<ChunkCoordIntPair, Ticket> getPersistentChunks()
+    {
+        return ForgeChunkManager.getPersistentChunksFor(this);
     }
 }

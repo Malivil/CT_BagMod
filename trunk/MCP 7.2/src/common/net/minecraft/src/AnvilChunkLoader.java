@@ -20,7 +20,7 @@ public class AnvilChunkLoader implements IThreadedFileIO, IChunkLoader
     private Object syncLockObject = new Object();
 
     /** Save directory for chunks using the Anvil format */
-    private final File chunkSaveLocation;
+    final File chunkSaveLocation;
 
     public AnvilChunkLoader(File par1File)
     {

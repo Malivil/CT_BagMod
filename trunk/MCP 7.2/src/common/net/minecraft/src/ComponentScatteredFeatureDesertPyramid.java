@@ -2,12 +2,15 @@ package net.minecraft.src;
 
 import java.util.Random;
 
+import net.minecraftforge.common.ChestGenHooks;
+import static net.minecraftforge.common.ChestGenHooks.*;
+
 public class ComponentScatteredFeatureDesertPyramid extends ComponentScatteredFeature
 {
     private boolean[] field_74940_h = new boolean[4];
 
     /** List of items to generate in chests of Temples. */
-    private static final WeightedRandomChestContent[] itemsToGenerateInTemple = new WeightedRandomChestContent[] {new WeightedRandomChestContent(Item.diamond.shiftedIndex, 0, 1, 3, 3), new WeightedRandomChestContent(Item.ingotIron.shiftedIndex, 0, 1, 5, 10), new WeightedRandomChestContent(Item.ingotGold.shiftedIndex, 0, 2, 7, 15), new WeightedRandomChestContent(Item.emerald.shiftedIndex, 0, 1, 3, 2), new WeightedRandomChestContent(Item.bone.shiftedIndex, 0, 4, 6, 20), new WeightedRandomChestContent(Item.rottenFlesh.shiftedIndex, 0, 3, 7, 16)};
+    public static final WeightedRandomChestContent[] itemsToGenerateInTemple = new WeightedRandomChestContent[] {new WeightedRandomChestContent(Item.diamond.shiftedIndex, 0, 1, 3, 3), new WeightedRandomChestContent(Item.ingotIron.shiftedIndex, 0, 1, 5, 10), new WeightedRandomChestContent(Item.ingotGold.shiftedIndex, 0, 2, 7, 15), new WeightedRandomChestContent(Item.emerald.shiftedIndex, 0, 1, 3, 2), new WeightedRandomChestContent(Item.bone.shiftedIndex, 0, 4, 6, 20), new WeightedRandomChestContent(Item.rottenFlesh.shiftedIndex, 0, 3, 7, 16)};
 
     public ComponentScatteredFeatureDesertPyramid(Random par1Random, int par2, int par3)
     {
@@ -216,7 +219,7 @@ public class ComponentScatteredFeatureDesertPyramid extends ComponentScatteredFe
             {
                 int var11 = Direction.offsetX[var10] * 2;
                 int var12 = Direction.offsetZ[var10] * 2;
-                this.field_74940_h[var10] = this.generateStructureChestContents(par1World, par3StructureBoundingBox, par2Random, 10 + var11, -11, 10 + var12, itemsToGenerateInTemple, 2 + par2Random.nextInt(5));
+                this.field_74940_h[var10] = this.generateStructureChestContents(par1World, par3StructureBoundingBox, par2Random, 10 + var11, -11, 10 + var12, ChestGenHooks.getItems(PYRAMID_DESERT_CHEST), ChestGenHooks.getCount(PYRAMID_DESERT_CHEST, par2Random));
             }
         }
 
