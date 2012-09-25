@@ -6,7 +6,7 @@
 #
 # RetroGuard MCP v3.6.5
 #
-# Logfile created on Mon Sep 24 07:35:13 EDT 2012
+# Logfile created on Mon Sep 24 22:18:39 EDT 2012
 #
 # Jar file to be obfuscated:           client_recomp.jar
 # Target Jar file for obfuscated code: client_reobf.jar
@@ -51,7 +51,7 @@
 #      Your class net/minecraftforge/event/ASMEventHandler$ASMClassLoader calls the java/lang/ClassLoader method defineClass(Ljava/lang/String;[BII)Ljava/lang/Class;
 #      Your class net/minecraftforge/event/EventBus calls the java/lang/Class method getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 #
-# Memory in use after class data structure built: 20572432 bytes
+# Memory in use after class data structure built: 20575008 bytes
 # Total memory available                        : 229310464 bytes
 #
 #
@@ -13750,6 +13750,7 @@
 .field_map net/minecraft/src/ModTextureAnimation/tickRate tickRate
 .method_map net/minecraft/src/ModTextureAnimation/onTick ()V a
 .method_map net/minecraft/src/ModTextureAnimation/setup ()V setup
+.method_map net/minecraft/src/ModTextureAnimation/func_783_a ()V func_783_a
 .method_map net/minecraft/src/ModTextureAnimation/bindImage (Lnet/minecraft/src/RenderEngine;)V a
 .class_map net/minecraft/src/PacketCount ii
 .field_map net/minecraft/src/PacketCount/lock d
@@ -19475,6 +19476,8 @@
 .field_map net/minecraftforge/common/ForgeChunkManager$Type/NORMAL NORMAL
 .field_map net/minecraftforge/common/ForgeChunkManager$Type/ENTITY ENTITY
 .method_map net/minecraftforge/common/ForgeChunkManager$Type/values ()[Lnet/minecraftforge/common/ForgeChunkManager$Type; values
+.class_map net/minecraftforge/common/ForgeChunkManager$OrderedLoadingCallback OrderedLoadingCallback
+.method_map net/minecraftforge/common/ForgeChunkManager$OrderedLoadingCallback/ticketsLoaded (Ljava/util/List;Lnet/minecraft/src/World;I)Ljava/util/List; ticketsLoaded
 .class_map net/minecraftforge/common/ForgeChunkManager$LoadingCallback LoadingCallback
 .method_map net/minecraftforge/common/ForgeChunkManager$LoadingCallback/ticketsLoaded (Ljava/util/List;Lnet/minecraft/src/World;)V ticketsLoaded
 .class_map net/minecraftforge/common/ForgeChunkManager ForgeChunkManager
@@ -19499,6 +19502,7 @@
 .method_map net/minecraftforge/common/ForgeChunkManager/loadWorld (Lnet/minecraft/src/World;)V loadWorld
 .method_map net/minecraftforge/common/ForgeChunkManager/access$000 (Ljava/lang/String;)I access$000
 .method_map net/minecraftforge/common/ForgeChunkManager/requestTicket (Ljava/lang/Object;Lnet/minecraft/src/World;Lnet/minecraftforge/common/ForgeChunkManager$Type;)Lnet/minecraftforge/common/ForgeChunkManager$Ticket; requestTicket
+.method_map net/minecraftforge/common/ForgeChunkManager/reorderChunk (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;Lnet/minecraft/src/ChunkCoordIntPair;)V reorderChunk
 .method_map net/minecraftforge/common/ForgeChunkManager/releaseTicket (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)V releaseTicket
 .method_map net/minecraftforge/common/ForgeChunkManager/getContainer (Ljava/lang/Object;)Lcpw/mods/fml/common/ModContainer; getContainer
 .method_map net/minecraftforge/common/ForgeChunkManager/forceChunk (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;Lnet/minecraft/src/ChunkCoordIntPair;)V forceChunk

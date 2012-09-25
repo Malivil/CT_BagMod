@@ -128,4 +128,12 @@ public class ModTextureAnimation extends FMLTextureFX
     {
         GL11.glBindTexture(GL11.GL_TEXTURE_2D, tileImage);
     }
+
+    // TODO: REMOVE THIS - just for you dan200
+    @Deprecated
+    public void func_783_a()
+    {
+        onTick();
+    }
+
 }
