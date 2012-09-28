@@ -78,7 +78,6 @@ public class WorldServer extends World
         {
             this.pendingTickListEntries = new TreeSet();
         }
-        MinecraftForge.EVENT_BUS.post(new WorldEvent.Load(this));
         DimensionManager.setWorld(par4, this);
     }
 

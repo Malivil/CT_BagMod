@@ -10,6 +10,10 @@ import java.util.logging.Logger;
 
 import cpw.mods.fml.common.network.FMLNetworkHandler;
 import net.minecraft.server.MinecraftServer;
+import net.minecraftforge.event.Event;
+import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 
 public class NetServerHandler extends NetHandler
 {
@@ -422,6 +426,7 @@ public class NetServerHandler extends NetHandler
             {
                 if (var20 <= mcServer.spawnProtectionSize && !var3)
                 {
+                    ForgeEventFactory.onPlayerInteract(playerEntity, Action.LEFT_CLICK_BLOCK, var5, var6, var7, 0);
                     this.playerEntity.playerNetServerHandler.sendPacketToPlayer(new Packet53BlockChange(var5, var6, var7, var2));
                 }
                 else
@@ -482,7 +487,11 @@ public class NetServerHandler extends NetHandler
                 return;
             }
 
-            this.playerEntity.theItemInWorldManager.tryUseItem(this.playerEntity, var2, var3);
+            PlayerInteractEvent event = ForgeEventFactory.onPlayerInteract(playerEntity, PlayerInteractEvent.Action.RIGHT_CLICK_AIR, 0, 0, 0, -1);
+            if (event.useItem != Event.Result.DENY)
+            {
+                this.playerEntity.theItemInWorldManager.tryUseItem(this.playerEntity, var2, var3);
+            }
         }
         else if (par1Packet15Place.getYPosition() >= this.mcServer.getBuildLimit() - 1 && (par1Packet15Place.getDirection() == 1 || par1Packet15Place.getYPosition() >= this.mcServer.getBuildLimit()))
         {

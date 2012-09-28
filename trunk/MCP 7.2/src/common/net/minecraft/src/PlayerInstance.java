@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.Side;
+
 class PlayerInstance
 {
     private final List playersInChunk;
@@ -140,7 +143,10 @@ class PlayerInstance
                         if ((this.field_73260_f & 1 << var3) != 0)
                         {
                             var4 = var3 << 4;
-                            List var5 = PlayerManager.getWorldServer(this.myManager).getAllTileEntityInBox(var1, var4, var2, var1 + 16, var4 + 16, var2 + 16);
+                            //BugFix: 16 makes it load an extra chunk, which isn't associated with a player, which makes it not unload unless a player walks near it.
+                            //ToDo: Find a way to efficiently clean abandoned chunks.
+                            //List var5 = PlayerManager.getWorldServer(this.myManager).getAllTileEntityInBox(var1, var4, var2, var1 + 16, var4 + 16, var2 + 16);
+                            List var5 = PlayerManager.getWorldServer(this.myManager).getAllTileEntityInBox(var1, var4, var2, var1 + 15, var4 + 16, var2 + 15);
                             Iterator var6 = var5.iterator();
 
                             while (var6.hasNext())

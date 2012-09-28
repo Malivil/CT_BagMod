@@ -60,6 +60,8 @@ import net.minecraft.src.WorldServerMulti;
 import net.minecraft.src.WorldSettings;
 import net.minecraft.src.WorldType;
 import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.world.WorldEvent;
 
 public abstract class MinecraftServer implements Runnable, IPlayerUsage, ICommandSender
 {
@@ -238,6 +240,7 @@ public abstract class MinecraftServer implements Runnable, IPlayerUsage, IComman
             }
 
             this.serverConfigManager.setPlayerManager(this.worldServers);
+            MinecraftForge.EVENT_BUS.post(new WorldEvent.Load(world));
         }
 
         this.serverConfigManager.setPlayerManager(new WorldServer[]{ overWorld });
