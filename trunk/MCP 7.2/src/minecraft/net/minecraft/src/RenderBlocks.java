@@ -504,6 +504,7 @@ public class RenderBlocks
         var5.setBrightness(var25);
         var5.setColorOpaque_F(var9, var9, var9);
         int var27 = par1Block.getBlockTexture(this.blockAccess, par2, par3, par4, 0);
+        if (overrideBlockTexture >= 0) var27 = overrideBlockTexture; //BugFix Proper breaking texture on underside
         int var28 = (var27 & 15) << 4;
         int var29 = var27 & 240;
         double var30 = (double)((float)var28 / 256.0F);
@@ -522,6 +523,7 @@ public class RenderBlocks
         var5.setBrightness(par1Block.getMixedBrightnessForBlock(this.blockAccess, par2, par3 + 1, par4));
         var5.setColorOpaque_F(var10, var10, var10);
         var27 = par1Block.getBlockTexture(this.blockAccess, par2, par3, par4, 1);
+        if (overrideBlockTexture >= 0) var27 = overrideBlockTexture; //BugFix Proper breaking texture on top
         var28 = (var27 & 15) << 4;
         var29 = var27 & 240;
         var30 = (double)((float)var28 / 256.0F);

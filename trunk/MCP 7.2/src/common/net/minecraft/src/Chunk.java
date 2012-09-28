@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Random;
 
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.world.ChunkEvent;
 
 public class Chunk
@@ -146,11 +147,11 @@ public class Chunk
     }
 
     /**
-     * Metadata sensitive Chunk constructor for use in new ChunkProviders that 
+     * Metadata sensitive Chunk constructor for use in new ChunkProviders that
      * use metadata sensitive blocks during generation.
-     * 
+     *
      * @param world The world this chunk belongs to
-     * @param ids A ByteArray containing all the BlockID's to set this chunk to 
+     * @param ids A ByteArray containing all the BlockID's to set this chunk to
      * @param metadata A ByteArray containing all the metadata to set this chunk to
      * @param chunkX The chunk's X position
      * @param chunkZ The Chunk's Z position
@@ -251,7 +252,7 @@ public class Chunk
                     {
                         int var5 = this.getBlockID(var2, var4 - 1, var3);
 
-                        if (Block.lightOpacity[var5] == 0)
+                        if (getBlockLightOpacity(var2, var4 - 1, var3) == 0)
                         {
                             --var4;
                             continue;
@@ -546,7 +547,10 @@ public class Chunk
 
     public int getBlockLightOpacity(int par1, int par2, int par3)
     {
-        return Block.lightOpacity[this.getBlockID(par1, par2, par3)];
+        int x = (xPosition << 4) + par1;
+        int z = (zPosition << 4) + par3;
+        Block block = Block.blocksList[getBlockID(par1, par2, par3)];
+        return (block == null ? 0 : block.getLightOpacity(worldObj, x, par2, z));
     }
 
     /**
@@ -666,7 +670,7 @@ public class Chunk
                 }
                 else
                 {
-                    if (Block.lightOpacity[par4 & 4095] > 0)
+                    if (getBlockLightOpacity(par1, par2 + 1, par3) > 0)
                     {
                         if (par2 >= var7)
                         {
@@ -856,7 +860,7 @@ public class Chunk
         {
             var4 = this.entityLists.length - 1;
         }
-
+        MinecraftForge.EVENT_BUS.post(new EntityEvent.EnteringChunk(par1Entity, this.xPosition, this.zPosition, par1Entity.chunkCoordX, par1Entity.chunkCoordZ));
         par1Entity.addedToChunk = true;
         par1Entity.chunkCoordX = this.xPosition;
         par1Entity.chunkCoordY = var4;
@@ -1405,7 +1409,7 @@ public class Chunk
             }
             tileEntity.updateContainingBlockInfo();
         }
-        
+
         for (TileEntity tileEntity : invalidList)
         {
             tileEntity.invalidate();
@@ -1519,7 +1523,7 @@ public class Chunk
     }
 
     /** FORGE: Used to remove only invalid TileEntities */
-    public void cleanChunkBlockTileEntity(int x, int y, int z) 
+    public void cleanChunkBlockTileEntity(int x, int y, int z)
     {
         ChunkPosition position = new ChunkPosition(x, y, z);
         if (isChunkLoaded)

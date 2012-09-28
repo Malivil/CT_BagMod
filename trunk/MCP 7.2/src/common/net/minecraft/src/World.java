@@ -3251,7 +3251,7 @@ public abstract class World implements IBlockAccess
                                     int var21 = var24 + (var18 / 2 + 1) % 3 / 2 * var19;
                                     int var22 = var12 + (var18 / 2 + 2) % 3 / 2 * var19;
                                     var14 = this.getSavedLightValue(par1EnumSkyBlock, var20, var21, var22);
-                                    int var23 = Block.lightOpacity[this.getBlockId(var20, var21, var22)];
+                                    int var23 = this.getBlockLightOpacity(var20, var21, var22);
 
                                     if (var23 == 0)
                                     {
@@ -3282,7 +3282,7 @@ public abstract class World implements IBlockAccess
                 var12 = (var9 >> 12 & 63) - 32 + par4;
                 var13 = this.getSavedLightValue(par1EnumSkyBlock, var10, var24, var12);
                 var14 = this.getBlockId(var10, var24, var12);
-                var15 = Block.lightOpacity[var14];
+                var15 = this.getBlockLightOpacity(var10, var24, var12);
 
                 if (var15 == 0)
                 {

@@ -9,6 +9,8 @@ import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.DimensionManager;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.world.WorldEvent;
 
 @SideOnly(Side.CLIENT)
 public class IntegratedServer extends MinecraftServer
@@ -60,6 +62,7 @@ public class IntegratedServer extends MinecraftServer
             {
                 world.getWorldInfo().setGameType(this.getGameType());
             }
+            MinecraftForge.EVENT_BUS.post(new WorldEvent.Load(world));
         }
 
         this.getConfigurationManager().setPlayerManager(new WorldServer[]{ overWorld });

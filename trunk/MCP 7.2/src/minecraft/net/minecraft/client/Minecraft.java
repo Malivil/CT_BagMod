@@ -119,6 +119,8 @@ import net.minecraft.src.WorldInfo;
 import net.minecraft.src.WorldRenderer;
 import net.minecraft.src.WorldSettings;
 import net.minecraftforge.common.ForgeHooks;
+import net.minecraftforge.event.ForgeEventFactory;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent.Action;
 
 import org.lwjgl.LWJGLException;
 import org.lwjgl.Sys;
@@ -1312,7 +1314,8 @@ public abstract class Minecraft implements Runnable, IPlayerUsage
                 {
                     int var8 = var3 != null ? var3.stackSize : 0;
 
-                    if (this.playerController.onPlayerRightClick(this.thePlayer, this.theWorld, var3, var4, var5, var6, var7, this.objectMouseOver.hitVec))
+                    boolean result = !ForgeEventFactory.onPlayerInteract(thePlayer, Action.RIGHT_CLICK_BLOCK, var4, var5, var6, var7).isCanceled();
+                    if (result && this.playerController.onPlayerRightClick(this.thePlayer, this.theWorld, var3, var4, var5, var6, var7, this.objectMouseOver.hitVec))
                     {
                         var2 = false;
                         this.thePlayer.swingItem();
@@ -1338,7 +1341,8 @@ public abstract class Minecraft implements Runnable, IPlayerUsage
             {
                 ItemStack var9 = this.thePlayer.inventory.getCurrentItem();
 
-                if (var9 != null && this.playerController.sendUseItem(this.thePlayer, this.theWorld, var9))
+                boolean result = !ForgeEventFactory.onPlayerInteract(thePlayer, Action.RIGHT_CLICK_AIR, 0, 0, 0, -1).isCanceled();
+                if (result && var9 != null && this.playerController.sendUseItem(this.thePlayer, this.theWorld, var9))
                 {
                     this.entityRenderer.itemRenderer.func_78445_c();
                 }

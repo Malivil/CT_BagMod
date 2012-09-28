@@ -6,7 +6,7 @@
 #
 # RetroGuard MCP v3.6.5
 #
-# Logfile created on Mon Sep 24 22:18:39 EDT 2012
+# Logfile created on Fri Sep 28 16:14:27 EDT 2012
 #
 # Jar file to be obfuscated:           client_recomp.jar
 # Target Jar file for obfuscated code: client_reobf.jar
@@ -51,7 +51,7 @@
 #      Your class net/minecraftforge/event/ASMEventHandler$ASMClassLoader calls the java/lang/ClassLoader method defineClass(Ljava/lang/String;[BII)Ljava/lang/Class;
 #      Your class net/minecraftforge/event/EventBus calls the java/lang/Class method getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 #
-# Memory in use after class data structure built: 20575008 bytes
+# Memory in use after class data structure built: 20627912 bytes
 # Total memory available                        : 229310464 bytes
 #
 #
@@ -2000,7 +2000,10 @@
 .method net/minecraftforge/client/IItemRenderer$ItemRendererHelper/valueOf (Ljava/lang/String;)Lnet/minecraftforge/client/IItemRenderer$ItemRendererHelper;
 .method net/minecraftforge/common/EnumPlantType/valueOf (Ljava/lang/String;)Lnet/minecraftforge/common/EnumPlantType;
 .method net/minecraftforge/common/ForgeChunkManager$Type/valueOf (Ljava/lang/String;)Lnet/minecraftforge/common/ForgeChunkManager$Type;
+.method net/minecraftforge/common/Property$Type/valueOf (Ljava/lang/String;)Lnet/minecraftforge/common/Property$Type;
 .method net/minecraftforge/common/ForgeDirection/valueOf (Ljava/lang/String;)Lnet/minecraftforge/common/ForgeDirection;
+.method net/minecraftforge/event/entity/player/PlayerInteractEvent$Action/valueOf (Ljava/lang/String;)Lnet/minecraftforge/event/entity/player/PlayerInteractEvent$Action;
+.method net/minecraftforge/event/Event$Result/valueOf (Ljava/lang/String;)Lnet/minecraftforge/event/Event$Result;
 .method net/minecraftforge/event/EventPriority/valueOf (Ljava/lang/String;)Lnet/minecraftforge/event/EventPriority;
 .method mal/teleportrelay/common/TeleportRelay$PACKET_TYPES/valueOf (Ljava/lang/String;)Lmal/teleportrelay/common/TeleportRelay$PACKET_TYPES;
 #
@@ -2745,6 +2748,14 @@
 .method_map cpw/mods/fml/relauncher/RelaunchClassLoader/registerTransformer (Ljava/lang/String;)V registerTransformer
 .method_map cpw/mods/fml/relauncher/RelaunchClassLoader/getClassBytes (Ljava/lang/String;)[B getClassBytes
 .method_map cpw/mods/fml/relauncher/RelaunchClassLoader/addURL (Ljava/net/URL;)V addURL
+.class_map cpw/mods/fml/relauncher/IDownloadDisplay IDownloadDisplay
+.method_map cpw/mods/fml/relauncher/IDownloadDisplay/makeHeadless ()V makeHeadless
+.method_map cpw/mods/fml/relauncher/IDownloadDisplay/makeDialog ()Ljava/lang/Object; makeDialog
+.method_map cpw/mods/fml/relauncher/IDownloadDisplay/setPokeThread (Ljava/lang/Thread;)V setPokeThread
+.method_map cpw/mods/fml/relauncher/IDownloadDisplay/shouldStopIt ()Z shouldStopIt
+.method_map cpw/mods/fml/relauncher/IDownloadDisplay/updateProgressString (Ljava/lang/String;[Ljava/lang/Object;)V updateProgressString
+.method_map cpw/mods/fml/relauncher/IDownloadDisplay/resetProgress (I)V resetProgress
+.method_map cpw/mods/fml/relauncher/IDownloadDisplay/updateProgress (I)V updateProgress
 .class_map cpw/mods/fml/relauncher/Downloader$2 2
 .field_map cpw/mods/fml/relauncher/Downloader$2/this$0 this$0
 .method_map cpw/mods/fml/relauncher/Downloader$2/windowClosing (Ljava/awt/event/WindowEvent;)V windowClosing
@@ -2758,7 +2769,10 @@
 .field_map cpw/mods/fml/relauncher/Downloader/container container
 .field_map cpw/mods/fml/relauncher/Downloader/currentActivity currentActivity
 .method_map cpw/mods/fml/relauncher/Downloader/makeHeadless ()V makeHeadless
+.method_map cpw/mods/fml/relauncher/Downloader/makeDialog ()Ljava/lang/Object; makeDialog
 .method_map cpw/mods/fml/relauncher/Downloader/makeDialog ()Ljavax/swing/JDialog; makeDialog
+.method_map cpw/mods/fml/relauncher/Downloader/setPokeThread (Ljava/lang/Thread;)V setPokeThread
+.method_map cpw/mods/fml/relauncher/Downloader/shouldStopIt ()Z shouldStopIt
 .method_map cpw/mods/fml/relauncher/Downloader/updateProgressString (Ljava/lang/String;[Ljava/lang/Object;)V updateProgressString
 .method_map cpw/mods/fml/relauncher/Downloader/resetProgress (I)V resetProgress
 .method_map cpw/mods/fml/relauncher/Downloader/updateProgress (I)V updateProgress
@@ -2781,12 +2795,6 @@
 .field_map cpw/mods/fml/relauncher/FMLInjectionData/major major
 .method_map cpw/mods/fml/relauncher/FMLInjectionData/build (Ljava/io/File;Lcpw/mods/fml/relauncher/RelaunchClassLoader;)V build
 .method_map cpw/mods/fml/relauncher/FMLInjectionData/data ()[Ljava/lang/Object; data
-.class_map cpw/mods/fml/relauncher/ArgsWrapper ArgsWrapper
-.field_map cpw/mods/fml/relauncher/ArgsWrapper/args args
-.class_map cpw/mods/fml/relauncher/FMLLogFormatter FMLLogFormatter
-.field_map cpw/mods/fml/relauncher/FMLLogFormatter/dateFormat dateFormat
-.field_map cpw/mods/fml/relauncher/FMLLogFormatter/LINE_SEPARATOR LINE_SEPARATOR
-.method_map cpw/mods/fml/relauncher/FMLLogFormatter/format (Ljava/util/logging/LogRecord;)Ljava/lang/String; format
 .class_map cpw/mods/fml/relauncher/IFMLLoadingPlugin$TransformerExclusions TransformerExclusions
 .method_map cpw/mods/fml/relauncher/IFMLLoadingPlugin$TransformerExclusions/value ()[Ljava/lang/String; value
 .class_map cpw/mods/fml/relauncher/IFMLLoadingPlugin IFMLLoadingPlugin
@@ -2795,6 +2803,12 @@
 .method_map cpw/mods/fml/relauncher/IFMLLoadingPlugin/getLibraryRequestClass ()[Ljava/lang/String; getLibraryRequestClass
 .method_map cpw/mods/fml/relauncher/IFMLLoadingPlugin/getSetupClass ()Ljava/lang/String; getSetupClass
 .method_map cpw/mods/fml/relauncher/IFMLLoadingPlugin/getASMTransformerClass ()[Ljava/lang/String; getASMTransformerClass
+.class_map cpw/mods/fml/relauncher/ArgsWrapper ArgsWrapper
+.field_map cpw/mods/fml/relauncher/ArgsWrapper/args args
+.class_map cpw/mods/fml/relauncher/FMLLogFormatter FMLLogFormatter
+.field_map cpw/mods/fml/relauncher/FMLLogFormatter/dateFormat dateFormat
+.field_map cpw/mods/fml/relauncher/FMLLogFormatter/LINE_SEPARATOR LINE_SEPARATOR
+.method_map cpw/mods/fml/relauncher/FMLLogFormatter/format (Ljava/util/logging/LogRecord;)Ljava/lang/String; format
 .class_map cpw/mods/fml/relauncher/CoreFMLLibraries CoreFMLLibraries
 .field_map cpw/mods/fml/relauncher/CoreFMLLibraries/checksums checksums
 .field_map cpw/mods/fml/relauncher/CoreFMLLibraries/libraries libraries
@@ -2854,6 +2868,14 @@
 .method_map cpw/mods/fml/relauncher/FMLRelaunchLog/fine (Ljava/lang/String;[Ljava/lang/Object;)V fine
 .class_map cpw/mods/fml/relauncher/IClassTransformer IClassTransformer
 .method_map cpw/mods/fml/relauncher/IClassTransformer/transform (Ljava/lang/String;[B)[B transform
+.class_map cpw/mods/fml/relauncher/DummyDownloader DummyDownloader
+.method_map cpw/mods/fml/relauncher/DummyDownloader/makeHeadless ()V makeHeadless
+.method_map cpw/mods/fml/relauncher/DummyDownloader/makeDialog ()Ljava/lang/Object; makeDialog
+.method_map cpw/mods/fml/relauncher/DummyDownloader/setPokeThread (Ljava/lang/Thread;)V setPokeThread
+.method_map cpw/mods/fml/relauncher/DummyDownloader/shouldStopIt ()Z shouldStopIt
+.method_map cpw/mods/fml/relauncher/DummyDownloader/updateProgressString (Ljava/lang/String;[Ljava/lang/Object;)V updateProgressString
+.method_map cpw/mods/fml/relauncher/DummyDownloader/resetProgress (I)V resetProgress
+.method_map cpw/mods/fml/relauncher/DummyDownloader/updateProgress (I)V updateProgress
 .class_map cpw/mods/fml/relauncher/RelaunchLibraryManager$1 1
 .method_map cpw/mods/fml/relauncher/RelaunchLibraryManager$1/accept (Ljava/io/File;Ljava/lang/String;)Z accept
 .class_map cpw/mods/fml/relauncher/RelaunchLibraryManager RelaunchLibraryManager
@@ -16722,6 +16744,7 @@
 .method_map net/minecraft/src/Block/setBlockName (Ljava/lang/String;)Lnet/minecraft/src/Block; b
 .method_map net/minecraft/src/Block/createTileEntity (Lnet/minecraft/src/World;I)Lnet/minecraft/src/TileEntity; createTileEntity
 .method_map net/minecraft/src/Block/renderAsNormalBlock ()Z c
+.method_map net/minecraft/src/Block/getLightOpacity (Lnet/minecraft/src/World;III)I getLightOpacity
 .method_map net/minecraft/src/Block/isFlammable (Lnet/minecraft/src/IBlockAccess;IIIILnet/minecraftforge/common/ForgeDirection;)Z isFlammable
 .method_map net/minecraft/src/Block/onBlockEventReceived (Lnet/minecraft/src/World;IIIII)V b
 .method_map net/minecraft/src/Block/isBlockFoliage (Lnet/minecraft/src/World;III)Z isBlockFoliage
@@ -19448,29 +19471,34 @@
 .field_map net/minecraftforge/common/ForgeChunkManager$Ticket/entityChunkZ entityChunkZ
 .field_map net/minecraftforge/common/ForgeChunkManager$Ticket/maxDepth maxDepth
 .field_map net/minecraftforge/common/ForgeChunkManager$Ticket/requestedChunks requestedChunks
+.field_map net/minecraftforge/common/ForgeChunkManager$Ticket/player player
 .field_map net/minecraftforge/common/ForgeChunkManager$Ticket/ticketType ticketType
 .field_map net/minecraftforge/common/ForgeChunkManager$Ticket/modId modId
 .field_map net/minecraftforge/common/ForgeChunkManager$Ticket/entity entity
 .field_map net/minecraftforge/common/ForgeChunkManager$Ticket/modData modData
 .field_map net/minecraftforge/common/ForgeChunkManager$Ticket/entityChunkX entityChunkX
 .field_map net/minecraftforge/common/ForgeChunkManager$Ticket/world world
+.method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$400 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)I access$400
 .method_map net/minecraftforge/common/ForgeChunkManager$Ticket/getMaxChunkListDepth ()I getMaxChunkListDepth
-.method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$200 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)I access$200
+.method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$202 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;Ljava/lang/String;)Ljava/lang/String; access$202
+.method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$300 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Ljava/lang/String; access$300
 .method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$100 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Lnet/minecraft/src/NBTTagCompound; access$100
+.method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$500 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)I access$500
 .method_map net/minecraftforge/common/ForgeChunkManager$Ticket/setChunkListDepth (I)V setChunkListDepth
-.method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$900 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)I access$900
-.method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$600 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Ljava/lang/String; access$600
+.method_map net/minecraftforge/common/ForgeChunkManager$Ticket/isPlayerTicket ()Z isPlayerTicket
+.method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$402 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;I)I access$402
 .method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$800 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Lnet/minecraft/src/World; access$800
-.method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$500 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Lnet/minecraft/src/Entity; access$500
+.method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$502 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;I)I access$502
 .method_map net/minecraftforge/common/ForgeChunkManager$Ticket/bindEntity (Lnet/minecraft/src/Entity;)V bindEntity
 .method_map net/minecraftforge/common/ForgeChunkManager$Ticket/getEntity ()Lnet/minecraft/src/Entity; getEntity
-.method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$300 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)I access$300
-.method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$700 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Ljava/util/LinkedHashSet; access$700
-.method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$302 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;I)I access$302
+.method_map net/minecraftforge/common/ForgeChunkManager$Ticket/getPlayerName ()Ljava/lang/String; getPlayerName
+.method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$900 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Ljava/util/LinkedHashSet; access$900
 .method_map net/minecraftforge/common/ForgeChunkManager$Ticket/getModData ()Lnet/minecraft/src/NBTTagCompound; getModData
+.method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$1000 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)I access$1000
 .method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$102 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;Lnet/minecraft/src/NBTTagCompound;)Lnet/minecraft/src/NBTTagCompound; access$102
-.method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$202 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;I)I access$202
-.method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$400 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Lnet/minecraftforge/common/ForgeChunkManager$Type; access$400
+.method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$200 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Ljava/lang/String; access$200
+.method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$700 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Lnet/minecraft/src/Entity; access$700
+.method_map net/minecraftforge/common/ForgeChunkManager$Ticket/access$600 (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)Lnet/minecraftforge/common/ForgeChunkManager$Type; access$600
 .class_map net/minecraftforge/common/ForgeChunkManager$Type Type
 .field_map net/minecraftforge/common/ForgeChunkManager$Type/$VALUES $VALUES
 .field_map net/minecraftforge/common/ForgeChunkManager$Type/NORMAL NORMAL
@@ -19481,28 +19509,36 @@
 .class_map net/minecraftforge/common/ForgeChunkManager$LoadingCallback LoadingCallback
 .method_map net/minecraftforge/common/ForgeChunkManager$LoadingCallback/ticketsLoaded (Ljava/util/List;Lnet/minecraft/src/World;)V ticketsLoaded
 .class_map net/minecraftforge/common/ForgeChunkManager ForgeChunkManager
+.field_map net/minecraftforge/common/ForgeChunkManager/forcedChunks forcedChunks
+.field_map net/minecraftforge/common/ForgeChunkManager/cfgFile cfgFile
+.field_map net/minecraftforge/common/ForgeChunkManager/chunkConstraints chunkConstraints
 .field_map net/minecraftforge/common/ForgeChunkManager/pendingEntities pendingEntities
+.field_map net/minecraftforge/common/ForgeChunkManager/playerTicketLength playerTicketLength
 .field_map net/minecraftforge/common/ForgeChunkManager/dormantChunkCache dormantChunkCache
 .field_map net/minecraftforge/common/ForgeChunkManager/defaultMaxCount defaultMaxCount
 .field_map net/minecraftforge/common/ForgeChunkManager/callbacks callbacks
-.field_map net/minecraftforge/common/ForgeChunkManager/forcedChunks forcedChunks
-.field_map net/minecraftforge/common/ForgeChunkManager/ticketConstraints ticketConstraints
 .field_map net/minecraftforge/common/ForgeChunkManager/defaultMaxChunks defaultMaxChunks
-.field_map net/minecraftforge/common/ForgeChunkManager/chunkConstraints chunkConstraints
+.field_map net/minecraftforge/common/ForgeChunkManager/ticketConstraints ticketConstraints
+.field_map net/minecraftforge/common/ForgeChunkManager/config config
+.field_map net/minecraftforge/common/ForgeChunkManager/playerTickets playerTickets
 .field_map net/minecraftforge/common/ForgeChunkManager/tickets tickets
 .field_map net/minecraftforge/common/ForgeChunkManager/overridesEnabled overridesEnabled
 .method_map net/minecraftforge/common/ForgeChunkManager/unforceChunk (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;Lnet/minecraft/src/ChunkCoordIntPair;)V unforceChunk
 .method_map net/minecraftforge/common/ForgeChunkManager/saveWorld (Lnet/minecraft/src/World;)V saveWorld
+.method_map net/minecraftforge/common/ForgeChunkManager/captureConfig (Ljava/io/File;)V captureConfig
+.method_map net/minecraftforge/common/ForgeChunkManager/getConfigMapFor (Ljava/lang/Object;)Ljava/util/Map; getConfigMapFor
 .method_map net/minecraftforge/common/ForgeChunkManager/putDormantChunk (JLnet/minecraft/src/Chunk;)V putDormantChunk
+.method_map net/minecraftforge/common/ForgeChunkManager/addConfigProperty (Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;Lnet/minecraftforge/common/Property$Type;)V addConfigProperty
 .method_map net/minecraftforge/common/ForgeChunkManager/loadEntity (Lnet/minecraft/src/Entity;)V loadEntity
+.method_map net/minecraftforge/common/ForgeChunkManager/loadConfiguration ()V loadConfiguration
 .method_map net/minecraftforge/common/ForgeChunkManager/ticketCountAvailableFor (Ljava/lang/Object;Lnet/minecraft/src/World;)I ticketCountAvailableFor
-.method_map net/minecraftforge/common/ForgeChunkManager/loadConfiguration (Ljava/io/File;)V loadConfiguration
 .method_map net/minecraftforge/common/ForgeChunkManager/getPersistentChunksFor (Lnet/minecraft/src/World;)Lcom/google/common/collect/SetMultimap; getPersistentChunksFor
 .method_map net/minecraftforge/common/ForgeChunkManager/fetchDormantChunk (J)Lnet/minecraft/src/Chunk; fetchDormantChunk
 .method_map net/minecraftforge/common/ForgeChunkManager/loadWorld (Lnet/minecraft/src/World;)V loadWorld
 .method_map net/minecraftforge/common/ForgeChunkManager/access$000 (Ljava/lang/String;)I access$000
 .method_map net/minecraftforge/common/ForgeChunkManager/requestTicket (Ljava/lang/Object;Lnet/minecraft/src/World;Lnet/minecraftforge/common/ForgeChunkManager$Type;)Lnet/minecraftforge/common/ForgeChunkManager$Ticket; requestTicket
 .method_map net/minecraftforge/common/ForgeChunkManager/reorderChunk (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;Lnet/minecraft/src/ChunkCoordIntPair;)V reorderChunk
+.method_map net/minecraftforge/common/ForgeChunkManager/requestPlayerTicket (Ljava/lang/Object;Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/World;Lnet/minecraftforge/common/ForgeChunkManager$Type;)Lnet/minecraftforge/common/ForgeChunkManager$Ticket; requestPlayerTicket
 .method_map net/minecraftforge/common/ForgeChunkManager/releaseTicket (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)V releaseTicket
 .method_map net/minecraftforge/common/ForgeChunkManager/getContainer (Ljava/lang/Object;)Lcpw/mods/fml/common/ModContainer; getContainer
 .method_map net/minecraftforge/common/ForgeChunkManager/forceChunk (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;Lnet/minecraft/src/ChunkCoordIntPair;)V forceChunk
@@ -19532,9 +19568,16 @@
 .method_map net/minecraftforge/common/MinecraftForge/initialize ()V initialize
 .method_map net/minecraftforge/common/MinecraftForge/setToolClass (Lnet/minecraft/src/Item;Ljava/lang/String;I)V setToolClass
 .method_map net/minecraftforge/common/MinecraftForge/setBlockHarvestLevel (Lnet/minecraft/src/Block;ILjava/lang/String;I)V setBlockHarvestLevel
+.class_map net/minecraftforge/common/Property$Type Type
+.field_map net/minecraftforge/common/Property$Type/INTEGER INTEGER
+.field_map net/minecraftforge/common/Property$Type/BOOLEAN BOOLEAN
+.field_map net/minecraftforge/common/Property$Type/$VALUES $VALUES
+.field_map net/minecraftforge/common/Property$Type/STRING STRING
+.method_map net/minecraftforge/common/Property$Type/values ()[Lnet/minecraftforge/common/Property$Type; values
 .class_map net/minecraftforge/common/Property Property
 .field_map net/minecraftforge/common/Property/name name
 .field_map net/minecraftforge/common/Property/value value
+.field_map net/minecraftforge/common/Property/type type
 .field_map net/minecraftforge/common/Property/comment comment
 .method_map net/minecraftforge/common/Property/getInt ()I getInt
 .method_map net/minecraftforge/common/Property/getBoolean (Z)Z getBoolean
@@ -19543,27 +19586,48 @@
 .method_map net/minecraftforge/common/Property/getName ()Ljava/lang/String; getName
 .method_map net/minecraftforge/common/Property/isIntValue ()Z isIntValue
 .method_map net/minecraftforge/common/Property/getInt (I)I getInt
+.class_map net/minecraftforge/common/Configuration$UnicodeInputStreamReader UnicodeInputStreamReader
+.field_map net/minecraftforge/common/Configuration$UnicodeInputStreamReader/input input
+.field_map net/minecraftforge/common/Configuration$UnicodeInputStreamReader/defaultEnc defaultEnc
+.method_map net/minecraftforge/common/Configuration$UnicodeInputStreamReader/read ([CII)I read
+.method_map net/minecraftforge/common/Configuration$UnicodeInputStreamReader/close ()V close
+.method_map net/minecraftforge/common/Configuration$UnicodeInputStreamReader/getEncoding ()Ljava/lang/String; getEncoding
 .class_map net/minecraftforge/common/Configuration Configuration
+.field_map net/minecraftforge/common/Configuration/allowedProperties allowedProperties
+.field_map net/minecraftforge/common/Configuration/itemProperties itemProperties
+.field_map net/minecraftforge/common/Configuration/DEFAULT_ENCODING DEFAULT_ENCODING
+.field_map net/minecraftforge/common/Configuration/caseSensitiveCustomCategories caseSensitiveCustomCategories
+.field_map net/minecraftforge/common/Configuration/ITEM_SHIFT ITEM_SHIFT
+.field_map net/minecraftforge/common/Configuration/CATEGORY_GENERAL CATEGORY_GENERAL
+.field_map net/minecraftforge/common/Configuration/defaultEncoding defaultEncoding
+.field_map net/minecraftforge/common/Configuration/CATEGORY_ITEM CATEGORY_ITEM
 .field_map net/minecraftforge/common/Configuration/generalProperties generalProperties
 .field_map net/minecraftforge/common/Configuration/configBlocks configBlocks
-.field_map net/minecraftforge/common/Configuration/itemProperties itemProperties
-.field_map net/minecraftforge/common/Configuration/caseSensitiveCustomCategories caseSensitiveCustomCategories
 .field_map net/minecraftforge/common/Configuration/customCategoryComments customCategoryComments
 .field_map net/minecraftforge/common/Configuration/file file
 .field_map net/minecraftforge/common/Configuration/blockProperties blockProperties
-.field_map net/minecraftforge/common/Configuration/CATEGORY_GENERAL CATEGORY_GENERAL
 .field_map net/minecraftforge/common/Configuration/ALLOWED_CHARS ALLOWED_CHARS
 .field_map net/minecraftforge/common/Configuration/categories categories
-.field_map net/minecraftforge/common/Configuration/CATEGORY_ITEM CATEGORY_ITEM
+.field_map net/minecraftforge/common/Configuration/configItems configItems
 .field_map net/minecraftforge/common/Configuration/CATEGORY_BLOCK CATEGORY_BLOCK
 .method_map net/minecraftforge/common/Configuration/save ()V save
-.method_map net/minecraftforge/common/Configuration/addCustomCategoryComment (Ljava/lang/String;Ljava/lang/String;)V addCustomCategoryComment
-.method_map net/minecraftforge/common/Configuration/getOrCreateBooleanProperty (Ljava/lang/String;Ljava/lang/String;Z)Lnet/minecraftforge/common/Property; getOrCreateBooleanProperty
-.method_map net/minecraftforge/common/Configuration/writeProperties (Ljava/io/BufferedWriter;Ljava/util/Collection;)V writeProperties
-.method_map net/minecraftforge/common/Configuration/load ()V load
+.method_map net/minecraftforge/common/Configuration/getBlock (Ljava/lang/String;I)Lnet/minecraftforge/common/Property; getBlock
 .method_map net/minecraftforge/common/Configuration/getOrCreateBlockIdProperty (Ljava/lang/String;I)Lnet/minecraftforge/common/Property; getOrCreateBlockIdProperty
+.method_map net/minecraftforge/common/Configuration/load ()V load
 .method_map net/minecraftforge/common/Configuration/getOrCreateIntProperty (Ljava/lang/String;Ljava/lang/String;I)Lnet/minecraftforge/common/Property; getOrCreateIntProperty
 .method_map net/minecraftforge/common/Configuration/getOrCreateProperty (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lnet/minecraftforge/common/Property; getOrCreateProperty
+.method_map net/minecraftforge/common/Configuration/get (Ljava/lang/String;Ljava/lang/String;Z)Lnet/minecraftforge/common/Property; get
+.method_map net/minecraftforge/common/Configuration/get (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lnet/minecraftforge/common/Property$Type;)Lnet/minecraftforge/common/Property; get
+.method_map net/minecraftforge/common/Configuration/getOrCreateBooleanProperty (Ljava/lang/String;Ljava/lang/String;Z)Lnet/minecraftforge/common/Property; getOrCreateBooleanProperty
+.method_map net/minecraftforge/common/Configuration/addCustomCategoryComment (Ljava/lang/String;Ljava/lang/String;)V addCustomCategoryComment
+.method_map net/minecraftforge/common/Configuration/hasCategory (Ljava/lang/String;)Z hasCategory
+.method_map net/minecraftforge/common/Configuration/writeProperties (Ljava/io/BufferedWriter;Ljava/util/Collection;)V writeProperties
+.method_map net/minecraftforge/common/Configuration/getBlock (Ljava/lang/String;Ljava/lang/String;I)Lnet/minecraftforge/common/Property; getBlock
+.method_map net/minecraftforge/common/Configuration/getItem (Ljava/lang/String;I)Lnet/minecraftforge/common/Property; getItem
+.method_map net/minecraftforge/common/Configuration/getItem (Ljava/lang/String;Ljava/lang/String;I)Lnet/minecraftforge/common/Property; getItem
+.method_map net/minecraftforge/common/Configuration/get (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lnet/minecraftforge/common/Property; get
+.method_map net/minecraftforge/common/Configuration/hasKey (Ljava/lang/String;Ljava/lang/String;)Z hasKey
+.method_map net/minecraftforge/common/Configuration/get (Ljava/lang/String;Ljava/lang/String;I)Lnet/minecraftforge/common/Property; get
 .class_map net/minecraftforge/common/DimensionManager DimensionManager
 .field_map net/minecraftforge/common/DimensionManager/hasInit hasInit
 .field_map net/minecraftforge/common/DimensionManager/providers providers
@@ -19585,6 +19649,7 @@
 .class_map net/minecraftforge/common/ForgeDummyContainer ForgeDummyContainer
 .method_map net/minecraftforge/common/ForgeDummyContainer/registerBus (Lcom/google/common/eventbus/EventBus;Lcpw/mods/fml/common/LoadController;)Z registerBus
 .method_map net/minecraftforge/common/ForgeDummyContainer/preInit (Lcpw/mods/fml/common/event/FMLPreInitializationEvent;)V preInit
+.method_map net/minecraftforge/common/ForgeDummyContainer/postInit (Lcpw/mods/fml/common/event/FMLPostInitializationEvent;)V postInit
 .class_map net/minecraftforge/common/ISpawnHandler ISpawnHandler
 .method_map net/minecraftforge/common/ISpawnHandler/readSpawnData (Ljava/io/DataInputStream;)V readSpawnData
 .method_map net/minecraftforge/common/ISpawnHandler/writeSpawnData (Ljava/io/DataOutputStream;)V writeSpawnData
@@ -19741,6 +19806,14 @@
 .package_map net/minecraftforge/event/entity/player player
 .class_map net/minecraftforge/event/entity/player/EntityInteractEvent EntityInteractEvent
 .field_map net/minecraftforge/event/entity/player/EntityInteractEvent/target target
+.class_map net/minecraftforge/event/entity/player/PlayerEvent$BreakSpeed BreakSpeed
+.field_map net/minecraftforge/event/entity/player/PlayerEvent$BreakSpeed/newSpeed newSpeed
+.field_map net/minecraftforge/event/entity/player/PlayerEvent$BreakSpeed/originalSpeed originalSpeed
+.field_map net/minecraftforge/event/entity/player/PlayerEvent$BreakSpeed/block block
+.field_map net/minecraftforge/event/entity/player/PlayerEvent$BreakSpeed/metadata metadata
+.class_map net/minecraftforge/event/entity/player/PlayerEvent$HarvestCheck HarvestCheck
+.field_map net/minecraftforge/event/entity/player/PlayerEvent$HarvestCheck/block block
+.field_map net/minecraftforge/event/entity/player/PlayerEvent$HarvestCheck/success success
 .class_map net/minecraftforge/event/entity/player/PlayerEvent PlayerEvent
 .field_map net/minecraftforge/event/entity/player/PlayerEvent/entityPlayer entityPlayer
 .class_map net/minecraftforge/event/entity/player/PlayerDropsEvent PlayerDropsEvent
@@ -19749,6 +19822,21 @@
 .field_map net/minecraftforge/event/entity/player/PlayerDestroyItemEvent/original original
 .class_map net/minecraftforge/event/entity/player/AttackEntityEvent AttackEntityEvent
 .field_map net/minecraftforge/event/entity/player/AttackEntityEvent/target target
+.class_map net/minecraftforge/event/entity/player/PlayerInteractEvent$Action Action
+.field_map net/minecraftforge/event/entity/player/PlayerInteractEvent$Action/LEFT_CLICK_BLOCK LEFT_CLICK_BLOCK
+.field_map net/minecraftforge/event/entity/player/PlayerInteractEvent$Action/RIGHT_CLICK_AIR RIGHT_CLICK_AIR
+.field_map net/minecraftforge/event/entity/player/PlayerInteractEvent$Action/$VALUES $VALUES
+.field_map net/minecraftforge/event/entity/player/PlayerInteractEvent$Action/RIGHT_CLICK_BLOCK RIGHT_CLICK_BLOCK
+.method_map net/minecraftforge/event/entity/player/PlayerInteractEvent$Action/values ()[Lnet/minecraftforge/event/entity/player/PlayerInteractEvent$Action; values
+.class_map net/minecraftforge/event/entity/player/PlayerInteractEvent PlayerInteractEvent
+.field_map net/minecraftforge/event/entity/player/PlayerInteractEvent/face face
+.field_map net/minecraftforge/event/entity/player/PlayerInteractEvent/useItem useItem
+.field_map net/minecraftforge/event/entity/player/PlayerInteractEvent/action action
+.field_map net/minecraftforge/event/entity/player/PlayerInteractEvent/z z
+.field_map net/minecraftforge/event/entity/player/PlayerInteractEvent/useBlock useBlock
+.field_map net/minecraftforge/event/entity/player/PlayerInteractEvent/y y
+.field_map net/minecraftforge/event/entity/player/PlayerInteractEvent/x x
+.method_map net/minecraftforge/event/entity/player/PlayerInteractEvent/setCanceled (Z)V setCanceled
 .class_map net/minecraftforge/event/entity/player/FillBucketEvent FillBucketEvent
 .field_map net/minecraftforge/event/entity/player/FillBucketEvent/result result
 .field_map net/minecraftforge/event/entity/player/FillBucketEvent/handeled handeled
@@ -19836,6 +19924,11 @@
 .field_map net/minecraftforge/event/entity/PlaySoundAtEntityEvent/name name
 .field_map net/minecraftforge/event/entity/PlaySoundAtEntityEvent/volume volume
 .field_map net/minecraftforge/event/entity/PlaySoundAtEntityEvent/pitch pitch
+.class_map net/minecraftforge/event/entity/EntityEvent$EnteringChunk EnteringChunk
+.field_map net/minecraftforge/event/entity/EntityEvent$EnteringChunk/oldChunkZ oldChunkZ
+.field_map net/minecraftforge/event/entity/EntityEvent$EnteringChunk/newChunkZ newChunkZ
+.field_map net/minecraftforge/event/entity/EntityEvent$EnteringChunk/newChunkX newChunkX
+.field_map net/minecraftforge/event/entity/EntityEvent$EnteringChunk/oldChunkX oldChunkX
 .class_map net/minecraftforge/event/entity/EntityEvent$CanUpdate CanUpdate
 .field_map net/minecraftforge/event/entity/EntityEvent$CanUpdate/canUpdate canUpdate
 .class_map net/minecraftforge/event/entity/EntityEvent EntityEvent
@@ -19892,6 +19985,17 @@
 .class_map net/minecraftforge/event/ForgeSubscribe ForgeSubscribe
 .method_map net/minecraftforge/event/ForgeSubscribe/priority ()Lnet/minecraftforge/event/EventPriority; priority
 .method_map net/minecraftforge/event/ForgeSubscribe/receiveCanceled ()Z receiveCanceled
+.class_map net/minecraftforge/event/ForgeEventFactory ForgeEventFactory
+.method_map net/minecraftforge/event/ForgeEventFactory/doPlayerHarvestCheck (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/Block;Z)Z doPlayerHarvestCheck
+.method_map net/minecraftforge/event/ForgeEventFactory/getBreakSpeed (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/Block;IF)F getBreakSpeed
+.method_map net/minecraftforge/event/ForgeEventFactory/onPlayerDestroyItem (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/ItemStack;)V onPlayerDestroyItem
+.method_map net/minecraftforge/event/ForgeEventFactory/onPlayerInteract (Lnet/minecraft/src/EntityPlayer;Lnet/minecraftforge/event/entity/player/PlayerInteractEvent$Action;IIII)Lnet/minecraftforge/event/entity/player/PlayerInteractEvent; onPlayerInteract
+.class_map net/minecraftforge/event/Event$Result Result
+.field_map net/minecraftforge/event/Event$Result/DENY DENY
+.field_map net/minecraftforge/event/Event$Result/$VALUES $VALUES
+.field_map net/minecraftforge/event/Event$Result/ALLOW ALLOW
+.field_map net/minecraftforge/event/Event$Result/DEFAULT DEFAULT
+.method_map net/minecraftforge/event/Event$Result/values ()[Lnet/minecraftforge/event/Event$Result; values
 .class_map net/minecraftforge/event/Event Event
 .field_map net/minecraftforge/event/Event/listeners listeners
 .field_map net/minecraftforge/event/Event/isCancelable isCancelable

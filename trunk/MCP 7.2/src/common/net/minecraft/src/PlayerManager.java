@@ -78,7 +78,7 @@ public class PlayerManager
         }
     }
 
-    private PlayerInstance getOrCreateChunkWatcher(int par1, int par2, boolean par3)
+    PlayerInstance getOrCreateChunkWatcher(int par1, int par2, boolean par3)
     {
         long var4 = (long)par1 + 2147483647L | (long)par2 + 2147483647L << 32;
         PlayerInstance var6 = (PlayerInstance)this.playerInstances.getValueByKey(var4);

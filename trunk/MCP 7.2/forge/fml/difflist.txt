@@ -265,10 +265,12 @@ minecraft/cpw/mods/fml/relauncher/FMLRelaunchLog$1.class
 minecraft/cpw/mods/fml/relauncher/Downloader.class
 minecraft/cpw/mods/fml/relauncher/FMLRelaunchLog$ConsoleLogWrapper.class
 minecraft/cpw/mods/fml/relauncher/ReflectionHelper$UnableToFindFieldException.class
+minecraft/cpw/mods/fml/relauncher/DummyDownloader.class
 minecraft/cpw/mods/fml/relauncher/FMLRelaunchLog.class
 minecraft/cpw/mods/fml/relauncher/FMLLogFormatter.class
 minecraft/cpw/mods/fml/relauncher/CoreFMLLibraries.class
 minecraft/cpw/mods/fml/relauncher/RelaunchClassLoader.class
+minecraft/cpw/mods/fml/relauncher/IDownloadDisplay.class
 minecraft/cpw/mods/fml/relauncher/IFMLLoadingPlugin.class
 minecraft/cpw/mods/fml/relauncher/Downloader$2.class
 minecraft/cpw/mods/fml/relauncher/Downloader$1.class

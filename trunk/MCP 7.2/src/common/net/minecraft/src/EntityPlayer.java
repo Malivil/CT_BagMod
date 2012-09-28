@@ -11,6 +11,7 @@ import java.util.List;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.ISpecialArmor.ArmorProperties;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.EntityInteractEvent;
@@ -775,7 +776,8 @@ public abstract class EntityPlayer extends EntityLiving implements ICommandSende
             var2 /= 5.0F;
         }
 
-        return var2;
+        var2 = ForgeEventFactory.getBreakSpeed(this, par1Block, meta, var2);
+        return (var2 < 0 ? 0 : var2);
     }
 
     /**
@@ -783,7 +785,7 @@ public abstract class EntityPlayer extends EntityLiving implements ICommandSende
      */
     public boolean canHarvestBlock(Block par1Block)
     {
-        return this.inventory.canHarvestBlock(par1Block);
+        return ForgeEventFactory.doPlayerHarvestCheck(this, par1Block, inventory.canHarvestBlock(par1Block));
     }
 
     /**

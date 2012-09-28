@@ -2047,5 +2047,24 @@ public class Block
         }
 
         return false;
-    }    
+    }
+    
+    /**
+     * Location aware and overrideable version of the lightOpacity array,
+     * return the number to subtract from the light value when it passes through this block.
+     * 
+     * This is not guaranteed to have the tile entity in place before this is called, so it is
+     * Recommended that you have your tile entity call relight after being placed if you
+     * rely on it for light info.
+     * 
+     * @param world The current world
+     * @param x X Position
+     * @param y Y Position
+     * @param z Z position
+     * @return The amount of light to block, 0 for air, 255 for fully opaque.
+     */
+    public int getLightOpacity(World world, int x, int y, int z)
+    {
+        return lightOpacity[blockID];
+    }
 }
