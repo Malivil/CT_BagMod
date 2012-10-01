@@ -6,7 +6,7 @@
 #
 # RetroGuard MCP v3.6.5
 #
-# Logfile created on Fri Sep 28 16:05:58 EDT 2012
+# Logfile created on Mon Oct 01 14:37:43 EDT 2012
 #
 # Jar file to be obfuscated:           minecraft_server.jar
 # Target Jar file for obfuscated code: minecraft_server_rg.jar
@@ -19,7 +19,7 @@
 #      Your class akw calls the java/lang/ClassLoader method loadClass(Ljava/lang/String;)Ljava/lang/Class;
 #      Your class akw uses '.class' or calls java/lang/Class.forName(Ljava/lang/String;)Ljava/lang/Class;
 #
-# Memory in use after class data structure built: 15437672 bytes
+# Memory in use after class data structure built: 16287728 bytes
 # Total memory available                        : 229310464 bytes
 #
 #
