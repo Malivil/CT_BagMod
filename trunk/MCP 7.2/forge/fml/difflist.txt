@@ -37,6 +37,7 @@ minecraft/axc.class
 minecraft/aoo.class
 minecraft/ft.class
 minecraft/avg.class
+minecraft/rl.class
 minecraft/up.class
 minecraft/afp.class
 minecraft/gq.class
@@ -48,6 +49,7 @@ minecraft/ModTextureStatic.class
 minecraft/axk.class
 minecraft/BaseMod.class
 minecraft/ph.class
+minecraft/adt.class
 minecraft/asv.class
 minecraft/fy.class
 minecraft/MLProp.class

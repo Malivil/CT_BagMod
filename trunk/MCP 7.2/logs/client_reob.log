@@ -1684,13 +1684,19 @@ MD: cpw/mods/fml/common/registry/IEntityAdditionalSpawnData/readSpawnData (Lcom/
 CL: cpw/mods/fml/common/registry/LanguageRegistry cpw/mods/fml/common/registry/LanguageRegistry
 FD: cpw/mods/fml/common/registry/LanguageRegistry/INSTANCE cpw/mods/fml/common/registry/LanguageRegistry/INSTANCE
 FD: cpw/mods/fml/common/registry/LanguageRegistry/modLanguageData cpw/mods/fml/common/registry/LanguageRegistry/modLanguageData
-MD: cpw/mods/fml/common/registry/LanguageRegistry/addStringLocalization (Ljava/lang/String;Ljava/lang/String;)V cpw/mods/fml/common/registry/LanguageRegistry/addStringLocalization (Ljava/lang/String;Ljava/lang/String;)V
+MD: cpw/mods/fml/common/registry/LanguageRegistry/loadLocalization (Ljava/net/URL;Ljava/lang/String;Z)V cpw/mods/fml/common/registry/LanguageRegistry/loadLocalization (Ljava/net/URL;Ljava/lang/String;Z)V
 MD: cpw/mods/fml/common/registry/LanguageRegistry/addStringLocalization (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V cpw/mods/fml/common/registry/LanguageRegistry/addStringLocalization (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-MD: cpw/mods/fml/common/registry/LanguageRegistry/loadLanguageTable (Ljava/util/Properties;Ljava/lang/String;)V cpw/mods/fml/common/registry/LanguageRegistry/loadLanguageTable (Ljava/util/Properties;Ljava/lang/String;)V
+MD: cpw/mods/fml/common/registry/LanguageRegistry/getStringLocalization (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; cpw/mods/fml/common/registry/LanguageRegistry/getStringLocalization (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+MD: cpw/mods/fml/common/registry/LanguageRegistry/addStringLocalization (Ljava/util/Properties;)V cpw/mods/fml/common/registry/LanguageRegistry/addStringLocalization (Ljava/util/Properties;)V
+MD: cpw/mods/fml/common/registry/LanguageRegistry/addStringLocalization (Ljava/util/Properties;Ljava/lang/String;)V cpw/mods/fml/common/registry/LanguageRegistry/addStringLocalization (Ljava/util/Properties;Ljava/lang/String;)V
 MD: cpw/mods/fml/common/registry/LanguageRegistry/addName (Ljava/lang/Object;Ljava/lang/String;)V cpw/mods/fml/common/registry/LanguageRegistry/addName (Ljava/lang/Object;Ljava/lang/String;)V
+MD: cpw/mods/fml/common/registry/LanguageRegistry/getStringLocalization (Ljava/lang/String;)Ljava/lang/String; cpw/mods/fml/common/registry/LanguageRegistry/getStringLocalization (Ljava/lang/String;)Ljava/lang/String;
+MD: cpw/mods/fml/common/registry/LanguageRegistry/loadLocalization (Ljava/lang/String;Ljava/lang/String;Z)V cpw/mods/fml/common/registry/LanguageRegistry/loadLocalization (Ljava/lang/String;Ljava/lang/String;Z)V
+MD: cpw/mods/fml/common/registry/LanguageRegistry/instance ()Lcpw/mods/fml/common/registry/LanguageRegistry; cpw/mods/fml/common/registry/LanguageRegistry/instance ()Lcpw/mods/fml/common/registry/LanguageRegistry;
+MD: cpw/mods/fml/common/registry/LanguageRegistry/addStringLocalization (Ljava/lang/String;Ljava/lang/String;)V cpw/mods/fml/common/registry/LanguageRegistry/addStringLocalization (Ljava/lang/String;Ljava/lang/String;)V
+MD: cpw/mods/fml/common/registry/LanguageRegistry/loadLanguageTable (Ljava/util/Properties;Ljava/lang/String;)V cpw/mods/fml/common/registry/LanguageRegistry/loadLanguageTable (Ljava/util/Properties;Ljava/lang/String;)V
 MD: cpw/mods/fml/common/registry/LanguageRegistry/reloadLanguageTable ()V cpw/mods/fml/common/registry/LanguageRegistry/reloadLanguageTable ()V
 MD: cpw/mods/fml/common/registry/LanguageRegistry/addNameForObject (Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)V cpw/mods/fml/common/registry/LanguageRegistry/addNameForObject (Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)V
-MD: cpw/mods/fml/common/registry/LanguageRegistry/instance ()Lcpw/mods/fml/common/registry/LanguageRegistry; cpw/mods/fml/common/registry/LanguageRegistry/instance ()Lcpw/mods/fml/common/registry/LanguageRegistry;
 CL: cpw/mods/fml/common/registry/IThrowableEntity cpw/mods/fml/common/registry/IThrowableEntity
 MD: cpw/mods/fml/common/registry/IThrowableEntity/setThrower (Lnet/minecraft/src/Entity;)V cpw/mods/fml/common/registry/IThrowableEntity/setThrower (Ljn;)V
 MD: cpw/mods/fml/common/registry/IThrowableEntity/getThrower ()Lnet/minecraft/src/Entity; cpw/mods/fml/common/registry/IThrowableEntity/getThrower ()Ljn;
@@ -17382,6 +17388,7 @@ FD: net/minecraftforge/common/ForgeChunkManager/forcedChunks net/minecraftforge/
 FD: net/minecraftforge/common/ForgeChunkManager/cfgFile net/minecraftforge/common/ForgeChunkManager/cfgFile
 FD: net/minecraftforge/common/ForgeChunkManager/chunkConstraints net/minecraftforge/common/ForgeChunkManager/chunkConstraints
 FD: net/minecraftforge/common/ForgeChunkManager/pendingEntities net/minecraftforge/common/ForgeChunkManager/pendingEntities
+FD: net/minecraftforge/common/ForgeChunkManager/dormantChunkCacheSize net/minecraftforge/common/ForgeChunkManager/dormantChunkCacheSize
 FD: net/minecraftforge/common/ForgeChunkManager/playerTicketLength net/minecraftforge/common/ForgeChunkManager/playerTicketLength
 FD: net/minecraftforge/common/ForgeChunkManager/dormantChunkCache net/minecraftforge/common/ForgeChunkManager/dormantChunkCache
 FD: net/minecraftforge/common/ForgeChunkManager/defaultMaxCount net/minecraftforge/common/ForgeChunkManager/defaultMaxCount
@@ -17402,11 +17409,11 @@ MD: net/minecraftforge/common/ForgeChunkManager/loadEntity (Lnet/minecraft/src/E
 MD: net/minecraftforge/common/ForgeChunkManager/loadConfiguration ()V net/minecraftforge/common/ForgeChunkManager/loadConfiguration ()V
 MD: net/minecraftforge/common/ForgeChunkManager/ticketCountAvailableFor (Ljava/lang/Object;Lnet/minecraft/src/World;)I net/minecraftforge/common/ForgeChunkManager/ticketCountAvailableFor (Ljava/lang/Object;Lup;)I
 MD: net/minecraftforge/common/ForgeChunkManager/getPersistentChunksFor (Lnet/minecraft/src/World;)Lcom/google/common/collect/SetMultimap; net/minecraftforge/common/ForgeChunkManager/getPersistentChunksFor (Lup;)Lcom/google/common/collect/SetMultimap;
-MD: net/minecraftforge/common/ForgeChunkManager/fetchDormantChunk (J)Lnet/minecraft/src/Chunk; net/minecraftforge/common/ForgeChunkManager/fetchDormantChunk (J)Lwl;
 MD: net/minecraftforge/common/ForgeChunkManager/loadWorld (Lnet/minecraft/src/World;)V net/minecraftforge/common/ForgeChunkManager/loadWorld (Lup;)V
 MD: net/minecraftforge/common/ForgeChunkManager/access$000 (Ljava/lang/String;)I net/minecraftforge/common/ForgeChunkManager/access$000 (Ljava/lang/String;)I
 MD: net/minecraftforge/common/ForgeChunkManager/requestTicket (Ljava/lang/Object;Lnet/minecraft/src/World;Lnet/minecraftforge/common/ForgeChunkManager$Type;)Lnet/minecraftforge/common/ForgeChunkManager$Ticket; net/minecraftforge/common/ForgeChunkManager/requestTicket (Ljava/lang/Object;Lup;Lnet/minecraftforge/common/ForgeChunkManager$Type;)Lnet/minecraftforge/common/ForgeChunkManager$Ticket;
 MD: net/minecraftforge/common/ForgeChunkManager/reorderChunk (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;Lnet/minecraft/src/ChunkCoordIntPair;)V net/minecraftforge/common/ForgeChunkManager/reorderChunk (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;Luk;)V
+MD: net/minecraftforge/common/ForgeChunkManager/fetchDormantChunk (JLnet/minecraft/src/World;)Lnet/minecraft/src/Chunk; net/minecraftforge/common/ForgeChunkManager/fetchDormantChunk (JLup;)Lwl;
 MD: net/minecraftforge/common/ForgeChunkManager/requestPlayerTicket (Ljava/lang/Object;Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/World;Lnet/minecraftforge/common/ForgeChunkManager$Type;)Lnet/minecraftforge/common/ForgeChunkManager$Ticket; net/minecraftforge/common/ForgeChunkManager/requestPlayerTicket (Ljava/lang/Object;Log;Lup;Lnet/minecraftforge/common/ForgeChunkManager$Type;)Lnet/minecraftforge/common/ForgeChunkManager$Ticket;
 MD: net/minecraftforge/common/ForgeChunkManager/releaseTicket (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)V net/minecraftforge/common/ForgeChunkManager/releaseTicket (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)V
 MD: net/minecraftforge/common/ForgeChunkManager/getContainer (Ljava/lang/Object;)Lcpw/mods/fml/common/ModContainer; net/minecraftforge/common/ForgeChunkManager/getContainer (Ljava/lang/Object;)Lcpw/mods/fml/common/ModContainer;
@@ -17586,6 +17593,8 @@ MD: net/minecraftforge/common/DungeonHooks/addDungeonLoot (Lnet/minecraft/src/It
 MD: net/minecraftforge/common/DungeonHooks/addDungeonMob (Ljava/lang/String;I)F net/minecraftforge/common/DungeonHooks/addDungeonMob (Ljava/lang/String;I)F
 MD: net/minecraftforge/common/DungeonHooks/addDungeonLoot (Lnet/minecraft/src/ItemStack;III)F net/minecraftforge/common/DungeonHooks/addDungeonLoot (Lrj;III)F
 MD: net/minecraftforge/common/DungeonHooks/setDungeonLootTries (I)V net/minecraftforge/common/DungeonHooks/setDungeonLootTries (I)V
+MD: net/minecraftforge/common/DungeonHooks/removeDungeonLoot (Lnet/minecraftforge/common/DungeonHooks$DungeonLoot;)Z net/minecraftforge/common/DungeonHooks/removeDungeonLoot (Lnet/minecraftforge/common/DungeonHooks$DungeonLoot;)Z
+MD: net/minecraftforge/common/DungeonHooks/addDungeonLoot (Lnet/minecraftforge/common/DungeonHooks$DungeonLoot;)V net/minecraftforge/common/DungeonHooks/addDungeonLoot (Lnet/minecraftforge/common/DungeonHooks$DungeonLoot;)V
 CL: net/minecraftforge/common/IThrowableEntity net/minecraftforge/common/IThrowableEntity
 MD: net/minecraftforge/common/IThrowableEntity/setThrower (Lnet/minecraft/src/Entity;)V net/minecraftforge/common/IThrowableEntity/setThrower (Ljn;)V
 MD: net/minecraftforge/common/IThrowableEntity/getThrower ()Lnet/minecraft/src/Entity; net/minecraftforge/common/IThrowableEntity/getThrower ()Ljn;

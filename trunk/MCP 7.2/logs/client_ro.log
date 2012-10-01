@@ -6,7 +6,7 @@
 #
 # RetroGuard MCP v3.6.5
 #
-# Logfile created on Fri Sep 28 16:14:27 EDT 2012
+# Logfile created on Mon Oct 01 14:44:55 EDT 2012
 #
 # Jar file to be obfuscated:           client_recomp.jar
 # Target Jar file for obfuscated code: client_reobf.jar
@@ -51,7 +51,7 @@
 #      Your class net/minecraftforge/event/ASMEventHandler$ASMClassLoader calls the java/lang/ClassLoader method defineClass(Ljava/lang/String;[BII)Ljava/lang/Class;
 #      Your class net/minecraftforge/event/EventBus calls the java/lang/Class method getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 #
-# Memory in use after class data structure built: 20627912 bytes
+# Memory in use after class data structure built: 20630984 bytes
 # Total memory available                        : 229310464 bytes
 #
 #
@@ -3597,13 +3597,19 @@
 .class_map cpw/mods/fml/common/registry/LanguageRegistry LanguageRegistry
 .field_map cpw/mods/fml/common/registry/LanguageRegistry/INSTANCE INSTANCE
 .field_map cpw/mods/fml/common/registry/LanguageRegistry/modLanguageData modLanguageData
-.method_map cpw/mods/fml/common/registry/LanguageRegistry/addStringLocalization (Ljava/lang/String;Ljava/lang/String;)V addStringLocalization
+.method_map cpw/mods/fml/common/registry/LanguageRegistry/loadLocalization (Ljava/net/URL;Ljava/lang/String;Z)V loadLocalization
 .method_map cpw/mods/fml/common/registry/LanguageRegistry/addStringLocalization (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V addStringLocalization
-.method_map cpw/mods/fml/common/registry/LanguageRegistry/loadLanguageTable (Ljava/util/Properties;Ljava/lang/String;)V loadLanguageTable
+.method_map cpw/mods/fml/common/registry/LanguageRegistry/getStringLocalization (Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String; getStringLocalization
+.method_map cpw/mods/fml/common/registry/LanguageRegistry/addStringLocalization (Ljava/util/Properties;)V addStringLocalization
+.method_map cpw/mods/fml/common/registry/LanguageRegistry/addStringLocalization (Ljava/util/Properties;Ljava/lang/String;)V addStringLocalization
 .method_map cpw/mods/fml/common/registry/LanguageRegistry/addName (Ljava/lang/Object;Ljava/lang/String;)V addName
+.method_map cpw/mods/fml/common/registry/LanguageRegistry/getStringLocalization (Ljava/lang/String;)Ljava/lang/String; getStringLocalization
+.method_map cpw/mods/fml/common/registry/LanguageRegistry/loadLocalization (Ljava/lang/String;Ljava/lang/String;Z)V loadLocalization
+.method_map cpw/mods/fml/common/registry/LanguageRegistry/instance ()Lcpw/mods/fml/common/registry/LanguageRegistry; instance
+.method_map cpw/mods/fml/common/registry/LanguageRegistry/addStringLocalization (Ljava/lang/String;Ljava/lang/String;)V addStringLocalization
+.method_map cpw/mods/fml/common/registry/LanguageRegistry/loadLanguageTable (Ljava/util/Properties;Ljava/lang/String;)V loadLanguageTable
 .method_map cpw/mods/fml/common/registry/LanguageRegistry/reloadLanguageTable ()V reloadLanguageTable
 .method_map cpw/mods/fml/common/registry/LanguageRegistry/addNameForObject (Ljava/lang/Object;Ljava/lang/String;Ljava/lang/String;)V addNameForObject
-.method_map cpw/mods/fml/common/registry/LanguageRegistry/instance ()Lcpw/mods/fml/common/registry/LanguageRegistry; instance
 .class_map cpw/mods/fml/common/registry/IThrowableEntity IThrowableEntity
 .method_map cpw/mods/fml/common/registry/IThrowableEntity/setThrower (Lnet/minecraft/src/Entity;)V setThrower
 .method_map cpw/mods/fml/common/registry/IThrowableEntity/getThrower ()Lnet/minecraft/src/Entity; getThrower
@@ -19513,6 +19519,7 @@
 .field_map net/minecraftforge/common/ForgeChunkManager/cfgFile cfgFile
 .field_map net/minecraftforge/common/ForgeChunkManager/chunkConstraints chunkConstraints
 .field_map net/minecraftforge/common/ForgeChunkManager/pendingEntities pendingEntities
+.field_map net/minecraftforge/common/ForgeChunkManager/dormantChunkCacheSize dormantChunkCacheSize
 .field_map net/minecraftforge/common/ForgeChunkManager/playerTicketLength playerTicketLength
 .field_map net/minecraftforge/common/ForgeChunkManager/dormantChunkCache dormantChunkCache
 .field_map net/minecraftforge/common/ForgeChunkManager/defaultMaxCount defaultMaxCount
@@ -19533,11 +19540,11 @@
 .method_map net/minecraftforge/common/ForgeChunkManager/loadConfiguration ()V loadConfiguration
 .method_map net/minecraftforge/common/ForgeChunkManager/ticketCountAvailableFor (Ljava/lang/Object;Lnet/minecraft/src/World;)I ticketCountAvailableFor
 .method_map net/minecraftforge/common/ForgeChunkManager/getPersistentChunksFor (Lnet/minecraft/src/World;)Lcom/google/common/collect/SetMultimap; getPersistentChunksFor
-.method_map net/minecraftforge/common/ForgeChunkManager/fetchDormantChunk (J)Lnet/minecraft/src/Chunk; fetchDormantChunk
 .method_map net/minecraftforge/common/ForgeChunkManager/loadWorld (Lnet/minecraft/src/World;)V loadWorld
 .method_map net/minecraftforge/common/ForgeChunkManager/access$000 (Ljava/lang/String;)I access$000
 .method_map net/minecraftforge/common/ForgeChunkManager/requestTicket (Ljava/lang/Object;Lnet/minecraft/src/World;Lnet/minecraftforge/common/ForgeChunkManager$Type;)Lnet/minecraftforge/common/ForgeChunkManager$Ticket; requestTicket
 .method_map net/minecraftforge/common/ForgeChunkManager/reorderChunk (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;Lnet/minecraft/src/ChunkCoordIntPair;)V reorderChunk
+.method_map net/minecraftforge/common/ForgeChunkManager/fetchDormantChunk (JLnet/minecraft/src/World;)Lnet/minecraft/src/Chunk; fetchDormantChunk
 .method_map net/minecraftforge/common/ForgeChunkManager/requestPlayerTicket (Ljava/lang/Object;Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/World;Lnet/minecraftforge/common/ForgeChunkManager$Type;)Lnet/minecraftforge/common/ForgeChunkManager$Ticket; requestPlayerTicket
 .method_map net/minecraftforge/common/ForgeChunkManager/releaseTicket (Lnet/minecraftforge/common/ForgeChunkManager$Ticket;)V releaseTicket
 .method_map net/minecraftforge/common/ForgeChunkManager/getContainer (Ljava/lang/Object;)Lcpw/mods/fml/common/ModContainer; getContainer
@@ -19721,6 +19728,8 @@
 .method_map net/minecraftforge/common/DungeonHooks/addDungeonMob (Ljava/lang/String;I)F addDungeonMob
 .method_map net/minecraftforge/common/DungeonHooks/addDungeonLoot (Lnet/minecraft/src/ItemStack;III)F addDungeonLoot
 .method_map net/minecraftforge/common/DungeonHooks/setDungeonLootTries (I)V setDungeonLootTries
+.method_map net/minecraftforge/common/DungeonHooks/removeDungeonLoot (Lnet/minecraftforge/common/DungeonHooks$DungeonLoot;)Z removeDungeonLoot
+.method_map net/minecraftforge/common/DungeonHooks/addDungeonLoot (Lnet/minecraftforge/common/DungeonHooks$DungeonLoot;)V addDungeonLoot
 .class_map net/minecraftforge/common/IThrowableEntity IThrowableEntity
 .method_map net/minecraftforge/common/IThrowableEntity/setThrower (Lnet/minecraft/src/Entity;)V setThrower
 .method_map net/minecraftforge/common/IThrowableEntity/getThrower ()Lnet/minecraft/src/Entity; getThrower
