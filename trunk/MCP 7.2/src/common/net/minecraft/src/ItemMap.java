@@ -40,7 +40,7 @@ public class ItemMap extends ItemMapBase
             var4.xCenter = par2World.getWorldInfo().getSpawnX();
             var4.zCenter = par2World.getWorldInfo().getSpawnZ();
             var4.scale = 3;
-            var4.dimension = (byte)par2World.provider.dimensionId;
+            var4.dimension = par2World.provider.dimensionId;
             var4.markDirty();
             par2World.setItemData(var3, var4);
         }
@@ -304,7 +304,7 @@ public class ItemMap extends ItemMapBase
         var5.xCenter = MathHelper.floor_double(par3EntityPlayer.posX);
         var5.zCenter = MathHelper.floor_double(par3EntityPlayer.posZ);
         var5.scale = 3;
-        var5.dimension = (byte)par2World.provider.dimensionId;
+        var5.dimension = par2World.provider.dimensionId;
         var5.markDirty();
     }
 

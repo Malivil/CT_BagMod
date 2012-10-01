@@ -95,7 +95,7 @@ public class ChunkProviderServer implements IChunkProvider
 
         if (var5 == null)
         {
-            var5 = ForgeChunkManager.fetchDormantChunk(var3);
+            var5 = ForgeChunkManager.fetchDormantChunk(var3, currentServer);
             if (var5 == null)
             {
                 var5 = this.safeLoadChunk(par1, par2);
