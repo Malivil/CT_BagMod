@@ -54,7 +54,7 @@ public class IntegratedServer extends MinecraftServer
         ISaveHandler var6 = this.getActiveAnvilConverter().getSaveLoader(par1Str, true);
 
         WorldServer overWorld = (isDemo() ? new DemoWorldServer(this, var6, par2Str, 0, theProfiler) : new WorldServer(this, var6, par2Str, 0, theWorldSettings, theProfiler));
-        for (int dim : DimensionManager.getIDs())
+        for (int dim : DimensionManager.getStaticDimensionIDs())
         {
             WorldServer world = (dim == 0 ? overWorld : new WorldServerMulti(this, var6, par2Str, dim, theWorldSettings, overWorld, theProfiler));
             world.addWorldAccess(new WorldManager(this, world));

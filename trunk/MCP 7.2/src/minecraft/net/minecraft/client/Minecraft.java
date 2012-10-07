@@ -1922,6 +1922,18 @@ public abstract class Minecraft implements Runnable, IPlayerUsage
             if (this.theIntegratedServer != null)
             {
                 this.theIntegratedServer.initiateShutdown();
+                if (loadingScreen!=null)
+                {
+                    this.loadingScreen.resetProgresAndWorkingMessage("Shutting down internal server...");
+                }
+                while (!theIntegratedServer.isServerStopped())
+                {
+                    try
+                    {
+                        Thread.sleep(10);
+                    }
+                    catch (InterruptedException ie) {}
+                }
             }
 
             this.theIntegratedServer = null;

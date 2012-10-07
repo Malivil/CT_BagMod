@@ -1129,6 +1129,7 @@ CL: cpw/mods/fml/client/modloader/ModLoaderClientHelper$1 cpw/mods/fml/client/mo
 FD: cpw/mods/fml/client/modloader/ModLoaderClientHelper$1/this$0 cpw/mods/fml/client/modloader/ModLoaderClientHelper$1/this$0
 MD: cpw/mods/fml/client/modloader/ModLoaderClientHelper$1/get ()Ljava/util/Collection; cpw/mods/fml/client/modloader/ModLoaderClientHelper$1/get ()Ljava/util/Collection;
 CL: cpw/mods/fml/client/modloader/ModLoaderClientHelper cpw/mods/fml/client/modloader/ModLoaderClientHelper
+FD: cpw/mods/fml/client/modloader/ModLoaderClientHelper/managerLookups cpw/mods/fml/client/modloader/ModLoaderClientHelper/managerLookups
 FD: cpw/mods/fml/client/modloader/ModLoaderClientHelper/client cpw/mods/fml/client/modloader/ModLoaderClientHelper/client
 FD: cpw/mods/fml/client/modloader/ModLoaderClientHelper/keyBindingContainers cpw/mods/fml/client/modloader/ModLoaderClientHelper/keyBindingContainers
 MD: cpw/mods/fml/client/modloader/ModLoaderClientHelper/handleFinishLoadingFor (Lcpw/mods/fml/common/modloader/ModLoaderModContainer;Lnet/minecraft/client/Minecraft;)V cpw/mods/fml/client/modloader/ModLoaderClientHelper/handleFinishLoadingFor (Lcpw/mods/fml/common/modloader/ModLoaderModContainer;Lnet/minecraft/client/Minecraft;)V
@@ -1297,6 +1298,7 @@ MD: cpw/mods/fml/client/GuiScrollingList/drawSlot (IIIILnet/minecraft/src/Tessel
 MD: cpw/mods/fml/client/GuiScrollingList/registerScrollButtons (Ljava/util/List;II)V cpw/mods/fml/client/GuiScrollingList/registerScrollButtons (Ljava/util/List;II)V
 MD: cpw/mods/fml/client/GuiScrollingList/drawBackground ()V cpw/mods/fml/client/GuiScrollingList/drawBackground ()V
 CL: cpw/mods/fml/client/FMLClientHandler cpw/mods/fml/client/FMLClientHandler
+FD: cpw/mods/fml/client/FMLClientHandler/wrongMC cpw/mods/fml/client/FMLClientHandler/wrongMC
 FD: cpw/mods/fml/client/FMLClientHandler/serverIsRunning cpw/mods/fml/client/FMLClientHandler/serverIsRunning
 FD: cpw/mods/fml/client/FMLClientHandler/client cpw/mods/fml/client/FMLClientHandler/client
 FD: cpw/mods/fml/client/FMLClientHandler/loading cpw/mods/fml/client/FMLClientHandler/loading
@@ -1319,6 +1321,8 @@ FD: cpw/mods/fml/client/GuiSlotModList/parent cpw/mods/fml/client/GuiSlotModList
 FD: cpw/mods/fml/client/GuiSlotModList/mods cpw/mods/fml/client/GuiSlotModList/mods
 CL: cpw/mods/fml/client/GuiModsMissingForServer cpw/mods/fml/client/GuiModsMissingForServer
 FD: cpw/mods/fml/client/GuiModsMissingForServer/modsMissing cpw/mods/fml/client/GuiModsMissingForServer/modsMissing
+CL: cpw/mods/fml/client/GuiWrongMinecraft cpw/mods/fml/client/GuiWrongMinecraft
+FD: cpw/mods/fml/client/GuiWrongMinecraft/wrongMC cpw/mods/fml/client/GuiWrongMinecraft/wrongMC
 CL: cpw/mods/fml/client/SpriteHelper cpw/mods/fml/client/SpriteHelper
 FD: cpw/mods/fml/client/SpriteHelper/spriteInfo cpw/mods/fml/client/SpriteHelper/spriteInfo
 MD: cpw/mods/fml/client/SpriteHelper/toBitSet (Ljava/lang/String;)Ljava/util/BitSet; cpw/mods/fml/client/SpriteHelper/toBitSet (Ljava/lang/String;)Ljava/util/BitSet;
@@ -1354,6 +1358,8 @@ MD: cpw/mods/fml/common/modloader/ModLoaderEntitySpawnCallback/apply (Lcpw/mods/
 CL: cpw/mods/fml/common/modloader/ModLoaderConnectionHandler cpw/mods/fml/common/modloader/ModLoaderConnectionHandler
 FD: cpw/mods/fml/common/modloader/ModLoaderConnectionHandler/mod cpw/mods/fml/common/modloader/ModLoaderConnectionHandler/mod
 CL: cpw/mods/fml/common/modloader/IModLoaderSidedHelper cpw/mods/fml/common/modloader/IModLoaderSidedHelper
+MD: cpw/mods/fml/common/modloader/IModLoaderSidedHelper/clientConnectionClosed (Lnet/minecraft/src/NetworkManager;Lcpw/mods/fml/common/modloader/BaseModProxy;)Z cpw/mods/fml/common/modloader/IModLoaderSidedHelper/clientConnectionClosed (Laz;Lcpw/mods/fml/common/modloader/BaseModProxy;)Z
+MD: cpw/mods/fml/common/modloader/IModLoaderSidedHelper/clientConnectionOpened (Lnet/minecraft/src/NetHandler;Lnet/minecraft/src/NetworkManager;Lcpw/mods/fml/common/modloader/BaseModProxy;)V cpw/mods/fml/common/modloader/IModLoaderSidedHelper/clientConnectionOpened (Ldc;Laz;Lcpw/mods/fml/common/modloader/BaseModProxy;)V
 MD: cpw/mods/fml/common/modloader/IModLoaderSidedHelper/finishModLoading (Lcpw/mods/fml/common/modloader/ModLoaderModContainer;)V cpw/mods/fml/common/modloader/IModLoaderSidedHelper/finishModLoading (Lcpw/mods/fml/common/modloader/ModLoaderModContainer;)V
 MD: cpw/mods/fml/common/modloader/IModLoaderSidedHelper/spawnEntity (Lcpw/mods/fml/common/modloader/BaseModProxy;Lcpw/mods/fml/common/network/EntitySpawnPacket;Lcpw/mods/fml/common/registry/EntityRegistry$EntityRegistration;)Lnet/minecraft/src/Entity; cpw/mods/fml/common/modloader/IModLoaderSidedHelper/spawnEntity (Lcpw/mods/fml/common/modloader/BaseModProxy;Lcpw/mods/fml/common/network/EntitySpawnPacket;Lcpw/mods/fml/common/registry/EntityRegistry$EntityRegistration;)Ljn;
 MD: cpw/mods/fml/common/modloader/IModLoaderSidedHelper/sendClientPacket (Lcpw/mods/fml/common/modloader/BaseModProxy;Lnet/minecraft/src/Packet250CustomPayload;)V cpw/mods/fml/common/modloader/IModLoaderSidedHelper/sendClientPacket (Lcpw/mods/fml/common/modloader/BaseModProxy;Lce;)V
@@ -2207,6 +2213,11 @@ MD: cpw/mods/fml/common/asm/FMLSanityChecker/call ()Ljava/lang/Void; cpw/mods/fm
 CL: cpw/mods/fml/common/asm/SideOnly cpw/mods/fml/common/asm/SideOnly
 MD: cpw/mods/fml/common/asm/SideOnly/value ()Lcpw/mods/fml/common/Side; cpw/mods/fml/common/asm/SideOnly/value ()Lcpw/mods/fml/common/Side;
 CL: cpw/mods/fml/common/asm/ASMTransformer cpw/mods/fml/common/asm/ASMTransformer
+CL: cpw/mods/fml/common/MinecraftDummyContainer cpw/mods/fml/common/MinecraftDummyContainer
+FD: cpw/mods/fml/common/MinecraftDummyContainer/staticRange cpw/mods/fml/common/MinecraftDummyContainer/staticRange
+MD: cpw/mods/fml/common/MinecraftDummyContainer/getStaticVersionRange ()Lcpw/mods/fml/common/versioning/VersionRange; cpw/mods/fml/common/MinecraftDummyContainer/getStaticVersionRange ()Lcpw/mods/fml/common/versioning/VersionRange;
+CL: cpw/mods/fml/common/BukkitPluginRef cpw/mods/fml/common/BukkitPluginRef
+MD: cpw/mods/fml/common/BukkitPluginRef/value ()Ljava/lang/String; cpw/mods/fml/common/BukkitPluginRef/value ()Ljava/lang/String;
 CL: cpw/mods/fml/common/Mod$Instance cpw/mods/fml/common/Mod$Instance
 MD: cpw/mods/fml/common/Mod$Instance/value ()Ljava/lang/String; cpw/mods/fml/common/Mod$Instance/value ()Ljava/lang/String;
 CL: cpw/mods/fml/common/Mod$Item cpw/mods/fml/common/Mod$Item
@@ -2225,8 +2236,10 @@ MD: cpw/mods/fml/common/Mod$Block/name ()Ljava/lang/String; cpw/mods/fml/common/
 CL: cpw/mods/fml/common/Mod$PostInit cpw/mods/fml/common/Mod$PostInit
 CL: cpw/mods/fml/common/Mod cpw/mods/fml/common/Mod
 MD: cpw/mods/fml/common/Mod/version ()Ljava/lang/String; cpw/mods/fml/common/Mod/version ()Ljava/lang/String;
+MD: cpw/mods/fml/common/Mod/acceptedMinecraftVersions ()Ljava/lang/String; cpw/mods/fml/common/Mod/acceptedMinecraftVersions ()Ljava/lang/String;
 MD: cpw/mods/fml/common/Mod/useMetadata ()Z cpw/mods/fml/common/Mod/useMetadata ()Z
 MD: cpw/mods/fml/common/Mod/dependencies ()Ljava/lang/String; cpw/mods/fml/common/Mod/dependencies ()Ljava/lang/String;
+MD: cpw/mods/fml/common/Mod/bukkitPlugin ()Ljava/lang/String; cpw/mods/fml/common/Mod/bukkitPlugin ()Ljava/lang/String;
 MD: cpw/mods/fml/common/Mod/name ()Ljava/lang/String; cpw/mods/fml/common/Mod/name ()Ljava/lang/String;
 MD: cpw/mods/fml/common/Mod/modid ()Ljava/lang/String; cpw/mods/fml/common/Mod/modid ()Ljava/lang/String;
 CL: cpw/mods/fml/common/ObfuscationReflectionHelper cpw/mods/fml/common/ObfuscationReflectionHelper
@@ -2262,6 +2275,7 @@ CL: cpw/mods/fml/common/Loader$ModIdComparator cpw/mods/fml/common/Loader$ModIdC
 FD: cpw/mods/fml/common/Loader$ModIdComparator/this$0 cpw/mods/fml/common/Loader$ModIdComparator/this$0
 MD: cpw/mods/fml/common/Loader$ModIdComparator/compare (Lcpw/mods/fml/common/ModContainer;Lcpw/mods/fml/common/ModContainer;)I cpw/mods/fml/common/Loader$ModIdComparator/compare (Lcpw/mods/fml/common/ModContainer;Lcpw/mods/fml/common/ModContainer;)I
 CL: cpw/mods/fml/common/Loader cpw/mods/fml/common/Loader
+FD: cpw/mods/fml/common/Loader/minecraft cpw/mods/fml/common/Loader/minecraft
 FD: cpw/mods/fml/common/Loader/rev cpw/mods/fml/common/Loader/rev
 FD: cpw/mods/fml/common/Loader/namedMods cpw/mods/fml/common/Loader/namedMods
 FD: cpw/mods/fml/common/Loader/canonicalConfigDir cpw/mods/fml/common/Loader/canonicalConfigDir
@@ -2292,6 +2306,7 @@ MD: cpw/mods/fml/common/Loader/isModLoaded (Ljava/lang/String;)Z cpw/mods/fml/co
 MD: cpw/mods/fml/common/Loader/getModObjectList ()Lcom/google/common/collect/BiMap; cpw/mods/fml/common/Loader/getModObjectList ()Lcom/google/common/collect/BiMap;
 MD: cpw/mods/fml/common/Loader/serverStopping ()V cpw/mods/fml/common/Loader/serverStopping ()V
 MD: cpw/mods/fml/common/Loader/getActiveModList ()Ljava/util/List; cpw/mods/fml/common/Loader/getActiveModList ()Ljava/util/List;
+MD: cpw/mods/fml/common/Loader/getMinecraftModContainer ()Lcpw/mods/fml/common/MinecraftDummyContainer; cpw/mods/fml/common/Loader/getMinecraftModContainer ()Lcpw/mods/fml/common/MinecraftDummyContainer;
 MD: cpw/mods/fml/common/Loader/getFMLVersionString ()Ljava/lang/String; cpw/mods/fml/common/Loader/getFMLVersionString ()Ljava/lang/String;
 MD: cpw/mods/fml/common/Loader/identifyDuplicates (Ljava/util/List;)V cpw/mods/fml/common/Loader/identifyDuplicates (Ljava/util/List;)V
 MD: cpw/mods/fml/common/Loader/getModClassLoader ()Ljava/lang/ClassLoader; cpw/mods/fml/common/Loader/getModClassLoader ()Ljava/lang/ClassLoader;
@@ -2309,6 +2324,9 @@ MD: cpw/mods/fml/common/Loader/initializeMods ()V cpw/mods/fml/common/Loader/ini
 MD: cpw/mods/fml/common/Loader/getModState (Lcpw/mods/fml/common/ModContainer;)Lcpw/mods/fml/common/LoaderState$ModState; cpw/mods/fml/common/Loader/getModState (Lcpw/mods/fml/common/ModContainer;)Lcpw/mods/fml/common/LoaderState$ModState;
 MD: cpw/mods/fml/common/Loader/getMCVersionString ()Ljava/lang/String; cpw/mods/fml/common/Loader/getMCVersionString ()Ljava/lang/String;
 MD: cpw/mods/fml/common/Loader/getConfigDir ()Ljava/io/File; cpw/mods/fml/common/Loader/getConfigDir ()Ljava/io/File;
+CL: cpw/mods/fml/common/WorldAccessContainer cpw/mods/fml/common/WorldAccessContainer
+MD: cpw/mods/fml/common/WorldAccessContainer/getDataForWriting (Lnet/minecraft/src/SaveHandler;Lnet/minecraft/src/WorldInfo;)Lnet/minecraft/src/NBTTagCompound; cpw/mods/fml/common/WorldAccessContainer/getDataForWriting (Laeb;Laed;)Lan;
+MD: cpw/mods/fml/common/WorldAccessContainer/readData (Lnet/minecraft/src/SaveHandler;Lnet/minecraft/src/WorldInfo;Ljava/util/Map;Lnet/minecraft/src/NBTTagCompound;)V cpw/mods/fml/common/WorldAccessContainer/readData (Laeb;Laed;Ljava/util/Map;Lan;)V
 CL: cpw/mods/fml/common/FMLModContainer$2 cpw/mods/fml/common/FMLModContainer$2
 FD: cpw/mods/fml/common/FMLModContainer$2/this$0 cpw/mods/fml/common/FMLModContainer$2/this$0
 MD: cpw/mods/fml/common/FMLModContainer$2/apply (Lcpw/mods/fml/common/ModContainer;)Ljava/lang/Object; cpw/mods/fml/common/FMLModContainer$2/apply (Lcpw/mods/fml/common/ModContainer;)Ljava/lang/Object;
@@ -2325,6 +2343,7 @@ FD: cpw/mods/fml/common/FMLModContainer/isNetworkMod cpw/mods/fml/common/FMLModC
 FD: cpw/mods/fml/common/FMLModContainer/descriptor cpw/mods/fml/common/FMLModContainer/descriptor
 FD: cpw/mods/fml/common/FMLModContainer/modInstance cpw/mods/fml/common/FMLModContainer/modInstance
 FD: cpw/mods/fml/common/FMLModContainer/overridesMetadata cpw/mods/fml/common/FMLModContainer/overridesMetadata
+FD: cpw/mods/fml/common/FMLModContainer/minecraftAccepted cpw/mods/fml/common/FMLModContainer/minecraftAccepted
 FD: cpw/mods/fml/common/FMLModContainer/modTypeAnnotations cpw/mods/fml/common/FMLModContainer/modTypeAnnotations
 FD: cpw/mods/fml/common/FMLModContainer/source cpw/mods/fml/common/FMLModContainer/source
 FD: cpw/mods/fml/common/FMLModContainer/modDescriptor cpw/mods/fml/common/FMLModContainer/modDescriptor
@@ -2417,6 +2436,7 @@ MD: cpw/mods/fml/common/LoadController/isInState (Lcpw/mods/fml/common/LoaderSta
 CL: cpw/mods/fml/common/InjectedModContainer cpw/mods/fml/common/InjectedModContainer
 FD: cpw/mods/fml/common/InjectedModContainer/source cpw/mods/fml/common/InjectedModContainer/source
 FD: cpw/mods/fml/common/InjectedModContainer/wrappedContainer cpw/mods/fml/common/InjectedModContainer/wrappedContainer
+MD: cpw/mods/fml/common/InjectedModContainer/getWrappedWorldAccessContainer ()Lcpw/mods/fml/common/WorldAccessContainer; cpw/mods/fml/common/InjectedModContainer/getWrappedWorldAccessContainer ()Lcpw/mods/fml/common/WorldAccessContainer;
 CL: cpw/mods/fml/common/IScheduledTickHandler cpw/mods/fml/common/IScheduledTickHandler
 MD: cpw/mods/fml/common/IScheduledTickHandler/nextTickSpacing ()I cpw/mods/fml/common/IScheduledTickHandler/nextTickSpacing ()I
 CL: cpw/mods/fml/common/DummyModContainer cpw/mods/fml/common/DummyModContainer
@@ -2456,6 +2476,7 @@ MD: cpw/mods/fml/common/ModContainer/getName ()Ljava/lang/String; cpw/mods/fml/c
 MD: cpw/mods/fml/common/ModContainer/isImmutable ()Z cpw/mods/fml/common/ModContainer/isImmutable ()Z
 MD: cpw/mods/fml/common/ModContainer/getSortingRules ()Ljava/lang/String; cpw/mods/fml/common/ModContainer/getSortingRules ()Ljava/lang/String;
 MD: cpw/mods/fml/common/ModContainer/registerBus (Lcom/google/common/eventbus/EventBus;Lcpw/mods/fml/common/LoadController;)Z cpw/mods/fml/common/ModContainer/registerBus (Lcom/google/common/eventbus/EventBus;Lcpw/mods/fml/common/LoadController;)Z
+MD: cpw/mods/fml/common/ModContainer/acceptableMinecraftVersionRange ()Lcpw/mods/fml/common/versioning/VersionRange; cpw/mods/fml/common/ModContainer/acceptableMinecraftVersionRange ()Lcpw/mods/fml/common/versioning/VersionRange;
 MD: cpw/mods/fml/common/ModContainer/matches (Ljava/lang/Object;)Z cpw/mods/fml/common/ModContainer/matches (Ljava/lang/Object;)Z
 MD: cpw/mods/fml/common/ModContainer/getRequirements ()Ljava/util/Set; cpw/mods/fml/common/ModContainer/getRequirements ()Ljava/util/Set;
 MD: cpw/mods/fml/common/ModContainer/getDependants ()Ljava/util/List; cpw/mods/fml/common/ModContainer/getDependants ()Ljava/util/List;
@@ -2487,8 +2508,11 @@ MD: cpw/mods/fml/common/ITickHandler/ticks ()Ljava/util/EnumSet; cpw/mods/fml/co
 CL: cpw/mods/fml/common/ICraftingHandler cpw/mods/fml/common/ICraftingHandler
 MD: cpw/mods/fml/common/ICraftingHandler/onSmelting (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/ItemStack;)V cpw/mods/fml/common/ICraftingHandler/onSmelting (Log;Lrj;)V
 MD: cpw/mods/fml/common/ICraftingHandler/onCrafting (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/ItemStack;Lnet/minecraft/src/IInventory;)V cpw/mods/fml/common/ICraftingHandler/onCrafting (Log;Lrj;Lix;)V
+CL: cpw/mods/fml/common/BukkitProxy cpw/mods/fml/common/BukkitProxy
 CL: cpw/mods/fml/common/LoaderException cpw/mods/fml/common/LoaderException
 FD: cpw/mods/fml/common/LoaderException/serialVersionUID cpw/mods/fml/common/LoaderException/serialVersionUID
+CL: cpw/mods/fml/common/WrongMinecraftVersionException cpw/mods/fml/common/WrongMinecraftVersionException
+FD: cpw/mods/fml/common/WrongMinecraftVersionException/mod cpw/mods/fml/common/WrongMinecraftVersionException/mod
 CL: cpw/mods/fml/common/LoaderState$ModState cpw/mods/fml/common/LoaderState$ModState
 FD: cpw/mods/fml/common/LoaderState$ModState/CONSTRUCTED cpw/mods/fml/common/LoaderState$ModState/CONSTRUCTED
 FD: cpw/mods/fml/common/LoaderState$ModState/LOADED cpw/mods/fml/common/LoaderState$ModState/LOADED
@@ -2533,6 +2557,7 @@ FD: cpw/mods/fml/common/FMLCommonHandler/brandings cpw/mods/fml/common/FMLCommon
 FD: cpw/mods/fml/common/FMLCommonHandler/sidedDelegate cpw/mods/fml/common/FMLCommonHandler/sidedDelegate
 FD: cpw/mods/fml/common/FMLCommonHandler/crashCallables cpw/mods/fml/common/FMLCommonHandler/crashCallables
 FD: cpw/mods/fml/common/FMLCommonHandler/scheduledServerTicks cpw/mods/fml/common/FMLCommonHandler/scheduledServerTicks
+FD: cpw/mods/fml/common/FMLCommonHandler/handlerSet cpw/mods/fml/common/FMLCommonHandler/handlerSet
 FD: cpw/mods/fml/common/FMLCommonHandler/noForge cpw/mods/fml/common/FMLCommonHandler/noForge
 FD: cpw/mods/fml/common/FMLCommonHandler/scheduledClientTicks cpw/mods/fml/common/FMLCommonHandler/scheduledClientTicks
 FD: cpw/mods/fml/common/FMLCommonHandler/INSTANCE cpw/mods/fml/common/FMLCommonHandler/INSTANCE
@@ -2541,6 +2566,7 @@ MD: cpw/mods/fml/common/FMLCommonHandler/handleTinyPacket (Lnet/minecraft/src/Ne
 MD: cpw/mods/fml/common/FMLCommonHandler/callForgeMethod (Ljava/lang/String;)Ljava/lang/Object; cpw/mods/fml/common/FMLCommonHandler/callForgeMethod (Ljava/lang/String;)Ljava/lang/Object;
 MD: cpw/mods/fml/common/FMLCommonHandler/showGuiScreen (Ljava/lang/Object;)V cpw/mods/fml/common/FMLCommonHandler/showGuiScreen (Ljava/lang/Object;)V
 MD: cpw/mods/fml/common/FMLCommonHandler/getSide ()Lcpw/mods/fml/common/Side; cpw/mods/fml/common/FMLCommonHandler/getSide ()Lcpw/mods/fml/common/Side;
+MD: cpw/mods/fml/common/FMLCommonHandler/handleWorldDataLoad (Lnet/minecraft/src/SaveHandler;Lnet/minecraft/src/WorldInfo;Lnet/minecraft/src/NBTTagCompound;)V cpw/mods/fml/common/FMLCommonHandler/handleWorldDataLoad (Laeb;Laed;Lan;)V
 MD: cpw/mods/fml/common/FMLCommonHandler/getBrandings ()Ljava/util/List; cpw/mods/fml/common/FMLCommonHandler/getBrandings ()Ljava/util/List;
 MD: cpw/mods/fml/common/FMLCommonHandler/onPlayerPostTick (Lnet/minecraft/src/EntityPlayer;)V cpw/mods/fml/common/FMLCommonHandler/onPlayerPostTick (Log;)V
 MD: cpw/mods/fml/common/FMLCommonHandler/handleServerStarted ()V cpw/mods/fml/common/FMLCommonHandler/handleServerStarted ()V
@@ -2553,6 +2579,7 @@ MD: cpw/mods/fml/common/FMLCommonHandler/onServerStarted ()V cpw/mods/fml/common
 MD: cpw/mods/fml/common/FMLCommonHandler/onWorldLoadTick ([Lnet/minecraft/src/World;)V cpw/mods/fml/common/FMLCommonHandler/onWorldLoadTick ([Lup;)V
 MD: cpw/mods/fml/common/FMLCommonHandler/registerCrashCallable (Lcpw/mods/fml/common/ICrashCallable;)V cpw/mods/fml/common/FMLCommonHandler/registerCrashCallable (Lcpw/mods/fml/common/ICrashCallable;)V
 MD: cpw/mods/fml/common/FMLCommonHandler/onServerStart (Lnet/minecraft/src/DedicatedServer;)V cpw/mods/fml/common/FMLCommonHandler/onServerStart (Lft;)V
+MD: cpw/mods/fml/common/FMLCommonHandler/handleWorldDataSave (Lnet/minecraft/src/SaveHandler;Lnet/minecraft/src/WorldInfo;Lnet/minecraft/src/NBTTagCompound;)V cpw/mods/fml/common/FMLCommonHandler/handleWorldDataSave (Laeb;Laed;Lan;)V
 MD: cpw/mods/fml/common/FMLCommonHandler/instance ()Lcpw/mods/fml/common/FMLCommonHandler; cpw/mods/fml/common/FMLCommonHandler/instance ()Lcpw/mods/fml/common/FMLCommonHandler;
 MD: cpw/mods/fml/common/FMLCommonHandler/onRenderTickEnd (F)V cpw/mods/fml/common/FMLCommonHandler/onRenderTickEnd (F)V
 MD: cpw/mods/fml/common/FMLCommonHandler/handleServerStopping ()V cpw/mods/fml/common/FMLCommonHandler/handleServerStopping ()V
@@ -7183,20 +7210,21 @@ MD: net/minecraft/src/WorldGenDungeons/pickMobSpawner (Ljava/util/Random;)Ljava/
 MD: net/minecraft/src/WorldGenDungeons/pickCheckLootItem (Ljava/util/Random;)Lnet/minecraft/src/ItemStack; yj/a (Ljava/util/Random;)Lrj;
 MD: net/minecraft/src/WorldGenDungeons/generate (Lnet/minecraft/src/World;Ljava/util/Random;III)Z yj/a (Lup;Ljava/util/Random;III)Z
 CL: net/minecraft/src/WorldServer gr
-FD: net/minecraft/src/WorldServer/theChunkProviderServer gr/b
 FD: net/minecraft/src/WorldServer/thePlayerManager gr/M
-FD: net/minecraft/src/WorldServer/canNotSave gr/d
-FD: net/minecraft/src/WorldServer/pendingTickListEntries gr/O
+FD: net/minecraft/src/WorldServer/theChunkProviderServer gr/b
 FD: net/minecraft/src/WorldServer/field_73064_N gr/N
+FD: net/minecraft/src/WorldServer/pendingTickListEntries gr/O
+FD: net/minecraft/src/WorldServer/canNotSave gr/d
 FD: net/minecraft/src/WorldServer/bonusChestContent gr/T
-FD: net/minecraft/src/WorldServer/blockEventCacheIndex gr/S
 FD: net/minecraft/src/WorldServer/blockEventCache gr/R
-FD: net/minecraft/src/WorldServer/mcServer gr/a
+FD: net/minecraft/src/WorldServer/blockEventCacheIndex gr/S
 FD: net/minecraft/src/WorldServer/entityIdMap gr/U
-FD: net/minecraft/src/WorldServer/updateEntityTick gr/Q
+FD: net/minecraft/src/WorldServer/doneChunks gr/doneChunks
 FD: net/minecraft/src/WorldServer/actionsAllowed gr/c
-FD: net/minecraft/src/WorldServer/allPlayersSleeping gr/P
+FD: net/minecraft/src/WorldServer/updateEntityTick gr/Q
 FD: net/minecraft/src/WorldServer/theEntityTracker gr/L
+FD: net/minecraft/src/WorldServer/allPlayersSleeping gr/P
+FD: net/minecraft/src/WorldServer/mcServer gr/a
 MD: net/minecraft/src/WorldServer/onBlockEventReceived (Lnet/minecraft/src/BlockEventData;)Z gr/a (Lvg;)Z
 MD: net/minecraft/src/WorldServer/getPlayerManager ()Lnet/minecraft/src/PlayerManager; gr/q ()Lgo;
 MD: net/minecraft/src/WorldServer/getEntityTracker ()Lnet/minecraft/src/EntityTracker; gr/o ()Lgm;
@@ -10033,12 +10061,14 @@ FD: net/minecraft/src/WorldGenMinable/minableBlockId yk/a
 MD: net/minecraft/src/WorldGenMinable/generate (Lnet/minecraft/src/World;Ljava/util/Random;III)Z yk/a (Lup;Ljava/util/Random;III)Z
 CL: net/minecraft/src/BaseMod BaseMod
 MD: net/minecraft/src/BaseMod/renderWorldBlock (Lnet/minecraft/src/RenderBlocks;Lnet/minecraft/src/IBlockAccess;IIILnet/minecraft/src/Block;I)Z BaseMod/renderWorldBlock (Lavg;Luz;IIILaig;I)Z
+MD: net/minecraft/src/BaseMod/clientDisconnect (Lnet/minecraft/src/NetClientHandler;)V BaseMod/clientDisconnect (Lasv;)V
 MD: net/minecraft/src/BaseMod/onTickInGUI (FLnet/minecraft/client/Minecraft;Lnet/minecraft/src/GuiScreen;)Z BaseMod/onTickInGUI (FLnet/minecraft/client/Minecraft;Lapn;)Z
 MD: net/minecraft/src/BaseMod/onTickInGame (Lnet/minecraft/server/MinecraftServer;)Z BaseMod/onTickInGame (Lnet/minecraft/server/MinecraftServer;)Z
 MD: net/minecraft/src/BaseMod/clientCustomPayload (Lnet/minecraft/src/NetClientHandler;Lnet/minecraft/src/Packet250CustomPayload;)V BaseMod/clientCustomPayload (Lasv;Lce;)V
 MD: net/minecraft/src/BaseMod/getContainerGUI (Lnet/minecraft/src/EntityClientPlayerMP;IIII)Lnet/minecraft/src/GuiContainer; BaseMod/getContainerGUI (Latg;IIII)Laqh;
 MD: net/minecraft/src/BaseMod/spawnEntity (ILnet/minecraft/src/World;DDD)Lnet/minecraft/src/Entity; BaseMod/spawnEntity (ILup;DDD)Ljn;
 MD: net/minecraft/src/BaseMod/onTickInGame (FLnet/minecraft/client/Minecraft;)Z BaseMod/onTickInGame (FLnet/minecraft/client/Minecraft;)Z
+MD: net/minecraft/src/BaseMod/clientConnect (Lnet/minecraft/src/NetClientHandler;)V BaseMod/clientConnect (Lasv;)V
 MD: net/minecraft/src/BaseMod/registerAnimation (Lnet/minecraft/client/Minecraft;)V BaseMod/registerAnimation (Lnet/minecraft/client/Minecraft;)V
 MD: net/minecraft/src/BaseMod/renderInvBlock (Lnet/minecraft/src/RenderBlocks;Lnet/minecraft/src/Block;II)V BaseMod/renderInvBlock (Lavg;Laig;II)V
 MD: net/minecraft/src/BaseMod/keyboardEvent (Lnet/minecraft/src/KeyBinding;)V BaseMod/keyboardEvent (Lanf;)V
@@ -10619,6 +10649,7 @@ FD: net/minecraft/src/WorldInfo/lastTimePlayed aed/g
 FD: net/minecraft/src/WorldInfo/raining aed/m
 FD: net/minecraft/src/WorldInfo/saveVersion aed/l
 FD: net/minecraft/src/WorldInfo/thunderTime aed/p
+FD: net/minecraft/src/WorldInfo/additionalProperties aed/additionalProperties
 FD: net/minecraft/src/WorldInfo/hardcore aed/s
 FD: net/minecraft/src/WorldInfo/playerTag aed/i
 FD: net/minecraft/src/WorldInfo/mapFeaturesEnabled aed/r
@@ -10626,6 +10657,8 @@ FD: net/minecraft/src/WorldInfo/levelName aed/k
 FD: net/minecraft/src/WorldInfo/rainTime aed/n
 MD: net/minecraft/src/WorldInfo/getSaveVersion ()I aed/k ()I
 MD: net/minecraft/src/WorldInfo/getGameType ()Lnet/minecraft/src/EnumGameType; aed/q ()Luy;
+MD: net/minecraft/src/WorldInfo/getAdditionalProperty (Ljava/lang/String;)Lnet/minecraft/src/NBTBase; aed/getAdditionalProperty (Ljava/lang/String;)Lay;
+MD: net/minecraft/src/WorldInfo/setAdditionalProperties (Ljava/util/Map;)V aed/setAdditionalProperties (Ljava/util/Map;)V
 MD: net/minecraft/src/WorldInfo/getWorldName ()Ljava/lang/String; aed/j ()Ljava/lang/String;
 MD: net/minecraft/src/WorldInfo/setRaining (Z)V aed/b (Z)V
 MD: net/minecraft/src/WorldInfo/getThunderTime ()I aed/n ()I
@@ -14141,6 +14174,8 @@ FD: net/minecraft/src/World/lightningFlash up/s
 FD: net/minecraft/src/World/entityRemoval up/b
 FD: net/minecraft/src/World/thunderingStrength up/q
 FD: net/minecraft/src/World/loadedTileEntityList up/h
+FD: net/minecraft/src/World/s_savehandler up/s_savehandler
+FD: net/minecraft/src/World/s_mapStorage up/s_mapStorage
 FD: net/minecraft/src/World/mapStorage up/C
 FD: net/minecraft/src/World/addedTileEntityList up/a
 FD: net/minecraft/src/World/spawnPeacefulMobs up/H
@@ -14229,8 +14264,8 @@ MD: net/minecraft/src/World/getSkyBlockTypeBrightness (Lnet/minecraft/src/EnumSk
 MD: net/minecraft/src/World/setSpawnLocation ()V up/f ()V
 MD: net/minecraft/src/World/calculateInitialWeather ()V up/a ()V
 MD: net/minecraft/src/World/canBlockSeeTheSky (III)Z up/j (III)Z
-MD: net/minecraft/src/World/notifyBlockOfNeighborChange (IIII)V up/m (IIII)V
 MD: net/minecraft/src/World/extinguishFire (Lnet/minecraft/src/EntityPlayer;IIII)Z up/a (Log;IIII)Z
+MD: net/minecraft/src/World/notifyBlockOfNeighborChange (IIII)V up/m (IIII)V
 MD: net/minecraft/src/World/isBlockIndirectlyGettingPowered (III)Z up/z (III)Z
 MD: net/minecraft/src/World/updateEntities ()V up/h ()V
 MD: net/minecraft/src/World/canSnowAtBody (III)Z up/canSnowAtBody (III)Z
@@ -14274,6 +14309,7 @@ MD: net/minecraft/src/World/canPlaceEntityOnSide (IIIIZILnet/minecraft/src/Entit
 MD: net/minecraft/src/World/getBlockLightOpacity (III)I up/b (III)I
 MD: net/minecraft/src/World/getClosestPlayerToEntity (Lnet/minecraft/src/Entity;D)Lnet/minecraft/src/EntityPlayer; up/a (Ljn;D)Log;
 MD: net/minecraft/src/World/getChunkFromBlockCoords (II)Lnet/minecraft/src/Chunk; up/d (II)Lwl;
+MD: net/minecraft/src/World/finishSetup ()V up/finishSetup ()V
 MD: net/minecraft/src/World/getRainStrength (F)F up/j (F)F
 MD: net/minecraft/src/World/initialize (Lnet/minecraft/src/WorldSettings;)V up/a (Lux;)V
 MD: net/minecraft/src/World/getWorldInfo ()Lnet/minecraft/src/WorldInfo; up/H ()Laed;
@@ -14300,9 +14336,9 @@ MD: net/minecraft/src/World/spawnEntityInWorld (Lnet/minecraft/src/Entity;)Z up/
 MD: net/minecraft/src/World/getUniqueDataId (Ljava/lang/String;)I up/b (Ljava/lang/String;)I
 MD: net/minecraft/src/World/rayTraceBlocks_do_do (Lnet/minecraft/src/Vec3;Lnet/minecraft/src/Vec3;ZZ)Lnet/minecraft/src/MovingObjectPosition; up/a (Lajs;Lajs;ZZ)Lajq;
 MD: net/minecraft/src/World/scheduleBlockUpdate (IIIII)V up/a (IIIII)V
-MD: net/minecraft/src/World/rayTraceBlocks (Lnet/minecraft/src/Vec3;Lnet/minecraft/src/Vec3;)Lnet/minecraft/src/MovingObjectPosition; up/a (Lajs;Lajs;)Lajq;
 MD: net/minecraft/src/World/markBlockNeedsUpdateForAll (III)V up/n (III)V
 MD: net/minecraft/src/World/getSavedLightValue (Lnet/minecraft/src/EnumSkyBlock;III)I up/b (Lvb;III)I
+MD: net/minecraft/src/World/rayTraceBlocks (Lnet/minecraft/src/Vec3;Lnet/minecraft/src/Vec3;)Lnet/minecraft/src/MovingObjectPosition; up/a (Lajs;Lajs;)Lajq;
 MD: net/minecraft/src/World/chunkExists (II)Z up/c (II)Z
 MD: net/minecraft/src/World/setActivePlayerChunksAndCheckLight ()V up/x ()V
 MD: net/minecraft/src/World/addTileEntity (Ljava/util/Collection;)V up/a (Ljava/util/Collection;)V
@@ -14341,6 +14377,7 @@ MD: net/minecraft/src/World/calculateInitialWeatherBody ()V up/calculateInitialW
 MD: net/minecraft/src/World/canMineBlockBody (Lnet/minecraft/src/EntityPlayer;III)Z up/canMineBlockBody (Log;III)Z
 MD: net/minecraft/src/World/getWorldChunkManager ()Lnet/minecraft/src/WorldChunkManager; up/r ()Lvp;
 MD: net/minecraft/src/World/getHorizon ()D up/O ()D
+MD: net/minecraft/src/World/getMapStorage (Lnet/minecraft/src/ISaveHandler;)Lnet/minecraft/src/MapStorage; up/getMapStorage (Laee;)Laes;
 MD: net/minecraft/src/World/setEntityDead (Lnet/minecraft/src/Entity;)V up/e (Ljn;)V
 MD: net/minecraft/src/World/countEntities (Ljava/lang/Class;)I up/a (Ljava/lang/Class;)I
 MD: net/minecraft/src/World/getPersistentChunks ()Lcom/google/common/collect/SetMultimap; up/getPersistentChunks ()Lcom/google/common/collect/SetMultimap;
@@ -17503,23 +17540,33 @@ MD: net/minecraftforge/common/Configuration/get (Ljava/lang/String;Ljava/lang/St
 MD: net/minecraftforge/common/Configuration/hasKey (Ljava/lang/String;Ljava/lang/String;)Z net/minecraftforge/common/Configuration/hasKey (Ljava/lang/String;Ljava/lang/String;)Z
 MD: net/minecraftforge/common/Configuration/get (Ljava/lang/String;Ljava/lang/String;I)Lnet/minecraftforge/common/Property; net/minecraftforge/common/Configuration/get (Ljava/lang/String;Ljava/lang/String;I)Lnet/minecraftforge/common/Property;
 CL: net/minecraftforge/common/DimensionManager net/minecraftforge/common/DimensionManager
+FD: net/minecraftforge/common/DimensionManager/unloadQueue net/minecraftforge/common/DimensionManager/unloadQueue
+FD: net/minecraftforge/common/DimensionManager/dimensionMap net/minecraftforge/common/DimensionManager/dimensionMap
 FD: net/minecraftforge/common/DimensionManager/hasInit net/minecraftforge/common/DimensionManager/hasInit
 FD: net/minecraftforge/common/DimensionManager/providers net/minecraftforge/common/DimensionManager/providers
 FD: net/minecraftforge/common/DimensionManager/persistentChunkStore net/minecraftforge/common/DimensionManager/persistentChunkStore
 FD: net/minecraftforge/common/DimensionManager/dimensions net/minecraftforge/common/DimensionManager/dimensions
 FD: net/minecraftforge/common/DimensionManager/worlds net/minecraftforge/common/DimensionManager/worlds
 FD: net/minecraftforge/common/DimensionManager/spawnSettings net/minecraftforge/common/DimensionManager/spawnSettings
-MD: net/minecraftforge/common/DimensionManager/getWorld (I)Lnet/minecraft/src/WorldServer; net/minecraftforge/common/DimensionManager/getWorld (I)Lgr;
-MD: net/minecraftforge/common/DimensionManager/getIDs ()[Ljava/lang/Integer; net/minecraftforge/common/DimensionManager/getIDs ()[Ljava/lang/Integer;
-MD: net/minecraftforge/common/DimensionManager/shouldLoadSpawn (I)Z net/minecraftforge/common/DimensionManager/shouldLoadSpawn (I)Z
-MD: net/minecraftforge/common/DimensionManager/registerDimension (II)V net/minecraftforge/common/DimensionManager/registerDimension (II)V
+MD: net/minecraftforge/common/DimensionManager/getStaticDimensionIDs ()[Ljava/lang/Integer; net/minecraftforge/common/DimensionManager/getStaticDimensionIDs ()[Ljava/lang/Integer;
 MD: net/minecraftforge/common/DimensionManager/init ()V net/minecraftforge/common/DimensionManager/init ()V
+MD: net/minecraftforge/common/DimensionManager/shouldLoadSpawn (I)Z net/minecraftforge/common/DimensionManager/shouldLoadSpawn (I)Z
 MD: net/minecraftforge/common/DimensionManager/getWorlds ()[Lnet/minecraft/src/WorldServer; net/minecraftforge/common/DimensionManager/getWorlds ()[Lgr;
+MD: net/minecraftforge/common/DimensionManager/loadDimensionDataMap (Lnet/minecraft/src/NBTTagCompound;)V net/minecraftforge/common/DimensionManager/loadDimensionDataMap (Lan;)V
 MD: net/minecraftforge/common/DimensionManager/createProviderFor (I)Lnet/minecraft/src/WorldProvider; net/minecraftforge/common/DimensionManager/createProviderFor (I)Lxc;
 MD: net/minecraftforge/common/DimensionManager/registerProviderType (ILjava/lang/Class;Z)Z net/minecraftforge/common/DimensionManager/registerProviderType (ILjava/lang/Class;Z)Z
+MD: net/minecraftforge/common/DimensionManager/initDimension (I)V net/minecraftforge/common/DimensionManager/initDimension (I)V
 MD: net/minecraftforge/common/DimensionManager/setWorld (ILnet/minecraft/src/WorldServer;)V net/minecraftforge/common/DimensionManager/setWorld (ILgr;)V
-MD: net/minecraftforge/common/DimensionManager/getProvider (I)Lnet/minecraft/src/WorldProvider; net/minecraftforge/common/DimensionManager/getProvider (I)Lxc;
 MD: net/minecraftforge/common/DimensionManager/getProviderType (I)I net/minecraftforge/common/DimensionManager/getProviderType (I)I
+MD: net/minecraftforge/common/DimensionManager/getProvider (I)Lnet/minecraft/src/WorldProvider; net/minecraftforge/common/DimensionManager/getProvider (I)Lxc;
+MD: net/minecraftforge/common/DimensionManager/saveDimensionDataMap ()Lnet/minecraft/src/NBTTagCompound; net/minecraftforge/common/DimensionManager/saveDimensionDataMap ()Lan;
+MD: net/minecraftforge/common/DimensionManager/getIDs ()[Ljava/lang/Integer; net/minecraftforge/common/DimensionManager/getIDs ()[Ljava/lang/Integer;
+MD: net/minecraftforge/common/DimensionManager/getWorld (I)Lnet/minecraft/src/WorldServer; net/minecraftforge/common/DimensionManager/getWorld (I)Lgr;
+MD: net/minecraftforge/common/DimensionManager/registerDimension (II)V net/minecraftforge/common/DimensionManager/registerDimension (II)V
+MD: net/minecraftforge/common/DimensionManager/getNextFreeDimId ()I net/minecraftforge/common/DimensionManager/getNextFreeDimId ()I
+MD: net/minecraftforge/common/DimensionManager/unregisterDimension (I)V net/minecraftforge/common/DimensionManager/unregisterDimension (I)V
+MD: net/minecraftforge/common/DimensionManager/unloadWorld (I)V net/minecraftforge/common/DimensionManager/unloadWorld (I)V
+MD: net/minecraftforge/common/DimensionManager/unloadWorlds (Ljava/util/Hashtable;)V net/minecraftforge/common/DimensionManager/unloadWorlds (Ljava/util/Hashtable;)V
 CL: net/minecraftforge/common/ForgeDummyContainer net/minecraftforge/common/ForgeDummyContainer
 MD: net/minecraftforge/common/ForgeDummyContainer/preInit (Lcpw/mods/fml/common/event/FMLPreInitializationEvent;)V net/minecraftforge/common/ForgeDummyContainer/preInit (Lcpw/mods/fml/common/event/FMLPreInitializationEvent;)V
 MD: net/minecraftforge/common/ForgeDummyContainer/postInit (Lcpw/mods/fml/common/event/FMLPostInitializationEvent;)V net/minecraftforge/common/ForgeDummyContainer/postInit (Lcpw/mods/fml/common/event/FMLPostInitializationEvent;)V

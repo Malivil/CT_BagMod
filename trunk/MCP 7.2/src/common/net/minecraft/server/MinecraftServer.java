@@ -229,7 +229,7 @@ public abstract class MinecraftServer implements Runnable, IPlayerUsage, IComman
         }
 
         WorldServer overWorld = (isDemo() ? new DemoWorldServer(this, var6, par2Str, 0, theProfiler) : new WorldServer(this, var6, par2Str, 0, var7, theProfiler));
-        for (int dim : DimensionManager.getIDs())
+        for (int dim : DimensionManager.getStaticDimensionIDs())
         {
             WorldServer world = (dim == 0 ? overWorld : new WorldServerMulti(this, var6, par2Str, dim, var7, overWorld, theProfiler));
             world.addWorldAccess(new WorldManager(this, world));
@@ -388,7 +388,9 @@ public abstract class MinecraftServer implements Runnable, IPlayerUsage, IComman
             for (int var3 = 0; var3 < var2; ++var3)
             {
                 WorldServer var4 = var1[var3];
+                MinecraftForge.EVENT_BUS.post(new WorldEvent.Unload(var4));
                 var4.flush();
+                DimensionManager.setWorld(var4.provider.dimensionId, null);
             }
 
             if (this.usageSnooper != null && this.usageSnooper.isSnooperRunning())
@@ -642,6 +644,8 @@ public abstract class MinecraftServer implements Runnable, IPlayerUsage, IComman
             worldTickTimes.get(id)[this.tickCounter % 100] = System.nanoTime() - var2;
         }
 
+        this.theProfiler.endStartSection("dim_unloading");
+        DimensionManager.unloadWorlds(worldTickTimes);
         this.theProfiler.endStartSection("connection");
         this.getNetworkThread().networkTick();
         this.theProfiler.endStartSection("players");
@@ -698,7 +702,11 @@ public abstract class MinecraftServer implements Runnable, IPlayerUsage, IComman
     public WorldServer worldServerForDimension(int par1)
     {
         WorldServer ret = DimensionManager.getWorld(par1);
-        return (ret != null ? ret : DimensionManager.getWorld(0));
+        if (ret == null) {
+            DimensionManager.initDimension(par1);
+            ret = DimensionManager.getWorld(par1);
+        }
+        return ret;
     }
 
     @SideOnly(Side.SERVER)
@@ -1085,6 +1093,7 @@ public abstract class MinecraftServer implements Runnable, IPlayerUsage, IComman
 
             if (var2 != null)
             {
+                MinecraftForge.EVENT_BUS.post(new WorldEvent.Unload(var2));
                 var2.flush();
             }
         }

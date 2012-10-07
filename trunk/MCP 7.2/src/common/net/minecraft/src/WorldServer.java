@@ -57,6 +57,9 @@ public class WorldServer extends World
     /** An IntHashMap of entity IDs (integers) to their Entity objects. */
     private IntHashMap entityIdMap;
 
+    /** Stores the recently processed (lighting) chunks */
+    protected Set<ChunkCoordIntPair> doneChunks = new HashSet<ChunkCoordIntPair>();
+
     public WorldServer(MinecraftServer par1MinecraftServer, ISaveHandler par2ISaveHandler, String par3Str, int par4, WorldSettings par5WorldSettings, Profiler par6Profiler)
     {
         super(par2ISaveHandler, par3Str, par5WorldSettings, WorldProvider.getProviderForDimension(par4), par6Profiler);
@@ -259,6 +262,14 @@ public class WorldServer extends World
         int var2 = 0;
         Iterator var3 = this.activeChunkSet.iterator();
 
+        doneChunks.retainAll(activeChunkSet);
+        if (doneChunks.size() == activeChunkSet.size())
+        {
+            doneChunks.clear();
+        }
+
+        final long time = -System.currentTimeMillis();
+
         while (var3.hasNext())
         {
             ChunkCoordIntPair var4 = (ChunkCoordIntPair)var3.next();
@@ -268,7 +279,9 @@ public class WorldServer extends World
             Chunk var7 = this.getChunkFromChunkCoords(var4.chunkXPos, var4.chunkZPos);
             this.moodSoundAndLightCheck(var5, var6, var7);
             this.theProfiler.endStartSection("tickChunk");
-            var7.updateSkylight();
+            if (System.currentTimeMillis() + time <= 4 && doneChunks.add(var4)) { //Limits and evenly distributes the lighting update time
+                var7.updateSkylight();
+            }
             this.theProfiler.endStartSection("thunder");
             int var8;
             int var9;

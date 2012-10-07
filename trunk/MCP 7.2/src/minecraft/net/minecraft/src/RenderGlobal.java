@@ -75,7 +75,7 @@ public class RenderGlobal implements IWorldAccess
 
     /** Maximum block Z */
     private int maxBlockZ;
-    private Map field_72738_E = new HashMap();
+    public Map field_72738_E = new HashMap();
     private int renderDistance = -1;
 
     /** Render entities startup counter (init value=2) */

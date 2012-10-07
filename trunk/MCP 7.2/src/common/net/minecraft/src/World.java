@@ -186,8 +186,11 @@ public abstract class World implements IBlockAccess
         this.theProfiler = par5Profiler;
         this.worldInfo = new WorldInfo(par4WorldSettings, par2Str);
         this.provider = par3WorldProvider;
-        this.mapStorage = new MapStorage(par1ISaveHandler);
-        par3WorldProvider.registerWorld(this);
+    }
+    // Broken up so that the WorldClient gets the chance to set the mapstorage object before the dimension initializes
+    @SideOnly(Side.CLIENT)
+    protected void finishSetup() {
+        this.provider.registerWorld(this);
         this.chunkProvider = this.createChunkProvider();
         this.calculateInitialSkylight();
         this.calculateInitialWeather();
@@ -201,7 +204,7 @@ public abstract class World implements IBlockAccess
         this.isRemote = false;
         this.saveHandler = par1ISaveHandler;
         this.theProfiler = par5Profiler;
-        this.mapStorage = new MapStorage(par1ISaveHandler);
+        this.mapStorage = getMapStorage(par1ISaveHandler);
         this.worldInfo = par1ISaveHandler.loadWorldInfo();
 
         if (par4WorldProvider != null)
@@ -237,6 +240,19 @@ public abstract class World implements IBlockAccess
 
         this.calculateInitialSkylight();
         this.calculateInitialWeather();
+    }
+
+    private static MapStorage s_mapStorage;
+    private static ISaveHandler s_savehandler;
+    //Provides a solution for different worlds getting different copies of the same data, potentially rewriting the data or causing race conditions/stale data
+    //Buildcraft has suffered from the issue this fixes.  If you load the same data from two different worlds they can get two different copies of the same object, thus the last saved gets final say.
+    private MapStorage getMapStorage(ISaveHandler savehandler)
+    {
+        if (s_savehandler != savehandler || s_mapStorage == null) {
+            s_mapStorage = new MapStorage(savehandler);
+            s_savehandler = savehandler;
+        }
+        return s_mapStorage;
     }
 
     /**
