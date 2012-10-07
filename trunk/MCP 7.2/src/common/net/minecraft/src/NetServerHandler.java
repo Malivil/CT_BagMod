@@ -199,6 +199,11 @@ public class NetServerHandler extends NetHandler
                         this.playerEntity.ridingEntity.updateRiderPosition();
                     }
 
+                    if (!this.hasMoved) //Fixes teleportation kick while riding entities
+                    {
+                        return;
+                    }
+
                     this.mcServer.getConfigurationManager().serverUpdateMountedMovingPlayer(this.playerEntity);
                     this.lastPosX = this.playerEntity.posX;
                     this.lastPosY = this.playerEntity.posY;
@@ -289,6 +294,11 @@ public class NetServerHandler extends NetHandler
                     this.playerEntity.addExhaustion(0.2F);
                 }
 
+                if (!this.hasMoved) //Fixes "Moved Too Fast" kick when being teleported while moving
+                {
+                    return;
+                }
+
                 this.playerEntity.moveEntity(var13, var15, var17);
                 this.playerEntity.onGround = par1Packet10Flying.onGround;
                 this.playerEntity.addMovementStat(var13, var15, var17);
@@ -309,6 +319,11 @@ public class NetServerHandler extends NetHandler
                 {
                     var31 = true;
                     logger.warning(this.playerEntity.username + " moved wrongly!");
+                }
+
+                if (!this.hasMoved) //Fixes "Moved Too Fast" kick when being teleported while moving
+                {
+                    return;
                 }
 
                 this.playerEntity.setPositionAndRotation(var5, var7, var9, var11, var12);
@@ -339,6 +354,11 @@ public class NetServerHandler extends NetHandler
                 else
                 {
                     this.ticksForFloatKick = 0;
+                }
+
+                if (!this.hasMoved) //Fixes "Moved Too Fast" kick when being teleported while moving
+                {
+                    return;
                 }
 
                 this.playerEntity.onGround = par1Packet10Flying.onGround;

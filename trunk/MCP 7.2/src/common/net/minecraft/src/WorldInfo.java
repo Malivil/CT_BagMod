@@ -1,5 +1,9 @@
 package net.minecraft.src;
 
+import java.util.Map;
+
+import com.google.common.collect.Maps;
+
 import net.minecraftforge.common.ForgeHooks;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
@@ -60,6 +64,7 @@ public class WorldInfo
     private boolean hardcore;
     private boolean allowCommands;
     private boolean initialized;
+    private Map<String,NBTBase> additionalProperties;
 
     protected WorldInfo()
     {
@@ -505,5 +510,25 @@ public class WorldInfo
     public void setServerInitialized(boolean par1)
     {
         this.initialized = par1;
+    }
+
+    /**
+     * Allow access to additional mod specific world based properties
+     * Used by FML to store mod list associated with a world, and maybe an id map
+     * Used by Forge to store the dimensions available to a world
+     * @param additionalProperties
+     */
+    public void setAdditionalProperties(Map<String,NBTBase> additionalProperties)
+    {
+        // one time set for this
+        if (this.additionalProperties == null)
+        {
+            this.additionalProperties = additionalProperties;
+        }
+    }
+
+    public NBTBase getAdditionalProperty(String additionalProperty)
+    {
+        return this.additionalProperties!=null? this.additionalProperties.get(additionalProperty) : null;
     }
 }

@@ -40,8 +40,10 @@ public class WorldClient extends World
         super(new SaveHandlerMP(), "MpServer", WorldProvider.getProviderForDimension(par3), par2WorldSettings, par5Profiler);
         this.sendQueue = par1NetClientHandler;
         this.difficultySetting = par4;
-        this.setSpawnLocation(8, 64, 8);
         this.mapStorage = par1NetClientHandler.mapStorage;
+        this.isRemote = true;
+        finishSetup();
+        this.setSpawnLocation(8, 64, 8);
         MinecraftForge.EVENT_BUS.post(new WorldEvent.Load(this));
     }
 

@@ -670,7 +670,7 @@ public class Chunk
                 }
                 else
                 {
-                    if (getBlockLightOpacity(par1, par2 + 1, par3) > 0)
+                    if (getBlockLightOpacity(par1, par2, par3) > 0)
                     {
                         if (par2 >= var7)
                         {

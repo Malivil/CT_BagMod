@@ -6,7 +6,7 @@
 #
 # RetroGuard MCP v3.6.5
 #
-# Logfile created on Mon Oct 01 14:44:55 EDT 2012
+# Logfile created on Sun Oct 07 17:42:26 EDT 2012
 #
 # Jar file to be obfuscated:           client_recomp.jar
 # Target Jar file for obfuscated code: client_reobf.jar
@@ -51,7 +51,7 @@
 #      Your class net/minecraftforge/event/ASMEventHandler$ASMClassLoader calls the java/lang/ClassLoader method defineClass(Ljava/lang/String;[BII)Ljava/lang/Class;
 #      Your class net/minecraftforge/event/EventBus calls the java/lang/Class method getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 #
-# Memory in use after class data structure built: 20630984 bytes
+# Memory in use after class data structure built: 20663904 bytes
 # Total memory available                        : 229310464 bytes
 #
 #
@@ -2902,10 +2902,13 @@
 .method_map cpw/mods/fml/client/modloader/ModLoaderClientHelper$1/get ()Ljava/util/Collection; get
 .method_map cpw/mods/fml/client/modloader/ModLoaderClientHelper$1/get ()Ljava/lang/Object; get
 .class_map cpw/mods/fml/client/modloader/ModLoaderClientHelper ModLoaderClientHelper
+.field_map cpw/mods/fml/client/modloader/ModLoaderClientHelper/managerLookups managerLookups
 .field_map cpw/mods/fml/client/modloader/ModLoaderClientHelper/client client
 .field_map cpw/mods/fml/client/modloader/ModLoaderClientHelper/keyBindingContainers keyBindingContainers
+.method_map cpw/mods/fml/client/modloader/ModLoaderClientHelper/clientConnectionClosed (Lnet/minecraft/src/NetworkManager;Lcpw/mods/fml/common/modloader/BaseModProxy;)Z clientConnectionClosed
 .method_map cpw/mods/fml/client/modloader/ModLoaderClientHelper/handleFinishLoadingFor (Lcpw/mods/fml/common/modloader/ModLoaderModContainer;Lnet/minecraft/client/Minecraft;)V handleFinishLoadingFor
 .method_map cpw/mods/fml/client/modloader/ModLoaderClientHelper/obtainBlockModelIdFor (Lnet/minecraft/src/BaseMod;Z)I obtainBlockModelIdFor
+.method_map cpw/mods/fml/client/modloader/ModLoaderClientHelper/clientConnectionOpened (Lnet/minecraft/src/NetHandler;Lnet/minecraft/src/NetworkManager;Lcpw/mods/fml/common/modloader/BaseModProxy;)V clientConnectionOpened
 .method_map cpw/mods/fml/client/modloader/ModLoaderClientHelper/registerKeyBinding (Lcpw/mods/fml/common/modloader/BaseModProxy;Lnet/minecraft/src/KeyBinding;Z)V registerKeyBinding
 .method_map cpw/mods/fml/client/modloader/ModLoaderClientHelper/finishModLoading (Lcpw/mods/fml/common/modloader/ModLoaderModContainer;)V finishModLoading
 .method_map cpw/mods/fml/client/modloader/ModLoaderClientHelper/spawnEntity (Lcpw/mods/fml/common/modloader/BaseModProxy;Lcpw/mods/fml/common/network/EntitySpawnPacket;Lcpw/mods/fml/common/registry/EntityRegistry$EntityRegistration;)Lnet/minecraft/src/Entity; spawnEntity
@@ -3095,6 +3098,7 @@
 .method_map cpw/mods/fml/client/GuiScrollingList/registerScrollButtons (Ljava/util/List;II)V registerScrollButtons
 .method_map cpw/mods/fml/client/GuiScrollingList/drawBackground ()V drawBackground
 .class_map cpw/mods/fml/client/FMLClientHandler FMLClientHandler
+.field_map cpw/mods/fml/client/FMLClientHandler/wrongMC wrongMC
 .field_map cpw/mods/fml/client/FMLClientHandler/serverIsRunning serverIsRunning
 .field_map cpw/mods/fml/client/FMLClientHandler/client client
 .field_map cpw/mods/fml/client/FMLClientHandler/loading loading
@@ -3140,6 +3144,10 @@
 .method_map cpw/mods/fml/client/GuiModsMissingForServer/initGui ()V w_
 .method_map cpw/mods/fml/client/GuiModsMissingForServer/drawScreen (IIF)V a
 .method_map cpw/mods/fml/client/GuiModsMissingForServer/actionPerformed (Lnet/minecraft/src/GuiButton;)V a
+.class_map cpw/mods/fml/client/GuiWrongMinecraft GuiWrongMinecraft
+.field_map cpw/mods/fml/client/GuiWrongMinecraft/wrongMC wrongMC
+.method_map cpw/mods/fml/client/GuiWrongMinecraft/initGui ()V w_
+.method_map cpw/mods/fml/client/GuiWrongMinecraft/drawScreen (IIF)V a
 .class_map cpw/mods/fml/client/SpriteHelper SpriteHelper
 .field_map cpw/mods/fml/client/SpriteHelper/spriteInfo spriteInfo
 .method_map cpw/mods/fml/client/SpriteHelper/toBitSet (Ljava/lang/String;)Ljava/util/BitSet; toBitSet
@@ -3188,6 +3196,8 @@
 .method_map cpw/mods/fml/common/modloader/ModLoaderConnectionHandler/connectionOpened (Lnet/minecraft/src/NetHandler;Lnet/minecraft/server/MinecraftServer;Lnet/minecraft/src/NetworkManager;)V connectionOpened
 .method_map cpw/mods/fml/common/modloader/ModLoaderConnectionHandler/playerLoggedIn (Lcpw/mods/fml/common/network/Player;Lnet/minecraft/src/NetHandler;Lnet/minecraft/src/NetworkManager;)V playerLoggedIn
 .class_map cpw/mods/fml/common/modloader/IModLoaderSidedHelper IModLoaderSidedHelper
+.method_map cpw/mods/fml/common/modloader/IModLoaderSidedHelper/clientConnectionClosed (Lnet/minecraft/src/NetworkManager;Lcpw/mods/fml/common/modloader/BaseModProxy;)Z clientConnectionClosed
+.method_map cpw/mods/fml/common/modloader/IModLoaderSidedHelper/clientConnectionOpened (Lnet/minecraft/src/NetHandler;Lnet/minecraft/src/NetworkManager;Lcpw/mods/fml/common/modloader/BaseModProxy;)V clientConnectionOpened
 .method_map cpw/mods/fml/common/modloader/IModLoaderSidedHelper/finishModLoading (Lcpw/mods/fml/common/modloader/ModLoaderModContainer;)V finishModLoading
 .method_map cpw/mods/fml/common/modloader/IModLoaderSidedHelper/spawnEntity (Lcpw/mods/fml/common/modloader/BaseModProxy;Lcpw/mods/fml/common/network/EntitySpawnPacket;Lcpw/mods/fml/common/registry/EntityRegistry$EntityRegistration;)Lnet/minecraft/src/Entity; spawnEntity
 .method_map cpw/mods/fml/common/modloader/IModLoaderSidedHelper/sendClientPacket (Lcpw/mods/fml/common/modloader/BaseModProxy;Lnet/minecraft/src/Packet250CustomPayload;)V sendClientPacket
@@ -3319,6 +3329,7 @@
 .method_map cpw/mods/fml/common/modloader/ModLoaderModContainer/getName ()Ljava/lang/String; getName
 .method_map cpw/mods/fml/common/modloader/ModLoaderModContainer/getSortingRules ()Ljava/lang/String; getSortingRules
 .method_map cpw/mods/fml/common/modloader/ModLoaderModContainer/registerBus (Lcom/google/common/eventbus/EventBus;Lcpw/mods/fml/common/LoadController;)Z registerBus
+.method_map cpw/mods/fml/common/modloader/ModLoaderModContainer/acceptableMinecraftVersionRange ()Lcpw/mods/fml/common/versioning/VersionRange; acceptableMinecraftVersionRange
 .method_map cpw/mods/fml/common/modloader/ModLoaderModContainer/matches (Ljava/lang/Object;)Z matches
 .method_map cpw/mods/fml/common/modloader/ModLoaderModContainer/extractValue (Ljava/lang/Object;)Ljava/lang/String; extractValue
 .method_map cpw/mods/fml/common/modloader/ModLoaderModContainer/toString ()Ljava/lang/String; toString
@@ -4171,6 +4182,11 @@
 .method_map cpw/mods/fml/common/asm/SideOnly/value ()Lcpw/mods/fml/common/Side; value
 .class_map cpw/mods/fml/common/asm/ASMTransformer ASMTransformer
 .method_map cpw/mods/fml/common/asm/ASMTransformer/transform (Ljava/lang/String;[B)[B transform
+.class_map cpw/mods/fml/common/MinecraftDummyContainer MinecraftDummyContainer
+.field_map cpw/mods/fml/common/MinecraftDummyContainer/staticRange staticRange
+.method_map cpw/mods/fml/common/MinecraftDummyContainer/getStaticVersionRange ()Lcpw/mods/fml/common/versioning/VersionRange; getStaticVersionRange
+.class_map cpw/mods/fml/common/BukkitPluginRef BukkitPluginRef
+.method_map cpw/mods/fml/common/BukkitPluginRef/value ()Ljava/lang/String; value
 .class_map cpw/mods/fml/common/Mod$Instance Instance
 .method_map cpw/mods/fml/common/Mod$Instance/value ()Ljava/lang/String; value
 .class_map cpw/mods/fml/common/Mod$Item Item
@@ -4189,8 +4205,10 @@
 .class_map cpw/mods/fml/common/Mod$PostInit PostInit
 .class_map cpw/mods/fml/common/Mod Mod
 .method_map cpw/mods/fml/common/Mod/version ()Ljava/lang/String; version
+.method_map cpw/mods/fml/common/Mod/acceptedMinecraftVersions ()Ljava/lang/String; acceptedMinecraftVersions
 .method_map cpw/mods/fml/common/Mod/useMetadata ()Z useMetadata
 .method_map cpw/mods/fml/common/Mod/dependencies ()Ljava/lang/String; dependencies
+.method_map cpw/mods/fml/common/Mod/bukkitPlugin ()Ljava/lang/String; bukkitPlugin
 .method_map cpw/mods/fml/common/Mod/name ()Ljava/lang/String; name
 .method_map cpw/mods/fml/common/Mod/modid ()Ljava/lang/String; modid
 .class_map cpw/mods/fml/common/ObfuscationReflectionHelper ObfuscationReflectionHelper
@@ -4231,6 +4249,7 @@
 .method_map cpw/mods/fml/common/Loader$ModIdComparator/compare (Lcpw/mods/fml/common/ModContainer;Lcpw/mods/fml/common/ModContainer;)I compare
 .method_map cpw/mods/fml/common/Loader$ModIdComparator/compare (Ljava/lang/Object;Ljava/lang/Object;)I compare
 .class_map cpw/mods/fml/common/Loader Loader
+.field_map cpw/mods/fml/common/Loader/minecraft minecraft
 .field_map cpw/mods/fml/common/Loader/rev rev
 .field_map cpw/mods/fml/common/Loader/namedMods namedMods
 .field_map cpw/mods/fml/common/Loader/canonicalConfigDir canonicalConfigDir
@@ -4261,6 +4280,7 @@
 .method_map cpw/mods/fml/common/Loader/getModObjectList ()Lcom/google/common/collect/BiMap; getModObjectList
 .method_map cpw/mods/fml/common/Loader/serverStopping ()V serverStopping
 .method_map cpw/mods/fml/common/Loader/getActiveModList ()Ljava/util/List; getActiveModList
+.method_map cpw/mods/fml/common/Loader/getMinecraftModContainer ()Lcpw/mods/fml/common/MinecraftDummyContainer; getMinecraftModContainer
 .method_map cpw/mods/fml/common/Loader/getFMLVersionString ()Ljava/lang/String; getFMLVersionString
 .method_map cpw/mods/fml/common/Loader/identifyDuplicates (Ljava/util/List;)V identifyDuplicates
 .method_map cpw/mods/fml/common/Loader/getModClassLoader ()Ljava/lang/ClassLoader; getModClassLoader
@@ -4278,6 +4298,9 @@
 .method_map cpw/mods/fml/common/Loader/getModState (Lcpw/mods/fml/common/ModContainer;)Lcpw/mods/fml/common/LoaderState$ModState; getModState
 .method_map cpw/mods/fml/common/Loader/getMCVersionString ()Ljava/lang/String; getMCVersionString
 .method_map cpw/mods/fml/common/Loader/getConfigDir ()Ljava/io/File; getConfigDir
+.class_map cpw/mods/fml/common/WorldAccessContainer WorldAccessContainer
+.method_map cpw/mods/fml/common/WorldAccessContainer/getDataForWriting (Lnet/minecraft/src/SaveHandler;Lnet/minecraft/src/WorldInfo;)Lnet/minecraft/src/NBTTagCompound; getDataForWriting
+.method_map cpw/mods/fml/common/WorldAccessContainer/readData (Lnet/minecraft/src/SaveHandler;Lnet/minecraft/src/WorldInfo;Ljava/util/Map;Lnet/minecraft/src/NBTTagCompound;)V readData
 .class_map cpw/mods/fml/common/FMLModContainer$2 2
 .field_map cpw/mods/fml/common/FMLModContainer$2/this$0 this$0
 .method_map cpw/mods/fml/common/FMLModContainer$2/apply (Ljava/lang/Object;)Ljava/lang/Object; apply
@@ -4296,6 +4319,7 @@
 .field_map cpw/mods/fml/common/FMLModContainer/descriptor descriptor
 .field_map cpw/mods/fml/common/FMLModContainer/modInstance modInstance
 .field_map cpw/mods/fml/common/FMLModContainer/overridesMetadata overridesMetadata
+.field_map cpw/mods/fml/common/FMLModContainer/minecraftAccepted minecraftAccepted
 .field_map cpw/mods/fml/common/FMLModContainer/modTypeAnnotations modTypeAnnotations
 .field_map cpw/mods/fml/common/FMLModContainer/source source
 .field_map cpw/mods/fml/common/FMLModContainer/modDescriptor modDescriptor
@@ -4304,32 +4328,35 @@
 .field_map cpw/mods/fml/common/FMLModContainer/controller controller
 .field_map cpw/mods/fml/common/FMLModContainer/annotations annotations
 .field_map cpw/mods/fml/common/FMLModContainer/annotationDependencies annotationDependencies
+.method_map cpw/mods/fml/common/FMLModContainer/bindMetadata (Lcpw/mods/fml/common/MetadataCollection;)V bindMetadata
+.method_map cpw/mods/fml/common/FMLModContainer/getSource ()Ljava/io/File; getSource
+.method_map cpw/mods/fml/common/FMLModContainer/getName ()Ljava/lang/String; getName
+.method_map cpw/mods/fml/common/FMLModContainer/getSortingRules ()Ljava/lang/String; getSortingRules
+.method_map cpw/mods/fml/common/FMLModContainer/registerBus (Lcom/google/common/eventbus/EventBus;Lcpw/mods/fml/common/LoadController;)Z registerBus
+.method_map cpw/mods/fml/common/FMLModContainer/acceptableMinecraftVersionRange ()Lcpw/mods/fml/common/versioning/VersionRange; acceptableMinecraftVersionRange
+.method_map cpw/mods/fml/common/FMLModContainer/matches (Ljava/lang/Object;)Z matches
+.method_map cpw/mods/fml/common/FMLModContainer/setEnabledState (Z)V setEnabledState
+.method_map cpw/mods/fml/common/FMLModContainer/getModId ()Ljava/lang/String; getModId
+.method_map cpw/mods/fml/common/FMLModContainer/getVersion ()Ljava/lang/String; getVersion
+.method_map cpw/mods/fml/common/FMLModContainer/getDisplayVersion ()Ljava/lang/String; getDisplayVersion
+.method_map cpw/mods/fml/common/FMLModContainer/isNetworkMod ()Z isNetworkMod
 .method_map cpw/mods/fml/common/FMLModContainer/processFieldAnnotations (Lcpw/mods/fml/common/discovery/ASMDataTable;)V processFieldAnnotations
 .method_map cpw/mods/fml/common/FMLModContainer/searchForVersionProperties ()Ljava/util/Properties; searchForVersionProperties
-.method_map cpw/mods/fml/common/FMLModContainer/bindMetadata (Lcpw/mods/fml/common/MetadataCollection;)V bindMetadata
 .method_map cpw/mods/fml/common/FMLModContainer/getDependencies ()Ljava/util/List; getDependencies
-.method_map cpw/mods/fml/common/FMLModContainer/getSource ()Ljava/io/File; getSource
 .method_map cpw/mods/fml/common/FMLModContainer/getMetadata ()Lcpw/mods/fml/common/ModMetadata; getMetadata
 .method_map cpw/mods/fml/common/FMLModContainer/getProcessedVersion ()Lcpw/mods/fml/common/versioning/ArtifactVersion; getProcessedVersion
-.method_map cpw/mods/fml/common/FMLModContainer/getName ()Ljava/lang/String; getName
 .method_map cpw/mods/fml/common/FMLModContainer/isImmutable ()Z isImmutable
 .method_map cpw/mods/fml/common/FMLModContainer/gatherAnnotations (Ljava/lang/Class;)Lcom/google/common/collect/Multimap; gatherAnnotations
-.method_map cpw/mods/fml/common/FMLModContainer/registerBus (Lcom/google/common/eventbus/EventBus;Lcpw/mods/fml/common/LoadController;)Z registerBus
-.method_map cpw/mods/fml/common/FMLModContainer/getSortingRules ()Ljava/lang/String; getSortingRules
-.method_map cpw/mods/fml/common/FMLModContainer/matches (Ljava/lang/Object;)Z matches
 .method_map cpw/mods/fml/common/FMLModContainer/getRequirements ()Ljava/util/Set; getRequirements
 .method_map cpw/mods/fml/common/FMLModContainer/getDependants ()Ljava/util/List; getDependants
 .method_map cpw/mods/fml/common/FMLModContainer/handleModStateEvent (Lcpw/mods/fml/common/event/FMLStateEvent;)V handleModStateEvent
-.method_map cpw/mods/fml/common/FMLModContainer/setEnabledState (Z)V setEnabledState
 .method_map cpw/mods/fml/common/FMLModContainer/parseSimpleFieldAnnotation (Lcom/google/common/collect/SetMultimap;Ljava/lang/String;Lcom/google/common/base/Function;)V parseSimpleFieldAnnotation
-.method_map cpw/mods/fml/common/FMLModContainer/getModId ()Ljava/lang/String; getModId
 .method_map cpw/mods/fml/common/FMLModContainer/getMod ()Ljava/lang/Object; getMod
-.method_map cpw/mods/fml/common/FMLModContainer/getDisplayVersion ()Ljava/lang/String; getDisplayVersion
-.method_map cpw/mods/fml/common/FMLModContainer/getVersion ()Ljava/lang/String; getVersion
 .method_map cpw/mods/fml/common/FMLModContainer/constructMod (Lcpw/mods/fml/common/event/FMLConstructionEvent;)V constructMod
-.method_map cpw/mods/fml/common/FMLModContainer/isNetworkMod ()Z isNetworkMod
 .class_map cpw/mods/fml/common/FMLDummyContainer FMLDummyContainer
 .method_map cpw/mods/fml/common/FMLDummyContainer/registerBus (Lcom/google/common/eventbus/EventBus;Lcpw/mods/fml/common/LoadController;)Z registerBus
+.method_map cpw/mods/fml/common/FMLDummyContainer/getDataForWriting (Lnet/minecraft/src/SaveHandler;Lnet/minecraft/src/WorldInfo;)Lnet/minecraft/src/NBTTagCompound; getDataForWriting
+.method_map cpw/mods/fml/common/FMLDummyContainer/readData (Lnet/minecraft/src/SaveHandler;Lnet/minecraft/src/WorldInfo;Ljava/util/Map;Lnet/minecraft/src/NBTTagCompound;)V readData
 .class_map cpw/mods/fml/common/IFuelHandler IFuelHandler
 .method_map cpw/mods/fml/common/IFuelHandler/getBurnTime (Lnet/minecraft/src/ItemStack;)I getBurnTime
 .class_map cpw/mods/fml/common/INetworkHandler INetworkHandler
@@ -4418,9 +4445,11 @@
 .method_map cpw/mods/fml/common/InjectedModContainer/isImmutable ()Z isImmutable
 .method_map cpw/mods/fml/common/InjectedModContainer/getSortingRules ()Ljava/lang/String; getSortingRules
 .method_map cpw/mods/fml/common/InjectedModContainer/registerBus (Lcom/google/common/eventbus/EventBus;Lcpw/mods/fml/common/LoadController;)Z registerBus
+.method_map cpw/mods/fml/common/InjectedModContainer/acceptableMinecraftVersionRange ()Lcpw/mods/fml/common/versioning/VersionRange; acceptableMinecraftVersionRange
 .method_map cpw/mods/fml/common/InjectedModContainer/matches (Ljava/lang/Object;)Z matches
 .method_map cpw/mods/fml/common/InjectedModContainer/getRequirements ()Ljava/util/Set; getRequirements
 .method_map cpw/mods/fml/common/InjectedModContainer/getDependants ()Ljava/util/List; getDependants
+.method_map cpw/mods/fml/common/InjectedModContainer/getWrappedWorldAccessContainer ()Lcpw/mods/fml/common/WorldAccessContainer; getWrappedWorldAccessContainer
 .method_map cpw/mods/fml/common/InjectedModContainer/setEnabledState (Z)V setEnabledState
 .method_map cpw/mods/fml/common/InjectedModContainer/getModId ()Ljava/lang/String; getModId
 .method_map cpw/mods/fml/common/InjectedModContainer/getMod ()Ljava/lang/Object; getMod
@@ -4441,6 +4470,7 @@
 .method_map cpw/mods/fml/common/DummyModContainer/isImmutable ()Z isImmutable
 .method_map cpw/mods/fml/common/DummyModContainer/registerBus (Lcom/google/common/eventbus/EventBus;Lcpw/mods/fml/common/LoadController;)Z registerBus
 .method_map cpw/mods/fml/common/DummyModContainer/getSortingRules ()Ljava/lang/String; getSortingRules
+.method_map cpw/mods/fml/common/DummyModContainer/acceptableMinecraftVersionRange ()Lcpw/mods/fml/common/versioning/VersionRange; acceptableMinecraftVersionRange
 .method_map cpw/mods/fml/common/DummyModContainer/matches (Ljava/lang/Object;)Z matches
 .method_map cpw/mods/fml/common/DummyModContainer/getRequirements ()Ljava/util/Set; getRequirements
 .method_map cpw/mods/fml/common/DummyModContainer/getDependants ()Ljava/util/List; getDependants
@@ -4484,6 +4514,7 @@
 .method_map cpw/mods/fml/common/ModContainer/isImmutable ()Z isImmutable
 .method_map cpw/mods/fml/common/ModContainer/getSortingRules ()Ljava/lang/String; getSortingRules
 .method_map cpw/mods/fml/common/ModContainer/registerBus (Lcom/google/common/eventbus/EventBus;Lcpw/mods/fml/common/LoadController;)Z registerBus
+.method_map cpw/mods/fml/common/ModContainer/acceptableMinecraftVersionRange ()Lcpw/mods/fml/common/versioning/VersionRange; acceptableMinecraftVersionRange
 .method_map cpw/mods/fml/common/ModContainer/matches (Ljava/lang/Object;)Z matches
 .method_map cpw/mods/fml/common/ModContainer/getRequirements ()Ljava/util/Set; getRequirements
 .method_map cpw/mods/fml/common/ModContainer/getDependants ()Ljava/util/List; getDependants
@@ -4516,8 +4547,11 @@
 .class_map cpw/mods/fml/common/ICraftingHandler ICraftingHandler
 .method_map cpw/mods/fml/common/ICraftingHandler/onSmelting (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/ItemStack;)V onSmelting
 .method_map cpw/mods/fml/common/ICraftingHandler/onCrafting (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/ItemStack;Lnet/minecraft/src/IInventory;)V onCrafting
+.class_map cpw/mods/fml/common/BukkitProxy BukkitProxy
 .class_map cpw/mods/fml/common/LoaderException LoaderException
 .field_map cpw/mods/fml/common/LoaderException/serialVersionUID serialVersionUID
+.class_map cpw/mods/fml/common/WrongMinecraftVersionException WrongMinecraftVersionException
+.field_map cpw/mods/fml/common/WrongMinecraftVersionException/mod mod
 .class_map cpw/mods/fml/common/LoaderState$ModState ModState
 .field_map cpw/mods/fml/common/LoaderState$ModState/CONSTRUCTED CONSTRUCTED
 .field_map cpw/mods/fml/common/LoaderState$ModState/LOADED LOADED
@@ -4563,6 +4597,7 @@
 .field_map cpw/mods/fml/common/FMLCommonHandler/sidedDelegate sidedDelegate
 .field_map cpw/mods/fml/common/FMLCommonHandler/crashCallables crashCallables
 .field_map cpw/mods/fml/common/FMLCommonHandler/scheduledServerTicks scheduledServerTicks
+.field_map cpw/mods/fml/common/FMLCommonHandler/handlerSet handlerSet
 .field_map cpw/mods/fml/common/FMLCommonHandler/noForge noForge
 .field_map cpw/mods/fml/common/FMLCommonHandler/scheduledClientTicks scheduledClientTicks
 .field_map cpw/mods/fml/common/FMLCommonHandler/INSTANCE INSTANCE
@@ -4571,6 +4606,7 @@
 .method_map cpw/mods/fml/common/FMLCommonHandler/callForgeMethod (Ljava/lang/String;)Ljava/lang/Object; callForgeMethod
 .method_map cpw/mods/fml/common/FMLCommonHandler/showGuiScreen (Ljava/lang/Object;)V showGuiScreen
 .method_map cpw/mods/fml/common/FMLCommonHandler/getSide ()Lcpw/mods/fml/common/Side; getSide
+.method_map cpw/mods/fml/common/FMLCommonHandler/handleWorldDataLoad (Lnet/minecraft/src/SaveHandler;Lnet/minecraft/src/WorldInfo;Lnet/minecraft/src/NBTTagCompound;)V handleWorldDataLoad
 .method_map cpw/mods/fml/common/FMLCommonHandler/getBrandings ()Ljava/util/List; getBrandings
 .method_map cpw/mods/fml/common/FMLCommonHandler/onPlayerPostTick (Lnet/minecraft/src/EntityPlayer;)V onPlayerPostTick
 .method_map cpw/mods/fml/common/FMLCommonHandler/handleServerStarted ()V handleServerStarted
@@ -4583,6 +4619,7 @@
 .method_map cpw/mods/fml/common/FMLCommonHandler/onWorldLoadTick ([Lnet/minecraft/src/World;)V onWorldLoadTick
 .method_map cpw/mods/fml/common/FMLCommonHandler/registerCrashCallable (Lcpw/mods/fml/common/ICrashCallable;)V registerCrashCallable
 .method_map cpw/mods/fml/common/FMLCommonHandler/onServerStart (Lnet/minecraft/src/DedicatedServer;)V onServerStart
+.method_map cpw/mods/fml/common/FMLCommonHandler/handleWorldDataSave (Lnet/minecraft/src/SaveHandler;Lnet/minecraft/src/WorldInfo;Lnet/minecraft/src/NBTTagCompound;)V handleWorldDataSave
 .method_map cpw/mods/fml/common/FMLCommonHandler/instance ()Lcpw/mods/fml/common/FMLCommonHandler; instance
 .method_map cpw/mods/fml/common/FMLCommonHandler/onRenderTickEnd (F)V onRenderTickEnd
 .method_map cpw/mods/fml/common/FMLCommonHandler/handleServerStopping ()V handleServerStopping
@@ -9234,20 +9271,21 @@
 .method_map net/minecraft/src/WorldGenDungeons/pickCheckLootItem (Ljava/util/Random;)Lnet/minecraft/src/ItemStack; a
 .method_map net/minecraft/src/WorldGenDungeons/generate (Lnet/minecraft/src/World;Ljava/util/Random;III)Z a
 .class_map net/minecraft/src/WorldServer gr
-.field_map net/minecraft/src/WorldServer/theChunkProviderServer b
 .field_map net/minecraft/src/WorldServer/thePlayerManager M
-.field_map net/minecraft/src/WorldServer/canNotSave d
-.field_map net/minecraft/src/WorldServer/pendingTickListEntries O
+.field_map net/minecraft/src/WorldServer/theChunkProviderServer b
 .field_map net/minecraft/src/WorldServer/field_73064_N N
+.field_map net/minecraft/src/WorldServer/pendingTickListEntries O
+.field_map net/minecraft/src/WorldServer/canNotSave d
 .field_map net/minecraft/src/WorldServer/bonusChestContent T
-.field_map net/minecraft/src/WorldServer/blockEventCacheIndex S
 .field_map net/minecraft/src/WorldServer/blockEventCache R
-.field_map net/minecraft/src/WorldServer/mcServer a
+.field_map net/minecraft/src/WorldServer/blockEventCacheIndex S
 .field_map net/minecraft/src/WorldServer/entityIdMap U
-.field_map net/minecraft/src/WorldServer/updateEntityTick Q
+.field_map net/minecraft/src/WorldServer/doneChunks doneChunks
 .field_map net/minecraft/src/WorldServer/actionsAllowed c
-.field_map net/minecraft/src/WorldServer/allPlayersSleeping P
+.field_map net/minecraft/src/WorldServer/updateEntityTick Q
 .field_map net/minecraft/src/WorldServer/theEntityTracker L
+.field_map net/minecraft/src/WorldServer/allPlayersSleeping P
+.field_map net/minecraft/src/WorldServer/mcServer a
 .method_map net/minecraft/src/WorldServer/onBlockEventReceived (Lnet/minecraft/src/BlockEventData;)Z a
 .method_map net/minecraft/src/WorldServer/getPlayerManager ()Lnet/minecraft/src/PlayerManager; q
 .method_map net/minecraft/src/WorldServer/getEntityTracker ()Lnet/minecraft/src/EntityTracker; o
@@ -12098,6 +12136,7 @@
 .method_map net/minecraft/src/WorldGenMinable/generate (Lnet/minecraft/src/World;Ljava/util/Random;III)Z a
 .class_map net/minecraft/src/BaseMod BaseMod
 .method_map net/minecraft/src/BaseMod/renderWorldBlock (Lnet/minecraft/src/RenderBlocks;Lnet/minecraft/src/IBlockAccess;IIILnet/minecraft/src/Block;I)Z renderWorldBlock
+.method_map net/minecraft/src/BaseMod/clientDisconnect (Lnet/minecraft/src/NetClientHandler;)V clientDisconnect
 .method_map net/minecraft/src/BaseMod/getName ()Ljava/lang/String; getName
 .method_map net/minecraft/src/BaseMod/serverDisconnect ()V serverDisconnect
 .method_map net/minecraft/src/BaseMod/serverCustomPayload (Lnet/minecraft/src/NetServerHandler;Lnet/minecraft/src/Packet250CustomPayload;)V serverCustomPayload
@@ -12117,6 +12156,7 @@
 .method_map net/minecraft/src/BaseMod/serverChat (Lnet/minecraft/src/NetServerHandler;Ljava/lang/String;)V serverChat
 .method_map net/minecraft/src/BaseMod/onTickInGame (FLnet/minecraft/client/Minecraft;)Z onTickInGame
 .method_map net/minecraft/src/BaseMod/receiveCustomPacket (Lnet/minecraft/src/Packet250CustomPayload;)V receiveCustomPacket
+.method_map net/minecraft/src/BaseMod/clientConnect (Lnet/minecraft/src/NetClientHandler;)V clientConnect
 .method_map net/minecraft/src/BaseMod/registerAnimation (Lnet/minecraft/client/Minecraft;)V registerAnimation
 .method_map net/minecraft/src/BaseMod/load ()V load
 .method_map net/minecraft/src/BaseMod/doTickInGame (Lcpw/mods/fml/common/TickType;Z[Ljava/lang/Object;)Z doTickInGame
@@ -12125,8 +12165,8 @@
 .method_map net/minecraft/src/BaseMod/generateSurface (Lnet/minecraft/src/World;Ljava/util/Random;II)V generateSurface
 .method_map net/minecraft/src/BaseMod/renderInvBlock (Lnet/minecraft/src/RenderBlocks;Lnet/minecraft/src/Block;II)V renderInvBlock
 .method_map net/minecraft/src/BaseMod/getPriorities ()Ljava/lang/String; getPriorities
-.method_map net/minecraft/src/BaseMod/onItemPickup (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/ItemStack;)V onItemPickup
 .method_map net/minecraft/src/BaseMod/serverConnect (Lnet/minecraft/src/NetHandler;)V serverConnect
+.method_map net/minecraft/src/BaseMod/onItemPickup (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/ItemStack;)V onItemPickup
 .method_map net/minecraft/src/BaseMod/keyboardEvent (Lnet/minecraft/src/KeyBinding;)V keyboardEvent
 .method_map net/minecraft/src/BaseMod/addFuel (II)I addFuel
 .method_map net/minecraft/src/BaseMod/takenFromFurnace (Lnet/minecraft/src/EntityPlayer;Lnet/minecraft/src/ItemStack;)V takenFromFurnace
@@ -12710,6 +12750,7 @@
 .field_map net/minecraft/src/WorldInfo/raining m
 .field_map net/minecraft/src/WorldInfo/saveVersion l
 .field_map net/minecraft/src/WorldInfo/thunderTime p
+.field_map net/minecraft/src/WorldInfo/additionalProperties additionalProperties
 .field_map net/minecraft/src/WorldInfo/hardcore s
 .field_map net/minecraft/src/WorldInfo/playerTag i
 .field_map net/minecraft/src/WorldInfo/mapFeaturesEnabled r
@@ -12717,6 +12758,8 @@
 .field_map net/minecraft/src/WorldInfo/rainTime n
 .method_map net/minecraft/src/WorldInfo/getSaveVersion ()I k
 .method_map net/minecraft/src/WorldInfo/getGameType ()Lnet/minecraft/src/EnumGameType; q
+.method_map net/minecraft/src/WorldInfo/getAdditionalProperty (Ljava/lang/String;)Lnet/minecraft/src/NBTBase; getAdditionalProperty
+.method_map net/minecraft/src/WorldInfo/setAdditionalProperties (Ljava/util/Map;)V setAdditionalProperties
 .method_map net/minecraft/src/WorldInfo/getWorldName ()Ljava/lang/String; j
 .method_map net/minecraft/src/WorldInfo/setRaining (Z)V b
 .method_map net/minecraft/src/WorldInfo/getThunderTime ()I n
@@ -16248,6 +16291,8 @@
 .field_map net/minecraft/src/World/entityRemoval b
 .field_map net/minecraft/src/World/thunderingStrength q
 .field_map net/minecraft/src/World/loadedTileEntityList h
+.field_map net/minecraft/src/World/s_savehandler s_savehandler
+.field_map net/minecraft/src/World/s_mapStorage s_mapStorage
 .field_map net/minecraft/src/World/mapStorage C
 .field_map net/minecraft/src/World/addedTileEntityList a
 .field_map net/minecraft/src/World/spawnPeacefulMobs H
@@ -16336,8 +16381,8 @@
 .method_map net/minecraft/src/World/setSpawnLocation ()V f
 .method_map net/minecraft/src/World/calculateInitialWeather ()V a
 .method_map net/minecraft/src/World/canBlockSeeTheSky (III)Z j
-.method_map net/minecraft/src/World/notifyBlockOfNeighborChange (IIII)V m
 .method_map net/minecraft/src/World/extinguishFire (Lnet/minecraft/src/EntityPlayer;IIII)Z a
+.method_map net/minecraft/src/World/notifyBlockOfNeighborChange (IIII)V m
 .method_map net/minecraft/src/World/isBlockIndirectlyGettingPowered (III)Z z
 .method_map net/minecraft/src/World/updateEntities ()V h
 .method_map net/minecraft/src/World/canSnowAtBody (III)Z canSnowAtBody
@@ -16381,6 +16426,7 @@
 .method_map net/minecraft/src/World/getBlockLightOpacity (III)I b
 .method_map net/minecraft/src/World/getClosestPlayerToEntity (Lnet/minecraft/src/Entity;D)Lnet/minecraft/src/EntityPlayer; a
 .method_map net/minecraft/src/World/getChunkFromBlockCoords (II)Lnet/minecraft/src/Chunk; d
+.method_map net/minecraft/src/World/finishSetup ()V finishSetup
 .method_map net/minecraft/src/World/getRainStrength (F)F j
 .method_map net/minecraft/src/World/initialize (Lnet/minecraft/src/WorldSettings;)V a
 .method_map net/minecraft/src/World/getWorldInfo ()Lnet/minecraft/src/WorldInfo; H
@@ -16407,9 +16453,9 @@
 .method_map net/minecraft/src/World/getUniqueDataId (Ljava/lang/String;)I b
 .method_map net/minecraft/src/World/rayTraceBlocks_do_do (Lnet/minecraft/src/Vec3;Lnet/minecraft/src/Vec3;ZZ)Lnet/minecraft/src/MovingObjectPosition; a
 .method_map net/minecraft/src/World/scheduleBlockUpdate (IIIII)V a
-.method_map net/minecraft/src/World/rayTraceBlocks (Lnet/minecraft/src/Vec3;Lnet/minecraft/src/Vec3;)Lnet/minecraft/src/MovingObjectPosition; a
 .method_map net/minecraft/src/World/markBlockNeedsUpdateForAll (III)V n
 .method_map net/minecraft/src/World/getSavedLightValue (Lnet/minecraft/src/EnumSkyBlock;III)I b
+.method_map net/minecraft/src/World/rayTraceBlocks (Lnet/minecraft/src/Vec3;Lnet/minecraft/src/Vec3;)Lnet/minecraft/src/MovingObjectPosition; a
 .method_map net/minecraft/src/World/chunkExists (II)Z c
 .method_map net/minecraft/src/World/setActivePlayerChunksAndCheckLight ()V x
 .method_map net/minecraft/src/World/addTileEntity (Ljava/util/Collection;)V a
@@ -16448,6 +16494,7 @@
 .method_map net/minecraft/src/World/canMineBlockBody (Lnet/minecraft/src/EntityPlayer;III)Z canMineBlockBody
 .method_map net/minecraft/src/World/getWorldChunkManager ()Lnet/minecraft/src/WorldChunkManager; r
 .method_map net/minecraft/src/World/getHorizon ()D O
+.method_map net/minecraft/src/World/getMapStorage (Lnet/minecraft/src/ISaveHandler;)Lnet/minecraft/src/MapStorage; getMapStorage
 .method_map net/minecraft/src/World/setEntityDead (Lnet/minecraft/src/Entity;)V e
 .method_map net/minecraft/src/World/countEntities (Ljava/lang/Class;)I a
 .method_map net/minecraft/src/World/getPersistentChunks ()Lcom/google/common/collect/SetMultimap; getPersistentChunks
@@ -19636,27 +19683,39 @@
 .method_map net/minecraftforge/common/Configuration/hasKey (Ljava/lang/String;Ljava/lang/String;)Z hasKey
 .method_map net/minecraftforge/common/Configuration/get (Ljava/lang/String;Ljava/lang/String;I)Lnet/minecraftforge/common/Property; get
 .class_map net/minecraftforge/common/DimensionManager DimensionManager
+.field_map net/minecraftforge/common/DimensionManager/unloadQueue unloadQueue
+.field_map net/minecraftforge/common/DimensionManager/dimensionMap dimensionMap
 .field_map net/minecraftforge/common/DimensionManager/hasInit hasInit
 .field_map net/minecraftforge/common/DimensionManager/providers providers
 .field_map net/minecraftforge/common/DimensionManager/persistentChunkStore persistentChunkStore
 .field_map net/minecraftforge/common/DimensionManager/dimensions dimensions
 .field_map net/minecraftforge/common/DimensionManager/worlds worlds
 .field_map net/minecraftforge/common/DimensionManager/spawnSettings spawnSettings
-.method_map net/minecraftforge/common/DimensionManager/getWorld (I)Lnet/minecraft/src/WorldServer; getWorld
-.method_map net/minecraftforge/common/DimensionManager/getIDs ()[Ljava/lang/Integer; getIDs
-.method_map net/minecraftforge/common/DimensionManager/shouldLoadSpawn (I)Z shouldLoadSpawn
-.method_map net/minecraftforge/common/DimensionManager/registerDimension (II)V registerDimension
+.method_map net/minecraftforge/common/DimensionManager/getStaticDimensionIDs ()[Ljava/lang/Integer; getStaticDimensionIDs
 .method_map net/minecraftforge/common/DimensionManager/init ()V init
+.method_map net/minecraftforge/common/DimensionManager/shouldLoadSpawn (I)Z shouldLoadSpawn
 .method_map net/minecraftforge/common/DimensionManager/getWorlds ()[Lnet/minecraft/src/WorldServer; getWorlds
+.method_map net/minecraftforge/common/DimensionManager/loadDimensionDataMap (Lnet/minecraft/src/NBTTagCompound;)V loadDimensionDataMap
 .method_map net/minecraftforge/common/DimensionManager/createProviderFor (I)Lnet/minecraft/src/WorldProvider; createProviderFor
 .method_map net/minecraftforge/common/DimensionManager/registerProviderType (ILjava/lang/Class;Z)Z registerProviderType
+.method_map net/minecraftforge/common/DimensionManager/initDimension (I)V initDimension
 .method_map net/minecraftforge/common/DimensionManager/setWorld (ILnet/minecraft/src/WorldServer;)V setWorld
-.method_map net/minecraftforge/common/DimensionManager/getProvider (I)Lnet/minecraft/src/WorldProvider; getProvider
 .method_map net/minecraftforge/common/DimensionManager/getProviderType (I)I getProviderType
+.method_map net/minecraftforge/common/DimensionManager/getProvider (I)Lnet/minecraft/src/WorldProvider; getProvider
+.method_map net/minecraftforge/common/DimensionManager/saveDimensionDataMap ()Lnet/minecraft/src/NBTTagCompound; saveDimensionDataMap
+.method_map net/minecraftforge/common/DimensionManager/getIDs ()[Ljava/lang/Integer; getIDs
+.method_map net/minecraftforge/common/DimensionManager/getWorld (I)Lnet/minecraft/src/WorldServer; getWorld
+.method_map net/minecraftforge/common/DimensionManager/registerDimension (II)V registerDimension
+.method_map net/minecraftforge/common/DimensionManager/getNextFreeDimId ()I getNextFreeDimId
+.method_map net/minecraftforge/common/DimensionManager/unregisterDimension (I)V unregisterDimension
+.method_map net/minecraftforge/common/DimensionManager/unloadWorld (I)V unloadWorld
+.method_map net/minecraftforge/common/DimensionManager/unloadWorlds (Ljava/util/Hashtable;)V unloadWorlds
 .class_map net/minecraftforge/common/ForgeDummyContainer ForgeDummyContainer
 .method_map net/minecraftforge/common/ForgeDummyContainer/registerBus (Lcom/google/common/eventbus/EventBus;Lcpw/mods/fml/common/LoadController;)Z registerBus
 .method_map net/minecraftforge/common/ForgeDummyContainer/preInit (Lcpw/mods/fml/common/event/FMLPreInitializationEvent;)V preInit
+.method_map net/minecraftforge/common/ForgeDummyContainer/getDataForWriting (Lnet/minecraft/src/SaveHandler;Lnet/minecraft/src/WorldInfo;)Lnet/minecraft/src/NBTTagCompound; getDataForWriting
 .method_map net/minecraftforge/common/ForgeDummyContainer/postInit (Lcpw/mods/fml/common/event/FMLPostInitializationEvent;)V postInit
+.method_map net/minecraftforge/common/ForgeDummyContainer/readData (Lnet/minecraft/src/SaveHandler;Lnet/minecraft/src/WorldInfo;Ljava/util/Map;Lnet/minecraft/src/NBTTagCompound;)V readData
 .class_map net/minecraftforge/common/ISpawnHandler ISpawnHandler
 .method_map net/minecraftforge/common/ISpawnHandler/readSpawnData (Ljava/io/DataInputStream;)V readSpawnData
 .method_map net/minecraftforge/common/ISpawnHandler/writeSpawnData (Ljava/io/DataOutputStream;)V writeSpawnData

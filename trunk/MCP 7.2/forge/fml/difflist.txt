@@ -17,6 +17,7 @@ minecraft/EntityRendererProxy.class
 minecraft/avf.class
 minecraft/va.class
 minecraft/abk.class
+minecraft/aed.class
 minecraft/anz.class
 minecraft/ro.class
 minecraft/FMLRenderAccessLibrary.class
@@ -30,6 +31,7 @@ minecraft/bb.class
 minecraft/acv.class
 minecraft/axg.class
 minecraft/axy.class
+minecraft/aeb.class
 minecraft/ays.class
 minecraft/nj.class
 minecraft/gx.class
@@ -67,6 +69,7 @@ minecraft/cpw/mods/fml/common/Loader$1.class
 minecraft/cpw/mods/fml/common/Loader$2.class
 minecraft/cpw/mods/fml/common/Mod.class
 minecraft/cpw/mods/fml/common/ObfuscationReflectionHelper.class
+minecraft/cpw/mods/fml/common/BukkitProxy.class
 minecraft/cpw/mods/fml/common/Mod$ServerStarting.class
 minecraft/cpw/mods/fml/common/Mod$ServerStopping.class
 minecraft/cpw/mods/fml/common/IPlayerTracker.class
@@ -96,6 +99,7 @@ minecraft/cpw/mods/fml/common/FMLLog.class
 minecraft/cpw/mods/fml/common/IScheduledTickHandler.class
 minecraft/cpw/mods/fml/common/ICraftingHandler.class
 minecraft/cpw/mods/fml/common/SingleIntervalHandler.class
+minecraft/cpw/mods/fml/common/WorldAccessContainer.class
 minecraft/cpw/mods/fml/common/ModClassLoader.class
 minecraft/cpw/mods/fml/common/Mod$ServerStarted.class
 minecraft/cpw/mods/fml/common/MetadataCollection.class
@@ -103,10 +107,12 @@ minecraft/cpw/mods/fml/common/Loader.class
 minecraft/cpw/mods/fml/common/LoaderException.class
 minecraft/cpw/mods/fml/common/LoaderState.class
 minecraft/cpw/mods/fml/common/Side.class
+minecraft/cpw/mods/fml/common/MinecraftDummyContainer.class
 minecraft/cpw/mods/fml/common/LoaderState$ModState.class
 minecraft/cpw/mods/fml/common/IWorldGenerator.class
 minecraft/cpw/mods/fml/common/FMLModContainer.class
 minecraft/cpw/mods/fml/common/IDispenseHandler.class
+minecraft/cpw/mods/fml/common/BukkitPluginRef.class
 minecraft/cpw/mods/fml/common/DummyModContainer.class
 minecraft/cpw/mods/fml/common/ITickHandler.class
 minecraft/cpw/mods/fml/common/Loader$ModIdComparator.class
@@ -117,6 +123,7 @@ minecraft/cpw/mods/fml/common/Mod$PostInit.class
 minecraft/cpw/mods/fml/common/ModMetadata$JsonArrayConverter.class
 minecraft/cpw/mods/fml/common/Loader$3.class
 minecraft/cpw/mods/fml/common/MissingModsException.class
+minecraft/cpw/mods/fml/common/WrongMinecraftVersionException.class
 minecraft/cpw/mods/fml/common/ModMetadata$1.class
 minecraft/cpw/mods/fml/common/asm/ASMTransformer.class
 minecraft/cpw/mods/fml/common/asm/FMLSanityChecker.class
@@ -251,6 +258,7 @@ minecraft/cpw/mods/fml/client/GuiModsMissingForServer.class
 minecraft/cpw/mods/fml/client/SpriteHelper.class
 minecraft/cpw/mods/fml/client/GuiScrollingList.class
 minecraft/cpw/mods/fml/client/ITextureFX.class
+minecraft/cpw/mods/fml/client/GuiWrongMinecraft.class
 minecraft/cpw/mods/fml/client/FMLTextureFX.class
 minecraft/cpw/mods/fml/client/TextureFXManager.class
 minecraft/cpw/mods/fml/client/registry/RenderingRegistry$EntityRendererInfo.class

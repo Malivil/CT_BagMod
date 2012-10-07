@@ -376,6 +376,7 @@ public class ItemInWorldManager
         Item item = (par3ItemStack != null ? par3ItemStack.getItem() : null);
         if (item != null && item.onItemUseFirst(par3ItemStack, par1EntityPlayer, par2World, par4, par5, par6, par7, par8, par9, par10))
         {
+            if (par3ItemStack.stackSize <= 0) ForgeEventFactory.onPlayerDestroyItem(thisPlayerMP, par3ItemStack);
             return true;
         }
 
