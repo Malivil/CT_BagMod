@@ -6,7 +6,7 @@
 #
 # RetroGuard MCP v3.6.5
 #
-# Logfile created on Sun Oct 07 17:42:26 EDT 2012
+# Logfile created on Mon Oct 08 21:53:19 EDT 2012
 #
 # Jar file to be obfuscated:           client_recomp.jar
 # Target Jar file for obfuscated code: client_reobf.jar
@@ -51,8 +51,8 @@
 #      Your class net/minecraftforge/event/ASMEventHandler$ASMClassLoader calls the java/lang/ClassLoader method defineClass(Ljava/lang/String;[BII)Ljava/lang/Class;
 #      Your class net/minecraftforge/event/EventBus calls the java/lang/Class method getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 #
-# Memory in use after class data structure built: 20663904 bytes
-# Total memory available                        : 229310464 bytes
+# Memory in use after class data structure built: 20708136 bytes
+# Total memory available                        : 235274240 bytes
 #
 #
 # Names reserved from obfuscation:
@@ -20201,14 +20201,12 @@
 .method_map mal/teleportrelay/common/BlockTeleportRelay/onBlockDestroyedByPlayer (Lnet/minecraft/src/World;IIII)V d
 .method_map mal/teleportrelay/common/BlockTeleportRelay/renderAsNormalBlock ()Z c
 .method_map mal/teleportrelay/common/BlockTeleportRelay/isOpaqueCube ()Z d
-.method_map mal/teleportrelay/common/BlockTeleportRelay/idDropped (ILjava/util/Random;I)I a
 .method_map mal/teleportrelay/common/BlockTeleportRelay/createNewTileEntity (Lnet/minecraft/src/World;)Lnet/minecraft/src/TileEntity; a
 .method_map mal/teleportrelay/common/BlockTeleportRelay/isBlockSolidOnSide (Lnet/minecraft/src/World;IIILnet/minecraftforge/common/ForgeDirection;)Z isBlockSolidOnSide
 .method_map mal/teleportrelay/common/BlockTeleportRelay/getRenderType ()I b
 .method_map mal/teleportrelay/common/BlockTeleportRelay/onBlockPlacedBy (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityLiving;)V a
 .method_map mal/teleportrelay/common/BlockTeleportRelay/onBlockDestroyedByExplosion (Lnet/minecraft/src/World;III)V k
 .method_map mal/teleportrelay/common/BlockTeleportRelay/getTextureFile ()Ljava/lang/String; getTextureFile
-.method_map mal/teleportrelay/common/BlockTeleportRelay/quantityDropped (Ljava/util/Random;)I a
 .class_map mal/teleportrelay/common/TileEntityTeleportRelay TileEntityTeleportRelay
 .field_map mal/teleportrelay/common/TileEntityTeleportRelay/enabled enabled
 .field_map mal/teleportrelay/common/TileEntityTeleportRelay/ownerName ownerName
