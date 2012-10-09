@@ -1,7 +1,5 @@
 package mal.teleportrelay.common;
 
-import java.util.Random;
-
 import mal.teleportrelay.client.GuiTeleportRelay;
 import net.minecraft.src.BlockContainer;
 import net.minecraft.src.CreativeTabs;
@@ -53,16 +51,6 @@ public class BlockTeleportRelay extends BlockContainer {
 
 			TeleportRelay.addRelayLocation(x, y, z);
 		}
-	}
-
-	@Override
-	public int idDropped(final int i, final Random random, final int j) {
-		return this.blockID;
-	}
-
-	@Override
-	public int quantityDropped(final Random random) {
-		return 1;
 	}
 
 	@Override
