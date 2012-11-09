@@ -85,6 +85,18 @@ public class CommonInit
             }
         }
 
+        if (IntCorners.props.getInt("StoneBrickIntCorners") != 0)
+        {
+            GameRegistry.addRecipe(new ItemStack(IntCorners.BlockKaevStoneBrickIntCorners, 3, 0), new Object[] {"  #", "###", '#', Block.stoneBrick});
+            GameRegistry.addRecipe(new ItemStack(IntCorners.BlockKaevStoneBrickIntCorners, 3, 8), new Object[] {"## ", "# #", '#', Block.stoneBrick});
+
+            if (IntCorners.props.getBoolean("BlockInversion"))
+            {
+                GameRegistry.addRecipe(new ItemStack(IntCorners.BlockKaevStoneBrickIntCorners, 3, 4), new Object[] {"###", "  #", '#', Block.stoneBrick});
+                GameRegistry.addRecipe(new ItemStack(IntCorners.BlockKaevStoneBrickIntCorners, 3, 12), new Object[] {"# #", "## ", '#', Block.stoneBrick});
+            }
+        }
+
         if (IntCorners.props.getInt("SandIntCorners") != 0)
         {
             GameRegistry.addRecipe(new ItemStack(IntCorners.BlockKaevSandIntCorners, 3, 0), new Object[] {"  #", "###", '#', Block.sand});
@@ -181,6 +193,18 @@ public class CommonInit
             }
         }
 
+        if (IntCorners.props.getInt("NetherBrickIntCorners") != 0)
+        {
+            GameRegistry.addRecipe(new ItemStack(IntCorners.BlockKaevNetherBrickIntCorners, 3, 0), new Object[] {"  #", "###", '#', Block.netherBrick});
+            GameRegistry.addRecipe(new ItemStack(IntCorners.BlockKaevNetherBrickIntCorners, 3, 8), new Object[] {"## ", "# #", '#', Block.netherBrick});
+
+            if (IntCorners.props.getBoolean("BlockInversion"))
+            {
+                GameRegistry.addRecipe(new ItemStack(IntCorners.BlockKaevNetherBrickIntCorners, 3, 4), new Object[] {"###", "  #", '#', Block.netherBrick});
+                GameRegistry.addRecipe(new ItemStack(IntCorners.BlockKaevNetherBrickIntCorners, 3, 12), new Object[] {"# #", "## ", '#', Block.netherBrick});
+            }
+        }
+
         if (IntCorners.props.getInt("DiamondIntCorners") != 0)
         {
             GameRegistry.addRecipe(new ItemStack(IntCorners.BlockKaevDiamondIntCorners, 3, 0), new Object[] {"  #", "###", '#', Block.blockDiamond});
@@ -270,6 +294,16 @@ public class CommonInit
             IntCorners.BlockKaevStoneIntCorners = Block.stone;
         }
 
+        if (IntCorners.props.getInt("StoneBrickIntCorners") != 0)
+        {
+            IntCorners.BlockKaevStoneBrickIntCorners = (new BlockIntCorners(IntCorners.props.getInt("StoneBrickIntCorners"), Block.stoneBrick.blockIndexInTexture, Material.rock)).setHardness(1.5F).setStepSound(Block.soundStoneFootstep).setResistance(10.0F).setBlockName("StoneBrickIntCorners");
+            IntCorners.ItemKaevStoneBrickIntCorners = (new ItemIntCorners(IntCorners.BlockKaevStoneBrickIntCorners.blockID - 256, "StoneBrick")).setItemName("StoneBrickIntCorners");
+        }
+        else
+        {
+            IntCorners.BlockKaevStoneBrickIntCorners = Block.stone;
+        }
+
         if (IntCorners.props.getInt("SandIntCorners") != 0)
         {
             IntCorners.BlockKaevSandIntCorners = (new BlockIntCorners(IntCorners.props.getInt("SandIntCorners"), 18, Material.sand)).setHardness(0.5F).setStepSound(Block.soundSandFootstep).setBlockName("SandIntCorners");
@@ -348,6 +382,16 @@ public class CommonInit
         else
         {
             IntCorners.BlockKaevObsidianIntCorners = Block.stone;
+        }
+
+        if (IntCorners.props.getInt("NetherBrickIntCorners") != 0)
+        {
+            IntCorners.BlockKaevNetherBrickIntCorners = (new BlockIntCorners(IntCorners.props.getInt("NetherBrickIntCorners"), Block.netherBrick.blockIndexInTexture, Material.rock)).setHardness(1.5F).setStepSound(Block.soundStoneFootstep).setResistance(10.0F).setBlockName("NetherBrickIntCorners");
+            IntCorners.ItemKaevNetherBrickIntCorners = (new ItemIntCorners(IntCorners.BlockKaevNetherBrickIntCorners.blockID - 256, "NetherBrick")).setItemName("NetherBrickIntCorners");
+        }
+        else
+        {
+            IntCorners.BlockKaevNetherBrickIntCorners = Block.stone;
         }
 
         if (IntCorners.props.getInt("DiamondIntCorners") != 0)

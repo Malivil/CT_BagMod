@@ -20,24 +20,28 @@ public class ItemCorners extends ItemBlock
         this.setHasSubtypes(true);
     }
 
-    public int func_77647_b(int var1)
+    @Override
+    public int getMetadata(int var1)
     {
         return var1;
     }
 
-    public String func_77667_c(ItemStack var1)
+    @Override
+    public String getItemNameIS(ItemStack var1)
     {
         return "Kaev" + this.material + "Slopes" + Kaevator_Materials[var1.getItemDamage()];
     }
 
     @SideOnly(Side.CLIENT)
-    public CreativeTabs func_77640_w()
+    @Override
+    public CreativeTabs getCreativeTab()
     {
         return CreativeTabs.tabBlock;
     }
 
     @SideOnly(Side.CLIENT)
-    public void func_77633_a(int var1, CreativeTabs var2, List var3)
+    @Override
+    public void getSubItems(int var1, CreativeTabs var2, List var3)
     {
         var3.add(new ItemStack(var1, 1, 0));
 

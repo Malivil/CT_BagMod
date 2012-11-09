@@ -122,6 +122,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
     public float colorGreenSlopes;
     public float colorBlueSlopes;
 
+    @Override
     public void renderInventoryBlock(Block var1, int var2, int var3, RenderBlocks var4)
     {
         Tessellator var5 = Tessellator.instance;
@@ -160,29 +161,32 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         var1.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
     }
 
+    @Override
     public boolean renderWorldBlock(IBlockAccess var1, int var2, int var3, int var4, Block var5, int var6, RenderBlocks var7)
     {
         return var6 == this.getRenderId() ? this.renderBlockIntCorners(var5, var2, var3, var4, var7, var1) : false;
     }
 
+    @Override
     public boolean shouldRender3DInInventory()
     {
         return true;
     }
 
+    @Override
     public int getRenderId()
     {
         return IntCorners.IntCornersRenderID;
     }
 
-    public boolean renderBlockIntCorners(Block var1, int var2, int var3, int var4, RenderBlocks var5, IBlockAccess var6)
+    public boolean renderBlockIntCorners(Block block, int x, int y, int z, RenderBlocks renderer, IBlockAccess world)
     {
-        int var7 = var6.getBlockMetadata(var2, var3, var4);
-        int var8 = var1.colorMultiplier(var6, var2, var3, var4);
-        float var9 = (float)(var8 >> 16 & 255) / 255.0F;
-        float var10 = (float)(var8 >> 8 & 255) / 255.0F;
-        float var11 = (float)(var8 & 255) / 255.0F;
-        return Minecraft.isAmbientOcclusionEnabled() ? this.renderIntCornersBlockWithAmbientOcclusion(var1, var2, var3, var4, var9, var10, var11, var7, var5, var6) : this.renderIntCornersBlockWithColorMultiplier(var1, var2, var3, var4, var9, var10, var11, var7, var5, var6);
+        int meta = world.getBlockMetadata(x, y, z);
+        int color = block.colorMultiplier(world, x, y, z);
+        float r = (float)(color >> 16 & 255) / 255.0F;
+        float g = (float)(color >> 8 & 255) / 255.0F;
+        float b = (float)(color & 255) / 255.0F;
+        return Minecraft.isAmbientOcclusionEnabled() ? this.renderIntCornersBlockWithAmbientOcclusion(block, x, y, z, r, g, b, meta, renderer, world) : this.renderIntCornersBlockWithColorMultiplier(block, x, y, z, r, g, b, meta, renderer, world);
     }
 
     public boolean renderIntCornersBlockWithAmbientOcclusion(Block var1, int var2, int var3, int var4, float var5, float var6, float var7, int var8, RenderBlocks var9, IBlockAccess var10)

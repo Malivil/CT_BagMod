@@ -122,7 +122,8 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
     public float colorGreenSlopes;
     public float colorBlueSlopes;
 
-    public void renderInventoryBlock(Block var1, int var2, int var3, RenderBlocks var4)
+    @Override
+    public void renderInventoryBlock(Block block, int var2, int var3, RenderBlocks renderer)
     {
         Tessellator var5 = Tessellator.instance;
 
@@ -134,83 +135,86 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                 {
                     if (var6 == 0)
                     {
-                        var1.setBlockBounds(0.0F, 0.5F, 0.5F, 1.0F, 1.0F, 1.0F);
+                        block.setBlockBounds(0.0F, 0.5F, 0.5F, 1.0F, 1.0F, 1.0F);
                     }
 
                     if (var6 == 1)
                     {
-                        var1.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.5F);
+                        block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.5F);
                     }
+                    renderer.func_83018_a(block);
 
                     GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
                     var5.startDrawingQuads();
                     var5.setNormal(0.0F, -1.0F, 0.0F);
-                    var4.renderBottomFace(var1, 0.0D, 0.0D, 0.0D, var1.getBlockTextureFromSide(0));
+                    renderer.renderBottomFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSide(0));
                     var5.draw();
                     var5.startDrawingQuads();
                     var5.setNormal(0.0F, 1.0F, 0.0F);
-                    var4.renderTopFace(var1, 0.0D, 0.0D, 0.0D, var1.getBlockTextureFromSide(1));
+                    renderer.renderTopFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSide(1));
                     var5.draw();
                     var5.startDrawingQuads();
                     var5.setNormal(0.0F, 0.0F, -1.0F);
-                    var4.renderEastFace(var1, 0.0D, 0.0D, 0.0D, var1.getBlockTextureFromSide(2));
+                    renderer.renderEastFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSide(2));
                     var5.draw();
                     var5.startDrawingQuads();
                     var5.setNormal(0.0F, 0.0F, 1.0F);
-                    var4.renderWestFace(var1, 0.0D, 0.0D, 0.0D, var1.getBlockTextureFromSide(3));
+                    renderer.renderWestFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSide(3));
                     var5.draw();
                     var5.startDrawingQuads();
                     var5.setNormal(-1.0F, 0.0F, 0.0F);
-                    var4.renderNorthFace(var1, 0.0D, 0.0D, 0.0D, var1.getBlockTextureFromSide(4));
+                    renderer.renderNorthFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSide(4));
                     var5.draw();
                     var5.startDrawingQuads();
                     var5.setNormal(1.0F, 0.0F, 0.0F);
-                    var4.renderSouthFace(var1, 0.0D, 0.0D, 0.0D, var1.getBlockTextureFromSide(5));
+                    renderer.renderSouthFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSide(5));
                     var5.draw();
                     GL11.glTranslatef(0.5F, 0.5F, 0.5F);
                 }
             }
             else
             {
-                var1.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+                block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+                renderer.func_83018_a(block);
                 GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
                 var5.startDrawingQuads();
                 var5.setNormal(0.0F, -1.0F, 0.0F);
-                this.renderSlopesBottomFace(var1, 0.0D, 0.0D, 0.0D, var1.getBlockTextureFromSide(0), var2 + 1, var4, 240);
+                this.renderSlopesBottomFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSide(0), var2 + 1, renderer, 240);
                 var5.draw();
                 var5.startDrawingQuads();
                 var5.setNormal(0.0F, 1.0F, 0.0F);
-                this.renderSlopesTopFace(var1, 0.0D, 0.0D, 0.0D, var1.getBlockTextureFromSide(1), var2 + 1, var4, 240);
+                this.renderSlopesTopFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSide(1), var2 + 1, renderer, 240);
                 var5.draw();
                 var5.startDrawingQuads();
                 var5.setNormal(0.0F, 0.0F, -1.0F);
-                this.renderSlopesEastFace(var1, 0.0D, 0.0D, 0.0D, var1.getBlockTextureFromSide(2), var2 + 1, var4, 240);
+                this.renderSlopesEastFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSide(2), var2 + 1, renderer, 240);
                 var5.draw();
                 var5.startDrawingQuads();
                 var5.setNormal(0.0F, 0.0F, 1.0F);
-                this.renderSlopesWestFace(var1, 0.0D, 0.0D, 0.0D, var1.getBlockTextureFromSide(3), var2 + 1, var4, 240);
+                this.renderSlopesWestFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSide(3), var2 + 1, renderer, 240);
                 var5.draw();
                 var5.startDrawingQuads();
                 var5.setNormal(-1.0F, 0.0F, 0.0F);
-                this.renderSlopesNorthFace(var1, 0.0D, 0.0D, 0.0D, var1.getBlockTextureFromSide(4), var2 + 1, var4, 240);
+                this.renderSlopesNorthFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSide(4), var2 + 1, renderer, 240);
                 var5.draw();
                 var5.startDrawingQuads();
                 var5.setNormal(1.0F, 0.0F, 0.0F);
-                this.renderSlopesSouthFace(var1, 0.0D, 0.0D, 0.0D, var1.getBlockTextureFromSide(5), var2 + 1, var4, 240);
+                this.renderSlopesSouthFace(block, 0.0D, 0.0D, 0.0D, block.getBlockTextureFromSide(5), var2 + 1, renderer, 240);
                 var5.draw();
                 GL11.glTranslatef(0.5F, 0.5F, 0.5F);
             }
 
-            var1.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+            block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
         }
     }
 
-    public boolean renderWorldBlock(IBlockAccess var1, int var2, int var3, int var4, Block var5, int var6, RenderBlocks var7)
+    @Override
+    public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer)
     {
-        if (var6 == this.getRenderId())
+        if (modelId == this.getRenderId())
         {
-            int var8 = var1.getBlockMetadata(var2, var3, var4);
-            return var8 / 4 == 0 ? this.renderBlockStairsUp(var5, var2, var3, var4, var7, var1) : this.renderBlockSlopes(var5, var2, var3, var4, var7, var1);
+            int meta = world.getBlockMetadata(x, y, z);
+            return meta / 4 == 0 ? this.renderBlockStairsUp(block, x, y, z, renderer, world, meta) : this.renderBlockSlopes(block, x, y, z, renderer, world, meta);
         }
         else
         {
@@ -218,65 +222,73 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         }
     }
 
+    @Override
     public boolean shouldRender3DInInventory()
     {
         return true;
     }
 
+    @Override
     public int getRenderId()
     {
         return Slopes.SlopesRenderID;
     }
 
-    public boolean renderBlockStairsUp(Block var1, int var2, int var3, int var4, RenderBlocks var5, IBlockAccess var6)
+    public boolean renderBlockStairsUp(Block block, int x, int y, int z, RenderBlocks renderer, IBlockAccess world, int meta)
     {
-        boolean var7 = false;
-        int var8 = var6.getBlockMetadata(var2, var3, var4) % 4;
+        int side = meta % 4;
 
-        if (var8 == 0)
+        if (side == 0)
         {
-            var1.setBlockBounds(0.5F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-            var5.renderStandardBlock(var1, var2, var3, var4);
-            var1.setBlockBounds(0.0F, 0.5F, 0.0F, 0.5F, 1.0F, 1.0F);
-            var5.renderStandardBlock(var1, var2, var3, var4);
+            block.setBlockBounds(0.5F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+            renderer.func_83018_a(block);
+            renderer.renderStandardBlock(block, x, y, z);
+            block.setBlockBounds(0.0F, 0.5F, 0.0F, 0.5F, 1.0F, 1.0F);
+            renderer.func_83018_a(block);
+            renderer.renderStandardBlock(block, x, y, z);
         }
-        else if (var8 == 1)
+        else if (side == 1)
         {
-            var1.setBlockBounds(0.5F, 0.5F, 0.0F, 1.0F, 1.0F, 1.0F);
-            var5.renderStandardBlock(var1, var2, var3, var4);
-            var1.setBlockBounds(0.0F, 0.0F, 0.0F, 0.5F, 1.0F, 1.0F);
-            var5.renderStandardBlock(var1, var2, var3, var4);
+            block.setBlockBounds(0.5F, 0.5F, 0.0F, 1.0F, 1.0F, 1.0F);
+            renderer.func_83018_a(block);
+            renderer.renderStandardBlock(block, x, y, z);
+            block.setBlockBounds(0.0F, 0.0F, 0.0F, 0.5F, 1.0F, 1.0F);
+            renderer.func_83018_a(block);
+            renderer.renderStandardBlock(block, x, y, z);
         }
-        else if (var8 == 2)
+        else if (side == 2)
         {
-            var1.setBlockBounds(0.0F, 0.0F, 0.5F, 1.0F, 1.0F, 1.0F);
-            var5.renderStandardBlock(var1, var2, var3, var4);
-            var1.setBlockBounds(0.0F, 0.5F, 0.0F, 1.0F, 1.0F, 0.5F);
-            var5.renderStandardBlock(var1, var2, var3, var4);
+            block.setBlockBounds(0.0F, 0.0F, 0.5F, 1.0F, 1.0F, 1.0F);
+            renderer.func_83018_a(block);
+            renderer.renderStandardBlock(block, x, y, z);
+            block.setBlockBounds(0.0F, 0.5F, 0.0F, 1.0F, 1.0F, 0.5F);
+            renderer.func_83018_a(block);
+            renderer.renderStandardBlock(block, x, y, z);
         }
-        else if (var8 == 3)
+        else if (side == 3)
         {
-            var1.setBlockBounds(0.0F, 0.5F, 0.5F, 1.0F, 1.0F, 1.0F);
-            var5.renderStandardBlock(var1, var2, var3, var4);
-            var1.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.5F);
-            var5.renderStandardBlock(var1, var2, var3, var4);
+            block.setBlockBounds(0.0F, 0.5F, 0.5F, 1.0F, 1.0F, 1.0F);
+            renderer.func_83018_a(block);
+            renderer.renderStandardBlock(block, x, y, z);
+            block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.5F);
+            renderer.func_83018_a(block);
+            renderer.renderStandardBlock(block, x, y, z);
         }
 
-        var1.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-        return var7;
+        block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+        return false;
     }
 
-    public boolean renderBlockSlopes(Block var1, int var2, int var3, int var4, RenderBlocks var5, IBlockAccess var6)
+    public boolean renderBlockSlopes(Block block, int x, int y, int z, RenderBlocks renderer, IBlockAccess world, int meta)
     {
-        int var7 = var6.getBlockMetadata(var2, var3, var4);
-        int var8 = var1.colorMultiplier(var6, var2, var3, var4);
-        float var9 = (float)(var8 >> 16 & 255) / 255.0F;
-        float var10 = (float)(var8 >> 8 & 255) / 255.0F;
-        float var11 = (float)(var8 & 255) / 255.0F;
-        return Minecraft.isAmbientOcclusionEnabled() ? this.renderSlopesBlockWithAmbientOcclusion(var1, var2, var3, var4, var9, var10, var11, var7, var5, var6) : this.renderSlopesBlockWithColorMultiplier(var1, var2, var3, var4, var9, var10, var11, var7, var5, var6);
+        int color = block.colorMultiplier(world, x, y, z);
+        float r = (float)(color >> 16 & 255) / 255.0F;
+        float g = (float)(color >> 8 & 255) / 255.0F;
+        float b = (float)(color & 255) / 255.0F;
+        return Minecraft.isAmbientOcclusionEnabled() ? this.renderSlopesBlockWithAmbientOcclusion(block, x, y, z, r, g, b, meta, renderer, world) : this.renderSlopesBlockWithColorMultiplier(block, x, y, z, r, g, b, meta, renderer, world);
     }
 
-    public boolean renderSlopesBlockWithAmbientOcclusion(Block var1, int var2, int var3, int var4, float var5, float var6, float var7, int var8, RenderBlocks var9, IBlockAccess var10)
+    public boolean renderSlopesBlockWithAmbientOcclusion(Block block, int x, int y, int z, float r, float g, float b, int meta, RenderBlocks renderer, IBlockAccess world)
     {
         this.enableAO = true;
         boolean var11 = false;
@@ -286,35 +298,35 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         boolean var15 = true;
         boolean var16 = true;
         boolean var17 = true;
-        this.aoLightValueThis = var1.getAmbientOcclusionLightValue(var10, var2, var3, var4);
-        this.aoLightValueXNeg = var1.getAmbientOcclusionLightValue(var10, var2 - 1, var3, var4);
-        this.aoLightValueYNeg = var1.getAmbientOcclusionLightValue(var10, var2, var3 - 1, var4);
-        this.aoLightValueZNeg = var1.getAmbientOcclusionLightValue(var10, var2, var3, var4 - 1);
-        this.aoLightValueXPos = var1.getAmbientOcclusionLightValue(var10, var2 + 1, var3, var4);
-        this.aoLightValueYPos = var1.getAmbientOcclusionLightValue(var10, var2, var3 + 1, var4);
-        this.aoLightValueZPos = var1.getAmbientOcclusionLightValue(var10, var2, var3, var4 + 1);
-        this.aoLightValueXPosYPos = var1.getAmbientOcclusionLightValue(var10, var2 + 1, var3 + 1, var4);
-        this.aoLightValueXPosYNeg = var1.getAmbientOcclusionLightValue(var10, var2 + 1, var3 - 1, var4);
-        this.aoLightValueXPosZPos = var1.getAmbientOcclusionLightValue(var10, var2 + 1, var3, var4 + 1);
-        this.aoLightValueXPosZNeg = var1.getAmbientOcclusionLightValue(var10, var2 + 1, var3, var4 - 1);
-        this.aoLightValueXNegYPos = var1.getAmbientOcclusionLightValue(var10, var2 - 1, var3 + 1, var4);
-        this.aoLightValueXNegYNeg = var1.getAmbientOcclusionLightValue(var10, var2 - 1, var3 - 1, var4);
-        this.aoLightValueXNegZNeg = var1.getAmbientOcclusionLightValue(var10, var2 - 1, var3, var4 - 1);
-        this.aoLightValueXNegZPos = var1.getAmbientOcclusionLightValue(var10, var2 - 1, var3, var4 + 1);
-        this.aoLightValueYPosZPos = var1.getAmbientOcclusionLightValue(var10, var2, var3 + 1, var4 + 1);
-        this.aoLightValueYPosZNeg = var1.getAmbientOcclusionLightValue(var10, var2, var3 + 1, var4 - 1);
-        this.aoLightValueYNegZPos = var1.getAmbientOcclusionLightValue(var10, var2, var3 - 1, var4 + 1);
-        this.aoLightValueYNegZNeg = var1.getAmbientOcclusionLightValue(var10, var2, var3 - 1, var4 - 1);
-        this.aoLightValueXPosYPosZPos = var1.getAmbientOcclusionLightValue(var10, var2 + 1, var3 + 1, var4 + 1);
-        this.aoLightValueXPosYNegZPos = var1.getAmbientOcclusionLightValue(var10, var2 + 1, var3 - 1, var4 + 1);
-        this.aoLightValueXPosYPosZNeg = var1.getAmbientOcclusionLightValue(var10, var2 + 1, var3 + 1, var4 - 1);
-        this.aoLightValueXPosYNegZNeg = var1.getAmbientOcclusionLightValue(var10, var2 + 1, var3 - 1, var4 - 1);
-        this.aoLightValueXNegYPosZPos = var1.getAmbientOcclusionLightValue(var10, var2 - 1, var3 + 1, var4 + 1);
-        this.aoLightValueXNegYNegZPos = var1.getAmbientOcclusionLightValue(var10, var2 - 1, var3 - 1, var4 + 1);
-        this.aoLightValueXNegYPosZNeg = var1.getAmbientOcclusionLightValue(var10, var2 - 1, var3 + 1, var4 - 1);
-        this.aoLightValueXNegYNegZNeg = var1.getAmbientOcclusionLightValue(var10, var2 - 1, var3 - 1, var4 - 1);
+        this.aoLightValueThis = block.getAmbientOcclusionLightValue(world, x, y, z);
+        this.aoLightValueXNeg = block.getAmbientOcclusionLightValue(world, x - 1, y, z);
+        this.aoLightValueYNeg = block.getAmbientOcclusionLightValue(world, x, y - 1, z);
+        this.aoLightValueZNeg = block.getAmbientOcclusionLightValue(world, x, y, z - 1);
+        this.aoLightValueXPos = block.getAmbientOcclusionLightValue(world, x + 1, y, z);
+        this.aoLightValueYPos = block.getAmbientOcclusionLightValue(world, x, y + 1, z);
+        this.aoLightValueZPos = block.getAmbientOcclusionLightValue(world, x, y, z + 1);
+        this.aoLightValueXPosYPos = block.getAmbientOcclusionLightValue(world, x + 1, y + 1, z);
+        this.aoLightValueXPosYNeg = block.getAmbientOcclusionLightValue(world, x + 1, y - 1, z);
+        this.aoLightValueXPosZPos = block.getAmbientOcclusionLightValue(world, x + 1, y, z + 1);
+        this.aoLightValueXPosZNeg = block.getAmbientOcclusionLightValue(world, x + 1, y, z - 1);
+        this.aoLightValueXNegYPos = block.getAmbientOcclusionLightValue(world, x - 1, y + 1, z);
+        this.aoLightValueXNegYNeg = block.getAmbientOcclusionLightValue(world, x - 1, y - 1, z);
+        this.aoLightValueXNegZNeg = block.getAmbientOcclusionLightValue(world, x - 1, y, z - 1);
+        this.aoLightValueXNegZPos = block.getAmbientOcclusionLightValue(world, x - 1, y, z + 1);
+        this.aoLightValueYPosZPos = block.getAmbientOcclusionLightValue(world, x, y + 1, z + 1);
+        this.aoLightValueYPosZNeg = block.getAmbientOcclusionLightValue(world, x, y + 1, z - 1);
+        this.aoLightValueYNegZPos = block.getAmbientOcclusionLightValue(world, x, y - 1, z + 1);
+        this.aoLightValueYNegZNeg = block.getAmbientOcclusionLightValue(world, x, y - 1, z - 1);
+        this.aoLightValueXPosYPosZPos = block.getAmbientOcclusionLightValue(world, x + 1, y + 1, z + 1);
+        this.aoLightValueXPosYNegZPos = block.getAmbientOcclusionLightValue(world, x + 1, y - 1, z + 1);
+        this.aoLightValueXPosYPosZNeg = block.getAmbientOcclusionLightValue(world, x + 1, y + 1, z - 1);
+        this.aoLightValueXPosYNegZNeg = block.getAmbientOcclusionLightValue(world, x + 1, y - 1, z - 1);
+        this.aoLightValueXNegYPosZPos = block.getAmbientOcclusionLightValue(world, x - 1, y + 1, z + 1);
+        this.aoLightValueXNegYNegZPos = block.getAmbientOcclusionLightValue(world, x - 1, y - 1, z + 1);
+        this.aoLightValueXNegYPosZNeg = block.getAmbientOcclusionLightValue(world, x - 1, y + 1, z - 1);
+        this.aoLightValueXNegYNegZNeg = block.getAmbientOcclusionLightValue(world, x - 1, y - 1, z - 1);
 
-        if (var1.blockIndexInTexture == 3)
+        if (block.blockIndexInTexture == 3)
         {
             var17 = false;
             var16 = false;
@@ -343,9 +355,9 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
             var18 = this.aoLightValueYNeg;
         }
 
-        this.colorRedTopLeft_BottomFace = this.colorRedBottomLeft_BottomFace = this.colorRedBottomRight_BottomFace = this.colorRedTopRight_BottomFace = (var12 ? var5 : 1.0F) * 0.5F;
-        this.colorGreenTopLeft_BottomFace = this.colorGreenBottomLeft_BottomFace = this.colorGreenBottomRight_BottomFace = this.colorGreenTopRight_BottomFace = (var12 ? var6 : 1.0F) * 0.5F;
-        this.colorBlueTopLeft_BottomFace = this.colorBlueBottomLeft_BottomFace = this.colorBlueBottomRight_BottomFace = this.colorBlueTopRight_BottomFace = (var12 ? var7 : 1.0F) * 0.5F;
+        this.colorRedTopLeft_BottomFace = this.colorRedBottomLeft_BottomFace = this.colorRedBottomRight_BottomFace = this.colorRedTopRight_BottomFace = (var12 ? r : 1.0F) * 0.5F;
+        this.colorGreenTopLeft_BottomFace = this.colorGreenBottomLeft_BottomFace = this.colorGreenBottomRight_BottomFace = this.colorGreenTopRight_BottomFace = (var12 ? g : 1.0F) * 0.5F;
+        this.colorBlueTopLeft_BottomFace = this.colorBlueBottomLeft_BottomFace = this.colorBlueBottomRight_BottomFace = this.colorBlueTopRight_BottomFace = (var12 ? b : 1.0F) * 0.5F;
         this.colorRedTopLeft_BottomFace *= var18;
         this.colorGreenTopLeft_BottomFace *= var18;
         this.colorBlueTopLeft_BottomFace *= var18;
@@ -378,9 +390,9 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
             var22 = this.aoLightValueYPos;
         }
 
-        this.colorRedTopLeft_TopFace = this.colorRedBottomLeft_TopFace = this.colorRedBottomRight_TopFace = this.colorRedTopRight_TopFace = var13 ? var5 : 1.0F;
-        this.colorGreenTopLeft_TopFace = this.colorGreenBottomLeft_TopFace = this.colorGreenBottomRight_TopFace = this.colorGreenTopRight_TopFace = var13 ? var6 : 1.0F;
-        this.colorBlueTopLeft_TopFace = this.colorBlueBottomLeft_TopFace = this.colorBlueBottomRight_TopFace = this.colorBlueTopRight_TopFace = var13 ? var7 : 1.0F;
+        this.colorRedTopLeft_TopFace = this.colorRedBottomLeft_TopFace = this.colorRedBottomRight_TopFace = this.colorRedTopRight_TopFace = var13 ? r : 1.0F;
+        this.colorGreenTopLeft_TopFace = this.colorGreenBottomLeft_TopFace = this.colorGreenBottomRight_TopFace = this.colorGreenTopRight_TopFace = var13 ? g : 1.0F;
+        this.colorBlueTopLeft_TopFace = this.colorBlueBottomLeft_TopFace = this.colorBlueBottomRight_TopFace = this.colorBlueTopRight_TopFace = var13 ? b : 1.0F;
         this.colorRedTopLeft_TopFace *= var22;
         this.colorGreenTopLeft_TopFace *= var22;
         this.colorBlueTopLeft_TopFace *= var22;
@@ -413,9 +425,9 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
             var26 = this.aoLightValueZNeg;
         }
 
-        this.colorRedTopLeft_EastFace = this.colorRedBottomLeft_EastFace = this.colorRedBottomRight_EastFace = this.colorRedTopRight_EastFace = (var14 ? var5 : 1.0F) * 0.8F;
-        this.colorGreenTopLeft_EastFace = this.colorGreenBottomLeft_EastFace = this.colorGreenBottomRight_EastFace = this.colorGreenTopRight_EastFace = (var14 ? var6 : 1.0F) * 0.8F;
-        this.colorBlueTopLeft_EastFace = this.colorBlueBottomLeft_EastFace = this.colorBlueBottomRight_EastFace = this.colorBlueTopRight_EastFace = (var14 ? var7 : 1.0F) * 0.8F;
+        this.colorRedTopLeft_EastFace = this.colorRedBottomLeft_EastFace = this.colorRedBottomRight_EastFace = this.colorRedTopRight_EastFace = (var14 ? r : 1.0F) * 0.8F;
+        this.colorGreenTopLeft_EastFace = this.colorGreenBottomLeft_EastFace = this.colorGreenBottomRight_EastFace = this.colorGreenTopRight_EastFace = (var14 ? g : 1.0F) * 0.8F;
+        this.colorBlueTopLeft_EastFace = this.colorBlueBottomLeft_EastFace = this.colorBlueBottomRight_EastFace = this.colorBlueTopRight_EastFace = (var14 ? b : 1.0F) * 0.8F;
         this.colorRedTopLeft_EastFace *= var26;
         this.colorGreenTopLeft_EastFace *= var26;
         this.colorBlueTopLeft_EastFace *= var26;
@@ -428,7 +440,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         this.colorRedTopRight_EastFace *= var29;
         this.colorGreenTopRight_EastFace *= var29;
         this.colorBlueTopRight_EastFace *= var29;
-        int var30 = var1.getBlockTexture(var10, var2, var3, var4, 2);
+        int var30 = block.getBlockTexture(world, x, y, z, 2);
         float var31;
         float var34;
         float var32;
@@ -449,9 +461,9 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
             var31 = this.aoLightValueZPos;
         }
 
-        this.colorRedTopLeft_WestFace = this.colorRedBottomLeft_WestFace = this.colorRedBottomRight_WestFace = this.colorRedTopRight_WestFace = (var15 ? var5 : 1.0F) * 0.8F;
-        this.colorGreenTopLeft_WestFace = this.colorGreenBottomLeft_WestFace = this.colorGreenBottomRight_WestFace = this.colorGreenTopRight_WestFace = (var15 ? var6 : 1.0F) * 0.8F;
-        this.colorBlueTopLeft_WestFace = this.colorBlueBottomLeft_WestFace = this.colorBlueBottomRight_WestFace = this.colorBlueTopRight_WestFace = (var15 ? var7 : 1.0F) * 0.8F;
+        this.colorRedTopLeft_WestFace = this.colorRedBottomLeft_WestFace = this.colorRedBottomRight_WestFace = this.colorRedTopRight_WestFace = (var15 ? r : 1.0F) * 0.8F;
+        this.colorGreenTopLeft_WestFace = this.colorGreenBottomLeft_WestFace = this.colorGreenBottomRight_WestFace = this.colorGreenTopRight_WestFace = (var15 ? g : 1.0F) * 0.8F;
+        this.colorBlueTopLeft_WestFace = this.colorBlueBottomLeft_WestFace = this.colorBlueBottomRight_WestFace = this.colorBlueTopRight_WestFace = (var15 ? b : 1.0F) * 0.8F;
         this.colorRedTopLeft_WestFace *= var31;
         this.colorGreenTopLeft_WestFace *= var31;
         this.colorBlueTopLeft_WestFace *= var31;
@@ -464,7 +476,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         this.colorRedTopRight_WestFace *= var34;
         this.colorGreenTopRight_WestFace *= var34;
         this.colorBlueTopRight_WestFace *= var34;
-        int var35 = var1.getBlockTexture(var10, var2, var3, var4, 3);
+        int var35 = block.getBlockTexture(world, x, y, z, 3);
         float var38;
         float var39;
         float var36;
@@ -485,9 +497,9 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
             var36 = this.aoLightValueXNeg;
         }
 
-        this.colorRedTopLeft_NorthFace = this.colorRedBottomLeft_NorthFace = this.colorRedBottomRight_NorthFace = this.colorRedTopRight_NorthFace = (var16 ? var5 : 1.0F) * 0.6F;
-        this.colorGreenTopLeft_NorthFace = this.colorGreenBottomLeft_NorthFace = this.colorGreenBottomRight_NorthFace = this.colorGreenTopRight_NorthFace = (var16 ? var6 : 1.0F) * 0.6F;
-        this.colorBlueTopLeft_NorthFace = this.colorBlueBottomLeft_NorthFace = this.colorBlueBottomRight_NorthFace = this.colorBlueTopRight_NorthFace = (var16 ? var7 : 1.0F) * 0.6F;
+        this.colorRedTopLeft_NorthFace = this.colorRedBottomLeft_NorthFace = this.colorRedBottomRight_NorthFace = this.colorRedTopRight_NorthFace = (var16 ? r : 1.0F) * 0.6F;
+        this.colorGreenTopLeft_NorthFace = this.colorGreenBottomLeft_NorthFace = this.colorGreenBottomRight_NorthFace = this.colorGreenTopRight_NorthFace = (var16 ? g : 1.0F) * 0.6F;
+        this.colorBlueTopLeft_NorthFace = this.colorBlueBottomLeft_NorthFace = this.colorBlueBottomRight_NorthFace = this.colorBlueTopRight_NorthFace = (var16 ? b : 1.0F) * 0.6F;
         this.colorRedTopLeft_NorthFace *= var36;
         this.colorGreenTopLeft_NorthFace *= var36;
         this.colorBlueTopLeft_NorthFace *= var36;
@@ -500,7 +512,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         this.colorRedTopRight_NorthFace *= var39;
         this.colorGreenTopRight_NorthFace *= var39;
         this.colorBlueTopRight_NorthFace *= var39;
-        int var40 = var1.getBlockTexture(var10, var2, var3, var4, 4);
+        int var40 = block.getBlockTexture(world, x, y, z, 4);
         float var42;
         float var43;
         float var41;
@@ -521,9 +533,9 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
             var41 = this.aoLightValueXPos;
         }
 
-        this.colorRedTopLeft_SouthFace = this.colorRedBottomLeft_SouthFace = this.colorRedBottomRight_SouthFace = this.colorRedTopRight_SouthFace = (var17 ? var5 : 1.0F) * 0.6F;
-        this.colorGreenTopLeft_SouthFace = this.colorGreenBottomLeft_SouthFace = this.colorGreenBottomRight_SouthFace = this.colorGreenTopRight_SouthFace = (var17 ? var6 : 1.0F) * 0.6F;
-        this.colorBlueTopLeft_SouthFace = this.colorBlueBottomLeft_SouthFace = this.colorBlueBottomRight_SouthFace = this.colorBlueTopRight_SouthFace = (var17 ? var7 : 1.0F) * 0.6F;
+        this.colorRedTopLeft_SouthFace = this.colorRedBottomLeft_SouthFace = this.colorRedBottomRight_SouthFace = this.colorRedTopRight_SouthFace = (var17 ? r : 1.0F) * 0.6F;
+        this.colorGreenTopLeft_SouthFace = this.colorGreenBottomLeft_SouthFace = this.colorGreenBottomRight_SouthFace = this.colorGreenTopRight_SouthFace = (var17 ? g : 1.0F) * 0.6F;
+        this.colorBlueTopLeft_SouthFace = this.colorBlueBottomLeft_SouthFace = this.colorBlueBottomRight_SouthFace = this.colorBlueTopRight_SouthFace = (var17 ? b : 1.0F) * 0.6F;
         this.colorRedTopLeft_SouthFace *= var41;
         this.colorGreenTopLeft_SouthFace *= var41;
         this.colorBlueTopLeft_SouthFace *= var41;
@@ -536,114 +548,114 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         this.colorRedTopRight_SouthFace *= var44;
         this.colorGreenTopRight_SouthFace *= var44;
         this.colorBlueTopRight_SouthFace *= var44;
-        int var45 = var1.getBlockTexture(var10, var2, var3, var4, 5);
-        this.colorRedSlopes = var5;
-        this.colorGreenSlopes = var6;
-        this.colorBlueSlopes = var7;
+        int var45 = block.getBlockTexture(world, x, y, z, 5);
+        this.colorRedSlopes = r;
+        this.colorGreenSlopes = g;
+        this.colorBlueSlopes = b;
 
-        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3 - 1, var4, 0))
+        if (renderer.renderAllFaces || block.shouldSideBeRendered(world, x, y - 1, z, 0))
         {
-            this.renderSlopesBottomFace(var1, (double)var2, (double)var3, (double)var4, var1.getBlockTexture(var10, var2, var3, var4, 0), var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
+            this.renderSlopesBottomFace(block, (double)x, (double)y, (double)z, block.getBlockTexture(world, x, y, z, 0), meta, renderer, block.getMixedBrightnessForBlock(world, x, y, z));
             var11 = true;
         }
 
-        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3 + 1, var4, 1))
+        if (renderer.renderAllFaces || block.shouldSideBeRendered(world, x, y + 1, z, 1))
         {
-            this.renderSlopesTopFace(var1, (double)var2, (double)var3, (double)var4, var1.getBlockTexture(var10, var2, var3, var4, 0), var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
+            this.renderSlopesTopFace(block, (double)x, (double)y, (double)z, block.getBlockTexture(world, x, y, z, 0), meta, renderer, block.getMixedBrightnessForBlock(world, x, y, z));
             var11 = true;
         }
 
-        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3, var4 - 1, 2))
+        if (renderer.renderAllFaces || block.shouldSideBeRendered(world, x, y, z - 1, 2))
         {
-            this.renderSlopesEastFace(var1, (double)var2, (double)var3, (double)var4, var30, var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
+            this.renderSlopesEastFace(block, (double)x, (double)y, (double)z, var30, meta, renderer, block.getMixedBrightnessForBlock(world, x, y, z));
 
             if (field_27511_cfgGrassFix && var30 == 3)
             {
-                this.colorRedTopLeft_EastFace *= var5;
-                this.colorRedBottomLeft_EastFace *= var5;
-                this.colorRedBottomRight_EastFace *= var5;
-                this.colorRedTopRight_EastFace *= var5;
-                this.colorGreenTopLeft_EastFace *= var6;
-                this.colorGreenBottomLeft_EastFace *= var6;
-                this.colorGreenBottomRight_EastFace *= var6;
-                this.colorGreenTopRight_EastFace *= var6;
-                this.colorBlueTopLeft_EastFace *= var7;
-                this.colorBlueBottomLeft_EastFace *= var7;
-                this.colorBlueBottomRight_EastFace *= var7;
-                this.colorBlueTopRight_EastFace *= var7;
-                this.renderSlopesEastFace(var1, (double)var2, (double)var3, (double)var4, 38, var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
+                this.colorRedTopLeft_EastFace *= r;
+                this.colorRedBottomLeft_EastFace *= r;
+                this.colorRedBottomRight_EastFace *= r;
+                this.colorRedTopRight_EastFace *= r;
+                this.colorGreenTopLeft_EastFace *= g;
+                this.colorGreenBottomLeft_EastFace *= g;
+                this.colorGreenBottomRight_EastFace *= g;
+                this.colorGreenTopRight_EastFace *= g;
+                this.colorBlueTopLeft_EastFace *= b;
+                this.colorBlueBottomLeft_EastFace *= b;
+                this.colorBlueBottomRight_EastFace *= b;
+                this.colorBlueTopRight_EastFace *= b;
+                this.renderSlopesEastFace(block, (double)x, (double)y, (double)z, 38, meta, renderer, block.getMixedBrightnessForBlock(world, x, y, z));
             }
 
             var11 = true;
         }
 
-        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3, var4 + 1, 3))
+        if (renderer.renderAllFaces || block.shouldSideBeRendered(world, x, y, z + 1, 3))
         {
-            this.renderSlopesWestFace(var1, (double)var2, (double)var3, (double)var4, var35, var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
+            this.renderSlopesWestFace(block, (double)x, (double)y, (double)z, var35, meta, renderer, block.getMixedBrightnessForBlock(world, x, y, z));
 
             if (field_27511_cfgGrassFix && var35 == 3)
             {
-                this.colorRedTopLeft_WestFace *= var5;
-                this.colorRedBottomLeft_WestFace *= var5;
-                this.colorRedBottomRight_WestFace *= var5;
-                this.colorRedTopRight_WestFace *= var5;
-                this.colorGreenTopLeft_WestFace *= var6;
-                this.colorGreenBottomLeft_WestFace *= var6;
-                this.colorGreenBottomRight_WestFace *= var6;
-                this.colorGreenTopRight_WestFace *= var6;
-                this.colorBlueTopLeft_WestFace *= var7;
-                this.colorBlueBottomLeft_WestFace *= var7;
-                this.colorBlueBottomRight_WestFace *= var7;
-                this.colorBlueTopRight_WestFace *= var7;
-                this.renderSlopesWestFace(var1, (double)var2, (double)var3, (double)var4, 38, var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
+                this.colorRedTopLeft_WestFace *= r;
+                this.colorRedBottomLeft_WestFace *= r;
+                this.colorRedBottomRight_WestFace *= r;
+                this.colorRedTopRight_WestFace *= r;
+                this.colorGreenTopLeft_WestFace *= g;
+                this.colorGreenBottomLeft_WestFace *= g;
+                this.colorGreenBottomRight_WestFace *= g;
+                this.colorGreenTopRight_WestFace *= g;
+                this.colorBlueTopLeft_WestFace *= b;
+                this.colorBlueBottomLeft_WestFace *= b;
+                this.colorBlueBottomRight_WestFace *= b;
+                this.colorBlueTopRight_WestFace *= b;
+                this.renderSlopesWestFace(block, (double)x, (double)y, (double)z, 38, meta, renderer, block.getMixedBrightnessForBlock(world, x, y, z));
             }
 
             var11 = true;
         }
 
-        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2 - 1, var3, var4, 4))
+        if (renderer.renderAllFaces || block.shouldSideBeRendered(world, x - 1, y, z, 4))
         {
-            this.renderSlopesNorthFace(var1, (double)var2, (double)var3, (double)var4, var40, var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
+            this.renderSlopesNorthFace(block, (double)x, (double)y, (double)z, var40, meta, renderer, block.getMixedBrightnessForBlock(world, x, y, z));
 
             if (field_27511_cfgGrassFix && var40 == 3)
             {
-                this.colorRedTopLeft_NorthFace *= var5;
-                this.colorRedBottomLeft_NorthFace *= var5;
-                this.colorRedBottomRight_NorthFace *= var5;
-                this.colorRedTopRight_NorthFace *= var5;
-                this.colorGreenTopLeft_NorthFace *= var6;
-                this.colorGreenBottomLeft_NorthFace *= var6;
-                this.colorGreenBottomRight_NorthFace *= var6;
-                this.colorGreenTopRight_NorthFace *= var6;
-                this.colorBlueTopLeft_NorthFace *= var7;
-                this.colorBlueBottomLeft_NorthFace *= var7;
-                this.colorBlueBottomRight_NorthFace *= var7;
-                this.colorBlueTopRight_NorthFace *= var7;
-                this.renderSlopesNorthFace(var1, (double)var2, (double)var3, (double)var4, 38, var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
+                this.colorRedTopLeft_NorthFace *= r;
+                this.colorRedBottomLeft_NorthFace *= r;
+                this.colorRedBottomRight_NorthFace *= r;
+                this.colorRedTopRight_NorthFace *= r;
+                this.colorGreenTopLeft_NorthFace *= g;
+                this.colorGreenBottomLeft_NorthFace *= g;
+                this.colorGreenBottomRight_NorthFace *= g;
+                this.colorGreenTopRight_NorthFace *= g;
+                this.colorBlueTopLeft_NorthFace *= b;
+                this.colorBlueBottomLeft_NorthFace *= b;
+                this.colorBlueBottomRight_NorthFace *= b;
+                this.colorBlueTopRight_NorthFace *= b;
+                this.renderSlopesNorthFace(block, (double)x, (double)y, (double)z, 38, meta, renderer, block.getMixedBrightnessForBlock(world, x, y, z));
             }
 
             var11 = true;
         }
 
-        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2 + 1, var3, var4, 5))
+        if (renderer.renderAllFaces || block.shouldSideBeRendered(world, x + 1, y, z, 5))
         {
-            this.renderSlopesSouthFace(var1, (double)var2, (double)var3, (double)var4, var45, var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
+            this.renderSlopesSouthFace(block, (double)x, (double)y, (double)z, var45, meta, renderer, block.getMixedBrightnessForBlock(world, x, y, z));
 
             if (field_27511_cfgGrassFix && var45 == 3)
             {
-                this.colorRedTopLeft_SouthFace *= var5;
-                this.colorRedBottomLeft_SouthFace *= var5;
-                this.colorRedBottomRight_SouthFace *= var5;
-                this.colorRedTopRight_SouthFace *= var5;
-                this.colorGreenTopLeft_SouthFace *= var6;
-                this.colorGreenBottomLeft_SouthFace *= var6;
-                this.colorGreenBottomRight_SouthFace *= var6;
-                this.colorGreenTopRight_SouthFace *= var6;
-                this.colorBlueTopLeft_SouthFace *= var7;
-                this.colorBlueBottomLeft_SouthFace *= var7;
-                this.colorBlueBottomRight_SouthFace *= var7;
-                this.colorBlueTopRight_SouthFace *= var7;
-                this.renderSlopesSouthFace(var1, (double)var2, (double)var3, (double)var4, 38, var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
+                this.colorRedTopLeft_SouthFace *= r;
+                this.colorRedBottomLeft_SouthFace *= r;
+                this.colorRedBottomRight_SouthFace *= r;
+                this.colorRedTopRight_SouthFace *= r;
+                this.colorGreenTopLeft_SouthFace *= g;
+                this.colorGreenBottomLeft_SouthFace *= g;
+                this.colorGreenBottomRight_SouthFace *= g;
+                this.colorGreenTopRight_SouthFace *= g;
+                this.colorBlueTopLeft_SouthFace *= b;
+                this.colorBlueBottomLeft_SouthFace *= b;
+                this.colorBlueBottomRight_SouthFace *= b;
+                this.colorBlueTopRight_SouthFace *= b;
+                this.renderSlopesSouthFace(block, (double)x, (double)y, (double)z, 38, meta, renderer, block.getMixedBrightnessForBlock(world, x, y, z));
             }
 
             var11 = true;
