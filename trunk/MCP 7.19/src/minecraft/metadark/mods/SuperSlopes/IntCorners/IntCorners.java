@@ -13,9 +13,9 @@ import net.minecraft.src.Block;
 import net.minecraft.src.Item;
 
 @Mod(
-        modid = "SuperSlopes_IntCorners",
+        modid = "SuperSlopesIntCorners",
         name = "SuperSlopes - IntCorners",
-        version = "4.2b"
+        version = "4.5b"
 )
 @NetworkMod(
         clientSideRequired = true,
@@ -39,6 +39,7 @@ public class IntCorners
     public static Block BlockKaevSandstoneIntCorners;
     public static Block BlockKaevDirtIntCorners;
     public static Block BlockKaevStoneIntCorners;
+    public static Block BlockKaevStoneBrickIntCorners;
     public static Block BlockKaevSandIntCorners;
     public static Block BlockKaevSnowIntCorners;
     public static Block BlockKaevGrassIntCorners;
@@ -47,6 +48,7 @@ public class IntCorners
     public static Block BlockKaevGoldIntCorners;
     public static Block BlockKaevSteelIntCorners;
     public static Block BlockKaevObsidianIntCorners;
+    public static Block BlockKaevNetherBrickIntCorners;
     public static Block BlockKaevDiamondIntCorners;
     public static Block BlockKaevWhiteWoolIntCorners;
     public static Block BlockKaevBlackWoolIntCorners;
@@ -70,6 +72,7 @@ public class IntCorners
     public static Item ItemKaevSandstoneIntCorners;
     public static Item ItemKaevDirtIntCorners;
     public static Item ItemKaevStoneIntCorners;
+    public static Item ItemKaevStoneBrickIntCorners;
     public static Item ItemKaevSandIntCorners;
     public static Item ItemKaevSnowIntCorners;
     public static Item ItemKaevGrassIntCorners;
@@ -78,6 +81,7 @@ public class IntCorners
     public static Item ItemKaevGoldIntCorners;
     public static Item ItemKaevSteelIntCorners;
     public static Item ItemKaevObsidianIntCorners;
+    public static Item ItemKaevNetherBrickIntCorners;
     public static Item ItemKaevDiamondIntCorners;
     public static Item ItemKaevWhiteWoolIntCorners;
     public static Item ItemKaevBlackWoolIntCorners;
@@ -106,6 +110,7 @@ public class IntCorners
         props.getInt("SandstoneIntCorners", 200);
         props.getInt("DirtIntCorners", 201);
         props.getInt("StoneIntCorners", 202);
+        props.getInt("StoneBrickIntCorners", 0);
         props.getInt("SandIntCorners", 203);
         props.getInt("SnowIntCorners", 204);
         props.getInt("GrassIntCorners", 205);
@@ -114,6 +119,7 @@ public class IntCorners
         props.getInt("GoldIntCorners", 208);
         props.getInt("IronIntCorners", 209);
         props.getInt("ObsidianIntCorners", 210);
+        props.getInt("NetherBrickIntCorners", 0);
         props.getInt("DiamondIntCorners", 211);
         props.getInt("WhiteWoolIntCorners", 0);
         props.getInt("BlackWoolIntCorners", 0);

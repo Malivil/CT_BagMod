@@ -122,6 +122,7 @@ public class RenderCorners implements ISimpleBlockRenderingHandler
     public float colorGreenSlopes;
     public float colorBlueSlopes;
 
+    @Override
     public void renderInventoryBlock(Block var1, int var2, int var3, RenderBlocks var4)
     {
         Tessellator var5 = Tessellator.instance;
@@ -160,16 +161,19 @@ public class RenderCorners implements ISimpleBlockRenderingHandler
         var1.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
     }
 
+    @Override
     public boolean renderWorldBlock(IBlockAccess var1, int var2, int var3, int var4, Block var5, int var6, RenderBlocks var7)
     {
         return var6 == this.getRenderId() ? this.renderBlockCorners(var5, var2, var3, var4, var7, var1) : false;
     }
 
+    @Override
     public boolean shouldRender3DInInventory()
     {
         return true;
     }
 
+    @Override
     public int getRenderId()
     {
         return Corners.CornersRenderID;

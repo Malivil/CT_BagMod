@@ -37,6 +37,10 @@ public class ClientInit extends CommonInit
         ModLoader.addLocalization("KaevStoneSlopesQuadriCornerUp.name", "Stone Pyramid Corner Inv");
         ModLoader.addLocalization("KaevStoneSlopesTriCornerDown.name", "Stone Corner Slope");
         ModLoader.addLocalization("KaevStoneSlopesTriCornerUp.name", "Stone Corner Slope Inv");
+        ModLoader.addLocalization("KaevStoneBrickSlopesQuadriCornerDown.name", "Stone Brick Pyramid Corner");
+        ModLoader.addLocalization("KaevStoneBrickSlopesQuadriCornerUp.name", "Stone Brick Pyramid Corner Inv");
+        ModLoader.addLocalization("KaevStoneBrickSlopesTriCornerDown.name", "Stone Brick Corner Slope");
+        ModLoader.addLocalization("KaevStoneBrickSlopesTriCornerUp.name", "Stone Brick Corner Slope Inv");
         ModLoader.addLocalization("KaevSandSlopesQuadriCornerDown.name", "Sand Pyramid Corner");
         ModLoader.addLocalization("KaevSandSlopesQuadriCornerUp.name", "Sand Pyramid Corner Inv");
         ModLoader.addLocalization("KaevSandSlopesTriCornerDown.name", "Sand Corner Slope");
@@ -69,6 +73,10 @@ public class ClientInit extends CommonInit
         ModLoader.addLocalization("KaevObsidianSlopesQuadriCornerUp.name", "Obsidian Pyramid Corner Inv");
         ModLoader.addLocalization("KaevObsidianSlopesTriCornerDown.name", "Obsidian Corner Slope");
         ModLoader.addLocalization("KaevObsidianSlopesTriCornerUp.name", "Obsidian Corner Slope Inv");
+        ModLoader.addLocalization("KaevNetherBrickSlopesQuadriCornerDown.name", "Nether Brick Pyramid Corner");
+        ModLoader.addLocalization("KaevNetherBrickSlopesQuadriCornerUp.name", "Nether Brick Pyramid Corner Inv");
+        ModLoader.addLocalization("KaevNetherBrickSlopesTriCornerDown.name", "Nether Brick Corner Slope");
+        ModLoader.addLocalization("KaevNetherBrickSlopesTriCornerUp.name", "Nether Brick Corner Slope Inv");
         ModLoader.addLocalization("KaevDiamondSlopesQuadriCornerDown.name", "Diamond Pyramid Corner");
         ModLoader.addLocalization("KaevDiamondSlopesQuadriCornerUp.name", "Diamond Pyramid Corner Inv");
         ModLoader.addLocalization("KaevDiamondSlopesTriCornerDown.name", "Diamond Corner Slope");

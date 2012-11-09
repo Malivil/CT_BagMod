@@ -13,9 +13,9 @@ import net.minecraft.src.Block;
 import net.minecraft.src.Item;
 
 @Mod(
-        modid = "SuperSlopes_Slopes",
+        modid = "SuperSlopesSlopes",
         name = "SuperSlopes - Slopes",
-        version = "4.2b"
+        version = "4.5b"
 )
 @NetworkMod(
         clientSideRequired = true,
@@ -39,6 +39,7 @@ public class Slopes
     public static Block BlockKaevSandstoneSlopes;
     public static Block BlockKaevDirtSlopes;
     public static Block BlockKaevStoneSlopes;
+    public static Block BlockKaevStoneBrickSlopes;
     public static Block BlockKaevSandSlopes;
     public static Block BlockKaevSnowSlopes;
     public static Block BlockKaevGrassSlopes;
@@ -47,6 +48,7 @@ public class Slopes
     public static Block BlockKaevGoldSlopes;
     public static Block BlockKaevSteelSlopes;
     public static Block BlockKaevObsidianSlopes;
+    public static Block BlockKaevNetherBrickSlopes;
     public static Block BlockKaevDiamondSlopes;
     public static Block BlockKaevWhiteWoolSlopes;
     public static Block BlockKaevBlackWoolSlopes;
@@ -70,6 +72,7 @@ public class Slopes
     public static Item ItemKaevSandstoneSlopes;
     public static Item ItemKaevDirtSlopes;
     public static Item ItemKaevStoneSlopes;
+    public static Item ItemKaevStoneBrickSlopes;
     public static Item ItemKaevSandSlopes;
     public static Item ItemKaevSnowSlopes;
     public static Item ItemKaevGrassSlopes;
@@ -78,6 +81,7 @@ public class Slopes
     public static Item ItemKaevGoldSlopes;
     public static Item ItemKaevSteelSlopes;
     public static Item ItemKaevObsidianSlopes;
+    public static Item ItemKaevNetherBrickSlopes;
     public static Item ItemKaevDiamondSlopes;
     public static Item ItemKaevWhiteWoolSlopes;
     public static Item ItemKaevBlackWoolSlopes;
@@ -106,6 +110,7 @@ public class Slopes
         props.getInt("SandstoneSlopes", 170);
         props.getInt("DirtSlopes", 171);
         props.getInt("StoneSlopes", 172);
+        props.getInt("StoneBrickSlopes", 0);
         props.getInt("SandSlopes", 173);
         props.getInt("SnowSlopes", 174);
         props.getInt("GrassSlopes", 175);
@@ -114,6 +119,7 @@ public class Slopes
         props.getInt("GoldSlopes", 178);
         props.getInt("IronSlopes", 179);
         props.getInt("ObsidianSlopes", 180);
+        props.getInt("NetherBrickSlopes", 0);
         props.getInt("DiamondSlopes", 181);
         props.getInt("WhiteWoolSlopes", 215);
         props.getInt("BlackWoolSlopes", 0);

@@ -82,6 +82,18 @@ public class CommonInit
             }
         }
 
+        if (Slopes.props.getInt("StoneBrickSlopes") != 0)
+        {
+            GameRegistry.addRecipe(new ItemStack(Slopes.BlockKaevStoneBrickSlopes, 3, 4), new Object[] {"#  ", " # ", "###", '#', Block.stoneBrick});
+            GameRegistry.addRecipe(new ItemStack(Slopes.BlockKaevStoneBrickSlopes, 3, 12), new Object[] {" # ", " ##", " # ", '#', Block.stoneBrick});
+
+            if (Slopes.props.getBoolean("BlockInversion"))
+            {
+                GameRegistry.addRecipe(new ItemStack(Slopes.BlockKaevStoneBrickSlopes, 4, 0), new Object[] {"###", " ##", "  #", '#', Block.stoneBrick});
+                GameRegistry.addRecipe(new ItemStack(Slopes.BlockKaevStoneBrickSlopes, 3, 8), new Object[] {"###", " # ", "#  ", '#', Block.stoneBrick});
+            }
+        }
+
         if (Slopes.props.getInt("SandSlopes") != 0)
         {
             GameRegistry.addRecipe(new ItemStack(Slopes.BlockKaevSandSlopes, 3, 4), new Object[] {"#  ", " # ", "###", '#', Block.sand});
@@ -177,6 +189,18 @@ public class CommonInit
             }
         }
 
+        if (Slopes.props.getInt("NetherBrickSlopes") != 0)
+        {
+            GameRegistry.addRecipe(new ItemStack(Slopes.BlockKaevNetherBrickSlopes, 3, 4), new Object[] {"#  ", " # ", "###", '#', Block.netherBrick});
+            GameRegistry.addRecipe(new ItemStack(Slopes.BlockKaevNetherBrickSlopes, 3, 12), new Object[] {" # ", " ##", " # ", '#', Block.netherBrick});
+
+            if (Slopes.props.getBoolean("BlockInversion"))
+            {
+                GameRegistry.addRecipe(new ItemStack(Slopes.BlockKaevNetherBrickSlopes, 4, 0), new Object[] {"###", " ##", "  #", '#', Block.netherBrick});
+                GameRegistry.addRecipe(new ItemStack(Slopes.BlockKaevNetherBrickSlopes, 3, 8), new Object[] {"###", " # ", "#  ", '#', Block.netherBrick});
+            }
+        }
+
         if (Slopes.props.getInt("DiamondSlopes") != 0)
         {
             GameRegistry.addRecipe(new ItemStack(Slopes.BlockKaevDiamondSlopes, 4, 4), new Object[] {"#  ", " # ", "###", '#', Block.blockDiamond});
@@ -266,6 +290,16 @@ public class CommonInit
             Slopes.BlockKaevStoneSlopes = Block.stone;
         }
 
+        if (Slopes.props.getInt("StoneBrickSlopes") != 0)
+        {
+            Slopes.BlockKaevStoneBrickSlopes = (new BlockSlopes(Slopes.props.getInt("StoneBrickSlopes"), Block.stoneBrick.blockIndexInTexture, Material.rock)).setHardness(1.5F).setStepSound(Block.soundStoneFootstep).setResistance(10.0F).setBlockName("StoneBrickSlopes");
+            Slopes.ItemKaevStoneBrickSlopes = (new ItemSlopes(Slopes.BlockKaevStoneBrickSlopes.blockID - 256, "StoneBrick")).setItemName("StoneBrickSlopes");
+        }
+        else
+        {
+            Slopes.BlockKaevStoneBrickSlopes = Block.stone;
+        }
+
         if (Slopes.props.getInt("SandSlopes") != 0)
         {
             Slopes.BlockKaevSandSlopes = (new BlockSlopes(Slopes.props.getInt("SandSlopes"), 18, Material.sand)).setHardness(0.5F).setStepSound(Block.soundSandFootstep).setBlockName("SandSlopes");
@@ -344,6 +378,16 @@ public class CommonInit
         else
         {
             Slopes.BlockKaevObsidianSlopes = Block.stone;
+        }
+
+        if (Slopes.props.getInt("NetherBrickSlopes") != 0)
+        {
+            Slopes.BlockKaevNetherBrickSlopes = (new BlockSlopes(Slopes.props.getInt("NetherBrickSlopes"), Block.netherBrick.blockIndexInTexture, Material.rock)).setHardness(1.5F).setStepSound(Block.soundStoneFootstep).setResistance(10.0F).setBlockName("NetherBrickSlopes");
+            Slopes.ItemKaevNetherBrickSlopes = (new ItemSlopes(Slopes.BlockKaevNetherBrickSlopes.blockID - 256, "NetherBrick")).setItemName("NetherBrickSlopes");
+        }
+        else
+        {
+            Slopes.BlockKaevNetherBrickSlopes = Block.stone;
         }
 
         if (Slopes.props.getInt("DiamondSlopes") != 0)

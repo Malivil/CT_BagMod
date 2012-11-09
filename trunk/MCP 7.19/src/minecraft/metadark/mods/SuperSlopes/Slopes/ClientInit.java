@@ -37,6 +37,10 @@ public class ClientInit extends CommonInit
         ModLoader.addLocalization("KaevStoneSlopesSlopeDown.name", "Stone Slope");
         ModLoader.addLocalization("KaevStoneSlopesSlopeUp.name", "Stone Slope Inv");
         ModLoader.addLocalization("KaevStoneSlopesSlopeSide.name", "Stone Corner");
+        ModLoader.addLocalization("KaevStoneBrickSlopesStairsUp.name", "Stone Brick Stairs Inv");
+        ModLoader.addLocalization("KaevStoneBrickSlopesSlopeDown.name", "Stone Brick Slope");
+        ModLoader.addLocalization("KaevStoneBrickSlopesSlopeUp.name", "Stone Brick Slope Inv");
+        ModLoader.addLocalization("KaevStoneBrickSlopesSlopeSide.name", "Stone Brick Corner");
         ModLoader.addLocalization("KaevSandSlopesStairsUp.name", "Sand Stairs Inv");
         ModLoader.addLocalization("KaevSandSlopesSlopeDown.name", "Sand Slope");
         ModLoader.addLocalization("KaevSandSlopesSlopeUp.name", "Sand Slope Inv");
@@ -69,6 +73,10 @@ public class ClientInit extends CommonInit
         ModLoader.addLocalization("KaevObsidianSlopesSlopeDown.name", "Obsidian Slope");
         ModLoader.addLocalization("KaevObsidianSlopesSlopeUp.name", "Obsidian Slope Inv");
         ModLoader.addLocalization("KaevObsidianSlopesSlopeSide.name", "Obsidian Corner");
+        ModLoader.addLocalization("KaevNetherBrickSlopesStairsUp.name", "Nether Brick Stairs Inv");
+        ModLoader.addLocalization("KaevNetherBrickSlopesSlopeDown.name", "Nether Brick Slope");
+        ModLoader.addLocalization("KaevNetherBrickSlopesSlopeUp.name", "Nether Brick Slope Inv");
+        ModLoader.addLocalization("KaevNetherBrickSlopesSlopeSide.name", "Nether Brick Corner");
         ModLoader.addLocalization("KaevDiamondSlopesStairsUp.name", "Diamond Stairs Inv");
         ModLoader.addLocalization("KaevDiamondSlopesSlopeDown.name", "Diamond Slope");
         ModLoader.addLocalization("KaevDiamondSlopesSlopeUp.name", "Diamond Slope Inv");
