@@ -527,6 +527,7 @@ FD: metadark/mods/SuperSlopes/IntCorners/ItemIntCorners/material metadark/mods/S
 PK: metadark/mods/SuperSlopes/Slopes metadark/mods/SuperSlopes/Slopes
 CL: metadark/mods/SuperSlopes/Slopes/ItemSlopes metadark/mods/SuperSlopes/Slopes/ItemSlopes
 FD: metadark/mods/SuperSlopes/Slopes/ItemSlopes/Kaevator_Materials metadark/mods/SuperSlopes/Slopes/ItemSlopes/Kaevator_Materials
+FD: metadark/mods/SuperSlopes/Slopes/ItemSlopes/Vanilla_Stair_Materials metadark/mods/SuperSlopes/Slopes/ItemSlopes/Vanilla_Stair_Materials
 FD: metadark/mods/SuperSlopes/Slopes/ItemSlopes/material metadark/mods/SuperSlopes/Slopes/ItemSlopes/material
 CL: metadark/mods/SuperSlopes/Slopes/BlockSlopes metadark/mods/SuperSlopes/Slopes/BlockSlopes
 CL: metadark/mods/SuperSlopes/Slopes/CommonInit metadark/mods/SuperSlopes/Slopes/CommonInit
@@ -742,8 +743,8 @@ FD: metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueTopLeft_TopFace met
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopLeft_TopFace metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopLeft_TopFace
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopRight_SouthFace metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopRight_SouthFace
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueSlopes metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueSlopes
-FD: metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedTopLeft_SouthFace metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedTopLeft_SouthFace
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueBottomRight_EastFace metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueBottomRight_EastFace
+FD: metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedTopLeft_SouthFace metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedTopLeft_SouthFace
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueYPosZNeg metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueYPosZNeg
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueTopLeft_EastFace metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueTopLeft_EastFace
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueYNeg metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueYNeg
@@ -767,13 +768,12 @@ FD: metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueBottomRight_TopFace
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/factorSouth metadark/mods/SuperSlopes/Corners/RenderCorners/factorSouth
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/factorBottom metadark/mods/SuperSlopes/Corners/RenderCorners/factorBottom
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedTopLeft_EastFace metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedTopLeft_EastFace
-FD: metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXNeg metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXNeg
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueYNegZNeg metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueYNegZNeg
+FD: metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXNeg metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXNeg
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXNegYPosZNeg metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXNegYPosZNeg
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopLeft_SouthFace metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopLeft_SouthFace
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopRight_EastFace metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopRight_EastFace
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/factorTop metadark/mods/SuperSlopes/Corners/RenderCorners/factorTop
-FD: metadark/mods/SuperSlopes/Corners/RenderCorners/field_27511_cfgGrassFix metadark/mods/SuperSlopes/Corners/RenderCorners/field_27511_cfgGrassFix
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedBottomLeft_TopFace metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedBottomLeft_TopFace
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueTopRight_BottomFace metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueTopRight_BottomFace
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedBottomRight_SouthFace metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedBottomRight_SouthFace
@@ -788,7 +788,6 @@ FD: metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueTopRight_WestFace m
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopRight_BottomFace metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopRight_BottomFace
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueZNeg metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueZNeg
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedBottomLeft_WestFace metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedBottomLeft_WestFace
-FD: metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueThis metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueThis
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueBottomLeft_TopFace metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueBottomLeft_TopFace
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueBottomRight_SouthFace metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueBottomRight_SouthFace
 FD: metadark/mods/SuperSlopes/Corners/RenderCorners/enableAO metadark/mods/SuperSlopes/Corners/RenderCorners/enableAO

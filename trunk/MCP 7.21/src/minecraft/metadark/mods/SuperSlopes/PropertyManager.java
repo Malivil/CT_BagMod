@@ -18,587 +18,478 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public final class PropertyManager
-{
+public final class PropertyManager {
     private String fileName;
-    private List lines = new ArrayList();
-    private Map props = new HashMap();
+    private final List lines = new ArrayList();
+    private final Map props = new HashMap();
 
-    public PropertyManager(String var1)
-    {
-        this.fileName = var1;
-        File var2 = new File(this.fileName);
+    public PropertyManager(final String fileName) {
+        this.fileName = fileName;
+        final File file = new File(this.fileName);
 
-        if (var2.exists())
-        {
-            try
-            {
+        if (file.exists()) {
+            try {
                 this.load();
             }
-            catch (IOException var4)
-            {
+            catch (final IOException ex) {
                 System.out.println("[PlasmaProps] Unable to load " + this.fileName + "!");
             }
         }
         else
-        {
             this.save();
-        }
     }
 
-    public void load() throws IOException
-    {
-        BufferedReader var1 = new BufferedReader(new InputStreamReader(new FileInputStream(this.fileName), "UTF8"));
+    public void load() throws IOException {
+        final BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(this.fileName), "UTF8"));
         this.lines.clear();
         this.props.clear();
-        String var2;
+        String line;
 
-        while ((var2 = var1.readLine()) != null)
-        {
-            var2 = new String(var2.getBytes(), "UTF-8");
-            boolean var3 = false;
-            int var4;
-            char var14 = 0;
+        while ((line = reader.readLine()) != null) {
+            line = new String(line.getBytes(), "UTF-8");
+            int position;
+            char curChar = 0;
 
-            for (var4 = 0; var4 < var2.length() && Character.isWhitespace(var14 = var2.charAt(var4)); ++var4)
-            {
-                ;
-            }
+            // Skip leading whitespace
+            for (position = 0; position < line.length() && Character.isWhitespace(curChar = line.charAt(position)); ++position);
 
-            if (var2.length() - var4 != 0 && var2.charAt(var4) != 35 && var2.charAt(var4) != 33)
-            {
-                boolean var6 = var2.indexOf(92, var4) != -1;
-                StringBuffer var7 = var6 ? new StringBuffer() : null;
+            // Skip empty lines and lines that begin with '#' or '!' (Comments)
+            if (((line.length() - position) != 0) && (line.charAt(position) != '#') && (line.charAt(position) != '!')) {
+                final boolean hasSlash = (line.indexOf('\\', position) != -1);
+                final StringBuffer complexProperty = hasSlash ? new StringBuffer() : null;
 
-                if (var7 != null)
-                {
+                if (complexProperty != null) {
                     label176:
 
-                    while (var4 < var2.length() && !Character.isWhitespace(var14 = var2.charAt(var4++)) && var14 != 61 && var14 != 58)
-                    {
-                        if (var6 && var14 == 92)
-                        {
-                            if (var4 == var2.length())
-                            {
-                                var2 = var1.readLine();
+                    // Skip whitespace and comment characters
+                    while ((position < line.length()) && !Character.isWhitespace(curChar = line.charAt(position++)) && (curChar != '=') && (curChar != ':')) {
+                        if (hasSlash && (curChar == '\\')) {
+                            if (position == line.length()) {
+                                line = reader.readLine();
 
-                                if (var2 == null)
-                                {
-                                    var2 = "";
-                                }
+                                if (line == null)
+                                    line = "";
 
-                                var4 = 0;
+                                position = 0;
 
-                                while (true)
-                                {
-                                    if (var4 >= var2.length() || !Character.isWhitespace(var14 = var2.charAt(var4)))
-                                    {
+                                // Skip whitespace
+                                while (true) {
+                                    if ((position >= line.length()) || !Character.isWhitespace(curChar = line.charAt(position)))
                                         continue label176;
-                                    }
 
-                                    ++var4;
+                                    ++position;
                                 }
                             }
 
-                            var14 = var2.charAt(var4++);
+                            curChar = line.charAt(position++);
                         }
 
-                        switch (var14)
-                        {
-                            case 110:
-                                var7.append('\n');
+                        switch (curChar) {
+                            case 'n':
+                                complexProperty.append('\n');
                                 break;
 
-                            case 111:
-                            case 112:
-                            case 113:
-                            case 115:
+                            case 'o':
+                            case 'p':
+                            case 'q':
+                            case 's':
                             default:
-                                var7.append('\u0000');
+                                complexProperty.append('\u0000');
                                 break;
 
-                            case 114:
-                                var7.append('\r');
+                            case 'r':
+                                complexProperty.append('\r');
                                 break;
 
-                            case 116:
-                                var7.append('\t');
+                            case 't':
+                                complexProperty.append('\t');
                                 break;
 
-                            case 117:
-                                if (var4 + 4 <= var2.length())
-                                {
-                                    char var8 = (char)Integer.parseInt(var2.substring(var4, var4 + 4), 16);
-                                    var7.append(var8);
-                                    var4 += 4;
+                            case 'u':
+                                if ((position + 4) <= line.length()) {
+                                    // Get the unicode character
+                                    char unicodeChar = (char)Integer.parseInt(line.substring(position, (position + 4)), 16);
+                                    complexProperty.append(unicodeChar);
+                                    position += 4;
                                 }
+                                break;
                         }
                     }
                 }
 
-                boolean var15 = var14 == 58 || var14 == 61;
-                String var9;
+                boolean isPropSeperator = (curChar == ':') || (curChar == '=');
+                String propertyName;
 
-                if (var6)
-                {
-                    var9 = var7.toString();
-                }
-                else if (!var15 && !Character.isWhitespace(var14))
-                {
-                    var9 = var2.substring(var4, var4);
-                }
+                if (hasSlash)
+                    propertyName = complexProperty.toString();
+                else if (!isPropSeperator && !Character.isWhitespace(curChar))
+                    propertyName = line.substring(position, position);
                 else
-                {
-                    var9 = var2.substring(var4, var4 - 1);
+                    propertyName = line.substring(position, position - 1);
+
+                // Skip whitespace after property name
+                while ((position < line.length()) && Character.isWhitespace(curChar = line.charAt(position)))
+                    ++position;
+
+                if (!isPropSeperator && ((curChar == ':') || (curChar == '='))) {
+                    ++position;
+
+                    // Skip white space after : or =
+                    while (position < line.length() && Character.isWhitespace(line.charAt(position)))
+                        ++position;
                 }
 
-                while (var4 < var2.length() && Character.isWhitespace(var14 = var2.charAt(var4)))
-                {
-                    ++var4;
-                }
+                if (!hasSlash)
+                    this.lines.add(line);
+                else {
+                    final StringBuilder value = new StringBuilder(line.length() - position);
 
-                if (!var15 && (var14 == 58 || var14 == 61))
-                {
-                    ++var4;
+                    while (position < line.length()) {
+                        final char valueChar = line.charAt(position++);
 
-                    while (var4 < var2.length() && Character.isWhitespace(var2.charAt(var4)))
-                    {
-                        ++var4;
-                    }
-                }
+                        if (valueChar == '\\') {
+                            if (position == line.length()) {
+                                line = reader.readLine();
 
-                if (!var6)
-                {
-                    this.lines.add(var2);
-                }
-                else
-                {
-                    StringBuilder var10 = new StringBuilder(var2.length() - var4);
-
-                    while (var4 < var2.length())
-                    {
-                        char var11 = var2.charAt(var4++);
-
-                        if (var11 == 92)
-                        {
-                            if (var4 == var2.length())
-                            {
-                                var2 = var1.readLine();
-
-                                if (var2 == null)
-                                {
+                                if (line == null)
                                     break;
-                                }
 
-                                for (var4 = 0; var4 < var2.length() && Character.isWhitespace(var2.charAt(var4)); ++var4)
-                                {
-                                    ;
-                                }
+                                // Skip more whitespace
+                                for (position = 0; (position < line.length()) && Character.isWhitespace(line.charAt(position)); ++position);
 
-                                var10.ensureCapacity(var2.length() - var4 + var10.length());
+                                value.ensureCapacity(line.length() - position + value.length());
                                 continue;
                             }
 
-                            char var12 = var2.charAt(var4++);
+                            final char complexChar = line.charAt(position++);
 
-                            switch (var12)
-                            {
-                                case 110:
-                                    var10.append('\n');
+                            switch (complexChar) {
+                                case 'n':
+                                    value.append('\n');
                                     break;
-
-                                case 111:
-                                case 112:
-                                case 113:
-                                case 115:
+    
+                                case 'o':
+                                case 'p':
+                                case 'q':
+                                case 's':
                                 default:
-                                    var10.append('\u0000');
+                                    value.append('\u0000');
                                     break;
-
-                                case 114:
-                                    var10.append('\r');
+    
+                                case 'r':
+                                    value.append('\r');
                                     break;
-
-                                case 116:
-                                    var10.append('\t');
+    
+                                case 't':
+                                    value.append('\t');
                                     break;
-
-                                case 117:
-                                    if (var4 + 4 > var2.length())
-                                    {
+    
+                                case 'u':
+                                    if ((position + 4) > line.length())
                                         continue;
-                                    }
 
-                                    char var13 = (char)Integer.parseInt(var2.substring(var4, var4 + 4), 16);
-                                    var10.append(var13);
-                                    var4 += 4;
+                                    char unicodeChar = (char)Integer.parseInt(line.substring(position, position + 4), 16);
+                                    value.append(unicodeChar);
+                                    position += 4;
+                                    break;
                             }
                         }
 
-                        var10.append('\u0000');
+                        value.append('\u0000');
                     }
 
-                    this.lines.add(var9 + "=" + var10.toString());
+                    this.lines.add(propertyName + "=" + value.toString());
                 }
             }
             else
-            {
-                this.lines.add(var2);
-            }
+                this.lines.add(line);
         }
 
-        var1.close();
+        reader.close();
     }
 
-    public void save()
-    {
-        FileOutputStream var1 = null;
+    public void save() {
+        FileOutputStream fileStream = null;
 
-        try
-        {
-            var1 = new FileOutputStream(this.fileName);
+        try {
+            fileStream = new FileOutputStream(this.fileName);
         }
-        catch (FileNotFoundException var11)
-        {
+        catch (final FileNotFoundException ex) {
             System.out.println("[PlasmaProps] Unable to open " + this.fileName + "!");
         }
 
-        PrintStream var2 = null;
+        PrintStream printStream = null;
 
-        try
-        {
-            var2 = new PrintStream(var1, true, "UTF-8");
+        try {
+            printStream = new PrintStream(fileStream, true, "UTF-8");
         }
-        catch (UnsupportedEncodingException var10)
-        {
+        catch (final UnsupportedEncodingException ex) {
             System.out.println("[PlasmaProps] Unable to write to " + this.fileName + "!");
         }
 
-        ArrayList var3 = new ArrayList();
-        Iterator var4 = this.lines.iterator();
+        final ArrayList properties = new ArrayList();
+        Iterator iter = this.lines.iterator();
 
-        while (var4.hasNext())
-        {
-            String var5 = (String)var4.next();
+        while (iter.hasNext()) {
+            final String line = (String)iter.next();
 
-            if (var5.trim().length() == 0)
-            {
-                var2.println(var5);
-            }
-            else if (var5.charAt(0) == 35)
-            {
-                var2.println(var5);
-            }
-            else if (var5.contains("="))
-            {
-                int var6 = var5.indexOf(61);
-                String var7 = var5.substring(0, var6).trim();
+            // Write empty lines directly
+            if (line.trim().length() == 0)
+                printStream.println(line);
+            // Write comments directly
+            else if (line.charAt(0) == '#')
+                printStream.println(line);
+            // If this has an '=', it's a key/value pair, get the correct data
+            else if (line.contains("=")) {
+                final int equalIndex = line.indexOf('=');
+                final String propertyName = line.substring(0, equalIndex).trim();
 
-                if (this.props.containsKey(var7))
-                {
-                    String var8 = (String)this.props.get(var7);
-                    var2.println(var7 + "=" + var8);
-                    var3.add(var7);
+                // If this property exists
+                if (this.props.containsKey(propertyName)) {
+                    // Get its value
+                    final String value = (String)this.props.get(propertyName);
+                    // Write the name and value to the file
+                    printStream.println(propertyName + "=" + value);
+                    // And add the name to the list of properties
+                    properties.add(propertyName);
                 }
+                // Otherwise just print this line
                 else
-                {
-                    var2.println(var5);
-                }
+                    printStream.println(line);
             }
+            // Otherwise just write the line directly
             else
-            {
-                var2.println(var5);
-            }
+                printStream.println(line);
         }
 
-        var4 = this.props.entrySet().iterator();
+        iter = this.props.entrySet().iterator();
 
-        while (var4.hasNext())
-        {
-            Entry var12 = (Entry)var4.next();
+        while (iter.hasNext()) {
+            final Entry entry = (Entry)iter.next();
 
-            if (!var3.contains(var12.getKey()))
-            {
-                var2.println((String)var12.getKey() + "=" + (String)var12.getValue());
-            }
+            // Write the rest of the properties and their values
+            if (!properties.contains(entry.getKey()))
+                printStream.println((String)entry.getKey() + "=" + (String)entry.getValue());
         }
 
-        var2.close();
+        printStream.close();
 
-        try
-        {
+        try {
             this.props.clear();
             this.lines.clear();
             this.load();
         }
-        catch (IOException var9)
-        {
+        catch (final IOException ex) {
             System.out.println("[PlasmaProps] Unable to load " + this.fileName + "!");
         }
     }
 
-    public Map returnMap() throws Exception
-    {
-        HashMap var1 = new HashMap();
-        BufferedReader var2 = new BufferedReader(new FileReader(this.fileName));
-        String var3;
+    public Map returnMap() throws Exception {
+        final HashMap map = new HashMap();
+        final BufferedReader reader = new BufferedReader(new FileReader(this.fileName));
+        String line;
 
-        while ((var3 = var2.readLine()) != null)
-        {
-            if (var3.trim().length() != 0 && var3.charAt(0) != 35 && var3.contains("="))
-            {
-                int var4 = var3.indexOf(61);
-                String var5 = var3.substring(0, var4).trim();
-                String var6 = var3.substring(var4 + 1).trim();
-                var1.put(var5, var6);
+        while ((line = reader.readLine()) != null) {
+            // Skip empty lines and comments
+            if ((line.trim().length() != 0) && (line.charAt(0) != '#') && line.contains("=")) {
+                final int equalIndex = line.indexOf('=');
+                final String key = line.substring(0, equalIndex).trim();
+                final String value = line.substring(equalIndex + 1).trim();
+                map.put(key, value);
             }
         }
 
-        var2.close();
-        return var1;
+        reader.close();
+        return map;
     }
 
-    public boolean containsKey(String var1)
-    {
-        Iterator var2 = this.lines.iterator();
+    public boolean containsKey(final String key) {
+        final Iterator iter = this.lines.iterator();
 
-        while (var2.hasNext())
-        {
-            String var3 = (String)var2.next();
+        while (iter.hasNext()) {
+            final String line = (String)iter.next();
 
-            if (var3.trim().length() != 0 && var3.charAt(0) != 35 && var3.contains("="))
-            {
-                int var4 = var3.indexOf(61);
-                String var5 = var3.substring(0, var4);
+            // Skip empty lines and comments
+            if ((line.trim().length() != 0) && (line.charAt(0) != '#') && line.contains("=")) {
+                final int equalIndex = line.indexOf('=');
+                final String foundKey = line.substring(0, equalIndex);
 
-                if (var5.equals(var1))
-                {
+                if (key.equals(foundKey))
                     return true;
-                }
             }
         }
 
         return false;
     }
 
-    public String getProperty(String var1)
-    {
-        Iterator var2 = this.lines.iterator();
+    public String getProperty(final String key) {
+        final Iterator iter = this.lines.iterator();
 
-        while (var2.hasNext())
-        {
-            String var3 = (String)var2.next();
+        while (iter.hasNext()) {
+            final String line = (String)iter.next();
 
-            if (var3.trim().length() != 0 && var3.charAt(0) != 35 && var3.contains("="))
-            {
-                int var4 = var3.indexOf(61);
-                String var5 = var3.substring(0, var4).trim();
-                String var6 = var3.substring(var4 + 1);
+            // Skip empty lines and comments
+            if ((line.trim().length() != 0) && (line.charAt(0) != '#') && line.contains("=")) {
+                final int equalIndex = line.indexOf('=');
+                final String foundKey = line.substring(0, equalIndex).trim();
+                final String value = line.substring(equalIndex + 1);
 
-                if (var5.equals(var1))
-                {
-                    return var6;
-                }
+                if (foundKey.equals(key))
+                    return value;
             }
         }
 
         return "";
     }
 
-    public void removeKey(String var1)
-    {
-        Boolean var2 = Boolean.valueOf(false);
+    public void removeKey(final String key) {
+        Boolean removed = Boolean.valueOf(false);
 
-        if (this.props.containsKey(var1))
-        {
-            this.props.remove(var1);
-            var2 = Boolean.valueOf(true);
+        if (this.props.containsKey(key)) {
+            this.props.remove(key);
+            removed = Boolean.valueOf(true);
         }
 
-        try
-        {
-            for (int var3 = 0; var3 < this.lines.size(); ++var3)
-            {
-                String var4 = (String)this.lines.get(var3);
+        try {
+            for (int i = 0; i < this.lines.size(); ++i) {
+                final String line = (String)this.lines.get(i);
 
-                if (var4.trim().length() != 0 && var4.charAt(0) != 35 && var4.contains("="))
-                {
-                    int var5 = var4.indexOf(61);
-                    String var6 = var4.substring(0, var5).trim();
+                // Skip empty lines and comments
+                if ((line.trim().length() != 0) && (line.charAt(0) != '#') && line.contains("=")) {
+                    final int equalIndex = line.indexOf('=');
+                    final String foundKey = line.substring(0, equalIndex).trim();
 
-                    if (var6.equals(var1))
-                    {
-                        this.lines.remove(var3);
-                        var2 = Boolean.valueOf(true);
+                    if (foundKey.equals(key)) {
+                        this.lines.remove(i);
+                        removed = Boolean.valueOf(true);
                     }
                 }
             }
         }
-        catch (ConcurrentModificationException var7)
-        {
-            this.removeKey(var1);
+        catch (ConcurrentModificationException ex) {
+            this.removeKey(key);
             return;
         }
 
-        if (var2.booleanValue())
-        {
+        if (removed.booleanValue())
             this.save();
-        }
     }
 
-    public boolean keyExists(String var1)
-    {
-        try
-        {
-            return this.containsKey(var1);
+    public boolean keyExists(final String key) {
+        try {
+            return this.containsKey(key);
         }
-        catch (Exception var3)
-        {
+        catch (final Exception ex) {
             return false;
         }
     }
 
-    public String getString(String var1)
-    {
-        return this.containsKey(var1) ? this.getProperty(var1) : "";
+    public String getString(final String key) {
+        return this.containsKey(key) ? this.getProperty(key) : "";
     }
 
-    public String getString(String var1, String var2)
-    {
-        if (this.containsKey(var1))
-        {
-            return this.getProperty(var1);
-        }
-        else
-        {
-            this.setString(var1, var2);
-            return var2;
+    public String getString(final String key, final String defaultValue) {
+        if (this.containsKey(key))
+            return this.getProperty(key);
+        else {
+            this.setString(key, defaultValue);
+            return defaultValue;
         }
     }
 
-    public void setString(String var1, String var2)
-    {
-        this.props.put(var1, var2);
+    public void setString(final String key, final String value) {
+        this.props.put(key, value);
         this.save();
     }
 
-    public int getInt(String var1)
-    {
-        return this.containsKey(var1) ? Integer.parseInt(this.getProperty(var1)) : 0;
+    public int getInt(final String key) {
+        return this.containsKey(key) ? Integer.parseInt(this.getProperty(key)) : 0;
     }
 
-    public int getInt(String var1, int var2)
-    {
-        if (this.containsKey(var1))
-        {
-            return Integer.parseInt(this.getProperty(var1));
-        }
-        else
-        {
-            this.setInt(var1, var2);
-            return var2;
+    public int getInt(final String key, final int defaultValue) {
+        if (this.containsKey(key))
+            return Integer.parseInt(this.getProperty(key));
+        else {
+            this.setInt(key, defaultValue);
+            return defaultValue;
         }
     }
 
-    public void setInt(String var1, int var2)
-    {
-        this.props.put(var1, String.valueOf(var2));
+    public void setInt(final String key, final int value) {
+        this.props.put(key, String.valueOf(value));
         this.save();
     }
 
-    public float getFloat(String var1)
-    {
-        return this.containsKey(var1) ? Float.parseFloat(this.getProperty(var1)) : 0.0F;
+    public float getFloat(final String key) {
+        return this.containsKey(key) ? Float.parseFloat(this.getProperty(key)) : 0.0F;
     }
 
-    public float getFloat(String var1, float var2)
-    {
-        if (this.containsKey(var1))
-        {
-            return Float.parseFloat(this.getProperty(var1));
-        }
-        else
-        {
-            this.setFloat(var1, var2);
-            return var2;
+    public float getFloat(final String key, final float defaultValue) {
+        if (this.containsKey(key))
+            return Float.parseFloat(this.getProperty(key));
+        else {
+            this.setFloat(key, defaultValue);
+            return defaultValue;
         }
     }
 
-    public void setFloat(String var1, float var2)
-    {
-        this.props.put(var1, String.valueOf(var2));
+    public void setFloat(final String key, final float value) {
+        this.props.put(key, String.valueOf(value));
         this.save();
     }
 
-    public double getDouble(String var1)
-    {
-        return this.containsKey(var1) ? Double.parseDouble(this.getProperty(var1)) : 0.0D;
+    public double getDouble(final String key) {
+        return this.containsKey(key) ? Double.parseDouble(this.getProperty(key)) : 0.0D;
     }
 
-    public double getDouble(String var1, double var2)
-    {
-        if (this.containsKey(var1))
-        {
-            return Double.parseDouble(this.getProperty(var1));
-        }
+    public double getDouble(final String key, final double defaultValue) {
+        if (this.containsKey(key))
+            return Double.parseDouble(this.getProperty(key));
         else
         {
-            this.setDouble(var1, var2);
-            return var2;
+            this.setDouble(key, defaultValue);
+            return defaultValue;
         }
     }
 
-    public void setDouble(String var1, double var2)
-    {
-        this.props.put(var1, String.valueOf(var2));
+    public void setDouble(final String key, final double value) {
+        this.props.put(key, String.valueOf(value));
         this.save();
     }
 
-    public long getLong(String var1)
-    {
-        return this.containsKey(var1) ? Long.parseLong(this.getProperty(var1)) : 0L;
+    public long getLong(final String key) {
+        return this.containsKey(key) ? Long.parseLong(this.getProperty(key)) : 0L;
     }
 
-    public long getLong(String var1, long var2)
-    {
-        if (this.containsKey(var1))
-        {
-            return Long.parseLong(this.getProperty(var1));
-        }
-        else
-        {
-            this.setLong(var1, var2);
-            return var2;
+    public long getLong(final String key, final long defaultValue) {
+        if (this.containsKey(key))
+            return Long.parseLong(this.getProperty(key));
+        else {
+            this.setLong(key, defaultValue);
+            return defaultValue;
         }
     }
 
-    public void setLong(String var1, long var2)
-    {
-        this.props.put(var1, String.valueOf(var2));
+    public void setLong(final String key, final long value) {
+        this.props.put(key, String.valueOf(value));
         this.save();
     }
 
-    public boolean getBoolean(String var1)
-    {
-        return this.containsKey(var1) ? Boolean.parseBoolean(this.getProperty(var1)) : false;
+    public boolean getBoolean(final String key) {
+        return this.containsKey(key) ? Boolean.parseBoolean(this.getProperty(key)) : false;
     }
 
-    public boolean getBoolean(String var1, boolean var2)
-    {
-        if (this.containsKey(var1))
-        {
-            return Boolean.parseBoolean(this.getProperty(var1));
-        }
-        else
-        {
-            this.setBoolean(var1, var2);
-            return var2;
+    public boolean getBoolean(final String key, final boolean defaultValue) {
+        if (this.containsKey(key))
+            return Boolean.parseBoolean(this.getProperty(key));
+        else {
+            this.setBoolean(key, defaultValue);
+            return defaultValue;
         }
     }
 
-    public void setBoolean(String var1, boolean var2)
-    {
-        this.props.put(var1, String.valueOf(var2));
+    public void setBoolean(final String key, final boolean value) {
+        this.props.put(key, String.valueOf(value));
         this.save();
     }
 }

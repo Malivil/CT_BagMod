@@ -1,12 +1,14 @@
 package metadark.mods.SuperSlopes.Slopes;
 
-import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.Block;
 import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.RenderBlocks;
 import net.minecraft.src.Tessellator;
+
 import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class RenderSlopes implements ISimpleBlockRenderingHandler
 {
@@ -123,23 +125,17 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
     public float colorBlueSlopes;
 
     @Override
-    public void renderInventoryBlock(Block block, int var2, int var3, RenderBlocks renderer)
-    {
+    public void renderInventoryBlock(Block block, int var2, int var3, RenderBlocks renderer) {
         Tessellator var5 = Tessellator.instance;
 
-        if (var3 == this.getRenderId())
-        {
-            if (var2 / 4 == 0)
-            {
-                for (int var6 = 0; var6 < 2; ++var6)
-                {
-                    if (var6 == 0)
-                    {
+        if (var3 == this.getRenderId()) {
+            if (var2 / 4 == 0) {
+                for (int var6 = 0; var6 < 2; ++var6) {
+                    if (var6 == 0) {
                         block.setBlockBounds(0.0F, 0.5F, 0.5F, 1.0F, 1.0F, 1.0F);
                     }
 
-                    if (var6 == 1)
-                    {
+                    if (var6 == 1) {
                         block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.5F);
                     }
                     renderer.func_83018_a(block);
@@ -172,8 +168,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     GL11.glTranslatef(0.5F, 0.5F, 0.5F);
                 }
             }
-            else
-            {
+            else {
                 block.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
                 renderer.func_83018_a(block);
                 GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
@@ -209,37 +204,30 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
     }
 
     @Override
-    public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer)
-    {
-        if (modelId == this.getRenderId())
-        {
+    public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
+        if (modelId == this.getRenderId()) {
             int meta = world.getBlockMetadata(x, y, z);
             return meta / 4 == 0 ? this.renderBlockStairsUp(block, x, y, z, renderer, world, meta) : this.renderBlockSlopes(block, x, y, z, renderer, world, meta);
         }
-        else
-        {
+        else {
             return false;
         }
     }
 
     @Override
-    public boolean shouldRender3DInInventory()
-    {
+    public boolean shouldRender3DInInventory() {
         return true;
     }
 
     @Override
-    public int getRenderId()
-    {
+    public int getRenderId() {
         return Slopes.SlopesRenderID;
     }
 
-    public boolean renderBlockStairsUp(Block block, int x, int y, int z, RenderBlocks renderer, IBlockAccess world, int meta)
-    {
+    public boolean renderBlockStairsUp(Block block, int x, int y, int z, RenderBlocks renderer, IBlockAccess world, int meta) {
         int side = meta % 4;
 
-        if (side == 0)
-        {
+        if (side == 0) {
             block.setBlockBounds(0.5F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
             renderer.func_83018_a(block);
             renderer.renderStandardBlock(block, x, y, z);
@@ -247,8 +235,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
             renderer.func_83018_a(block);
             renderer.renderStandardBlock(block, x, y, z);
         }
-        else if (side == 1)
-        {
+        else if (side == 1) {
             block.setBlockBounds(0.5F, 0.5F, 0.0F, 1.0F, 1.0F, 1.0F);
             renderer.func_83018_a(block);
             renderer.renderStandardBlock(block, x, y, z);
@@ -256,8 +243,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
             renderer.func_83018_a(block);
             renderer.renderStandardBlock(block, x, y, z);
         }
-        else if (side == 2)
-        {
+        else if (side == 2) {
             block.setBlockBounds(0.0F, 0.0F, 0.5F, 1.0F, 1.0F, 1.0F);
             renderer.func_83018_a(block);
             renderer.renderStandardBlock(block, x, y, z);
@@ -265,8 +251,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
             renderer.func_83018_a(block);
             renderer.renderStandardBlock(block, x, y, z);
         }
-        else if (side == 3)
-        {
+        else if (side == 3) {
             block.setBlockBounds(0.0F, 0.5F, 0.5F, 1.0F, 1.0F, 1.0F);
             renderer.func_83018_a(block);
             renderer.renderStandardBlock(block, x, y, z);
@@ -279,8 +264,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         return false;
     }
 
-    public boolean renderBlockSlopes(Block block, int x, int y, int z, RenderBlocks renderer, IBlockAccess world, int meta)
-    {
+    public boolean renderBlockSlopes(Block block, int x, int y, int z, RenderBlocks renderer, IBlockAccess world, int meta) {
         int color = block.colorMultiplier(world, x, y, z);
         float r = (float)(color >> 16 & 255) / 255.0F;
         float g = (float)(color >> 8 & 255) / 255.0F;
@@ -288,8 +272,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         return Minecraft.isAmbientOcclusionEnabled() ? this.renderSlopesBlockWithAmbientOcclusion(block, x, y, z, r, g, b, meta, renderer, world) : this.renderSlopesBlockWithColorMultiplier(block, x, y, z, r, g, b, meta, renderer, world);
     }
 
-    public boolean renderSlopesBlockWithAmbientOcclusion(Block block, int x, int y, int z, float r, float g, float b, int meta, RenderBlocks renderer, IBlockAccess world)
-    {
+    public boolean renderSlopesBlockWithAmbientOcclusion(Block block, int x, int y, int z, float r, float g, float b, int meta, RenderBlocks renderer, IBlockAccess world) {
         this.enableAO = true;
         boolean var11 = false;
         boolean var12 = true;
@@ -326,8 +309,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         this.aoLightValueXNegYPosZNeg = block.getAmbientOcclusionLightValue(world, x - 1, y + 1, z - 1);
         this.aoLightValueXNegYNegZNeg = block.getAmbientOcclusionLightValue(world, x - 1, y - 1, z - 1);
 
-        if (block.blockIndexInTexture == 3)
-        {
+        if (block.blockIndexInTexture == 3) {
             var17 = false;
             var16 = false;
             var15 = false;
@@ -340,15 +322,13 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         float var21;
         float var20;
 
-        if (this.field_22352_G > 0)
-        {
+        if (this.field_22352_G > 0) {
             var18 = (this.aoLightValueXNegYNegZPos + this.aoLightValueXNegYNeg + this.aoLightValueYNegZPos + this.aoLightValueYNeg) / 4.0F;
             var21 = (this.aoLightValueYNegZPos + this.aoLightValueYNeg + this.aoLightValueXPosYNegZPos + this.aoLightValueXPosYNeg) / 4.0F;
             var20 = (this.aoLightValueYNeg + this.aoLightValueYNegZNeg + this.aoLightValueXPosYNeg + this.aoLightValueXPosYNegZNeg) / 4.0F;
             var19 = (this.aoLightValueXNegYNeg + this.aoLightValueXNegYNegZNeg + this.aoLightValueYNeg + this.aoLightValueYNegZNeg) / 4.0F;
         }
-        else
-        {
+        else {
             var21 = this.aoLightValueYNeg;
             var20 = this.aoLightValueYNeg;
             var19 = this.aoLightValueYNeg;
@@ -375,15 +355,13 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         float var25;
         float var24;
 
-        if (this.field_22352_G > 0)
-        {
+        if (this.field_22352_G > 0) {
             var25 = (this.aoLightValueXNegYPosZPos + this.aoLightValueXNegYPos + this.aoLightValueYPosZPos + this.aoLightValueYPos) / 4.0F;
             var22 = (this.aoLightValueYPosZPos + this.aoLightValueYPos + this.aoLightValueXPosYPosZPos + this.aoLightValueXPosYPos) / 4.0F;
             var23 = (this.aoLightValueYPos + this.aoLightValueYPosZNeg + this.aoLightValueXPosYPos + this.aoLightValueXPosYPosZNeg) / 4.0F;
             var24 = (this.aoLightValueXNegYPos + this.aoLightValueXNegYPosZNeg + this.aoLightValueYPos + this.aoLightValueYPosZNeg) / 4.0F;
         }
-        else
-        {
+        else {
             var25 = this.aoLightValueYPos;
             var24 = this.aoLightValueYPos;
             var23 = this.aoLightValueYPos;
@@ -410,15 +388,13 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         float var29;
         float var28;
 
-        if (this.field_22352_G > 0)
-        {
+        if (this.field_22352_G > 0) {
             var26 = (this.aoLightValueXNegZNeg + this.aoLightValueXNegYPosZNeg + this.aoLightValueZNeg + this.aoLightValueYPosZNeg) / 4.0F;
             var27 = (this.aoLightValueZNeg + this.aoLightValueYPosZNeg + this.aoLightValueXPosZNeg + this.aoLightValueXPosYPosZNeg) / 4.0F;
             var28 = (this.aoLightValueYNegZNeg + this.aoLightValueZNeg + this.aoLightValueXPosYNegZNeg + this.aoLightValueXPosZNeg) / 4.0F;
             var29 = (this.aoLightValueXNegYNegZNeg + this.aoLightValueXNegZNeg + this.aoLightValueYNegZNeg + this.aoLightValueZNeg) / 4.0F;
         }
-        else
-        {
+        else {
             var29 = this.aoLightValueZNeg;
             var28 = this.aoLightValueZNeg;
             var27 = this.aoLightValueZNeg;
@@ -446,15 +422,13 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         float var32;
         float var33;
 
-        if (this.field_22352_G > 0)
-        {
+        if (this.field_22352_G > 0) {
             var31 = (this.aoLightValueXNegZPos + this.aoLightValueXNegYPosZPos + this.aoLightValueZPos + this.aoLightValueYPosZPos) / 4.0F;
             var34 = (this.aoLightValueZPos + this.aoLightValueYPosZPos + this.aoLightValueXPosZPos + this.aoLightValueXPosYPosZPos) / 4.0F;
             var33 = (this.aoLightValueYNegZPos + this.aoLightValueZPos + this.aoLightValueXPosYNegZPos + this.aoLightValueXPosZPos) / 4.0F;
             var32 = (this.aoLightValueXNegYNegZPos + this.aoLightValueXNegZPos + this.aoLightValueYNegZPos + this.aoLightValueZPos) / 4.0F;
         }
-        else
-        {
+        else {
             var34 = this.aoLightValueZPos;
             var33 = this.aoLightValueZPos;
             var32 = this.aoLightValueZPos;
@@ -482,15 +456,13 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         float var36;
         float var37;
 
-        if (this.field_22352_G > 0)
-        {
+        if (this.field_22352_G > 0) {
             var39 = (this.aoLightValueXNegYNeg + this.aoLightValueXNegYNegZPos + this.aoLightValueXNeg + this.aoLightValueXNegZPos) / 4.0F;
             var36 = (this.aoLightValueXNeg + this.aoLightValueXNegZPos + this.aoLightValueXNegYPos + this.aoLightValueXNegYPosZPos) / 4.0F;
             var37 = (this.aoLightValueXNegZNeg + this.aoLightValueXNeg + this.aoLightValueXNegYPosZNeg + this.aoLightValueXNegYPos) / 4.0F;
             var38 = (this.aoLightValueXNegYNegZNeg + this.aoLightValueXNegYNeg + this.aoLightValueXNegZNeg + this.aoLightValueXNeg) / 4.0F;
         }
-        else
-        {
+        else {
             var39 = this.aoLightValueXNeg;
             var38 = this.aoLightValueXNeg;
             var37 = this.aoLightValueXNeg;
@@ -518,15 +490,13 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         float var41;
         float var44;
 
-        if (this.field_22352_G > 0)
-        {
+        if (this.field_22352_G > 0) {
             var41 = (this.aoLightValueXPosYNeg + this.aoLightValueXPosYNegZPos + this.aoLightValueXPos + this.aoLightValueXPosZPos) / 4.0F;
             var44 = (this.aoLightValueXPos + this.aoLightValueXPosZPos + this.aoLightValueXPosYPos + this.aoLightValueXPosYPosZPos) / 4.0F;
             var43 = (this.aoLightValueXPosZNeg + this.aoLightValueXPos + this.aoLightValueXPosYPosZNeg + this.aoLightValueXPosYPos) / 4.0F;
             var42 = (this.aoLightValueXPosYNegZNeg + this.aoLightValueXPosYNeg + this.aoLightValueXPosZNeg + this.aoLightValueXPos) / 4.0F;
         }
-        else
-        {
+        else {
             var44 = this.aoLightValueXPos;
             var43 = this.aoLightValueXPos;
             var42 = this.aoLightValueXPos;
@@ -553,24 +523,20 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         this.colorGreenSlopes = g;
         this.colorBlueSlopes = b;
 
-        if (renderer.renderAllFaces || block.shouldSideBeRendered(world, x, y - 1, z, 0))
-        {
+        if (renderer.renderAllFaces || block.shouldSideBeRendered(world, x, y - 1, z, 0)) {
             this.renderSlopesBottomFace(block, (double)x, (double)y, (double)z, block.getBlockTexture(world, x, y, z, 0), meta, renderer, block.getMixedBrightnessForBlock(world, x, y, z));
             var11 = true;
         }
 
-        if (renderer.renderAllFaces || block.shouldSideBeRendered(world, x, y + 1, z, 1))
-        {
+        if (renderer.renderAllFaces || block.shouldSideBeRendered(world, x, y + 1, z, 1)) {
             this.renderSlopesTopFace(block, (double)x, (double)y, (double)z, block.getBlockTexture(world, x, y, z, 0), meta, renderer, block.getMixedBrightnessForBlock(world, x, y, z));
             var11 = true;
         }
 
-        if (renderer.renderAllFaces || block.shouldSideBeRendered(world, x, y, z - 1, 2))
-        {
+        if (renderer.renderAllFaces || block.shouldSideBeRendered(world, x, y, z - 1, 2)) {
             this.renderSlopesEastFace(block, (double)x, (double)y, (double)z, var30, meta, renderer, block.getMixedBrightnessForBlock(world, x, y, z));
 
-            if (field_27511_cfgGrassFix && var30 == 3)
-            {
+            if (field_27511_cfgGrassFix && var30 == 3) {
                 this.colorRedTopLeft_EastFace *= r;
                 this.colorRedBottomLeft_EastFace *= r;
                 this.colorRedBottomRight_EastFace *= r;
@@ -589,12 +555,10 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
             var11 = true;
         }
 
-        if (renderer.renderAllFaces || block.shouldSideBeRendered(world, x, y, z + 1, 3))
-        {
+        if (renderer.renderAllFaces || block.shouldSideBeRendered(world, x, y, z + 1, 3)) {
             this.renderSlopesWestFace(block, (double)x, (double)y, (double)z, var35, meta, renderer, block.getMixedBrightnessForBlock(world, x, y, z));
 
-            if (field_27511_cfgGrassFix && var35 == 3)
-            {
+            if (field_27511_cfgGrassFix && var35 == 3) {
                 this.colorRedTopLeft_WestFace *= r;
                 this.colorRedBottomLeft_WestFace *= r;
                 this.colorRedBottomRight_WestFace *= r;
@@ -613,12 +577,10 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
             var11 = true;
         }
 
-        if (renderer.renderAllFaces || block.shouldSideBeRendered(world, x - 1, y, z, 4))
-        {
+        if (renderer.renderAllFaces || block.shouldSideBeRendered(world, x - 1, y, z, 4)) {
             this.renderSlopesNorthFace(block, (double)x, (double)y, (double)z, var40, meta, renderer, block.getMixedBrightnessForBlock(world, x, y, z));
 
-            if (field_27511_cfgGrassFix && var40 == 3)
-            {
+            if (field_27511_cfgGrassFix && var40 == 3) {
                 this.colorRedTopLeft_NorthFace *= r;
                 this.colorRedBottomLeft_NorthFace *= r;
                 this.colorRedBottomRight_NorthFace *= r;
@@ -637,12 +599,10 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
             var11 = true;
         }
 
-        if (renderer.renderAllFaces || block.shouldSideBeRendered(world, x + 1, y, z, 5))
-        {
+        if (renderer.renderAllFaces || block.shouldSideBeRendered(world, x + 1, y, z, 5)) {
             this.renderSlopesSouthFace(block, (double)x, (double)y, (double)z, var45, meta, renderer, block.getMixedBrightnessForBlock(world, x, y, z));
 
-            if (field_27511_cfgGrassFix && var45 == 3)
-            {
+            if (field_27511_cfgGrassFix && var45 == 3) {
                 this.colorRedTopLeft_SouthFace *= r;
                 this.colorRedBottomLeft_SouthFace *= r;
                 this.colorRedBottomRight_SouthFace *= r;
@@ -665,8 +625,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         return var11;
     }
 
-    public boolean renderSlopesBlockWithColorMultiplier(Block var1, int var2, int var3, int var4, float var5, float var6, float var7, int var8, RenderBlocks var9, IBlockAccess var10)
-    {
+    public boolean renderSlopesBlockWithColorMultiplier(Block var1, int var2, int var3, int var4, float var5, float var6, float var7, int var8, RenderBlocks var9, IBlockAccess var10) {
         Tessellator var11 = Tessellator.instance;
         boolean var12 = false;
         float var13 = 0.5F;
@@ -677,8 +636,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         float var18 = var14 * var6;
         float var19 = var14 * var7;
 
-        if (var1 == Block.grass)
-        {
+        if (var1 == Block.grass) {
             var7 = 1.0F;
             var6 = 1.0F;
             var5 = 1.0F;
@@ -696,20 +654,17 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         float var29 = var1.getAmbientOcclusionLightValue(var10, var2, var3, var4);
         float var30;
 
-        if ((var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3 - 1, var4, 0)) && var8 / 4 != 2)
-        {
+        if ((var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3 - 1, var4, 0)) && var8 / 4 != 2) {
             var30 = var1.getAmbientOcclusionLightValue(var10, var2, var3 - 1, var4);
             var11.setColorOpaque_F(var20 * var30, var23 * var30, var26 * var30);
             this.renderSlopesBottomFace(var1, (double)var2, (double)var3, (double)var4, var1.getBlockTexture(var10, var2, var3, var4, 0), var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
             var12 = true;
         }
 
-        if ((var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3 + 1, var4, 1)) && var8 / 4 != 1)
-        {
+        if ((var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3 + 1, var4, 1)) && var8 / 4 != 1) {
             var30 = var1.getAmbientOcclusionLightValue(var10, var2, var3 + 1, var4);
 
-            if (var1.getBlockBoundsMaxY() != 1.0D && !var1.blockMaterial.isLiquid())
-            {
+            if (var1.getBlockBoundsMaxY() != 1.0D && !var1.blockMaterial.isLiquid()) {
                 var30 = var29;
             }
 
@@ -718,25 +673,20 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
             var12 = true;
         }
 
-        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3, var4 - 1, 2) || var8 == 6 || var8 == 10 || var8 == 12)
-        {
-            if (var8 == 6)
-            {
+        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3, var4 - 1, 2) || var8 == 6 || var8 == 10 || var8 == 12) {
+            if (var8 == 6) {
                 var11.setColorOpaque_F(var21 * var29, var24 * var29, var27 * var29);
                 this.renderSlopesEastFace(var1, (double)var2, (double)var3, (double)var4, var1.getBlockTexture(var10, var2, var3, var4, 1), var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
             }
-            else if (var8 == 10)
-            {
+            else if (var8 == 10) {
                 var11.setColorOpaque_F(var21 * var29, var24 * var29, var27 * var29);
                 this.renderSlopesEastFace(var1, (double)var2, (double)var3, (double)var4, var1.getBlockTexture(var10, var2, var3, var4, 0), var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
             }
-            else if (var8 == 12)
-            {
+            else if (var8 == 12) {
                 var11.setColorOpaque_F(var21 * var29, var24 * var29, var27 * var29);
                 this.renderSlopesEastFace(var1, (double)var2, (double)var3, (double)var4, var1.getBlockTexture(var10, var2, var3, var4, 2), var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
             }
-            else
-            {
+            else {
                 var30 = var1.getAmbientOcclusionLightValue(var10, var2, var3, var4 - 1);
                 var11.setColorOpaque_F(var21 * var30, var24 * var30, var27 * var30);
                 this.renderSlopesEastFace(var1, (double)var2, (double)var3, (double)var4, var1.getBlockTexture(var10, var2, var3, var4, 2), var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
@@ -745,25 +695,20 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
             var12 = true;
         }
 
-        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3, var4 + 1, 3) || var8 == 7 || var8 == 11 || var8 == 13)
-        {
-            if (var8 == 7)
-            {
+        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3, var4 + 1, 3) || var8 == 7 || var8 == 11 || var8 == 13) {
+            if (var8 == 7) {
                 var11.setColorOpaque_F(var21 * var29, var24 * var29, var27 * var29);
                 this.renderSlopesWestFace(var1, (double)var2, (double)var3, (double)var4, var1.getBlockTexture(var10, var2, var3, var4, 1), var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
             }
-            else if (var8 == 11)
-            {
+            else if (var8 == 11) {
                 var11.setColorOpaque_F(var21 * var29, var24 * var29, var27 * var29);
                 this.renderSlopesWestFace(var1, (double)var2, (double)var3, (double)var4, var1.getBlockTexture(var10, var2, var3, var4, 0), var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
             }
-            else if (var8 == 13)
-            {
+            else if (var8 == 13) {
                 var11.setColorOpaque_F(var21 * var29, var24 * var29, var27 * var29);
                 this.renderSlopesWestFace(var1, (double)var2, (double)var3, (double)var4, var1.getBlockTexture(var10, var2, var3, var4, 3), var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
             }
-            else
-            {
+            else {
                 var30 = var1.getAmbientOcclusionLightValue(var10, var2, var3, var4 + 1);
                 var11.setColorOpaque_F(var21 * var30, var24 * var30, var27 * var30);
                 this.renderSlopesWestFace(var1, (double)var2, (double)var3, (double)var4, var1.getBlockTexture(var10, var2, var3, var4, 3), var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
@@ -772,25 +717,20 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
             var12 = true;
         }
 
-        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2 - 1, var3, var4, 4) || var8 == 4 || var8 == 8 || var8 == 15)
-        {
-            if (var8 == 4)
-            {
+        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2 - 1, var3, var4, 4) || var8 == 4 || var8 == 8 || var8 == 15) {
+            if (var8 == 4) {
                 var11.setColorOpaque_F(var22 * var29, var25 * var29, var28 * var29);
                 this.renderSlopesNorthFace(var1, (double)var2, (double)var3, (double)var4, var1.getBlockTexture(var10, var2, var3, var4, 1), var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
             }
-            else if (var8 == 8)
-            {
+            else if (var8 == 8) {
                 var11.setColorOpaque_F(var22 * var29, var25 * var29, var28 * var29);
                 this.renderSlopesNorthFace(var1, (double)var2, (double)var3, (double)var4, var1.getBlockTexture(var10, var2, var3, var4, 0), var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
             }
-            else if (var8 == 15)
-            {
+            else if (var8 == 15) {
                 var11.setColorOpaque_F(var22 * var29, var25 * var29, var28 * var29);
                 this.renderSlopesNorthFace(var1, (double)var2, (double)var3, (double)var4, var1.getBlockTexture(var10, var2, var3, var4, 4), var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
             }
-            else
-            {
+            else {
                 var30 = var1.getAmbientOcclusionLightValue(var10, var2 - 1, var3, var4);
                 var11.setColorOpaque_F(var22 * var30, var25 * var30, var28 * var30);
                 this.renderSlopesNorthFace(var1, (double)var2, (double)var3, (double)var4, var1.getBlockTexture(var10, var2, var3, var4, 4), var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
@@ -799,25 +739,20 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
             var12 = true;
         }
 
-        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2 + 1, var3, var4, 5) || var8 == 5 || var8 == 9 || var8 == 14)
-        {
-            if (var8 == 5)
-            {
+        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2 + 1, var3, var4, 5) || var8 == 5 || var8 == 9 || var8 == 14) {
+            if (var8 == 5) {
                 var11.setColorOpaque_F(var22 * var29, var25 * var29, var28 * var29);
                 this.renderSlopesSouthFace(var1, (double)var2, (double)var3, (double)var4, var1.getBlockTexture(var10, var2, var3, var4, 1), var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
             }
-            else if (var8 == 9)
-            {
+            else if (var8 == 9) {
                 var11.setColorOpaque_F(var22 * var29, var25 * var29, var28 * var29);
                 this.renderSlopesSouthFace(var1, (double)var2, (double)var3, (double)var4, var1.getBlockTexture(var10, var2, var3, var4, 0), var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
             }
-            else if (var8 == 14)
-            {
+            else if (var8 == 14) {
                 var11.setColorOpaque_F(var22 * var29, var25 * var29, var28 * var29);
                 this.renderSlopesSouthFace(var1, (double)var2, (double)var3, (double)var4, var1.getBlockTexture(var10, var2, var3, var4, 5), var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
             }
-            else
-            {
+            else {
                 var30 = var1.getAmbientOcclusionLightValue(var10, var2 + 1, var3, var4);
                 var11.setColorOpaque_F(var22 * var30, var25 * var30, var28 * var30);
                 this.renderSlopesSouthFace(var1, (double)var2, (double)var3, (double)var4, var1.getBlockTexture(var10, var2, var3, var4, 5), var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
@@ -829,13 +764,11 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         return var12;
     }
 
-    public void renderSlopesBottomFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11)
-    {
+    public void renderSlopesBottomFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11) {
         Tessellator var12 = Tessellator.instance;
         var12.setBrightness(var11);
 
-        if (var10.overrideBlockTexture >= 0)
-        {
+        if (var10.overrideBlockTexture >= 0) {
             var8 = var10.overrideBlockTexture;
         }
 
@@ -846,14 +779,12 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         double var19 = ((double)var14 + var1.getBlockBoundsMinZ() * 16.0D) / 256.0D;
         double var21 = ((double)var14 + var1.getBlockBoundsMaxZ() * 16.0D - 0.01D) / 256.0D;
 
-        if (var1.getBlockBoundsMinX() < 0.0D || var1.getBlockBoundsMaxX() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinX() < 0.0D || var1.getBlockBoundsMaxX() > 1.0D) {
             var15 = (double)(((float)var13 + 0.0F) / 256.0F);
             var17 = (double)(((float)var13 + 15.99F) / 256.0F);
         }
 
-        if (var1.getBlockBoundsMinZ() < 0.0D || var1.getBlockBoundsMaxZ() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinZ() < 0.0D || var1.getBlockBoundsMaxZ() > 1.0D) {
             var19 = (double)(((float)var14 + 0.0F) / 256.0F);
             var21 = (double)(((float)var14 + 15.99F) / 256.0F);
         }
@@ -864,12 +795,9 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         double var29 = var6 + var1.getBlockBoundsMinZ();
         double var31 = var6 + var1.getBlockBoundsMaxZ();
 
-        if (this.enableAO)
-        {
-            if (var9 != 4 && var9 != 5 && var9 != 6 && var9 != 7)
-            {
-                if (var9 == 12)
-                {
+        if (this.enableAO) {
+            if (var9 != 4 && var9 != 5 && var9 != 6 && var9 != 7) {
+                if (var9 == 12) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_BottomFace, this.colorGreenTopLeft_BottomFace, this.colorBlueTopLeft_BottomFace);
                     var12.addVertexWithUV(var23, var27, var31, var15, var21);
                     var12.setColorOpaque_F(this.colorRedBottomRight_BottomFace, this.colorGreenBottomRight_BottomFace, this.colorBlueBottomRight_BottomFace);
@@ -879,8 +807,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_BottomFace, this.colorGreenTopRight_BottomFace, this.colorBlueTopRight_BottomFace);
                     var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 }
-                else if (var9 == 13)
-                {
+                else if (var9 == 13) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_BottomFace, this.colorGreenTopLeft_BottomFace, this.colorBlueTopLeft_BottomFace);
                     var12.addVertexWithUV(var23, var27, var31, var15, var21);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_BottomFace, this.colorGreenBottomLeft_BottomFace, this.colorBlueBottomLeft_BottomFace);
@@ -890,8 +817,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopLeft_BottomFace, this.colorGreenTopLeft_BottomFace, this.colorBlueTopLeft_BottomFace);
                     var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 }
-                else if (var9 == 14)
-                {
+                else if (var9 == 14) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_BottomFace, this.colorGreenTopLeft_BottomFace, this.colorBlueTopLeft_BottomFace);
                     var12.addVertexWithUV(var23, var27, var31, var15, var21);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_BottomFace, this.colorGreenBottomLeft_BottomFace, this.colorBlueBottomLeft_BottomFace);
@@ -901,8 +827,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_BottomFace, this.colorGreenTopRight_BottomFace, this.colorBlueTopRight_BottomFace);
                     var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 }
-                else if (var9 == 15)
-                {
+                else if (var9 == 15) {
                     var12.setColorOpaque_F(this.colorRedBottomLeft_BottomFace, this.colorGreenBottomLeft_BottomFace, this.colorBlueBottomLeft_BottomFace);
                     var12.addVertexWithUV(var23, var27, var29, var15, var19);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_BottomFace, this.colorGreenBottomLeft_BottomFace, this.colorBlueBottomLeft_BottomFace);
@@ -913,8 +838,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 }
             }
-            else
-            {
+            else {
                 var12.setColorOpaque_F(this.colorRedTopLeft_BottomFace, this.colorGreenTopLeft_BottomFace, this.colorBlueTopLeft_BottomFace);
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 var12.setColorOpaque_F(this.colorRedBottomLeft_BottomFace, this.colorGreenBottomLeft_BottomFace, this.colorBlueBottomLeft_BottomFace);
@@ -925,39 +849,33 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
             }
         }
-        else if (var9 != 4 && var9 != 5 && var9 != 6 && var9 != 7)
-        {
-            if (var9 == 12)
-            {
+        else if (var9 != 4 && var9 != 5 && var9 != 6 && var9 != 7) {
+            if (var9 == 12) {
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 var12.addVertexWithUV(var25, var27, var29, var17, var19);
                 var12.addVertexWithUV(var25, var27, var29, var17, var19);
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
             }
-            else if (var9 == 13)
-            {
+            else if (var9 == 13) {
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var25, var27, var29, var17, var19);
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
             }
-            else if (var9 == 14)
-            {
+            else if (var9 == 14) {
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
             }
-            else if (var9 == 15)
-            {
+            else if (var9 == 15) {
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var25, var27, var29, var17, var19);
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
             }
         }
-        else
-        {
+        else {
             var12.addVertexWithUV(var23, var27, var31, var15, var21);
             var12.addVertexWithUV(var23, var27, var29, var15, var19);
             var12.addVertexWithUV(var25, var27, var29, var17, var19);
@@ -965,13 +883,11 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         }
     }
 
-    public void renderSlopesTopFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11)
-    {
+    public void renderSlopesTopFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11) {
         Tessellator var12 = Tessellator.instance;
         var12.setBrightness(var11);
 
-        if (var10.overrideBlockTexture >= 0)
-        {
+        if (var10.overrideBlockTexture >= 0) {
             var8 = var10.overrideBlockTexture;
         }
 
@@ -982,14 +898,12 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         double var19 = ((double)var14 + var1.getBlockBoundsMinZ() * 16.0D) / 256.0D;
         double var21 = ((double)var14 + var1.getBlockBoundsMaxZ() * 16.0D - 0.01D) / 256.0D;
 
-        if (var1.getBlockBoundsMinX() < 0.0D || var1.getBlockBoundsMaxX() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinX() < 0.0D || var1.getBlockBoundsMaxX() > 1.0D) {
             var15 = (double)(((float)var13 + 0.0F) / 256.0F);
             var17 = (double)(((float)var13 + 15.99F) / 256.0F);
         }
 
-        if (var1.getBlockBoundsMinZ() < 0.0D || var1.getBlockBoundsMaxZ() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinZ() < 0.0D || var1.getBlockBoundsMaxZ() > 1.0D) {
             var19 = (double)(((float)var14 + 0.0F) / 256.0F);
             var21 = (double)(((float)var14 + 15.99F) / 256.0F);
         }
@@ -1000,12 +914,9 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         double var29 = var6 + var1.getBlockBoundsMinZ();
         double var31 = var6 + var1.getBlockBoundsMaxZ();
 
-        if (this.enableAO)
-        {
-            if (var9 != 8 && var9 != 9 && var9 != 10 && var9 != 11)
-            {
-                if (var9 == 12)
-                {
+        if (this.enableAO) {
+            if (var9 != 8 && var9 != 9 && var9 != 10 && var9 != 11) {
+                if (var9 == 12) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_TopFace, this.colorGreenTopLeft_TopFace, this.colorBlueTopLeft_TopFace);
                     var12.addVertexWithUV(var25, var27, var31, var17, var21);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_TopFace, this.colorGreenBottomLeft_TopFace, this.colorBlueBottomLeft_TopFace);
@@ -1015,8 +926,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_TopFace, this.colorGreenTopRight_TopFace, this.colorBlueTopRight_TopFace);
                     var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 }
-                else if (var9 == 13)
-                {
+                else if (var9 == 13) {
                     var12.setColorOpaque_F(this.colorRedBottomLeft_TopFace, this.colorGreenBottomLeft_TopFace, this.colorBlueBottomLeft_TopFace);
                     var12.addVertexWithUV(var25, var27, var29, var17, var19);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_TopFace, this.colorGreenBottomLeft_TopFace, this.colorBlueBottomLeft_TopFace);
@@ -1026,8 +936,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_TopFace, this.colorGreenTopRight_TopFace, this.colorBlueTopRight_TopFace);
                     var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 }
-                else if (var9 == 14)
-                {
+                else if (var9 == 14) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_TopFace, this.colorGreenTopLeft_TopFace, this.colorBlueTopLeft_TopFace);
                     var12.addVertexWithUV(var25, var27, var31, var17, var21);
                     var12.setColorOpaque_F(this.colorRedBottomRight_TopFace, this.colorGreenBottomRight_TopFace, this.colorBlueBottomRight_TopFace);
@@ -1037,8 +946,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_TopFace, this.colorGreenTopRight_TopFace, this.colorBlueTopRight_TopFace);
                     var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 }
-                else if (var9 == 15)
-                {
+                else if (var9 == 15) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_TopFace, this.colorGreenTopLeft_TopFace, this.colorBlueTopLeft_TopFace);
                     var12.addVertexWithUV(var25, var27, var31, var17, var21);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_TopFace, this.colorGreenBottomLeft_TopFace, this.colorBlueBottomLeft_TopFace);
@@ -1049,8 +957,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 }
             }
-            else
-            {
+            else {
                 var12.setColorOpaque_F(this.colorRedTopLeft_TopFace, this.colorGreenTopLeft_TopFace, this.colorBlueTopLeft_TopFace);
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 var12.setColorOpaque_F(this.colorRedBottomLeft_TopFace, this.colorGreenBottomLeft_TopFace, this.colorBlueBottomLeft_TopFace);
@@ -1061,39 +968,33 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
             }
         }
-        else if (var9 != 8 && var9 != 9 && var9 != 10 && var9 != 11)
-        {
-            if (var9 == 12)
-            {
+        else if (var9 != 8 && var9 != 9 && var9 != 10 && var9 != 11) {
+            if (var9 == 12) {
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 var12.addVertexWithUV(var25, var27, var29, var17, var19);
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
             }
-            else if (var9 == 13)
-            {
+            else if (var9 == 13) {
                 var12.addVertexWithUV(var25, var27, var29, var17, var19);
                 var12.addVertexWithUV(var25, var27, var29, var17, var19);
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
             }
-            else if (var9 == 14)
-            {
+            else if (var9 == 14) {
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
             }
-            else if (var9 == 15)
-            {
+            else if (var9 == 15) {
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 var12.addVertexWithUV(var25, var27, var29, var17, var19);
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
             }
         }
-        else
-        {
+        else {
             var12.addVertexWithUV(var25, var27, var31, var17, var21);
             var12.addVertexWithUV(var25, var27, var29, var17, var19);
             var12.addVertexWithUV(var23, var27, var29, var15, var19);
@@ -1101,13 +1002,11 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         }
     }
 
-    public void renderSlopesEastFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11)
-    {
+    public void renderSlopesEastFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11) {
         Tessellator var12 = Tessellator.instance;
         var12.setBrightness(var11);
 
-        if (var10.overrideBlockTexture >= 0)
-        {
+        if (var10.overrideBlockTexture >= 0) {
             var8 = var10.overrideBlockTexture;
         }
 
@@ -1119,21 +1018,18 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         double var21 = ((double)var14 + var1.getBlockBoundsMaxY() * 16.0D - 0.01D) / 256.0D;
         double var23;
 
-        if (var10.flipTexture)
-        {
+        if (var10.flipTexture) {
             var23 = var15;
             var15 = var17;
             var17 = var23;
         }
 
-        if (var1.getBlockBoundsMinX() < 0.0D || var1.getBlockBoundsMaxX() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinX() < 0.0D || var1.getBlockBoundsMaxX() > 1.0D) {
             var15 = (double)(((float)var13 + 0.0F) / 256.0F);
             var17 = (double)(((float)var13 + 15.99F) / 256.0F);
         }
 
-        if (var1.getBlockBoundsMinY() < 0.0D || var1.getBlockBoundsMaxY() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinY() < 0.0D || var1.getBlockBoundsMaxY() > 1.0D) {
             var19 = (double)(((float)var14 + 0.0F) / 256.0F);
             var21 = (double)(((float)var14 + 15.99F) / 256.0F);
         }
@@ -1145,12 +1041,9 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         double var31 = var6 + var1.getBlockBoundsMinZ();
         double var33 = var6 + var1.getBlockBoundsMaxZ();
 
-        if (this.enableAO)
-        {
-            if (var9 != 7 && var9 != 11 && var9 != 13 && var9 != 15)
-            {
-                if (var9 == 4)
-                {
+        if (this.enableAO) {
+            if (var9 != 7 && var9 != 11 && var9 != 13 && var9 != 15) {
+                if (var9 == 4) {
                     var12.setColorOpaque_F(this.colorRedTopRight_EastFace, this.colorGreenTopRight_EastFace, this.colorBlueTopRight_EastFace);
                     var12.addVertexWithUV(var23, var27, var31, var17, var21);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_EastFace, this.colorGreenBottomLeft_EastFace, this.colorBlueBottomLeft_EastFace);
@@ -1160,8 +1053,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_EastFace, this.colorGreenTopRight_EastFace, this.colorBlueTopRight_EastFace);
                     var12.addVertexWithUV(var23, var27, var31, var17, var21);
                 }
-                else if (var9 == 5)
-                {
+                else if (var9 == 5) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_EastFace, this.colorGreenTopLeft_EastFace, this.colorBlueTopLeft_EastFace);
                     var12.addVertexWithUV(var23, var29, var31, var17, var19);
                     var12.setColorOpaque_F(this.colorRedBottomRight_EastFace, this.colorGreenBottomRight_EastFace, this.colorBlueBottomRight_EastFace);
@@ -1171,8 +1063,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_EastFace, this.colorGreenTopRight_EastFace, this.colorBlueTopRight_EastFace);
                     var12.addVertexWithUV(var23, var27, var31, var17, var21);
                 }
-                else if (var9 == 6)
-                {
+                else if (var9 == 6) {
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYPos + this.aoLightValueXNegYPos) * (this.factorTop + this.factorEast) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYPos + this.aoLightValueXNegYPos) * (this.factorTop + this.factorEast) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYPos + this.aoLightValueXNegYPos) * (this.factorTop + this.factorEast) / 4.0F);
                     var12.addVertexWithUV(var23, var29, var33, var17, var19);
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYPos + this.aoLightValueXPosYPos) * (this.factorTop + this.factorEast) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYPos + this.aoLightValueXPosYPos) * (this.factorTop + this.factorEast) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYPos + this.aoLightValueXPosYPos) * (this.factorTop + this.factorEast) / 4.0F);
@@ -1182,8 +1073,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueZNeg + this.aoLightValueXNegZNeg) * (this.factorTop + this.factorEast) / 4.0F, this.colorGreenSlopes * (this.aoLightValueZNeg + this.aoLightValueXNegZNeg) * (this.factorTop + this.factorEast) / 4.0F, this.colorBlueSlopes * (this.aoLightValueZNeg + this.aoLightValueXNegZNeg) * (this.factorTop + this.factorEast) / 4.0F);
                     var12.addVertexWithUV(var23, var27, var31, var17, var21);
                 }
-                else if (var9 == 8)
-                {
+                else if (var9 == 8) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_EastFace, this.colorGreenTopLeft_EastFace, this.colorBlueTopLeft_EastFace);
                     var12.addVertexWithUV(var23, var29, var31, var17, var19);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_EastFace, this.colorGreenBottomLeft_EastFace, this.colorBlueBottomLeft_EastFace);
@@ -1193,8 +1083,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopLeft_EastFace, this.colorGreenTopLeft_EastFace, this.colorBlueTopLeft_EastFace);
                     var12.addVertexWithUV(var23, var29, var31, var17, var19);
                 }
-                else if (var9 == 9)
-                {
+                else if (var9 == 9) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_EastFace, this.colorGreenTopLeft_EastFace, this.colorBlueTopLeft_EastFace);
                     var12.addVertexWithUV(var23, var29, var31, var17, var19);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_EastFace, this.colorGreenBottomLeft_EastFace, this.colorBlueBottomLeft_EastFace);
@@ -1204,8 +1093,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_EastFace, this.colorGreenTopRight_EastFace, this.colorBlueTopRight_EastFace);
                     var12.addVertexWithUV(var23, var27, var31, var17, var21);
                 }
-                else if (var9 == 10)
-                {
+                else if (var9 == 10) {
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueZNeg + this.aoLightValueXNegZNeg) * (this.factorBottom + this.factorEast) / 4.0F, this.colorGreenSlopes * (this.aoLightValueZNeg + this.aoLightValueXNegZNeg) * (this.factorBottom + this.factorEast) / 4.0F, this.colorBlueSlopes * (this.aoLightValueZNeg + this.aoLightValueXNegZNeg) * (this.factorBottom + this.factorEast) / 4.0F);
                     var12.addVertexWithUV(var23, var29, var31, var17, var19);
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueZNeg + this.aoLightValueXPosZNeg) * (this.factorBottom + this.factorEast) / 4.0F, this.colorGreenSlopes * (this.aoLightValueZNeg + this.aoLightValueXPosZNeg) * (this.factorBottom + this.factorEast) / 4.0F, this.colorBlueSlopes * (this.aoLightValueZNeg + this.aoLightValueXPosZNeg) * (this.factorBottom + this.factorEast) / 4.0F);
@@ -1215,8 +1103,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYNeg + this.aoLightValueXNegYNeg) * (this.factorBottom + this.factorEast) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYNeg + this.aoLightValueXNegYNeg) * (this.factorBottom + this.factorEast) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYNeg + this.aoLightValueXNegYNeg) * (this.factorBottom + this.factorEast) / 4.0F);
                     var12.addVertexWithUV(var23, var27, var33, var17, var21);
                 }
-                else if (var9 == 12)
-                {
+                else if (var9 == 12) {
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueXNeg + this.aoLightValueXNegYPos) * (this.factorNorth + this.factorEast) / 4.0F, this.colorGreenSlopes * (this.aoLightValueXNeg + this.aoLightValueXNegYPos) * (this.factorNorth + this.factorEast) / 4.0F, this.colorBlueSlopes * (this.aoLightValueXNeg + this.aoLightValueXNegYPos) * (this.factorNorth + this.factorEast) / 4.0F);
                     var12.addVertexWithUV(var23, var29, var33, var17, var19);
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueZNeg + this.aoLightValueYPosZNeg) * (this.factorNorth + this.factorEast) / 4.0F, this.colorGreenSlopes * (this.aoLightValueZNeg + this.aoLightValueYPosZNeg) * (this.factorNorth + this.factorEast) / 4.0F, this.colorBlueSlopes * (this.aoLightValueZNeg + this.aoLightValueYPosZNeg) * (this.factorNorth + this.factorEast) / 4.0F);
@@ -1227,8 +1114,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.addVertexWithUV(var23, var27, var33, var17, var21);
                 }
             }
-            else
-            {
+            else {
                 var12.setColorOpaque_F(this.colorRedTopLeft_EastFace, this.colorGreenTopLeft_EastFace, this.colorBlueTopLeft_EastFace);
                 var12.addVertexWithUV(var23, var29, var31, var17, var19);
                 var12.setColorOpaque_F(this.colorRedBottomLeft_EastFace, this.colorGreenBottomLeft_EastFace, this.colorBlueBottomLeft_EastFace);
@@ -1239,60 +1125,51 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                 var12.addVertexWithUV(var23, var27, var31, var17, var21);
             }
         }
-        else if (var9 != 7 && var9 != 11 && var9 != 13 && var9 != 15)
-        {
-            if (var9 == 4)
-            {
+        else if (var9 != 7 && var9 != 11 && var9 != 13 && var9 != 15) {
+            if (var9 == 4) {
                 var12.addVertexWithUV(var23, var27, var31, var17, var21);
                 var12.addVertexWithUV(var25, var29, var31, var15, var19);
                 var12.addVertexWithUV(var25, var27, var31, var15, var21);
                 var12.addVertexWithUV(var23, var27, var31, var17, var21);
             }
-            else if (var9 == 5)
-            {
+            else if (var9 == 5) {
                 var12.addVertexWithUV(var23, var29, var31, var17, var19);
                 var12.addVertexWithUV(var25, var27, var31, var15, var21);
                 var12.addVertexWithUV(var25, var27, var31, var15, var21);
                 var12.addVertexWithUV(var23, var27, var31, var17, var21);
             }
-            else if (var9 == 6)
-            {
+            else if (var9 == 6) {
                 var12.addVertexWithUV(var23, var29, var33, var17, var19);
                 var12.addVertexWithUV(var25, var29, var33, var15, var19);
                 var12.addVertexWithUV(var25, var27, var31, var15, var21);
                 var12.addVertexWithUV(var23, var27, var31, var17, var21);
             }
-            else if (var9 == 8)
-            {
+            else if (var9 == 8) {
                 var12.addVertexWithUV(var23, var29, var31, var17, var19);
                 var12.addVertexWithUV(var25, var29, var31, var15, var19);
                 var12.addVertexWithUV(var25, var27, var31, var15, var21);
                 var12.addVertexWithUV(var23, var29, var31, var17, var19);
             }
-            else if (var9 == 9)
-            {
+            else if (var9 == 9) {
                 var12.addVertexWithUV(var23, var29, var31, var17, var19);
                 var12.addVertexWithUV(var25, var29, var31, var15, var19);
                 var12.addVertexWithUV(var25, var29, var31, var15, var19);
                 var12.addVertexWithUV(var23, var27, var31, var17, var21);
             }
-            else if (var9 == 10)
-            {
+            else if (var9 == 10) {
                 var12.addVertexWithUV(var23, var29, var31, var17, var19);
                 var12.addVertexWithUV(var25, var29, var31, var15, var19);
                 var12.addVertexWithUV(var25, var27, var33, var15, var21);
                 var12.addVertexWithUV(var23, var27, var33, var17, var21);
             }
-            else if (var9 == 12)
-            {
+            else if (var9 == 12) {
                 var12.addVertexWithUV(var23, var29, var33, var17, var19);
                 var12.addVertexWithUV(var25, var29, var31, var15, var19);
                 var12.addVertexWithUV(var25, var27, var31, var15, var21);
                 var12.addVertexWithUV(var23, var27, var33, var17, var21);
             }
         }
-        else
-        {
+        else {
             var12.addVertexWithUV(var23, var29, var31, var17, var19);
             var12.addVertexWithUV(var25, var29, var31, var15, var19);
             var12.addVertexWithUV(var25, var27, var31, var15, var21);
@@ -1300,13 +1177,11 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         }
     }
 
-    public void renderSlopesWestFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11)
-    {
+    public void renderSlopesWestFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11) {
         Tessellator var12 = Tessellator.instance;
         var12.setBrightness(var11);
 
-        if (var10.overrideBlockTexture >= 0)
-        {
+        if (var10.overrideBlockTexture >= 0) {
             var8 = var10.overrideBlockTexture;
         }
 
@@ -1318,21 +1193,18 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         double var21 = ((double)var14 + var1.getBlockBoundsMaxY() * 16.0D - 0.01D) / 256.0D;
         double var23;
 
-        if (var10.flipTexture)
-        {
+        if (var10.flipTexture) {
             var23 = var15;
             var15 = var17;
             var17 = var23;
         }
 
-        if (var1.getBlockBoundsMinX() < 0.0D || var1.getBlockBoundsMaxX() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinX() < 0.0D || var1.getBlockBoundsMaxX() > 1.0D) {
             var15 = (double)(((float)var13 + 0.0F) / 256.0F);
             var17 = (double)(((float)var13 + 15.99F) / 256.0F);
         }
 
-        if (var1.getBlockBoundsMinY() < 0.0D || var1.getBlockBoundsMaxY() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinY() < 0.0D || var1.getBlockBoundsMaxY() > 1.0D) {
             var19 = (double)(((float)var14 + 0.0F) / 256.0F);
             var21 = (double)(((float)var14 + 15.99F) / 256.0F);
         }
@@ -1344,12 +1216,9 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         double var31 = var6 + var1.getBlockBoundsMaxZ();
         double var33 = var6 + var1.getBlockBoundsMinZ();
 
-        if (this.enableAO)
-        {
-            if (var9 != 6 && var9 != 10 && var9 != 12 && var9 != 14)
-            {
-                if (var9 == 4)
-                {
+        if (this.enableAO) {
+            if (var9 != 6 && var9 != 10 && var9 != 12 && var9 != 14) {
+                if (var9 == 4) {
                     var12.setColorOpaque_F(this.colorRedBottomLeft_WestFace, this.colorGreenBottomLeft_WestFace, this.colorBlueBottomLeft_WestFace);
                     var12.addVertexWithUV(var23, var27, var31, var15, var21);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_WestFace, this.colorGreenBottomLeft_WestFace, this.colorBlueBottomLeft_WestFace);
@@ -1359,8 +1228,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_WestFace, this.colorGreenTopRight_WestFace, this.colorBlueTopRight_WestFace);
                     var12.addVertexWithUV(var25, var29, var31, var17, var19);
                 }
-                else if (var9 == 5)
-                {
+                else if (var9 == 5) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_WestFace, this.colorGreenTopLeft_WestFace, this.colorBlueTopLeft_WestFace);
                     var12.addVertexWithUV(var23, var29, var31, var15, var19);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_WestFace, this.colorGreenBottomLeft_WestFace, this.colorBlueBottomLeft_WestFace);
@@ -1370,8 +1238,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedBottomRight_WestFace, this.colorGreenBottomRight_WestFace, this.colorBlueBottomRight_WestFace);
                     var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 }
-                else if (var9 == 7)
-                {
+                else if (var9 == 7) {
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYPos + this.aoLightValueXNegYPos) * (this.factorTop + this.factorWest) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYPos + this.aoLightValueXNegYPos) * (this.factorTop + this.factorWest) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYPos + this.aoLightValueXNegYPos) * (this.factorTop + this.factorWest) / 4.0F);
                     var12.addVertexWithUV(var23, var29, var33, var15, var19);
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueZPos + this.aoLightValueXNegZPos) * (this.factorTop + this.factorWest) / 4.0F, this.colorGreenSlopes * (this.aoLightValueZPos + this.aoLightValueXNegZPos) * (this.factorTop + this.factorWest) / 4.0F, this.colorBlueSlopes * (this.aoLightValueZPos + this.aoLightValueXNegZPos) * (this.factorTop + this.factorWest) / 4.0F);
@@ -1381,8 +1248,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYPos + this.aoLightValueXPosYPos) * (this.factorTop + this.factorWest) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYPos + this.aoLightValueXPosYPos) * (this.factorTop + this.factorWest) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYPos + this.aoLightValueXPosYPos) * (this.factorTop + this.factorWest) / 4.0F);
                     var12.addVertexWithUV(var25, var29, var33, var17, var19);
                 }
-                else if (var9 == 8)
-                {
+                else if (var9 == 8) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_WestFace, this.colorGreenTopLeft_WestFace, this.colorBlueTopLeft_WestFace);
                     var12.addVertexWithUV(var23, var29, var31, var15, var19);
                     var12.setColorOpaque_F(this.colorRedTopLeft_WestFace, this.colorGreenTopLeft_WestFace, this.colorBlueTopLeft_WestFace);
@@ -1392,8 +1258,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_WestFace, this.colorGreenTopRight_WestFace, this.colorBlueTopRight_WestFace);
                     var12.addVertexWithUV(var25, var29, var31, var17, var19);
                 }
-                else if (var9 == 9)
-                {
+                else if (var9 == 9) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_WestFace, this.colorGreenTopLeft_WestFace, this.colorBlueTopLeft_WestFace);
                     var12.addVertexWithUV(var23, var29, var31, var15, var19);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_WestFace, this.colorGreenBottomLeft_WestFace, this.colorBlueBottomLeft_WestFace);
@@ -1403,8 +1268,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_WestFace, this.colorGreenTopRight_WestFace, this.colorBlueTopRight_WestFace);
                     var12.addVertexWithUV(var25, var29, var31, var17, var19);
                 }
-                else if (var9 == 11)
-                {
+                else if (var9 == 11) {
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueZPos + this.aoLightValueXNegZPos) * (this.factorBottom + this.factorWest) / 4.0F, this.colorGreenSlopes * (this.aoLightValueZPos + this.aoLightValueXNegZPos) * (this.factorBottom + this.factorWest) / 4.0F, this.colorBlueSlopes * (this.aoLightValueZPos + this.aoLightValueXNegZPos) * (this.factorBottom + this.factorWest) / 4.0F);
                     var12.addVertexWithUV(var23, var29, var31, var15, var19);
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYNeg + this.aoLightValueXNegYNeg) * (this.factorBottom + this.factorWest) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYNeg + this.aoLightValueXNegYNeg) * (this.factorBottom + this.factorWest) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYNeg + this.aoLightValueXNegYNeg) * (this.factorBottom + this.factorWest) / 4.0F);
@@ -1414,8 +1278,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueZPos + this.aoLightValueXPosZPos) * (this.factorBottom + this.factorWest) / 4.0F, this.colorGreenSlopes * (this.aoLightValueZPos + this.aoLightValueXPosZPos) * (this.factorBottom + this.factorWest) / 4.0F, this.colorBlueSlopes * (this.aoLightValueZPos + this.aoLightValueXPosZPos) * (this.factorBottom + this.factorWest) / 4.0F);
                     var12.addVertexWithUV(var25, var29, var31, var17, var19);
                 }
-                else if (var9 == 13)
-                {
+                else if (var9 == 13) {
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueZPos + this.aoLightValueYPosZPos) * (this.factorSouth + this.factorWest) / 4.0F, this.colorGreenSlopes * (this.aoLightValueZPos + this.aoLightValueYPosZPos) * (this.factorSouth + this.factorWest) / 4.0F, this.colorBlueSlopes * (this.aoLightValueZPos + this.aoLightValueYPosZPos) * (this.factorSouth + this.factorWest) / 4.0F);
                     var12.addVertexWithUV(var23, var29, var31, var15, var19);
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueZPos + this.aoLightValueYNegZPos) * (this.factorSouth + this.factorWest) / 4.0F, this.colorGreenSlopes * (this.aoLightValueZPos + this.aoLightValueYNegZPos) * (this.factorSouth + this.factorWest) / 4.0F, this.colorBlueSlopes * (this.aoLightValueZPos + this.aoLightValueYNegZPos) * (this.factorSouth + this.factorWest) / 4.0F);
@@ -1426,8 +1289,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.addVertexWithUV(var25, var29, var33, var17, var19);
                 }
             }
-            else
-            {
+            else {
                 var12.setColorOpaque_F(this.colorRedTopLeft_WestFace, this.colorGreenTopLeft_WestFace, this.colorBlueTopLeft_WestFace);
                 var12.addVertexWithUV(var23, var29, var31, var15, var19);
                 var12.setColorOpaque_F(this.colorRedBottomLeft_WestFace, this.colorGreenBottomLeft_WestFace, this.colorBlueBottomLeft_WestFace);
@@ -1438,60 +1300,51 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                 var12.addVertexWithUV(var25, var29, var31, var17, var19);
             }
         }
-        else if (var9 != 6 && var9 != 10 && var9 != 12 && var9 != 14)
-        {
-            if (var9 == 4)
-            {
+        else if (var9 != 6 && var9 != 10 && var9 != 12 && var9 != 14) {
+            if (var9 == 4) {
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 var12.addVertexWithUV(var25, var29, var31, var17, var19);
             }
-            else if (var9 == 5)
-            {
+            else if (var9 == 5) {
                 var12.addVertexWithUV(var23, var29, var31, var15, var19);
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
             }
-            else if (var9 == 7)
-            {
+            else if (var9 == 7) {
                 var12.addVertexWithUV(var23, var29, var33, var15, var19);
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 var12.addVertexWithUV(var25, var29, var33, var17, var19);
             }
-            else if (var9 == 8)
-            {
+            else if (var9 == 8) {
                 var12.addVertexWithUV(var23, var29, var31, var15, var19);
                 var12.addVertexWithUV(var23, var29, var31, var15, var19);
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 var12.addVertexWithUV(var25, var29, var31, var17, var19);
             }
-            else if (var9 == 9)
-            {
+            else if (var9 == 9) {
                 var12.addVertexWithUV(var23, var29, var31, var15, var19);
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 var12.addVertexWithUV(var25, var29, var31, var17, var19);
                 var12.addVertexWithUV(var25, var29, var31, var17, var19);
             }
-            else if (var9 == 11)
-            {
+            else if (var9 == 11) {
                 var12.addVertexWithUV(var23, var29, var31, var15, var19);
                 var12.addVertexWithUV(var23, var27, var33, var15, var21);
                 var12.addVertexWithUV(var25, var27, var33, var17, var21);
                 var12.addVertexWithUV(var25, var29, var31, var17, var19);
             }
-            else if (var9 == 13)
-            {
+            else if (var9 == 13) {
                 var12.addVertexWithUV(var23, var29, var31, var15, var19);
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 var12.addVertexWithUV(var25, var27, var33, var17, var21);
                 var12.addVertexWithUV(var25, var29, var33, var17, var19);
             }
         }
-        else
-        {
+        else {
             var12.addVertexWithUV(var23, var29, var31, var15, var19);
             var12.addVertexWithUV(var23, var27, var31, var15, var21);
             var12.addVertexWithUV(var25, var27, var31, var17, var21);
@@ -1499,13 +1352,11 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         }
     }
 
-    public void renderSlopesNorthFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11)
-    {
+    public void renderSlopesNorthFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11) {
         Tessellator var12 = Tessellator.instance;
         var12.setBrightness(var11);
 
-        if (var10.overrideBlockTexture >= 0)
-        {
+        if (var10.overrideBlockTexture >= 0) {
             var8 = var10.overrideBlockTexture;
         }
 
@@ -1517,21 +1368,18 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         double var21 = ((double)var14 + var1.getBlockBoundsMaxY() * 16.0D - 0.01D) / 256.0D;
         double var23;
 
-        if (var10.flipTexture)
-        {
+        if (var10.flipTexture) {
             var23 = var15;
             var15 = var17;
             var17 = var23;
         }
 
-        if (var1.getBlockBoundsMinZ() < 0.0D || var1.getBlockBoundsMaxZ() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinZ() < 0.0D || var1.getBlockBoundsMaxZ() > 1.0D) {
             var15 = (double)(((float)var13 + 0.0F) / 256.0F);
             var17 = (double)(((float)var13 + 15.99F) / 256.0F);
         }
 
-        if (var1.getBlockBoundsMinY() < 0.0D || var1.getBlockBoundsMaxY() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinY() < 0.0D || var1.getBlockBoundsMaxY() > 1.0D) {
             var19 = (double)(((float)var14 + 0.0F) / 256.0F);
             var21 = (double)(((float)var14 + 15.99F) / 256.0F);
         }
@@ -1543,12 +1391,9 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         double var31 = var6 + var1.getBlockBoundsMaxZ();
         double var33 = var2 + var1.getBlockBoundsMaxX();
 
-        if (this.enableAO)
-        {
-            if (var9 != 5 && var9 != 9 && var9 != 13 && var9 != 14)
-            {
-                if (var9 == 4)
-                {
+        if (this.enableAO) {
+            if (var9 != 5 && var9 != 9 && var9 != 13 && var9 != 14) {
+                if (var9 == 4) {
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZPos) * (this.factorTop + this.factorNorth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZPos) * (this.factorTop + this.factorNorth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZPos) * (this.factorTop + this.factorNorth) / 4.0F);
                     var12.addVertexWithUV(var33, var27, var31, var17, var19);
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZNeg) * (this.factorTop + this.factorNorth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZNeg) * (this.factorTop + this.factorNorth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZNeg) * (this.factorTop + this.factorNorth) / 4.0F);
@@ -1558,8 +1403,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueXNeg + this.aoLightValueXNegZPos) * (this.factorTop + this.factorNorth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueXNeg + this.aoLightValueXNegZPos) * (this.factorTop + this.factorNorth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueXNeg + this.aoLightValueXNegZPos) * (this.factorTop + this.factorNorth) / 4.0F);
                     var12.addVertexWithUV(var23, var25, var31, var17, var21);
                 }
-                else if (var9 == 6)
-                {
+                else if (var9 == 6) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_NorthFace, this.colorGreenTopLeft_NorthFace, this.colorBlueTopLeft_NorthFace);
                     var12.addVertexWithUV(var23, var27, var31, var17, var19);
                     var12.setColorOpaque_F(this.colorRedBottomRight_NorthFace, this.colorGreenBottomRight_NorthFace, this.colorBlueBottomRight_NorthFace);
@@ -1569,8 +1413,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_NorthFace, this.colorGreenTopRight_NorthFace, this.colorBlueTopRight_NorthFace);
                     var12.addVertexWithUV(var23, var25, var31, var17, var21);
                 }
-                else if (var9 == 7)
-                {
+                else if (var9 == 7) {
                     var12.setColorOpaque_F(this.colorRedTopRight_NorthFace, this.colorGreenTopRight_NorthFace, this.colorBlueTopRight_NorthFace);
                     var12.addVertexWithUV(var23, var25, var31, var17, var21);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_NorthFace, this.colorGreenBottomLeft_NorthFace, this.colorBlueBottomLeft_NorthFace);
@@ -1580,8 +1423,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_NorthFace, this.colorGreenTopRight_NorthFace, this.colorBlueTopRight_NorthFace);
                     var12.addVertexWithUV(var23, var25, var31, var17, var21);
                 }
-                else if (var9 == 8)
-                {
+                else if (var9 == 8) {
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueXNeg + this.aoLightValueXNegZPos) * (this.factorBottom + this.factorNorth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueXNeg + this.aoLightValueXNegZPos) * (this.factorBottom + this.factorNorth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueXNeg + this.aoLightValueXNegZPos) * (this.factorBottom + this.factorNorth) / 4.0F);
                     var12.addVertexWithUV(var23, var27, var31, var17, var19);
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueXNeg + this.aoLightValueXNegZNeg) * (this.factorBottom + this.factorNorth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueXNeg + this.aoLightValueXNegZNeg) * (this.factorBottom + this.factorNorth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueXNeg + this.aoLightValueXNegZNeg) * (this.factorBottom + this.factorNorth) / 4.0F);
@@ -1591,8 +1433,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZPos) * (this.factorBottom + this.factorNorth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZPos) * (this.factorBottom + this.factorNorth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZPos) * (this.factorBottom + this.factorNorth) / 4.0F);
                     var12.addVertexWithUV(var33, var25, var31, var17, var21);
                 }
-                else if (var9 == 10)
-                {
+                else if (var9 == 10) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_NorthFace, this.colorGreenTopLeft_NorthFace, this.colorBlueTopLeft_NorthFace);
                     var12.addVertexWithUV(var23, var27, var31, var17, var19);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_NorthFace, this.colorGreenBottomLeft_NorthFace, this.colorBlueBottomLeft_NorthFace);
@@ -1602,8 +1443,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_NorthFace, this.colorGreenTopRight_NorthFace, this.colorBlueTopRight_NorthFace);
                     var12.addVertexWithUV(var23, var25, var31, var17, var21);
                 }
-                else if (var9 == 11)
-                {
+                else if (var9 == 11) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_NorthFace, this.colorGreenTopLeft_NorthFace, this.colorBlueTopLeft_NorthFace);
                     var12.addVertexWithUV(var23, var27, var31, var17, var19);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_NorthFace, this.colorGreenBottomLeft_NorthFace, this.colorBlueBottomLeft_NorthFace);
@@ -1613,8 +1453,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopLeft_NorthFace, this.colorGreenTopLeft_NorthFace, this.colorBlueTopLeft_NorthFace);
                     var12.addVertexWithUV(var23, var27, var31, var17, var19);
                 }
-                else if (var9 == 15)
-                {
+                else if (var9 == 15) {
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueZPos + this.aoLightValueYPosZPos) * (this.factorWest + this.factorNorth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueZPos + this.aoLightValueYPosZPos) * (this.factorWest + this.factorNorth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueZPos + this.aoLightValueYPosZPos) * (this.factorWest + this.factorNorth) / 4.0F);
                     var12.addVertexWithUV(var33, var27, var31, var17, var19);
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueXNeg + this.aoLightValueXNegYPos) * (this.factorWest + this.factorNorth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueXNeg + this.aoLightValueXNegYPos) * (this.factorWest + this.factorNorth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueXNeg + this.aoLightValueXNegYPos) * (this.factorWest + this.factorNorth) / 4.0F);
@@ -1625,8 +1464,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.addVertexWithUV(var33, var25, var31, var17, var21);
                 }
             }
-            else
-            {
+            else {
                 var12.setColorOpaque_F(this.colorRedTopLeft_NorthFace, this.colorGreenTopLeft_NorthFace, this.colorBlueTopLeft_NorthFace);
                 var12.addVertexWithUV(var23, var27, var31, var17, var19);
                 var12.setColorOpaque_F(this.colorRedBottomLeft_NorthFace, this.colorGreenBottomLeft_NorthFace, this.colorBlueBottomLeft_NorthFace);
@@ -1637,60 +1475,51 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                 var12.addVertexWithUV(var23, var25, var31, var17, var21);
             }
         }
-        else if (var9 != 5 && var9 != 9 && var9 != 13 && var9 != 14)
-        {
-            if (var9 == 4)
-            {
+        else if (var9 != 5 && var9 != 9 && var9 != 13 && var9 != 14) {
+            if (var9 == 4) {
                 var12.addVertexWithUV(var33, var27, var31, var17, var19);
                 var12.addVertexWithUV(var33, var27, var29, var15, var19);
                 var12.addVertexWithUV(var23, var25, var29, var15, var21);
                 var12.addVertexWithUV(var23, var25, var31, var17, var21);
             }
-            else if (var9 == 6)
-            {
+            else if (var9 == 6) {
                 var12.addVertexWithUV(var23, var27, var31, var17, var19);
                 var12.addVertexWithUV(var23, var25, var29, var15, var21);
                 var12.addVertexWithUV(var23, var25, var29, var15, var21);
                 var12.addVertexWithUV(var23, var25, var31, var17, var21);
             }
-            else if (var9 == 7)
-            {
+            else if (var9 == 7) {
                 var12.addVertexWithUV(var23, var25, var31, var17, var21);
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var23, var25, var29, var15, var21);
                 var12.addVertexWithUV(var23, var25, var31, var17, var21);
             }
-            else if (var9 == 8)
-            {
+            else if (var9 == 8) {
                 var12.addVertexWithUV(var23, var27, var31, var17, var19);
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var33, var25, var29, var15, var21);
                 var12.addVertexWithUV(var33, var25, var31, var17, var21);
             }
-            else if (var9 == 10)
-            {
+            else if (var9 == 10) {
                 var12.addVertexWithUV(var23, var27, var31, var17, var19);
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var23, var25, var31, var17, var21);
             }
-            else if (var9 == 11)
-            {
+            else if (var9 == 11) {
                 var12.addVertexWithUV(var23, var27, var31, var17, var19);
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var23, var25, var29, var15, var21);
                 var12.addVertexWithUV(var23, var27, var31, var17, var19);
             }
-            else if (var9 == 15)
-            {
+            else if (var9 == 15) {
                 var12.addVertexWithUV(var33, var27, var31, var17, var19);
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var23, var25, var29, var15, var21);
                 var12.addVertexWithUV(var33, var25, var31, var17, var21);
             }
         }
-        else
-        {
+        else {
             var12.addVertexWithUV(var23, var27, var31, var17, var19);
             var12.addVertexWithUV(var23, var27, var29, var15, var19);
             var12.addVertexWithUV(var23, var25, var29, var15, var21);
@@ -1698,13 +1527,11 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         }
     }
 
-    public void renderSlopesSouthFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11)
-    {
+    public void renderSlopesSouthFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11) {
         Tessellator var12 = Tessellator.instance;
         var12.setBrightness(var11);
 
-        if (var10.overrideBlockTexture >= 0)
-        {
+        if (var10.overrideBlockTexture >= 0) {
             var8 = var10.overrideBlockTexture;
         }
 
@@ -1716,21 +1543,18 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         double var21 = ((double)var14 + var1.getBlockBoundsMaxY() * 16.0D - 0.01D) / 256.0D;
         double var23;
 
-        if (var10.flipTexture)
-        {
+        if (var10.flipTexture) {
             var23 = var15;
             var15 = var17;
             var17 = var23;
         }
 
-        if (var1.getBlockBoundsMinZ() < 0.0D || var1.getBlockBoundsMaxZ() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinZ() < 0.0D || var1.getBlockBoundsMaxZ() > 1.0D) {
             var15 = (double)(((float)var13 + 0.0F) / 256.0F);
             var17 = (double)(((float)var13 + 15.99F) / 256.0F);
         }
 
-        if (var1.getBlockBoundsMinY() < 0.0D || var1.getBlockBoundsMaxY() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinY() < 0.0D || var1.getBlockBoundsMaxY() > 1.0D) {
             var19 = (double)(((float)var14 + 0.0F) / 256.0F);
             var21 = (double)(((float)var14 + 15.99F) / 256.0F);
         }
@@ -1742,12 +1566,9 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
         double var31 = var6 + var1.getBlockBoundsMaxZ();
         double var33 = var2 + var1.getBlockBoundsMinX();
 
-        if (this.enableAO)
-        {
-            if (var9 != 4 && var9 != 8 && var9 != 12 && var9 != 15)
-            {
-                if (var9 == 5)
-                {
+        if (this.enableAO) {
+            if (var9 != 4 && var9 != 8 && var9 != 12 && var9 != 15) {
+                if (var9 == 5) {
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueXPos + this.aoLightValueXPosZPos) * (this.factorTop + this.factorSouth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueXPos + this.aoLightValueXPosZPos) * (this.factorTop + this.factorSouth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueXPos + this.aoLightValueXPosZPos) * (this.factorTop + this.factorSouth) / 4.0F);
                     var12.addVertexWithUV(var23, var25, var31, var15, var21);
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueXPos + this.aoLightValueXPosZNeg) * (this.factorTop + this.factorSouth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueXPos + this.aoLightValueXPosZNeg) * (this.factorTop + this.factorSouth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueXPos + this.aoLightValueXPosZNeg) * (this.factorTop + this.factorSouth) / 4.0F);
@@ -1757,8 +1578,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZPos) * (this.factorTop + this.factorSouth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZPos) * (this.factorTop + this.factorSouth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZPos) * (this.factorTop + this.factorSouth) / 4.0F);
                     var12.addVertexWithUV(var33, var27, var31, var15, var19);
                 }
-                else if (var9 == 6)
-                {
+                else if (var9 == 6) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_SouthFace, this.colorGreenTopLeft_SouthFace, this.colorBlueTopLeft_SouthFace);
                     var12.addVertexWithUV(var23, var25, var31, var15, var21);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_SouthFace, this.colorGreenBottomLeft_SouthFace, this.colorBlueBottomLeft_SouthFace);
@@ -1768,8 +1588,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_SouthFace, this.colorGreenTopRight_SouthFace, this.colorBlueTopRight_SouthFace);
                     var12.addVertexWithUV(var23, var27, var31, var15, var19);
                 }
-                else if (var9 == 7)
-                {
+                else if (var9 == 7) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_SouthFace, this.colorGreenTopLeft_SouthFace, this.colorBlueTopLeft_SouthFace);
                     var12.addVertexWithUV(var23, var25, var31, var15, var21);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_SouthFace, this.colorGreenBottomLeft_SouthFace, this.colorBlueBottomLeft_SouthFace);
@@ -1779,8 +1598,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopLeft_SouthFace, this.colorGreenTopLeft_SouthFace, this.colorBlueTopLeft_SouthFace);
                     var12.addVertexWithUV(var23, var25, var31, var15, var21);
                 }
-                else if (var9 == 9)
-                {
+                else if (var9 == 9) {
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZPos) * (this.factorBottom + this.factorSouth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZPos) * (this.factorBottom + this.factorSouth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZPos) * (this.factorBottom + this.factorSouth) / 4.0F);
                     var12.addVertexWithUV(var33, var25, var31, var15, var21);
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZNeg) * (this.factorBottom + this.factorSouth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZNeg) * (this.factorBottom + this.factorSouth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZNeg) * (this.factorBottom + this.factorSouth) / 4.0F);
@@ -1790,8 +1608,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueXPos + this.aoLightValueXPosZPos) * (this.factorBottom + this.factorSouth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueXPos + this.aoLightValueXPosZPos) * (this.factorBottom + this.factorSouth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueXPos + this.aoLightValueXPosZPos) * (this.factorBottom + this.factorSouth) / 4.0F);
                     var12.addVertexWithUV(var23, var27, var31, var15, var19);
                 }
-                else if (var9 == 10)
-                {
+                else if (var9 == 10) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_SouthFace, this.colorGreenTopLeft_SouthFace, this.colorBlueTopLeft_SouthFace);
                     var12.addVertexWithUV(var23, var25, var31, var15, var21);
                     var12.setColorOpaque_F(this.colorRedBottomRight_SouthFace, this.colorGreenBottomRight_SouthFace, this.colorBlueBottomRight_SouthFace);
@@ -1801,8 +1618,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_SouthFace, this.colorGreenTopRight_SouthFace, this.colorBlueTopRight_SouthFace);
                     var12.addVertexWithUV(var23, var27, var31, var15, var19);
                 }
-                else if (var9 == 11)
-                {
+                else if (var9 == 11) {
                     var12.setColorOpaque_F(this.colorRedTopRight_SouthFace, this.colorGreenTopRight_SouthFace, this.colorBlueTopRight_SouthFace);
                     var12.addVertexWithUV(var23, var27, var31, var15, var19);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_SouthFace, this.colorGreenBottomLeft_SouthFace, this.colorBlueBottomLeft_SouthFace);
@@ -1812,8 +1628,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_SouthFace, this.colorGreenTopRight_SouthFace, this.colorBlueTopRight_SouthFace);
                     var12.addVertexWithUV(var23, var27, var31, var15, var19);
                 }
-                else if (var9 == 14)
-                {
+                else if (var9 == 14) {
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueXPos + this.aoLightValueXPosYNeg) * (this.factorEast + this.factorSouth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueXPos + this.aoLightValueXPosYNeg) * (this.factorEast + this.factorSouth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueXPos + this.aoLightValueXPosYNeg) * (this.factorEast + this.factorSouth) / 4.0F);
                     var12.addVertexWithUV(var23, var25, var31, var15, var21);
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueZNeg + this.aoLightValueYNegZNeg) * (this.factorEast + this.factorSouth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueZNeg + this.aoLightValueYNegZNeg) * (this.factorEast + this.factorSouth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueZNeg + this.aoLightValueYNegZNeg) * (this.factorEast + this.factorSouth) / 4.0F);
@@ -1824,8 +1639,7 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                     var12.addVertexWithUV(var23, var27, var31, var15, var19);
                 }
             }
-            else
-            {
+            else {
                 var12.setColorOpaque_F(this.colorRedTopLeft_SouthFace, this.colorGreenTopLeft_SouthFace, this.colorBlueTopLeft_SouthFace);
                 var12.addVertexWithUV(var23, var25, var31, var15, var21);
                 var12.setColorOpaque_F(this.colorRedBottomLeft_SouthFace, this.colorGreenBottomLeft_SouthFace, this.colorBlueBottomLeft_SouthFace);
@@ -1836,60 +1650,51 @@ public class RenderSlopes implements ISimpleBlockRenderingHandler
                 var12.addVertexWithUV(var23, var27, var31, var15, var19);
             }
         }
-        else if (var9 != 4 && var9 != 8 && var9 != 12 && var9 != 15)
-        {
-            if (var9 == 5)
-            {
+        else if (var9 != 4 && var9 != 8 && var9 != 12 && var9 != 15) {
+            if (var9 == 5) {
                 var12.addVertexWithUV(var23, var25, var31, var15, var21);
                 var12.addVertexWithUV(var23, var25, var29, var17, var21);
                 var12.addVertexWithUV(var33, var27, var29, var17, var19);
                 var12.addVertexWithUV(var33, var27, var31, var15, var19);
             }
-            else if (var9 == 6)
-            {
+            else if (var9 == 6) {
                 var12.addVertexWithUV(var23, var25, var31, var15, var21);
                 var12.addVertexWithUV(var23, var25, var29, var17, var21);
                 var12.addVertexWithUV(var23, var25, var29, var17, var21);
                 var12.addVertexWithUV(var23, var27, var31, var15, var19);
             }
-            else if (var9 == 7)
-            {
+            else if (var9 == 7) {
                 var12.addVertexWithUV(var23, var25, var31, var15, var21);
                 var12.addVertexWithUV(var23, var25, var29, var17, var21);
                 var12.addVertexWithUV(var23, var27, var29, var17, var19);
                 var12.addVertexWithUV(var23, var25, var31, var15, var21);
             }
-            else if (var9 == 9)
-            {
+            else if (var9 == 9) {
                 var12.addVertexWithUV(var33, var25, var31, var15, var21);
                 var12.addVertexWithUV(var33, var25, var29, var17, var21);
                 var12.addVertexWithUV(var23, var27, var29, var17, var19);
                 var12.addVertexWithUV(var23, var27, var31, var15, var19);
             }
-            else if (var9 == 10)
-            {
+            else if (var9 == 10) {
                 var12.addVertexWithUV(var23, var25, var31, var15, var21);
                 var12.addVertexWithUV(var23, var27, var29, var17, var19);
                 var12.addVertexWithUV(var23, var27, var29, var17, var19);
                 var12.addVertexWithUV(var23, var27, var31, var15, var19);
             }
-            else if (var9 == 11)
-            {
+            else if (var9 == 11) {
                 var12.addVertexWithUV(var23, var27, var31, var15, var19);
                 var12.addVertexWithUV(var23, var25, var29, var17, var21);
                 var12.addVertexWithUV(var23, var27, var29, var17, var19);
                 var12.addVertexWithUV(var23, var27, var31, var15, var19);
             }
-            else if (var9 == 14)
-            {
+            else if (var9 == 14) {
                 var12.addVertexWithUV(var23, var25, var31, var15, var21);
                 var12.addVertexWithUV(var33, var25, var29, var17, var21);
                 var12.addVertexWithUV(var33, var27, var29, var17, var19);
                 var12.addVertexWithUV(var23, var27, var31, var15, var19);
             }
         }
-        else
-        {
+        else {
             var12.addVertexWithUV(var23, var25, var31, var15, var21);
             var12.addVertexWithUV(var23, var25, var29, var17, var21);
             var12.addVertexWithUV(var23, var27, var29, var17, var19);

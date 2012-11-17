@@ -1,5 +1,8 @@
 package metadark.mods.SuperSlopes.Corners;
 
+import metadark.mods.SuperSlopes.PropertyManager;
+import net.minecraft.src.Block;
+import net.minecraft.src.Item;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
 import cpw.mods.fml.common.Mod.Instance;
@@ -8,9 +11,6 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
-import metadark.mods.SuperSlopes.PropertyManager;
-import net.minecraft.src.Block;
-import net.minecraft.src.Item;
 
 @Mod(
         modid = "SuperSlopesCorners",
@@ -21,8 +21,7 @@ import net.minecraft.src.Item;
         clientSideRequired = true,
         serverSideRequired = false
 )
-public class Corners
-{
+public class Corners {
     @Instance("SuperSlopes|Corners")
     public static Corners instance;
     public static PropertyManager props;
@@ -104,8 +103,7 @@ public class Corners
     public static Item ItemKaevMagentaWoolCorners;
     public static Item ItemKaevOrangeWoolCorners;
 
-    public static void prepareProps()
-    {
+    public static void prepareProps() {
         props.getInt("LightOpacity", 0);
         props.getBoolean("BlockInversion", true);
         props.getInt("WoodCorners", 182);
@@ -146,17 +144,15 @@ public class Corners
     }
 
     @PreInit
-    public void preload(FMLPreInitializationEvent var1)
-    {
-        props = new PropertyManager(var1.getSuggestedConfigurationFile().getPath());
+    public void preload(FMLPreInitializationEvent event) {
+        props = new PropertyManager(event.getSuggestedConfigurationFile().getPath());
         prepareProps();
         init.loadConfig();
         props.save();
     }
 
     @Init
-    public void load(FMLInitializationEvent var1)
-    {
+    public void load(FMLInitializationEvent event) {
         init.registerBlockModel();
         init.addLocalizations();
         init.addRecipes();
