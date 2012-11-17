@@ -6,7 +6,7 @@
 #
 # RetroGuard MCP v3.6.5
 #
-# Logfile created on Thu Nov 15 00:22:38 EST 2012
+# Logfile created on Sat Nov 17 12:21:35 EST 2012
 #
 # Jar file to be obfuscated:           client_recomp.jar
 # Target Jar file for obfuscated code: client_reobf.jar
@@ -52,8 +52,8 @@
 #      Your class net/minecraftforge/event/ASMEventHandler$ASMClassLoader calls the java/lang/ClassLoader method defineClass(Ljava/lang/String;[BII)Ljava/lang/Class;
 #      Your class net/minecraftforge/event/EventBus calls the java/lang/Class method getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 #
-# Memory in use after class data structure built: 25192024 bytes
-# Total memory available                        : 371785728 bytes
+# Memory in use after class data structure built: 22893688 bytes
+# Total memory available                        : 235536384 bytes
 #
 #
 # Names reserved from obfuscation:
@@ -2378,6 +2378,7 @@
 .package_map metadark/mods/SuperSlopes/Slopes Slopes
 .class_map metadark/mods/SuperSlopes/Slopes/ItemSlopes ItemSlopes
 .field_map metadark/mods/SuperSlopes/Slopes/ItemSlopes/Kaevator_Materials Kaevator_Materials
+.field_map metadark/mods/SuperSlopes/Slopes/ItemSlopes/Vanilla_Stair_Materials Vanilla_Stair_Materials
 .field_map metadark/mods/SuperSlopes/Slopes/ItemSlopes/material material
 .method_map metadark/mods/SuperSlopes/Slopes/ItemSlopes/getCreativeTab ()Lnet/minecraft/src/CreativeTabs; w
 .method_map metadark/mods/SuperSlopes/Slopes/ItemSlopes/getSubItems (ILnet/minecraft/src/CreativeTabs;Ljava/util/List;)V a
@@ -2611,8 +2612,8 @@
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopLeft_TopFace colorGreenTopLeft_TopFace
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopRight_SouthFace colorGreenTopRight_SouthFace
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueSlopes colorBlueSlopes
-.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedTopLeft_SouthFace colorRedTopLeft_SouthFace
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueBottomRight_EastFace colorBlueBottomRight_EastFace
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedTopLeft_SouthFace colorRedTopLeft_SouthFace
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueYPosZNeg aoLightValueYPosZNeg
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueTopLeft_EastFace colorBlueTopLeft_EastFace
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueYNeg aoLightValueYNeg
@@ -2636,13 +2637,12 @@
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/factorSouth factorSouth
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/factorBottom factorBottom
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedTopLeft_EastFace colorRedTopLeft_EastFace
-.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXNeg aoLightValueXNeg
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueYNegZNeg aoLightValueYNegZNeg
+.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXNeg aoLightValueXNeg
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueXNegYPosZNeg aoLightValueXNegYPosZNeg
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopLeft_SouthFace colorGreenTopLeft_SouthFace
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopRight_EastFace colorGreenTopRight_EastFace
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/factorTop factorTop
-.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/field_27511_cfgGrassFix field_27511_cfgGrassFix
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedBottomLeft_TopFace colorRedBottomLeft_TopFace
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueTopRight_BottomFace colorBlueTopRight_BottomFace
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedBottomRight_SouthFace colorRedBottomRight_SouthFace
@@ -2657,7 +2657,6 @@
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorGreenTopRight_BottomFace colorGreenTopRight_BottomFace
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueZNeg aoLightValueZNeg
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorRedBottomLeft_WestFace colorRedBottomLeft_WestFace
-.field_map metadark/mods/SuperSlopes/Corners/RenderCorners/aoLightValueThis aoLightValueThis
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueBottomLeft_TopFace colorBlueBottomLeft_TopFace
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/colorBlueBottomRight_SouthFace colorBlueBottomRight_SouthFace
 .field_map metadark/mods/SuperSlopes/Corners/RenderCorners/enableAO enableAO

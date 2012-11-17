@@ -1,12 +1,14 @@
 package metadark.mods.SuperSlopes.IntCorners;
 
-import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.src.Block;
 import net.minecraft.src.IBlockAccess;
 import net.minecraft.src.RenderBlocks;
 import net.minecraft.src.Tessellator;
+
 import org.lwjgl.opengl.GL11;
+
+import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
 
 public class RenderIntCorners implements ISimpleBlockRenderingHandler
 {
@@ -123,12 +125,10 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
     public float colorBlueSlopes;
 
     @Override
-    public void renderInventoryBlock(Block var1, int var2, int var3, RenderBlocks var4)
-    {
+    public void renderInventoryBlock(Block var1, int var2, int var3, RenderBlocks var4) {
         Tessellator var5 = Tessellator.instance;
 
-        if (var3 == this.getRenderId())
-        {
+        if (var3 == this.getRenderId()) {
             var1.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
             GL11.glTranslatef(-0.5F, -0.5F, -0.5F);
             var5.startDrawingQuads();
@@ -162,25 +162,21 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
     }
 
     @Override
-    public boolean renderWorldBlock(IBlockAccess var1, int var2, int var3, int var4, Block var5, int var6, RenderBlocks var7)
-    {
+    public boolean renderWorldBlock(IBlockAccess var1, int var2, int var3, int var4, Block var5, int var6, RenderBlocks var7) {
         return var6 == this.getRenderId() ? this.renderBlockIntCorners(var5, var2, var3, var4, var7, var1) : false;
     }
 
     @Override
-    public boolean shouldRender3DInInventory()
-    {
+    public boolean shouldRender3DInInventory() {
         return true;
     }
 
     @Override
-    public int getRenderId()
-    {
+    public int getRenderId() {
         return IntCorners.IntCornersRenderID;
     }
 
-    public boolean renderBlockIntCorners(Block block, int x, int y, int z, RenderBlocks renderer, IBlockAccess world)
-    {
+    public boolean renderBlockIntCorners(Block block, int x, int y, int z, RenderBlocks renderer, IBlockAccess world) {
         int meta = world.getBlockMetadata(x, y, z);
         int color = block.colorMultiplier(world, x, y, z);
         float r = (float)(color >> 16 & 255) / 255.0F;
@@ -189,8 +185,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         return Minecraft.isAmbientOcclusionEnabled() ? this.renderIntCornersBlockWithAmbientOcclusion(block, x, y, z, r, g, b, meta, renderer, world) : this.renderIntCornersBlockWithColorMultiplier(block, x, y, z, r, g, b, meta, renderer, world);
     }
 
-    public boolean renderIntCornersBlockWithAmbientOcclusion(Block var1, int var2, int var3, int var4, float var5, float var6, float var7, int var8, RenderBlocks var9, IBlockAccess var10)
-    {
+    public boolean renderIntCornersBlockWithAmbientOcclusion(Block var1, int var2, int var3, int var4, float var5, float var6, float var7, int var8, RenderBlocks var9, IBlockAccess var10) {
         this.enableAO = true;
         boolean var11 = false;
         boolean var12 = true;
@@ -227,8 +222,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         this.aoLightValueXNegYPosZNeg = var1.getAmbientOcclusionLightValue(var10, var2 - 1, var3 + 1, var4 - 1);
         this.aoLightValueXNegYNegZNeg = var1.getAmbientOcclusionLightValue(var10, var2 - 1, var3 - 1, var4 - 1);
 
-        if (var1.blockIndexInTexture == 3)
-        {
+        if (var1.blockIndexInTexture == 3) {
             var17 = false;
             var16 = false;
             var15 = false;
@@ -241,15 +235,13 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         float var21;
         float var20;
 
-        if (this.field_22352_G > 0)
-        {
+        if (this.field_22352_G > 0) {
             var18 = (this.aoLightValueXNegYNegZPos + this.aoLightValueXNegYNeg + this.aoLightValueYNegZPos + this.aoLightValueYNeg) / 4.0F;
             var21 = (this.aoLightValueYNegZPos + this.aoLightValueYNeg + this.aoLightValueXPosYNegZPos + this.aoLightValueXPosYNeg) / 4.0F;
             var20 = (this.aoLightValueYNeg + this.aoLightValueYNegZNeg + this.aoLightValueXPosYNeg + this.aoLightValueXPosYNegZNeg) / 4.0F;
             var19 = (this.aoLightValueXNegYNeg + this.aoLightValueXNegYNegZNeg + this.aoLightValueYNeg + this.aoLightValueYNegZNeg) / 4.0F;
         }
-        else
-        {
+        else {
             var21 = this.aoLightValueYNeg;
             var20 = this.aoLightValueYNeg;
             var19 = this.aoLightValueYNeg;
@@ -276,15 +268,13 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         float var25;
         float var24;
 
-        if (this.field_22352_G > 0)
-        {
+        if (this.field_22352_G > 0) {
             var25 = (this.aoLightValueXNegYPosZPos + this.aoLightValueXNegYPos + this.aoLightValueYPosZPos + this.aoLightValueYPos) / 4.0F;
             var22 = (this.aoLightValueYPosZPos + this.aoLightValueYPos + this.aoLightValueXPosYPosZPos + this.aoLightValueXPosYPos) / 4.0F;
             var23 = (this.aoLightValueYPos + this.aoLightValueYPosZNeg + this.aoLightValueXPosYPos + this.aoLightValueXPosYPosZNeg) / 4.0F;
             var24 = (this.aoLightValueXNegYPos + this.aoLightValueXNegYPosZNeg + this.aoLightValueYPos + this.aoLightValueYPosZNeg) / 4.0F;
         }
-        else
-        {
+        else {
             var25 = this.aoLightValueYPos;
             var24 = this.aoLightValueYPos;
             var23 = this.aoLightValueYPos;
@@ -311,15 +301,13 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         float var29;
         float var28;
 
-        if (this.field_22352_G > 0)
-        {
+        if (this.field_22352_G > 0) {
             var26 = (this.aoLightValueXNegZNeg + this.aoLightValueXNegYPosZNeg + this.aoLightValueZNeg + this.aoLightValueYPosZNeg) / 4.0F;
             var27 = (this.aoLightValueZNeg + this.aoLightValueYPosZNeg + this.aoLightValueXPosZNeg + this.aoLightValueXPosYPosZNeg) / 4.0F;
             var28 = (this.aoLightValueYNegZNeg + this.aoLightValueZNeg + this.aoLightValueXPosYNegZNeg + this.aoLightValueXPosZNeg) / 4.0F;
             var29 = (this.aoLightValueXNegYNegZNeg + this.aoLightValueXNegZNeg + this.aoLightValueYNegZNeg + this.aoLightValueZNeg) / 4.0F;
         }
-        else
-        {
+        else {
             var29 = this.aoLightValueZNeg;
             var28 = this.aoLightValueZNeg;
             var27 = this.aoLightValueZNeg;
@@ -347,15 +335,13 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         float var32;
         float var33;
 
-        if (this.field_22352_G > 0)
-        {
+        if (this.field_22352_G > 0) {
             var31 = (this.aoLightValueXNegZPos + this.aoLightValueXNegYPosZPos + this.aoLightValueZPos + this.aoLightValueYPosZPos) / 4.0F;
             var34 = (this.aoLightValueZPos + this.aoLightValueYPosZPos + this.aoLightValueXPosZPos + this.aoLightValueXPosYPosZPos) / 4.0F;
             var33 = (this.aoLightValueYNegZPos + this.aoLightValueZPos + this.aoLightValueXPosYNegZPos + this.aoLightValueXPosZPos) / 4.0F;
             var32 = (this.aoLightValueXNegYNegZPos + this.aoLightValueXNegZPos + this.aoLightValueYNegZPos + this.aoLightValueZPos) / 4.0F;
         }
-        else
-        {
+        else {
             var34 = this.aoLightValueZPos;
             var33 = this.aoLightValueZPos;
             var32 = this.aoLightValueZPos;
@@ -383,15 +369,13 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         float var36;
         float var37;
 
-        if (this.field_22352_G > 0)
-        {
+        if (this.field_22352_G > 0) {
             var39 = (this.aoLightValueXNegYNeg + this.aoLightValueXNegYNegZPos + this.aoLightValueXNeg + this.aoLightValueXNegZPos) / 4.0F;
             var36 = (this.aoLightValueXNeg + this.aoLightValueXNegZPos + this.aoLightValueXNegYPos + this.aoLightValueXNegYPosZPos) / 4.0F;
             var37 = (this.aoLightValueXNegZNeg + this.aoLightValueXNeg + this.aoLightValueXNegYPosZNeg + this.aoLightValueXNegYPos) / 4.0F;
             var38 = (this.aoLightValueXNegYNegZNeg + this.aoLightValueXNegYNeg + this.aoLightValueXNegZNeg + this.aoLightValueXNeg) / 4.0F;
         }
-        else
-        {
+        else {
             var39 = this.aoLightValueXNeg;
             var38 = this.aoLightValueXNeg;
             var37 = this.aoLightValueXNeg;
@@ -419,15 +403,13 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         float var41;
         float var44;
 
-        if (this.field_22352_G > 0)
-        {
+        if (this.field_22352_G > 0) {
             var41 = (this.aoLightValueXPosYNeg + this.aoLightValueXPosYNegZPos + this.aoLightValueXPos + this.aoLightValueXPosZPos) / 4.0F;
             var44 = (this.aoLightValueXPos + this.aoLightValueXPosZPos + this.aoLightValueXPosYPos + this.aoLightValueXPosYPosZPos) / 4.0F;
             var43 = (this.aoLightValueXPosZNeg + this.aoLightValueXPos + this.aoLightValueXPosYPosZNeg + this.aoLightValueXPosYPos) / 4.0F;
             var42 = (this.aoLightValueXPosYNegZNeg + this.aoLightValueXPosYNeg + this.aoLightValueXPosZNeg + this.aoLightValueXPos) / 4.0F;
         }
-        else
-        {
+        else {
             var44 = this.aoLightValueXPos;
             var43 = this.aoLightValueXPos;
             var42 = this.aoLightValueXPos;
@@ -454,24 +436,20 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         this.colorGreenSlopes = var6;
         this.colorBlueSlopes = var7;
 
-        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3 - 1, var4, 0))
-        {
+        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3 - 1, var4, 0)) {
             this.renderIntCornersBottomFace(var1, (double)var2, (double)var3, (double)var4, var1.getBlockTexture(var10, var2, var3, var4, 0), var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
             var11 = true;
         }
 
-        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3 + 1, var4, 1))
-        {
+        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3 + 1, var4, 1)) {
             this.renderIntCornersTopFace(var1, (double)var2, (double)var3, (double)var4, var1.getBlockTexture(var10, var2, var3, var4, 0), var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
             var11 = true;
         }
 
-        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3, var4 - 1, 2))
-        {
+        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3, var4 - 1, 2)) {
             this.renderIntCornersEastFace(var1, (double)var2, (double)var3, (double)var4, var30, var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
 
-            if (field_27511_cfgGrassFix && var30 == 3)
-            {
+            if (field_27511_cfgGrassFix && var30 == 3) {
                 this.colorRedTopLeft_EastFace *= var5;
                 this.colorRedBottomLeft_EastFace *= var5;
                 this.colorRedBottomRight_EastFace *= var5;
@@ -490,12 +468,10 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
             var11 = true;
         }
 
-        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3, var4 + 1, 3))
-        {
+        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3, var4 + 1, 3)) {
             this.renderIntCornersWestFace(var1, (double)var2, (double)var3, (double)var4, var35, var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
 
-            if (field_27511_cfgGrassFix && var35 == 3)
-            {
+            if (field_27511_cfgGrassFix && var35 == 3) {
                 this.colorRedTopLeft_WestFace *= var5;
                 this.colorRedBottomLeft_WestFace *= var5;
                 this.colorRedBottomRight_WestFace *= var5;
@@ -514,12 +490,10 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
             var11 = true;
         }
 
-        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2 - 1, var3, var4, 4))
-        {
+        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2 - 1, var3, var4, 4)) {
             this.renderIntCornersNorthFace(var1, (double)var2, (double)var3, (double)var4, var40, var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
 
-            if (field_27511_cfgGrassFix && var40 == 3)
-            {
+            if (field_27511_cfgGrassFix && var40 == 3) {
                 this.colorRedTopLeft_NorthFace *= var5;
                 this.colorRedBottomLeft_NorthFace *= var5;
                 this.colorRedBottomRight_NorthFace *= var5;
@@ -538,12 +512,10 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
             var11 = true;
         }
 
-        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2 + 1, var3, var4, 5))
-        {
+        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2 + 1, var3, var4, 5)) {
             this.renderIntCornersSouthFace(var1, (double)var2, (double)var3, (double)var4, var45, var8, var9, var1.getMixedBrightnessForBlock(var10, var2, var3, var4));
 
-            if (field_27511_cfgGrassFix && var45 == 3)
-            {
+            if (field_27511_cfgGrassFix && var45 == 3) {
                 this.colorRedTopLeft_SouthFace *= var5;
                 this.colorRedBottomLeft_SouthFace *= var5;
                 this.colorRedBottomRight_SouthFace *= var5;
@@ -566,8 +538,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         return var11;
     }
 
-    public boolean renderIntCornersBlockWithColorMultiplier(Block var1, int var2, int var3, int var4, float var5, float var6, float var7, int var8, RenderBlocks var9, IBlockAccess var10)
-    {
+    public boolean renderIntCornersBlockWithColorMultiplier(Block var1, int var2, int var3, int var4, float var5, float var6, float var7, int var8, RenderBlocks var9, IBlockAccess var10) {
         Tessellator var11 = Tessellator.instance;
         boolean var12 = false;
         float var13 = 0.5F;
@@ -578,8 +549,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         float var18 = var14 * var6;
         float var19 = var14 * var7;
 
-        if (var1 == Block.grass)
-        {
+        if (var1 == Block.grass) {
             var7 = 1.0F;
             var6 = 1.0F;
             var5 = 1.0F;
@@ -597,12 +567,10 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         float var29 = var1.getAmbientOcclusionLightValue(var10, var2, var3, var4);
         float var30;
 
-        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3 - 1, var4, 0) || var8 / 4 == 1 || var8 / 4 == 3)
-        {
+        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3 - 1, var4, 0) || var8 / 4 == 1 || var8 / 4 == 3) {
             var30 = var1.getAmbientOcclusionLightValue(var10, var2, var3 - 1, var4);
 
-            if (var8 / 4 == 1 || var8 / 4 == 3)
-            {
+            if (var8 / 4 == 1 || var8 / 4 == 3) {
                 var30 = var29;
             }
 
@@ -611,12 +579,10 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
             var12 = true;
         }
 
-        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3 + 1, var4, 1) || var8 / 4 == 0 || var8 / 4 == 2)
-        {
+        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3 + 1, var4, 1) || var8 / 4 == 0 || var8 / 4 == 2) {
             var30 = var1.getAmbientOcclusionLightValue(var10, var2, var3 + 1, var4);
 
-            if (var1.getBlockBoundsMaxY() != 1.0D && !var1.blockMaterial.isLiquid() || var8 / 4 == 0 || var8 / 4 == 2)
-            {
+            if (var1.getBlockBoundsMaxY() != 1.0D && !var1.blockMaterial.isLiquid() || var8 / 4 == 0 || var8 / 4 == 2) {
                 var30 = var29;
             }
 
@@ -625,12 +591,10 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
             var12 = true;
         }
 
-        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3, var4 - 1, 2) || var8 % 2 == 0)
-        {
+        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3, var4 - 1, 2) || var8 % 2 == 0) {
             var30 = var1.getAmbientOcclusionLightValue(var10, var2, var3, var4 - 1);
 
-            if (var8 % 2 == 0)
-            {
+            if (var8 % 2 == 0) {
                 var30 = var29;
             }
 
@@ -639,12 +603,10 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
             var12 = true;
         }
 
-        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3, var4 + 1, 3) || var8 % 2 == 1)
-        {
+        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2, var3, var4 + 1, 3) || var8 % 2 == 1) {
             var30 = var1.getAmbientOcclusionLightValue(var10, var2, var3, var4 + 1);
 
-            if (var8 % 2 == 1)
-            {
+            if (var8 % 2 == 1) {
                 var30 = var29;
             }
 
@@ -653,12 +615,10 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
             var12 = true;
         }
 
-        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2 - 1, var3, var4, 4) || var8 == 0 || var8 == 3 || var8 == 4 || var8 == 7 || var8 == 11 || var8 == 15)
-        {
+        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2 - 1, var3, var4, 4) || var8 == 0 || var8 == 3 || var8 == 4 || var8 == 7 || var8 == 11 || var8 == 15) {
             var30 = var1.getAmbientOcclusionLightValue(var10, var2 - 1, var3, var4);
 
-            if (var8 == 0 || var8 == 3 || var8 == 4 || var8 == 7 || var8 == 11 || var8 == 15)
-            {
+            if (var8 == 0 || var8 == 3 || var8 == 4 || var8 == 7 || var8 == 11 || var8 == 15) {
                 var30 = var29;
             }
 
@@ -667,12 +627,10 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
             var12 = true;
         }
 
-        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2 + 1, var3, var4, 5) || var8 == 1 || var8 == 2 || var8 == 5 || var8 == 6 || var8 == 10 || var8 == 14)
-        {
+        if (var9.renderAllFaces || var1.shouldSideBeRendered(var10, var2 + 1, var3, var4, 5) || var8 == 1 || var8 == 2 || var8 == 5 || var8 == 6 || var8 == 10 || var8 == 14) {
             var30 = var1.getAmbientOcclusionLightValue(var10, var2 + 1, var3, var4);
 
-            if (var8 == 1 || var8 == 2 || var8 == 5 || var8 == 6 || var8 == 10 || var8 == 14)
-            {
+            if (var8 == 1 || var8 == 2 || var8 == 5 || var8 == 6 || var8 == 10 || var8 == 14) {
                 var30 = var29;
             }
 
@@ -684,13 +642,11 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         return var12;
     }
 
-    public void renderIntCornersBottomFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11)
-    {
+    public void renderIntCornersBottomFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11) {
         Tessellator var12 = Tessellator.instance;
         var12.setBrightness(var11);
 
-        if (var10.overrideBlockTexture >= 0)
-        {
+        if (var10.overrideBlockTexture >= 0) {
             var8 = var10.overrideBlockTexture;
         }
 
@@ -701,14 +657,12 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         double var19 = ((double)var14 + var1.getBlockBoundsMinZ() * 16.0D) / 256.0D;
         double var21 = ((double)var14 + var1.getBlockBoundsMaxZ() * 16.0D - 0.01D) / 256.0D;
 
-        if (var1.getBlockBoundsMinX() < 0.0D || var1.getBlockBoundsMaxX() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinX() < 0.0D || var1.getBlockBoundsMaxX() > 1.0D) {
             var15 = (double)(((float)var13 + 0.0F) / 256.0F);
             var17 = (double)(((float)var13 + 15.99F) / 256.0F);
         }
 
-        if (var1.getBlockBoundsMinZ() < 0.0D || var1.getBlockBoundsMaxZ() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinZ() < 0.0D || var1.getBlockBoundsMaxZ() > 1.0D) {
             var19 = (double)(((float)var14 + 0.0F) / 256.0F);
             var21 = (double)(((float)var14 + 15.99F) / 256.0F);
         }
@@ -719,12 +673,9 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         double var29 = var6 + var1.getBlockBoundsMinZ();
         double var31 = var6 + var1.getBlockBoundsMaxZ();
 
-        if (this.enableAO)
-        {
-            if (var9 / 4 != 0 && var9 / 4 != 2)
-            {
-                if (var9 == 4)
-                {
+        if (this.enableAO) {
+            if (var9 / 4 != 0 && var9 / 4 != 2) {
+                if (var9 == 4) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_BottomFace, this.colorGreenTopLeft_BottomFace, this.colorBlueTopLeft_BottomFace);
                     var12.addVertexWithUV(var23, var27, var31, var15, var21);
                     var12.setColorOpaque_F(this.colorRedBottomRight_BottomFace, this.colorGreenBottomLeft_BottomFace, this.colorBlueBottomLeft_BottomFace);
@@ -734,8 +685,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_BottomFace, this.colorGreenTopRight_BottomFace, this.colorBlueTopRight_BottomFace);
                     var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 }
-                else if (var9 == 5)
-                {
+                else if (var9 == 5) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_BottomFace, this.colorGreenTopLeft_BottomFace, this.colorBlueTopLeft_BottomFace);
                     var12.addVertexWithUV(var23, var27, var31, var15, var21);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_BottomFace, this.colorGreenBottomLeft_BottomFace, this.colorBlueBottomLeft_BottomFace);
@@ -745,8 +695,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopLeft_BottomFace, this.colorGreenTopRight_BottomFace, this.colorBlueTopRight_BottomFace);
                     var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 }
-                else if (var9 == 6)
-                {
+                else if (var9 == 6) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_BottomFace, this.colorGreenTopLeft_BottomFace, this.colorBlueTopLeft_BottomFace);
                     var12.addVertexWithUV(var23, var27, var31, var15, var21);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_BottomFace, this.colorGreenBottomLeft_BottomFace, this.colorBlueBottomLeft_BottomFace);
@@ -756,8 +705,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_BottomFace, this.colorGreenTopRight_BottomFace, this.colorBlueTopRight_BottomFace);
                     var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 }
-                else if (var9 == 7)
-                {
+                else if (var9 == 7) {
                     var12.setColorOpaque_F(this.colorRedBottomLeft_BottomFace, this.colorGreenTopLeft_BottomFace, this.colorBlueTopLeft_BottomFace);
                     var12.addVertexWithUV(var23, var27, var29, var15, var19);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_BottomFace, this.colorGreenBottomLeft_BottomFace, this.colorBlueBottomLeft_BottomFace);
@@ -768,8 +716,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                     var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 }
             }
-            else
-            {
+            else {
                 var12.setColorOpaque_F(this.colorRedTopLeft_BottomFace, this.colorGreenTopLeft_BottomFace, this.colorBlueTopLeft_BottomFace);
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 var12.setColorOpaque_F(this.colorRedBottomLeft_BottomFace, this.colorGreenBottomLeft_BottomFace, this.colorBlueBottomLeft_BottomFace);
@@ -780,39 +727,33 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
             }
         }
-        else if (var9 / 4 != 0 && var9 / 4 != 2)
-        {
-            if (var9 == 4)
-            {
+        else if (var9 / 4 != 0 && var9 / 4 != 2) {
+            if (var9 == 4) {
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 var12.addVertexWithUV(var25, var27, var29, var17, var19);
                 var12.addVertexWithUV(var25, var27, var29, var17, var19);
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
             }
-            else if (var9 == 5)
-            {
+            else if (var9 == 5) {
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var25, var27, var29, var17, var19);
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
             }
-            else if (var9 == 6)
-            {
+            else if (var9 == 6) {
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
             }
-            else if (var9 == 7)
-            {
+            else if (var9 == 7) {
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var25, var27, var29, var17, var19);
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
             }
         }
-        else
-        {
+        else {
             var12.addVertexWithUV(var23, var27, var31, var15, var21);
             var12.addVertexWithUV(var23, var27, var29, var15, var19);
             var12.addVertexWithUV(var25, var27, var29, var17, var19);
@@ -820,13 +761,11 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         }
     }
 
-    public void renderIntCornersTopFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11)
-    {
+    public void renderIntCornersTopFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11) {
         Tessellator var12 = Tessellator.instance;
         var12.setBrightness(var11);
 
-        if (var10.overrideBlockTexture >= 0)
-        {
+        if (var10.overrideBlockTexture >= 0) {
             var8 = var10.overrideBlockTexture;
         }
 
@@ -837,14 +776,12 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         double var19 = ((double)var14 + var1.getBlockBoundsMinZ() * 16.0D) / 256.0D;
         double var21 = ((double)var14 + var1.getBlockBoundsMaxZ() * 16.0D - 0.01D) / 256.0D;
 
-        if (var1.getBlockBoundsMinX() < 0.0D || var1.getBlockBoundsMaxX() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinX() < 0.0D || var1.getBlockBoundsMaxX() > 1.0D) {
             var15 = (double)(((float)var13 + 0.0F) / 256.0F);
             var17 = (double)(((float)var13 + 15.99F) / 256.0F);
         }
 
-        if (var1.getBlockBoundsMinZ() < 0.0D || var1.getBlockBoundsMaxZ() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinZ() < 0.0D || var1.getBlockBoundsMaxZ() > 1.0D) {
             var19 = (double)(((float)var14 + 0.0F) / 256.0F);
             var21 = (double)(((float)var14 + 15.99F) / 256.0F);
         }
@@ -855,12 +792,9 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         double var29 = var6 + var1.getBlockBoundsMinZ();
         double var31 = var6 + var1.getBlockBoundsMaxZ();
 
-        if (this.enableAO)
-        {
-            if (var9 / 4 != 1 && var9 / 4 != 3)
-            {
-                if (var9 == 0)
-                {
+        if (this.enableAO) {
+            if (var9 / 4 != 1 && var9 / 4 != 3) {
+                if (var9 == 0) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_TopFace, this.colorGreenTopLeft_TopFace, this.colorBlueTopLeft_TopFace);
                     var12.addVertexWithUV(var25, var27, var31, var17, var21);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_TopFace, this.colorGreenBottomLeft_TopFace, this.colorBlueBottomLeft_TopFace);
@@ -870,8 +804,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_TopFace, this.colorGreenTopRight_TopFace, this.colorBlueTopRight_TopFace);
                     var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 }
-                else if (var9 == 1)
-                {
+                else if (var9 == 1) {
                     var12.setColorOpaque_F(this.colorRedBottomLeft_TopFace, this.colorGreenBottomLeft_TopFace, this.colorBlueBottomLeft_TopFace);
                     var12.addVertexWithUV(var25, var27, var29, var17, var19);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_TopFace, this.colorGreenBottomLeft_TopFace, this.colorBlueBottomLeft_TopFace);
@@ -881,8 +814,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_TopFace, this.colorGreenTopRight_TopFace, this.colorBlueTopRight_TopFace);
                     var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 }
-                else if (var9 == 2)
-                {
+                else if (var9 == 2) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_TopFace, this.colorGreenTopLeft_TopFace, this.colorBlueTopLeft_TopFace);
                     var12.addVertexWithUV(var25, var27, var31, var17, var21);
                     var12.setColorOpaque_F(this.colorRedBottomRight_TopFace, this.colorGreenBottomRight_TopFace, this.colorBlueBottomRight_TopFace);
@@ -892,8 +824,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_TopFace, this.colorGreenTopRight_TopFace, this.colorBlueTopRight_TopFace);
                     var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 }
-                else if (var9 == 3)
-                {
+                else if (var9 == 3) {
                     var12.setColorOpaque_F(this.colorRedTopLeft_TopFace, this.colorGreenTopLeft_TopFace, this.colorBlueTopLeft_TopFace);
                     var12.addVertexWithUV(var25, var27, var31, var17, var21);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_TopFace, this.colorGreenBottomLeft_TopFace, this.colorBlueBottomLeft_TopFace);
@@ -904,8 +835,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                     var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 }
             }
-            else
-            {
+            else {
                 var12.setColorOpaque_F(this.colorRedTopLeft_TopFace, this.colorGreenTopLeft_TopFace, this.colorBlueTopLeft_TopFace);
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 var12.setColorOpaque_F(this.colorRedBottomLeft_TopFace, this.colorGreenBottomLeft_TopFace, this.colorBlueBottomLeft_TopFace);
@@ -916,39 +846,33 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
             }
         }
-        else if (var9 / 4 != 1 && var9 / 4 != 3)
-        {
-            if (var9 == 0)
-            {
+        else if (var9 / 4 != 1 && var9 / 4 != 3) {
+            if (var9 == 0) {
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 var12.addVertexWithUV(var25, var27, var29, var17, var19);
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
             }
-            else if (var9 == 1)
-            {
+            else if (var9 == 1) {
                 var12.addVertexWithUV(var25, var27, var29, var17, var19);
                 var12.addVertexWithUV(var25, var27, var29, var17, var19);
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
             }
-            else if (var9 == 2)
-            {
+            else if (var9 == 2) {
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
             }
-            else if (var9 == 3)
-            {
+            else if (var9 == 3) {
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 var12.addVertexWithUV(var25, var27, var29, var17, var19);
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
             }
         }
-        else
-        {
+        else {
             var12.addVertexWithUV(var25, var27, var31, var17, var21);
             var12.addVertexWithUV(var25, var27, var29, var17, var19);
             var12.addVertexWithUV(var23, var27, var29, var15, var19);
@@ -956,13 +880,11 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         }
     }
 
-    public void renderIntCornersEastFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11)
-    {
+    public void renderIntCornersEastFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11) {
         Tessellator var12 = Tessellator.instance;
         var12.setBrightness(var11);
 
-        if (var10.overrideBlockTexture >= 0)
-        {
+        if (var10.overrideBlockTexture >= 0) {
             var8 = var10.overrideBlockTexture;
         }
 
@@ -974,21 +896,18 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         double var21 = ((double)var14 + var1.getBlockBoundsMaxY() * 16.0D - 0.01D) / 256.0D;
         double var23;
 
-        if (var10.flipTexture)
-        {
+        if (var10.flipTexture) {
             var23 = var15;
             var15 = var17;
             var17 = var23;
         }
 
-        if (var1.getBlockBoundsMinX() < 0.0D || var1.getBlockBoundsMaxX() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinX() < 0.0D || var1.getBlockBoundsMaxX() > 1.0D) {
             var15 = (double)(((float)var13 + 0.0F) / 256.0F);
             var17 = (double)(((float)var13 + 15.99F) / 256.0F);
         }
 
-        if (var1.getBlockBoundsMinY() < 0.0D || var1.getBlockBoundsMaxY() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinY() < 0.0D || var1.getBlockBoundsMaxY() > 1.0D) {
             var19 = (double)(((float)var14 + 0.0F) / 256.0F);
             var21 = (double)(((float)var14 + 15.99F) / 256.0F);
         }
@@ -1000,16 +919,11 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         double var31 = var6 + var1.getBlockBoundsMinZ();
         double var33 = var6 + var1.getBlockBoundsMaxZ();
 
-        if (this.enableAO)
-        {
-            if (var9 != 2 && var9 != 10)
-            {
-                if (var9 != 0 && var9 != 8)
-                {
-                    if (var9 != 6 && var9 != 14)
-                    {
-                        if (var9 != 4 && var9 != 12)
-                        {
+        if (this.enableAO) {
+            if (var9 != 2 && var9 != 10) {
+                if (var9 != 0 && var9 != 8) {
+                    if (var9 != 6 && var9 != 14) {
+                        if (var9 != 4 && var9 != 12) {
                             var12.setColorOpaque_F(this.colorRedTopLeft_EastFace, this.colorGreenTopLeft_EastFace, this.colorBlueTopLeft_EastFace);
                             var12.addVertexWithUV(var23, var29, var31, var17, var19);
                             var12.setColorOpaque_F(this.colorRedBottomLeft_EastFace, this.colorGreenBottomLeft_EastFace, this.colorBlueBottomLeft_EastFace);
@@ -1019,8 +933,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                             var12.setColorOpaque_F(this.colorRedTopRight_EastFace, this.colorGreenTopRight_EastFace, this.colorBlueTopRight_EastFace);
                             var12.addVertexWithUV(var23, var27, var31, var17, var21);
                         }
-                        else
-                        {
+                        else {
                             var12.setColorOpaque_F(this.colorRedTopLeft_EastFace, this.colorGreenTopLeft_EastFace, this.colorBlueTopLeft_EastFace);
                             var12.addVertexWithUV(var23, var29, var31, var17, var19);
                             var12.setColorOpaque_F(this.colorRedBottomLeft_EastFace, this.colorGreenBottomLeft_EastFace, this.colorBlueBottomLeft_EastFace);
@@ -1030,8 +943,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                             var12.setColorOpaque_F(this.colorRedTopLeft_EastFace, this.colorGreenTopLeft_EastFace, this.colorBlueTopLeft_EastFace);
                             var12.addVertexWithUV(var23, var29, var31, var17, var19);
 
-                            if (var9 == 4)
-                            {
+                            if (var9 == 4) {
                                 var12.setColorOpaque_F(this.colorRedSlopes * this.aoLightValueXNegYNeg * (this.factorBottom + this.factorEast + this.factorNorth) / 3.0F, this.colorGreenSlopes * this.aoLightValueXNegYNeg * (this.factorBottom + this.factorEast + this.factorNorth) / 3.0F, this.colorBlueSlopes * this.aoLightValueXNegYNeg * (this.factorBottom + this.factorEast + this.factorNorth) / 3.0F);
                                 var12.addVertexWithUV(var23, var27, var33, var17, var21);
                                 var12.setColorOpaque_F(this.colorRedSlopes * this.aoLightValueXNegZNeg * (this.factorBottom + this.factorEast + this.factorNorth) / 3.0F, this.colorGreenSlopes * this.aoLightValueXNegZNeg * (this.factorBottom + this.factorEast + this.factorNorth) / 3.0F, this.colorBlueSlopes * this.aoLightValueXNegZNeg * (this.factorBottom + this.factorEast + this.factorNorth) / 3.0F);
@@ -1042,8 +954,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                                 var12.addVertexWithUV(var25, var27, var31, var15, var21);
                             }
 
-                            if (var9 == 12)
-                            {
+                            if (var9 == 12) {
                                 var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueZNeg + this.aoLightValueXNegZNeg) * (this.factorBottom + this.factorEast) / 4.0F, this.colorGreenSlopes * (this.aoLightValueZNeg + this.aoLightValueXNegZNeg) * (this.factorBottom + this.factorEast) / 4.0F, this.colorBlueSlopes * (this.aoLightValueZNeg + this.aoLightValueXNegZNeg) * (this.factorBottom + this.factorEast) / 4.0F);
                                 var12.addVertexWithUV(var23, var29, var31, var15, var19);
                                 var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYNeg + this.aoLightValueXPosYNeg) * (this.factorBottom + this.factorEast) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYNeg + this.aoLightValueXPosYNeg) * (this.factorBottom + this.factorEast) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYNeg + this.aoLightValueXPosYNeg) * (this.factorBottom + this.factorEast) / 4.0F);
@@ -1055,8 +966,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                             }
                         }
                     }
-                    else
-                    {
+                    else {
                         var12.setColorOpaque_F(this.colorRedTopLeft_EastFace, this.colorGreenTopLeft_EastFace, this.colorBlueTopLeft_EastFace);
                         var12.addVertexWithUV(var23, var29, var31, var17, var19);
                         var12.setColorOpaque_F(this.colorRedBottomLeft_EastFace, this.colorGreenBottomLeft_EastFace, this.colorBlueBottomLeft_EastFace);
@@ -1066,8 +976,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                         var12.setColorOpaque_F(this.colorRedTopRight_EastFace, this.colorGreenTopRight_EastFace, this.colorBlueTopRight_EastFace);
                         var12.addVertexWithUV(var23, var27, var31, var17, var21);
 
-                        if (var9 == 14)
-                        {
+                        if (var9 == 14) {
                             var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYNeg + this.aoLightValueXNegYNeg) * (this.factorBottom + this.factorEast) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYNeg + this.aoLightValueXNegYNeg) * (this.factorBottom + this.factorEast) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYNeg + this.aoLightValueXNegYNeg) * (this.factorBottom + this.factorEast) / 4.0F);
                             var12.addVertexWithUV(var23, var27, var33, var15, var21);
                             var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYNeg + this.aoLightValueXNegYNeg) * (this.factorBottom + this.factorEast) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYNeg + this.aoLightValueXNegYNeg) * (this.factorBottom + this.factorEast) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYNeg + this.aoLightValueXNegYNeg) * (this.factorBottom + this.factorEast) / 4.0F);
@@ -1079,8 +988,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                         }
                     }
                 }
-                else
-                {
+                else {
                     var12.setColorOpaque_F(this.colorRedTopRight_EastFace, this.colorGreenTopRight_EastFace, this.colorBlueTopRight_EastFace);
                     var12.addVertexWithUV(var23, var27, var31, var17, var21);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_EastFace, this.colorGreenBottomLeft_EastFace, this.colorBlueBottomLeft_EastFace);
@@ -1090,8 +998,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_EastFace, this.colorGreenTopRight_EastFace, this.colorBlueTopRight_EastFace);
                     var12.addVertexWithUV(var23, var27, var31, var17, var21);
 
-                    if (var9 == 0)
-                    {
+                    if (var9 == 0) {
                         var12.setColorOpaque_F(this.colorRedSlopes * this.aoLightValueYPosZNeg * (this.factorTop + this.factorEast + this.factorNorth) / 3.0F, this.colorGreenSlopes * this.aoLightValueYPosZNeg * (this.factorTop + this.factorEast + this.factorNorth) / 3.0F, this.colorBlueSlopes * this.aoLightValueYPosZNeg * (this.factorTop + this.factorEast + this.factorNorth) / 3.0F);
                         var12.addVertexWithUV(var25, var29, var31, var15, var19);
                         var12.setColorOpaque_F(this.colorRedSlopes * this.aoLightValueYPosZNeg * (this.factorTop + this.factorEast + this.factorNorth) / 3.0F, this.colorGreenSlopes * this.aoLightValueYPosZNeg * (this.factorTop + this.factorEast + this.factorNorth) / 3.0F, this.colorBlueSlopes * this.aoLightValueYPosZNeg * (this.factorTop + this.factorEast + this.factorNorth) / 3.0F);
@@ -1102,8 +1009,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                         var12.addVertexWithUV(var23, var29, var33, var17, var19);
                     }
 
-                    if (var9 == 8)
-                    {
+                    if (var9 == 8) {
                         var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYPos + this.aoLightValueXPosYPos) * (this.factorTop + this.factorEast) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYPos + this.aoLightValueXPosYPos) * (this.factorTop + this.factorEast) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYPos + this.aoLightValueXPosYPos) * (this.factorTop + this.factorEast) / 4.0F);
                         var12.addVertexWithUV(var25, var29, var33, var17, var19);
                         var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYPos + this.aoLightValueXPosYPos) * (this.factorTop + this.factorEast) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYPos + this.aoLightValueXPosYPos) * (this.factorTop + this.factorEast) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYPos + this.aoLightValueXPosYPos) * (this.factorTop + this.factorEast) / 4.0F);
@@ -1115,8 +1021,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                     }
                 }
             }
-            else
-            {
+            else {
                 var12.setColorOpaque_F(this.colorRedTopLeft_EastFace, this.colorGreenTopLeft_EastFace, this.colorBlueTopLeft_EastFace);
                 var12.addVertexWithUV(var23, var29, var31, var17, var19);
                 var12.setColorOpaque_F(this.colorRedBottomRight_EastFace, this.colorGreenBottomRight_EastFace, this.colorBlueBottomRight_EastFace);
@@ -1126,8 +1031,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                 var12.setColorOpaque_F(this.colorRedTopRight_EastFace, this.colorGreenTopRight_EastFace, this.colorBlueTopRight_EastFace);
                 var12.addVertexWithUV(var23, var27, var31, var17, var21);
 
-                if (var9 == 10)
-                {
+                if (var9 == 10) {
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueZNeg + this.aoLightValueXPosZNeg) * (this.factorTop + this.factorEast) / 4.0F, this.colorGreenSlopes * (this.aoLightValueZNeg + this.aoLightValueXPosZNeg) * (this.factorTop + this.factorEast) / 4.0F, this.colorBlueSlopes * (this.aoLightValueZNeg + this.aoLightValueXPosZNeg) * (this.factorTop + this.factorEast) / 4.0F);
                     var12.addVertexWithUV(var25, var27, var31, var17, var21);
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYPos + this.aoLightValueXNegYPos) * (this.factorTop + this.factorEast) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYPos + this.aoLightValueXNegYPos) * (this.factorTop + this.factorEast) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYPos + this.aoLightValueXNegYPos) * (this.factorTop + this.factorEast) / 4.0F);
@@ -1139,36 +1043,29 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                 }
             }
         }
-        else if (var9 != 2 && var9 != 10)
-        {
-            if (var9 != 0 && var9 != 8)
-            {
-                if (var9 != 6 && var9 != 14)
-                {
-                    if (var9 != 4 && var9 != 12)
-                    {
+        else if (var9 != 2 && var9 != 10) {
+            if (var9 != 0 && var9 != 8) {
+                if (var9 != 6 && var9 != 14) {
+                    if (var9 != 4 && var9 != 12) {
                         var12.addVertexWithUV(var23, var29, var31, var17, var19);
                         var12.addVertexWithUV(var25, var29, var31, var15, var19);
                         var12.addVertexWithUV(var25, var27, var31, var15, var21);
                         var12.addVertexWithUV(var23, var27, var31, var17, var21);
                     }
-                    else
-                    {
+                    else {
                         var12.addVertexWithUV(var23, var29, var31, var17, var19);
                         var12.addVertexWithUV(var25, var29, var31, var15, var19);
                         var12.addVertexWithUV(var25, var27, var31, var15, var21);
                         var12.addVertexWithUV(var25, var27, var31, var15, var21);
 
-                        if (var9 == 4)
-                        {
+                        if (var9 == 4) {
                             var12.addVertexWithUV(var23, var27, var33, var17, var21);
                             var12.addVertexWithUV(var23, var29, var31, (var15 + var17) / 2.0D, var19);
                             var12.addVertexWithUV(var25, var27, var31, var15, var21);
                             var12.addVertexWithUV(var25, var27, var31, var15, var21);
                         }
 
-                        if (var9 == 12)
-                        {
+                        if (var9 == 12) {
                             var12.addVertexWithUV(var23, var29, var31, var15, var19);
                             var12.addVertexWithUV(var25, var27, var33, var17, var21);
                             var12.addVertexWithUV(var25, var27, var33, var17, var21);
@@ -1176,15 +1073,13 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                         }
                     }
                 }
-                else
-                {
+                else {
                     var12.addVertexWithUV(var23, var29, var31, var17, var19);
                     var12.addVertexWithUV(var25, var29, var31, var15, var19);
                     var12.addVertexWithUV(var23, var27, var31, var17, var21);
                     var12.addVertexWithUV(var23, var27, var31, var17, var21);
 
-                    if (var9 == 14)
-                    {
+                    if (var9 == 14) {
                         var12.addVertexWithUV(var23, var27, var33, var15, var21);
                         var12.addVertexWithUV(var23, var27, var33, var15, var21);
                         var12.addVertexWithUV(var25, var29, var31, var17, var19);
@@ -1192,23 +1087,20 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                     }
                 }
             }
-            else
-            {
+            else {
                 var12.addVertexWithUV(var25, var29, var31, var15, var19);
                 var12.addVertexWithUV(var25, var29, var31, var15, var19);
                 var12.addVertexWithUV(var25, var27, var31, var15, var21);
                 var12.addVertexWithUV(var23, var27, var31, var17, var21);
 
-                if (var9 == 0)
-                {
+                if (var9 == 0) {
                     var12.addVertexWithUV(var25, var29, var31, var15, var19);
                     var12.addVertexWithUV(var25, var29, var31, var15, var19);
                     var12.addVertexWithUV(var23, var27, var31, (var15 + var17) / 2.0D, var21);
                     var12.addVertexWithUV(var23, var29, var33, var17, var19);
                 }
 
-                if (var9 == 8)
-                {
+                if (var9 == 8) {
                     var12.addVertexWithUV(var25, var29, var33, var17, var19);
                     var12.addVertexWithUV(var25, var29, var33, var17, var19);
                     var12.addVertexWithUV(var23, var27, var31, var15, var21);
@@ -1216,15 +1108,13 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                 }
             }
         }
-        else
-        {
+        else {
             var12.addVertexWithUV(var23, var29, var31, var17, var19);
             var12.addVertexWithUV(var23, var29, var31, var17, var19);
             var12.addVertexWithUV(var25, var27, var31, var15, var21);
             var12.addVertexWithUV(var23, var27, var31, var17, var21);
 
-            if (var9 == 10)
-            {
+            if (var9 == 10) {
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 var12.addVertexWithUV(var23, var29, var33, var15, var19);
                 var12.addVertexWithUV(var23, var29, var33, var15, var19);
@@ -1233,13 +1123,11 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         }
     }
 
-    public void renderIntCornersWestFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11)
-    {
+    public void renderIntCornersWestFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11) {
         Tessellator var12 = Tessellator.instance;
         var12.setBrightness(var11);
 
-        if (var10.overrideBlockTexture >= 0)
-        {
+        if (var10.overrideBlockTexture >= 0) {
             var8 = var10.overrideBlockTexture;
         }
 
@@ -1251,21 +1139,18 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         double var21 = ((double)var14 + var1.getBlockBoundsMaxY() * 16.0D - 0.01D) / 256.0D;
         double var23;
 
-        if (var10.flipTexture)
-        {
+        if (var10.flipTexture) {
             var23 = var15;
             var15 = var17;
             var17 = var23;
         }
 
-        if (var1.getBlockBoundsMinX() < 0.0D || var1.getBlockBoundsMaxX() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinX() < 0.0D || var1.getBlockBoundsMaxX() > 1.0D) {
             var15 = (double)(((float)var13 + 0.0F) / 256.0F);
             var17 = (double)(((float)var13 + 15.99F) / 256.0F);
         }
 
-        if (var1.getBlockBoundsMinY() < 0.0D || var1.getBlockBoundsMaxY() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinY() < 0.0D || var1.getBlockBoundsMaxY() > 1.0D) {
             var19 = (double)(((float)var14 + 0.0F) / 256.0F);
             var21 = (double)(((float)var14 + 15.99F) / 256.0F);
         }
@@ -1277,16 +1162,11 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         double var31 = var6 + var1.getBlockBoundsMaxZ();
         double var33 = var6 + var1.getBlockBoundsMinZ();
 
-        if (this.enableAO)
-        {
-            if (var9 != 3 && var9 != 11)
-            {
-                if (var9 != 1 && var9 != 9)
-                {
-                    if (var9 != 7 && var9 != 15)
-                    {
-                        if (var9 != 5 && var9 != 13)
-                        {
+        if (this.enableAO) {
+            if (var9 != 3 && var9 != 11) {
+                if (var9 != 1 && var9 != 9) {
+                    if (var9 != 7 && var9 != 15) {
+                        if (var9 != 5 && var9 != 13) {
                             var12.setColorOpaque_F(this.colorRedTopLeft_WestFace, this.colorGreenTopLeft_WestFace, this.colorBlueTopLeft_WestFace);
                             var12.addVertexWithUV(var23, var29, var31, var15, var19);
                             var12.setColorOpaque_F(this.colorRedBottomLeft_WestFace, this.colorGreenBottomLeft_WestFace, this.colorBlueBottomLeft_WestFace);
@@ -1296,8 +1176,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                             var12.setColorOpaque_F(this.colorRedTopRight_WestFace, this.colorGreenTopRight_WestFace, this.colorBlueTopRight_WestFace);
                             var12.addVertexWithUV(var25, var29, var31, var17, var19);
                         }
-                        else
-                        {
+                        else {
                             var12.setColorOpaque_F(this.colorRedTopLeft_WestFace, this.colorGreenTopLeft_WestFace, this.colorBlueTopLeft_WestFace);
                             var12.addVertexWithUV(var23, var29, var31, var15, var19);
                             var12.setColorOpaque_F(this.colorRedBottomLeft_WestFace, this.colorGreenBottomLeft_WestFace, this.colorBlueBottomLeft_WestFace);
@@ -1307,8 +1186,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                             var12.setColorOpaque_F(this.colorRedTopRight_WestFace, this.colorGreenTopRight_WestFace, this.colorBlueTopRight_WestFace);
                             var12.addVertexWithUV(var25, var29, var31, var17, var19);
 
-                            if (var9 == 5)
-                            {
+                            if (var9 == 5) {
                                 var12.setColorOpaque_F(this.colorRedSlopes * this.aoLightValueYNegZPos * (this.factorBottom + this.factorWest + this.factorSouth) / 3.0F, this.colorGreenSlopes * this.aoLightValueYNegZPos * (this.factorBottom + this.factorWest + this.factorSouth) / 3.0F, this.colorBlueSlopes * this.aoLightValueYNegZPos * (this.factorBottom + this.factorWest + this.factorSouth) / 3.0F);
                                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
                                 var12.setColorOpaque_F(this.colorRedSlopes * this.aoLightValueXPosYNeg * (this.factorBottom + this.factorWest + this.factorSouth) / 3.0F, this.colorGreenSlopes * this.aoLightValueXPosYNeg * (this.factorBottom + this.factorWest + this.factorSouth) / 3.0F, this.colorBlueSlopes * this.aoLightValueXPosYNeg * (this.factorBottom + this.factorWest + this.factorSouth) / 3.0F);
@@ -1319,8 +1197,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                                 var12.addVertexWithUV(var25, var29, var31, (var15 + var17) / 2.0D, var19);
                             }
 
-                            if (var9 == 13)
-                            {
+                            if (var9 == 13) {
                                 var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYNeg + this.aoLightValueXNegYNeg) * (this.factorBottom + this.factorWest) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYNeg + this.aoLightValueXNegYNeg) * (this.factorBottom + this.factorWest) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYNeg + this.aoLightValueXNegYNeg) * (this.factorBottom + this.factorWest) / 4.0F);
                                 var12.addVertexWithUV(var23, var27, var33, var15, var21);
                                 var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYNeg + this.aoLightValueXPosYNeg) * (this.factorBottom + this.factorWest) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYNeg + this.aoLightValueXPosYNeg) * (this.factorBottom + this.factorWest) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYNeg + this.aoLightValueXPosYNeg) * (this.factorBottom + this.factorWest) / 4.0F);
@@ -1332,8 +1209,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                             }
                         }
                     }
-                    else
-                    {
+                    else {
                         var12.setColorOpaque_F(this.colorRedTopLeft_WestFace, this.colorGreenTopLeft_WestFace, this.colorBlueTopLeft_WestFace);
                         var12.addVertexWithUV(var23, var29, var31, var15, var19);
                         var12.setColorOpaque_F(this.colorRedTopLeft_WestFace, this.colorGreenTopLeft_WestFace, this.colorBlueTopLeft_WestFace);
@@ -1343,8 +1219,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                         var12.setColorOpaque_F(this.colorRedTopRight_WestFace, this.colorGreenTopRight_WestFace, this.colorBlueTopRight_WestFace);
                         var12.addVertexWithUV(var25, var29, var31, var17, var19);
 
-                        if (var9 == 15)
-                        {
+                        if (var9 == 15) {
                             var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueZPos + this.aoLightValueXNegZPos) * (this.factorBottom + this.factorWest) / 4.0F, this.colorGreenSlopes * (this.aoLightValueZPos + this.aoLightValueXNegZPos) * (this.factorBottom + this.factorWest) / 4.0F, this.colorBlueSlopes * (this.aoLightValueZPos + this.aoLightValueXNegZPos) * (this.factorBottom + this.factorWest) / 4.0F);
                             var12.addVertexWithUV(var23, var29, var31, var15, var19);
                             var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYNeg + this.aoLightValueXNegYNeg) * (this.factorBottom + this.factorWest) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYNeg + this.aoLightValueXNegYNeg) * (this.factorBottom + this.factorWest) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYNeg + this.aoLightValueXNegYNeg) * (this.factorBottom + this.factorWest) / 4.0F);
@@ -1356,8 +1231,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                         }
                     }
                 }
-                else
-                {
+                else {
                     var12.setColorOpaque_F(this.colorRedTopLeft_WestFace, this.colorGreenTopLeft_WestFace, this.colorBlueTopLeft_WestFace);
                     var12.addVertexWithUV(var23, var29, var31, var15, var19);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_WestFace, this.colorGreenBottomLeft_WestFace, this.colorBlueBottomLeft_WestFace);
@@ -1367,8 +1241,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedBottomRight_WestFace, this.colorGreenBottomRight_WestFace, this.colorBlueBottomRight_WestFace);
                     var12.addVertexWithUV(var25, var27, var31, var17, var21);
 
-                    if (var9 == 1)
-                    {
+                    if (var9 == 1) {
                         var12.setColorOpaque_F(this.colorRedSlopes * this.aoLightValueXPosZPos * (this.factorTop + this.factorWest + this.factorSouth) / 3.0F, this.colorGreenSlopes * this.aoLightValueXPosZPos * (this.factorTop + this.factorWest + this.factorSouth) / 3.0F, this.colorBlueSlopes * this.aoLightValueXPosZPos * (this.factorTop + this.factorWest + this.factorSouth) / 3.0F);
                         var12.addVertexWithUV(var25, var27, var31, (var15 + var17) / 2.0D, var21);
                         var12.setColorOpaque_F(this.colorRedSlopes * this.aoLightValueXPosYPos * (this.factorTop + this.factorWest + this.factorSouth) / 3.0F, this.colorGreenSlopes * this.aoLightValueXPosYPos * (this.factorTop + this.factorWest + this.factorSouth) / 3.0F, this.colorBlueSlopes * this.aoLightValueXPosYPos * (this.factorTop + this.factorWest + this.factorSouth) / 3.0F);
@@ -1379,8 +1252,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                         var12.addVertexWithUV(var23, var29, var31, var15, var19);
                     }
 
-                    if (var9 == 9)
-                    {
+                    if (var9 == 9) {
                         var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueZPos + this.aoLightValueXPosZPos) * (this.factorTop + this.factorWest) / 4.0F, this.colorGreenSlopes * (this.aoLightValueZPos + this.aoLightValueXPosZPos) * (this.factorTop + this.factorWest) / 4.0F, this.colorBlueSlopes * (this.aoLightValueZPos + this.aoLightValueXPosZPos) * (this.factorTop + this.factorWest) / 4.0F);
                         var12.addVertexWithUV(var25, var27, var31, var17, var21);
                         var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYPos + this.aoLightValueXPosYPos) * (this.factorTop + this.factorWest) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYPos + this.aoLightValueXPosYPos) * (this.factorTop + this.factorWest) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYPos + this.aoLightValueXPosYPos) * (this.factorTop + this.factorWest) / 4.0F);
@@ -1392,8 +1264,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                     }
                 }
             }
-            else
-            {
+            else {
                 var12.setColorOpaque_F(this.colorRedBottomLeft_WestFace, this.colorGreenBottomLeft_WestFace, this.colorBlueBottomLeft_WestFace);
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 var12.setColorOpaque_F(this.colorRedBottomLeft_WestFace, this.colorGreenBottomLeft_WestFace, this.colorBlueBottomLeft_WestFace);
@@ -1403,8 +1274,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                 var12.setColorOpaque_F(this.colorRedTopRight_WestFace, this.colorGreenTopRight_WestFace, this.colorBlueTopRight_WestFace);
                 var12.addVertexWithUV(var25, var29, var31, var17, var19);
 
-                if (var9 == 11)
-                {
+                if (var9 == 11) {
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYPos + this.aoLightValueXPosYPos) * (this.factorTop + this.factorWest) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYPos + this.aoLightValueXPosYPos) * (this.factorTop + this.factorWest) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYPos + this.aoLightValueXPosYPos) * (this.factorTop + this.factorWest) / 4.0F);
                     var12.addVertexWithUV(var25, var29, var33, var17, var19);
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYPos + this.aoLightValueXNegYPos) * (this.factorTop + this.factorWest) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYPos + this.aoLightValueXNegYPos) * (this.factorTop + this.factorWest) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYPos + this.aoLightValueXNegYPos) * (this.factorTop + this.factorWest) / 4.0F);
@@ -1416,36 +1286,29 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                 }
             }
         }
-        else if (var9 != 3 && var9 != 11)
-        {
-            if (var9 != 1 && var9 != 9)
-            {
-                if (var9 != 7 && var9 != 15)
-                {
-                    if (var9 != 5 && var9 != 13)
-                    {
+        else if (var9 != 3 && var9 != 11) {
+            if (var9 != 1 && var9 != 9) {
+                if (var9 != 7 && var9 != 15) {
+                    if (var9 != 5 && var9 != 13) {
                         var12.addVertexWithUV(var23, var29, var31, var15, var19);
                         var12.addVertexWithUV(var23, var27, var31, var15, var21);
                         var12.addVertexWithUV(var25, var27, var31, var17, var21);
                         var12.addVertexWithUV(var25, var29, var31, var17, var19);
                     }
-                    else
-                    {
+                    else {
                         var12.addVertexWithUV(var23, var29, var31, var15, var19);
                         var12.addVertexWithUV(var23, var27, var31, var15, var21);
                         var12.addVertexWithUV(var23, var27, var31, var15, var21);
                         var12.addVertexWithUV(var25, var29, var31, var17, var19);
 
-                        if (var9 == 5)
-                        {
+                        if (var9 == 5) {
                             var12.addVertexWithUV(var23, var27, var31, var15, var21);
                             var12.addVertexWithUV(var23, var27, var31, var15, var21);
                             var12.addVertexWithUV(var25, var27, var33, var17, var21);
                             var12.addVertexWithUV(var25, var29, var31, (var15 + var17) / 2.0D, var19);
                         }
 
-                        if (var9 == 13)
-                        {
+                        if (var9 == 13) {
                             var12.addVertexWithUV(var23, var27, var33, var15, var21);
                             var12.addVertexWithUV(var25, var27, var33, var17, var21);
                             var12.addVertexWithUV(var25, var29, var31, var17, var19);
@@ -1453,15 +1316,13 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                         }
                     }
                 }
-                else
-                {
+                else {
                     var12.addVertexWithUV(var23, var29, var31, var15, var19);
                     var12.addVertexWithUV(var25, var27, var31, var17, var21);
                     var12.addVertexWithUV(var25, var27, var31, var17, var21);
                     var12.addVertexWithUV(var25, var29, var31, var17, var19);
 
-                    if (var9 == 15)
-                    {
+                    if (var9 == 15) {
                         var12.addVertexWithUV(var23, var29, var31, var15, var19);
                         var12.addVertexWithUV(var23, var27, var33, var15, var21);
                         var12.addVertexWithUV(var25, var27, var33, var17, var21);
@@ -1469,23 +1330,20 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                     }
                 }
             }
-            else
-            {
+            else {
                 var12.addVertexWithUV(var23, var29, var31, var15, var19);
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
                 var12.addVertexWithUV(var25, var27, var31, var17, var21);
                 var12.addVertexWithUV(var23, var29, var31, var15, var19);
 
-                if (var9 == 1)
-                {
+                if (var9 == 1) {
                     var12.addVertexWithUV(var25, var27, var31, (var15 + var17) / 2.0D, var21);
                     var12.addVertexWithUV(var25, var29, var33, var17, var19);
                     var12.addVertexWithUV(var23, var29, var31, var15, var19);
                     var12.addVertexWithUV(var23, var29, var31, var15, var19);
                 }
 
-                if (var9 == 9)
-                {
+                if (var9 == 9) {
                     var12.addVertexWithUV(var25, var27, var31, var17, var21);
                     var12.addVertexWithUV(var25, var29, var33, var17, var19);
                     var12.addVertexWithUV(var23, var29, var33, var15, var19);
@@ -1493,15 +1351,13 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                 }
             }
         }
-        else
-        {
+        else {
             var12.addVertexWithUV(var25, var29, var31, var17, var19);
             var12.addVertexWithUV(var23, var27, var31, var15, var21);
             var12.addVertexWithUV(var25, var27, var31, var17, var21);
             var12.addVertexWithUV(var25, var29, var31, var17, var19);
 
-            if (var9 == 11)
-            {
+            if (var9 == 11) {
                 var12.addVertexWithUV(var25, var29, var33, var17, var19);
                 var12.addVertexWithUV(var23, var29, var33, var15, var19);
                 var12.addVertexWithUV(var23, var27, var31, var15, var21);
@@ -1510,13 +1366,11 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         }
     }
 
-    public void renderIntCornersNorthFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11)
-    {
+    public void renderIntCornersNorthFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11) {
         Tessellator var12 = Tessellator.instance;
         var12.setBrightness(var11);
 
-        if (var10.overrideBlockTexture >= 0)
-        {
+        if (var10.overrideBlockTexture >= 0) {
             var8 = var10.overrideBlockTexture;
         }
 
@@ -1528,21 +1382,18 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         double var21 = ((double)var14 + var1.getBlockBoundsMaxY() * 16.0D - 0.01D) / 256.0D;
         double var23;
 
-        if (var10.flipTexture)
-        {
+        if (var10.flipTexture) {
             var23 = var15;
             var15 = var17;
             var17 = var23;
         }
 
-        if (var1.getBlockBoundsMinZ() < 0.0D || var1.getBlockBoundsMaxZ() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinZ() < 0.0D || var1.getBlockBoundsMaxZ() > 1.0D) {
             var15 = (double)(((float)var13 + 0.0F) / 256.0F);
             var17 = (double)(((float)var13 + 15.99F) / 256.0F);
         }
 
-        if (var1.getBlockBoundsMinY() < 0.0D || var1.getBlockBoundsMaxY() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinY() < 0.0D || var1.getBlockBoundsMaxY() > 1.0D) {
             var19 = (double)(((float)var14 + 0.0F) / 256.0F);
             var21 = (double)(((float)var14 + 15.99F) / 256.0F);
         }
@@ -1554,16 +1405,11 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         double var31 = var6 + var1.getBlockBoundsMaxZ();
         double var33 = var2 + var1.getBlockBoundsMaxX();
 
-        if (this.enableAO)
-        {
-            if (var9 != 3 && var9 != 11)
-            {
-                if (var9 != 0 && var9 != 8)
-                {
-                    if (var9 != 7 && var9 != 15)
-                    {
-                        if (var9 != 4 && var9 != 12)
-                        {
+        if (this.enableAO) {
+            if (var9 != 3 && var9 != 11) {
+                if (var9 != 0 && var9 != 8) {
+                    if (var9 != 7 && var9 != 15) {
+                        if (var9 != 4 && var9 != 12) {
                             var12.setColorOpaque_F(this.colorRedTopLeft_NorthFace, this.colorGreenTopLeft_NorthFace, this.colorBlueTopLeft_NorthFace);
                             var12.addVertexWithUV(var23, var27, var31, var17, var19);
                             var12.setColorOpaque_F(this.colorRedBottomLeft_NorthFace, this.colorGreenBottomLeft_NorthFace, this.colorBlueBottomLeft_NorthFace);
@@ -1573,8 +1419,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                             var12.setColorOpaque_F(this.colorRedTopRight_NorthFace, this.colorGreenTopRight_NorthFace, this.colorBlueTopRight_NorthFace);
                             var12.addVertexWithUV(var23, var25, var31, var17, var21);
                         }
-                        else
-                        {
+                        else {
                             var12.setColorOpaque_F(this.colorRedTopLeft_NorthFace, this.colorGreenTopLeft_NorthFace, this.colorBlueTopLeft_NorthFace);
                             var12.addVertexWithUV(var23, var27, var31, var17, var19);
                             var12.setColorOpaque_F(this.colorRedBottomLeft_NorthFace, this.colorGreenBottomLeft_NorthFace, this.colorBlueBottomLeft_NorthFace);
@@ -1584,8 +1429,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                             var12.setColorOpaque_F(this.colorRedTopRight_NorthFace, this.colorGreenTopRight_NorthFace, this.colorBlueTopRight_NorthFace);
                             var12.addVertexWithUV(var23, var25, var31, var17, var21);
 
-                            if (var9 == 12)
-                            {
+                            if (var9 == 12) {
                                 var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueXNeg + this.aoLightValueXNegZNeg) * (this.factorBottom + this.factorNorth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueXNeg + this.aoLightValueXNegZNeg) * (this.factorBottom + this.factorNorth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueXNeg + this.aoLightValueXNegZNeg) * (this.factorBottom + this.factorNorth) / 4.0F);
                                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                                 var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZNeg) * (this.factorBottom + this.factorNorth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZNeg) * (this.factorBottom + this.factorNorth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZNeg) * (this.factorBottom + this.factorNorth) / 4.0F);
@@ -1597,8 +1441,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                             }
                         }
                     }
-                    else
-                    {
+                    else {
                         var12.setColorOpaque_F(this.colorRedTopLeft_NorthFace, this.colorGreenTopLeft_NorthFace, this.colorBlueTopLeft_NorthFace);
                         var12.addVertexWithUV(var23, var27, var31, var17, var19);
                         var12.setColorOpaque_F(this.colorRedBottomLeft_NorthFace, this.colorGreenBottomLeft_NorthFace, this.colorBlueBottomLeft_NorthFace);
@@ -1608,8 +1451,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                         var12.setColorOpaque_F(this.colorRedTopLeft_NorthFace, this.colorGreenTopLeft_NorthFace, this.colorBlueTopLeft_NorthFace);
                         var12.addVertexWithUV(var23, var27, var31, var17, var19);
 
-                        if (var9 == 7)
-                        {
+                        if (var9 == 7) {
                             var12.setColorOpaque_F(this.colorRedSlopes * this.aoLightValueXNegZPos * (this.factorBottom + this.factorNorth + this.factorWest) / 3.0F, this.colorGreenSlopes * this.aoLightValueXNegZPos * (this.factorBottom + this.factorNorth + this.factorWest) / 3.0F, this.colorBlueSlopes * this.aoLightValueXNegZPos * (this.factorBottom + this.factorNorth + this.factorWest) / 3.0F);
                             var12.addVertexWithUV(var23, var27, var31, (var15 + var17) / 2.0D, var19);
                             var12.setColorOpaque_F(this.colorRedSlopes * this.aoLightValueXNegYNeg * (this.factorBottom + this.factorNorth + this.factorWest) / 3.0F, this.colorGreenSlopes * this.aoLightValueXNegYNeg * (this.factorBottom + this.factorNorth + this.factorWest) / 3.0F, this.colorBlueSlopes * this.aoLightValueXNegYNeg * (this.factorBottom + this.factorNorth + this.factorWest) / 3.0F);
@@ -1620,8 +1462,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                             var12.addVertexWithUV(var33, var25, var31, var17, var21);
                         }
 
-                        if (var9 == 15)
-                        {
+                        if (var9 == 15) {
                             var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueXNeg + this.aoLightValueXNegZPos) * (this.factorBottom + this.factorNorth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueXNeg + this.aoLightValueXNegZPos) * (this.factorBottom + this.factorNorth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueXNeg + this.aoLightValueXNegZPos) * (this.factorBottom + this.factorNorth) / 4.0F);
                             var12.addVertexWithUV(var23, var27, var31, var15, var19);
                             var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZNeg) * (this.factorBottom + this.factorNorth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZNeg) * (this.factorBottom + this.factorNorth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZNeg) * (this.factorBottom + this.factorNorth) / 4.0F);
@@ -1633,8 +1474,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                         }
                     }
                 }
-                else
-                {
+                else {
                     var12.setColorOpaque_F(this.colorRedTopLeft_NorthFace, this.colorGreenTopLeft_NorthFace, this.colorBlueTopLeft_NorthFace);
                     var12.addVertexWithUV(var23, var27, var31, var17, var19);
                     var12.setColorOpaque_F(this.colorRedBottomRight_NorthFace, this.colorGreenBottomRight_NorthFace, this.colorBlueBottomRight_NorthFace);
@@ -1644,8 +1484,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopRight_NorthFace, this.colorGreenTopRight_NorthFace, this.colorBlueTopRight_NorthFace);
                     var12.addVertexWithUV(var23, var25, var31, var17, var21);
 
-                    if (var9 == 8)
-                    {
+                    if (var9 == 8) {
                         var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZPos) * (this.factorTop + this.factorNorth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZPos) * (this.factorTop + this.factorNorth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZPos) * (this.factorTop + this.factorNorth) / 4.0F);
                         var12.addVertexWithUV(var33, var27, var31, var17, var19);
                         var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZNeg) * (this.factorTop + this.factorNorth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZNeg) * (this.factorTop + this.factorNorth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZNeg) * (this.factorTop + this.factorNorth) / 4.0F);
@@ -1657,8 +1496,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                     }
                 }
             }
-            else
-            {
+            else {
                 var12.setColorOpaque_F(this.colorRedTopRight_NorthFace, this.colorGreenTopRight_NorthFace, this.colorBlueTopRight_NorthFace);
                 var12.addVertexWithUV(var23, var25, var31, var17, var21);
                 var12.setColorOpaque_F(this.colorRedBottomLeft_NorthFace, this.colorGreenBottomLeft_NorthFace, this.colorBlueBottomLeft_NorthFace);
@@ -1668,8 +1506,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                 var12.setColorOpaque_F(this.colorRedTopRight_NorthFace, this.colorGreenTopRight_NorthFace, this.colorBlueTopRight_NorthFace);
                 var12.addVertexWithUV(var23, var25, var31, var17, var21);
 
-                if (var9 == 3)
-                {
+                if (var9 == 3) {
                     var12.setColorOpaque_F(this.colorRedSlopes * this.aoLightValueYPosZPos * (this.factorTop + this.factorNorth + this.factorWest) / 3.0F, this.colorGreenSlopes * this.aoLightValueYPosZPos * (this.factorTop + this.factorNorth + this.factorWest) / 3.0F, this.colorBlueSlopes * this.aoLightValueYPosZPos * (this.factorTop + this.factorNorth + this.factorWest) / 3.0F);
                     var12.addVertexWithUV(var33, var27, var31, var17, var19);
                     var12.setColorOpaque_F(this.colorRedSlopes * this.aoLightValueXNegYPos * (this.factorTop + this.factorNorth + this.factorWest) / 3.0F, this.colorGreenSlopes * this.aoLightValueXNegYPos * (this.factorTop + this.factorNorth + this.factorWest) / 3.0F, this.colorBlueSlopes * this.aoLightValueXNegYPos * (this.factorTop + this.factorNorth + this.factorWest) / 3.0F);
@@ -1680,8 +1517,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                     var12.addVertexWithUV(var23, var25, var31, (var15 + var17) / 2.0D, var21);
                 }
 
-                if (var9 == 11)
-                {
+                if (var9 == 11) {
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZNeg) * (this.factorTop + this.factorNorth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZNeg) * (this.factorTop + this.factorNorth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZNeg) * (this.factorTop + this.factorNorth) / 4.0F);
                     var12.addVertexWithUV(var33, var27, var29, var17, var19);
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZNeg) * (this.factorTop + this.factorNorth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZNeg) * (this.factorTop + this.factorNorth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZNeg) * (this.factorTop + this.factorNorth) / 4.0F);
@@ -1693,28 +1529,22 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                 }
             }
         }
-        else if (var9 != 3 && var9 != 11)
-        {
-            if (var9 != 0 && var9 != 8)
-            {
-                if (var9 != 7 && var9 != 15)
-                {
-                    if (var9 != 4 && var9 != 12)
-                    {
+        else if (var9 != 3 && var9 != 11) {
+            if (var9 != 0 && var9 != 8) {
+                if (var9 != 7 && var9 != 15) {
+                    if (var9 != 4 && var9 != 12) {
                         var12.addVertexWithUV(var23, var27, var31, var17, var19);
                         var12.addVertexWithUV(var23, var27, var29, var15, var19);
                         var12.addVertexWithUV(var23, var25, var29, var15, var21);
                         var12.addVertexWithUV(var23, var25, var31, var17, var21);
                     }
-                    else
-                    {
+                    else {
                         var12.addVertexWithUV(var23, var27, var31, var17, var19);
                         var12.addVertexWithUV(var23, var27, var29, var15, var19);
                         var12.addVertexWithUV(var23, var25, var31, var17, var21);
                         var12.addVertexWithUV(var23, var25, var31, var17, var21);
 
-                        if (var9 == 12)
-                        {
+                        if (var9 == 12) {
                             var12.addVertexWithUV(var23, var27, var29, var15, var19);
                             var12.addVertexWithUV(var33, var25, var29, var15, var21);
                             var12.addVertexWithUV(var33, var25, var31, var17, var21);
@@ -1722,23 +1552,20 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                         }
                     }
                 }
-                else
-                {
+                else {
                     var12.addVertexWithUV(var23, var27, var31, var17, var19);
                     var12.addVertexWithUV(var23, var27, var29, var15, var19);
                     var12.addVertexWithUV(var23, var25, var29, var15, var21);
                     var12.addVertexWithUV(var23, var25, var29, var15, var21);
 
-                    if (var9 == 7)
-                    {
+                    if (var9 == 7) {
                         var12.addVertexWithUV(var23, var27, var31, (var15 + var17) / 2.0D, var19);
                         var12.addVertexWithUV(var23, var25, var29, var15, var21);
                         var12.addVertexWithUV(var23, var25, var29, var15, var21);
                         var12.addVertexWithUV(var33, var25, var31, var17, var21);
                     }
 
-                    if (var9 == 15)
-                    {
+                    if (var9 == 15) {
                         var12.addVertexWithUV(var23, var27, var31, var15, var19);
                         var12.addVertexWithUV(var33, var25, var29, var17, var21);
                         var12.addVertexWithUV(var33, var25, var29, var17, var21);
@@ -1746,15 +1573,13 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                     }
                 }
             }
-            else
-            {
+            else {
                 var12.addVertexWithUV(var23, var27, var31, var17, var19);
                 var12.addVertexWithUV(var23, var27, var31, var17, var19);
                 var12.addVertexWithUV(var23, var25, var29, var15, var21);
                 var12.addVertexWithUV(var23, var25, var31, var17, var21);
 
-                if (var9 == 8)
-                {
+                if (var9 == 8) {
                     var12.addVertexWithUV(var33, var27, var31, var17, var19);
                     var12.addVertexWithUV(var33, var27, var29, var15, var19);
                     var12.addVertexWithUV(var23, var25, var29, var15, var21);
@@ -1762,23 +1587,20 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                 }
             }
         }
-        else
-        {
+        else {
             var12.addVertexWithUV(var23, var27, var29, var15, var19);
             var12.addVertexWithUV(var23, var27, var29, var15, var19);
             var12.addVertexWithUV(var23, var25, var29, var15, var21);
             var12.addVertexWithUV(var23, var25, var31, var17, var21);
 
-            if (var9 == 3)
-            {
+            if (var9 == 3) {
                 var12.addVertexWithUV(var33, var27, var31, var17, var19);
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var23, var27, var29, var15, var19);
                 var12.addVertexWithUV(var23, var25, var31, (var15 + var17) / 2.0D, var21);
             }
 
-            if (var9 == 11)
-            {
+            if (var9 == 11) {
                 var12.addVertexWithUV(var33, var27, var29, var17, var19);
                 var12.addVertexWithUV(var33, var27, var29, var17, var19);
                 var12.addVertexWithUV(var23, var25, var31, var15, var21);
@@ -1787,13 +1609,11 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         }
     }
 
-    public void renderIntCornersSouthFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11)
-    {
+    public void renderIntCornersSouthFace(Block var1, double var2, double var4, double var6, int var8, int var9, RenderBlocks var10, int var11) {
         Tessellator var12 = Tessellator.instance;
         var12.setBrightness(var11);
 
-        if (var10.overrideBlockTexture >= 0)
-        {
+        if (var10.overrideBlockTexture >= 0) {
             var8 = var10.overrideBlockTexture;
         }
 
@@ -1805,21 +1625,18 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         double var21 = ((double)var14 + var1.getBlockBoundsMaxY() * 16.0D - 0.01D) / 256.0D;
         double var23;
 
-        if (var10.flipTexture)
-        {
+        if (var10.flipTexture) {
             var23 = var15;
             var15 = var17;
             var17 = var23;
         }
 
-        if (var1.getBlockBoundsMinZ() < 0.0D || var1.getBlockBoundsMaxZ() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinZ() < 0.0D || var1.getBlockBoundsMaxZ() > 1.0D) {
             var15 = (double)(((float)var13 + 0.0F) / 256.0F);
             var17 = (double)(((float)var13 + 15.99F) / 256.0F);
         }
 
-        if (var1.getBlockBoundsMinY() < 0.0D || var1.getBlockBoundsMaxY() > 1.0D)
-        {
+        if (var1.getBlockBoundsMinY() < 0.0D || var1.getBlockBoundsMaxY() > 1.0D) {
             var19 = (double)(((float)var14 + 0.0F) / 256.0F);
             var21 = (double)(((float)var14 + 15.99F) / 256.0F);
         }
@@ -1831,16 +1648,11 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
         double var31 = var6 + var1.getBlockBoundsMaxZ();
         double var33 = var2 + var1.getBlockBoundsMinX();
 
-        if (this.enableAO)
-        {
-            if (var9 != 2 && var9 != 10)
-            {
-                if (var9 != 1 && var9 != 9)
-                {
-                    if (var9 != 6 && var9 != 14)
-                    {
-                        if (var9 != 5 && var9 != 13)
-                        {
+        if (this.enableAO) {
+            if (var9 != 2 && var9 != 10) {
+                if (var9 != 1 && var9 != 9) {
+                    if (var9 != 6 && var9 != 14) {
+                        if (var9 != 5 && var9 != 13) {
                             var12.setColorOpaque_F(this.colorRedTopLeft_SouthFace, this.colorGreenTopLeft_SouthFace, this.colorBlueTopLeft_SouthFace);
                             var12.addVertexWithUV(var23, var25, var31, var15, var21);
                             var12.setColorOpaque_F(this.colorRedBottomLeft_SouthFace, this.colorGreenBottomLeft_SouthFace, this.colorBlueBottomLeft_SouthFace);
@@ -1850,8 +1662,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                             var12.setColorOpaque_F(this.colorRedTopRight_SouthFace, this.colorGreenTopRight_SouthFace, this.colorBlueTopRight_SouthFace);
                             var12.addVertexWithUV(var23, var27, var31, var15, var19);
                         }
-                        else
-                        {
+                        else {
                             var12.setColorOpaque_F(this.colorRedTopRight_SouthFace, this.colorGreenTopRight_SouthFace, this.colorBlueTopRight_SouthFace);
                             var12.addVertexWithUV(var23, var27, var31, var15, var19);
                             var12.setColorOpaque_F(this.colorRedBottomLeft_SouthFace, this.colorGreenBottomLeft_SouthFace, this.colorBlueBottomLeft_SouthFace);
@@ -1861,8 +1672,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                             var12.setColorOpaque_F(this.colorRedTopRight_SouthFace, this.colorGreenTopRight_SouthFace, this.colorBlueTopRight_SouthFace);
                             var12.addVertexWithUV(var23, var27, var31, var15, var19);
 
-                            if (var9 == 13)
-                            {
+                            if (var9 == 13) {
                                 var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZNeg) * (this.factorBottom + this.factorSouth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZNeg) * (this.factorBottom + this.factorSouth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZNeg) * (this.factorBottom + this.factorSouth) / 4.0F);
                                 var12.addVertexWithUV(var33, var25, var29, var15, var21);
                                 var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZNeg) * (this.factorBottom + this.factorSouth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZNeg) * (this.factorBottom + this.factorSouth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZNeg) * (this.factorBottom + this.factorSouth) / 4.0F);
@@ -1874,8 +1684,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                             }
                         }
                     }
-                    else
-                    {
+                    else {
                         var12.setColorOpaque_F(this.colorRedTopLeft_SouthFace, this.colorGreenTopLeft_SouthFace, this.colorBlueTopLeft_SouthFace);
                         var12.addVertexWithUV(var23, var25, var31, var15, var21);
                         var12.setColorOpaque_F(this.colorRedBottomRight_SouthFace, this.colorGreenBottomRight_SouthFace, this.colorBlueBottomRight_SouthFace);
@@ -1885,8 +1694,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                         var12.setColorOpaque_F(this.colorRedTopRight_SouthFace, this.colorGreenTopRight_SouthFace, this.colorBlueTopRight_SouthFace);
                         var12.addVertexWithUV(var23, var27, var31, var15, var19);
 
-                        if (var9 == 6)
-                        {
+                        if (var9 == 6) {
                             var12.setColorOpaque_F(this.colorRedSlopes * this.aoLightValueXPosYNeg * (this.factorBottom + this.factorSouth + this.factorEast) / 3.0F, this.colorGreenSlopes * this.aoLightValueXPosYNeg * (this.factorBottom + this.factorSouth + this.factorEast) / 3.0F, this.colorBlueSlopes * this.aoLightValueXPosYNeg * (this.factorBottom + this.factorSouth + this.factorEast) / 3.0F);
                             var12.addVertexWithUV(var23, var25, var31, var15, var21);
                             var12.setColorOpaque_F(this.colorRedSlopes * this.aoLightValueYNegZNeg * (this.factorBottom + this.factorSouth + this.factorEast) / 3.0F, this.colorGreenSlopes * this.aoLightValueYNegZNeg * (this.factorBottom + this.factorSouth + this.factorEast) / 3.0F, this.colorBlueSlopes * this.aoLightValueYNegZNeg * (this.factorBottom + this.factorSouth + this.factorEast) / 3.0F);
@@ -1897,8 +1705,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                             var12.addVertexWithUV(var23, var25, var31, var15, var21);
                         }
 
-                        if (var9 == 14)
-                        {
+                        if (var9 == 14) {
                             var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZPos) * (this.factorBottom + this.factorSouth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZPos) * (this.factorBottom + this.factorSouth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZPos) * (this.factorBottom + this.factorSouth) / 4.0F);
                             var12.addVertexWithUV(var33, var25, var31, var15, var21);
                             var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZNeg) * (this.factorBottom + this.factorSouth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZNeg) * (this.factorBottom + this.factorSouth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYNeg + this.aoLightValueYNegZNeg) * (this.factorBottom + this.factorSouth) / 4.0F);
@@ -1910,8 +1717,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                         }
                     }
                 }
-                else
-                {
+                else {
                     var12.setColorOpaque_F(this.colorRedTopLeft_SouthFace, this.colorGreenTopLeft_SouthFace, this.colorBlueTopLeft_SouthFace);
                     var12.addVertexWithUV(var23, var25, var31, var15, var21);
                     var12.setColorOpaque_F(this.colorRedBottomLeft_SouthFace, this.colorGreenBottomLeft_SouthFace, this.colorBlueBottomLeft_SouthFace);
@@ -1921,8 +1727,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                     var12.setColorOpaque_F(this.colorRedTopLeft_SouthFace, this.colorGreenTopLeft_SouthFace, this.colorBlueTopLeft_SouthFace);
                     var12.addVertexWithUV(var23, var25, var31, var15, var21);
 
-                    if (var9 == 9)
-                    {
+                    if (var9 == 9) {
                         var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueXPos + this.aoLightValueXPosZPos) * (this.factorTop + this.factorSouth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueXPos + this.aoLightValueXPosZPos) * (this.factorTop + this.factorSouth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueXPos + this.aoLightValueXPosZPos) * (this.factorTop + this.factorSouth) / 4.0F);
                         var12.addVertexWithUV(var23, var25, var31, var17, var21);
                         var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZNeg) * (this.factorTop + this.factorSouth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZNeg) * (this.factorTop + this.factorSouth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZNeg) * (this.factorTop + this.factorSouth) / 4.0F);
@@ -1934,8 +1739,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                     }
                 }
             }
-            else
-            {
+            else {
                 var12.setColorOpaque_F(this.colorRedTopLeft_SouthFace, this.colorGreenTopLeft_SouthFace, this.colorBlueTopLeft_SouthFace);
                 var12.addVertexWithUV(var23, var25, var31, var15, var21);
                 var12.setColorOpaque_F(this.colorRedBottomLeft_SouthFace, this.colorGreenBottomLeft_SouthFace, this.colorBlueBottomLeft_SouthFace);
@@ -1945,8 +1749,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                 var12.setColorOpaque_F(this.colorRedTopRight_SouthFace, this.colorGreenTopRight_SouthFace, this.colorBlueTopRight_SouthFace);
                 var12.addVertexWithUV(var23, var27, var31, var15, var19);
 
-                if (var9 == 2)
-                {
+                if (var9 == 2) {
                     var12.setColorOpaque_F(this.colorRedSlopes * this.aoLightValueXPosYPos * (this.factorTop + this.factorSouth + this.factorEast) / 3.0F, this.colorGreenSlopes * this.aoLightValueXPosYPos * (this.factorTop + this.factorSouth + this.factorEast) / 3.0F, this.colorBlueSlopes * this.aoLightValueXPosYPos * (this.factorTop + this.factorSouth + this.factorEast) / 3.0F);
                     var12.addVertexWithUV(var23, var27, var31, var15, var19);
                     var12.setColorOpaque_F(this.colorRedSlopes * this.aoLightValueXPosZNeg * (this.factorTop + this.factorSouth + this.factorEast) / 3.0F, this.colorGreenSlopes * this.aoLightValueXPosZNeg * (this.factorTop + this.factorSouth + this.factorEast) / 3.0F, this.colorBlueSlopes * this.aoLightValueXPosZNeg * (this.factorTop + this.factorSouth + this.factorEast) / 3.0F);
@@ -1957,8 +1760,7 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                     var12.addVertexWithUV(var23, var27, var31, var15, var19);
                 }
 
-                if (var9 == 10)
-                {
+                if (var9 == 10) {
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueXPos + this.aoLightValueXPosZNeg) * (this.factorTop + this.factorSouth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueXPos + this.aoLightValueXPosZNeg) * (this.factorTop + this.factorSouth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueXPos + this.aoLightValueXPosZNeg) * (this.factorTop + this.factorSouth) / 4.0F);
                     var12.addVertexWithUV(var23, var25, var29, var17, var21);
                     var12.setColorOpaque_F(this.colorRedSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZNeg) * (this.factorTop + this.factorSouth) / 4.0F, this.colorGreenSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZNeg) * (this.factorTop + this.factorSouth) / 4.0F, this.colorBlueSlopes * (this.aoLightValueYPos + this.aoLightValueYPosZNeg) * (this.factorTop + this.factorSouth) / 4.0F);
@@ -1970,28 +1772,22 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                 }
             }
         }
-        else if (var9 != 2 && var9 != 10)
-        {
-            if (var9 != 1 && var9 != 9)
-            {
-                if (var9 != 6 && var9 != 14)
-                {
-                    if (var9 != 5 && var9 != 13)
-                    {
+        else if (var9 != 2 && var9 != 10) {
+            if (var9 != 1 && var9 != 9) {
+                if (var9 != 6 && var9 != 14) {
+                    if (var9 != 5 && var9 != 13) {
                         var12.addVertexWithUV(var23, var25, var31, var15, var21);
                         var12.addVertexWithUV(var23, var25, var29, var17, var21);
                         var12.addVertexWithUV(var23, var27, var29, var17, var19);
                         var12.addVertexWithUV(var23, var27, var31, var15, var19);
                     }
-                    else
-                    {
+                    else {
                         var12.addVertexWithUV(var23, var25, var29, var17, var21);
                         var12.addVertexWithUV(var23, var25, var29, var17, var21);
                         var12.addVertexWithUV(var23, var27, var29, var17, var19);
                         var12.addVertexWithUV(var23, var27, var31, var15, var19);
 
-                        if (var9 == 13)
-                        {
+                        if (var9 == 13) {
                             var12.addVertexWithUV(var33, var25, var29, var15, var21);
                             var12.addVertexWithUV(var33, var25, var29, var15, var21);
                             var12.addVertexWithUV(var23, var27, var31, var17, var19);
@@ -1999,23 +1795,20 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                         }
                     }
                 }
-                else
-                {
+                else {
                     var12.addVertexWithUV(var23, var25, var31, var15, var21);
                     var12.addVertexWithUV(var23, var25, var31, var15, var21);
                     var12.addVertexWithUV(var23, var27, var29, var17, var19);
                     var12.addVertexWithUV(var23, var27, var31, var15, var19);
 
-                    if (var9 == 6)
-                    {
+                    if (var9 == 6) {
                         var12.addVertexWithUV(var23, var25, var31, var15, var21);
                         var12.addVertexWithUV(var33, var25, var29, var17, var21);
                         var12.addVertexWithUV(var23, var27, var29, (var15 + var17) / 2.0D, var19);
                         var12.addVertexWithUV(var23, var25, var31, var15, var21);
                     }
 
-                    if (var9 == 14)
-                    {
+                    if (var9 == 14) {
                         var12.addVertexWithUV(var33, var25, var31, var15, var21);
                         var12.addVertexWithUV(var33, var25, var29, var17, var21);
                         var12.addVertexWithUV(var23, var27, var29, var17, var19);
@@ -2023,15 +1816,13 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                     }
                 }
             }
-            else
-            {
+            else {
                 var12.addVertexWithUV(var23, var25, var31, var15, var21);
                 var12.addVertexWithUV(var23, var25, var29, var17, var21);
                 var12.addVertexWithUV(var23, var27, var29, var17, var19);
                 var12.addVertexWithUV(var23, var27, var29, var17, var19);
 
-                if (var9 == 9)
-                {
+                if (var9 == 9) {
                     var12.addVertexWithUV(var23, var25, var31, var17, var21);
                     var12.addVertexWithUV(var33, var27, var29, var15, var19);
                     var12.addVertexWithUV(var33, var27, var29, var15, var19);
@@ -2039,23 +1830,20 @@ public class RenderIntCorners implements ISimpleBlockRenderingHandler
                 }
             }
         }
-        else
-        {
+        else {
             var12.addVertexWithUV(var23, var25, var31, var15, var21);
             var12.addVertexWithUV(var23, var25, var29, var17, var21);
             var12.addVertexWithUV(var23, var27, var31, var15, var19);
             var12.addVertexWithUV(var23, var27, var31, var15, var19);
 
-            if (var9 == 2)
-            {
+            if (var9 == 2) {
                 var12.addVertexWithUV(var23, var27, var31, var15, var19);
                 var12.addVertexWithUV(var23, var25, var29, (var15 + var17) / 2.0D, var21);
                 var12.addVertexWithUV(var33, var27, var29, var17, var19);
                 var12.addVertexWithUV(var23, var27, var31, var15, var19);
             }
 
-            if (var9 == 10)
-            {
+            if (var9 == 10) {
                 var12.addVertexWithUV(var23, var25, var29, var17, var21);
                 var12.addVertexWithUV(var33, var27, var29, var17, var19);
                 var12.addVertexWithUV(var33, var27, var31, var15, var19);

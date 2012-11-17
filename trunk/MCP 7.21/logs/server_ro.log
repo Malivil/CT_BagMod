@@ -6,7 +6,7 @@
 #
 # RetroGuard MCP v3.6.5
 #
-# Logfile created on Thu Nov 15 00:23:24 EST 2012
+# Logfile created on Sat Nov 17 12:22:21 EST 2012
 #
 # Jar file to be obfuscated:           server_recomp.jar
 # Target Jar file for obfuscated code: server_reobf.jar
@@ -15,8 +15,8 @@
 # WARNING - identifier from script file not found in JAR: Application (MethodNotFound)
 # WARNING - identifier from script file not found in JAR: Applet (ClassNotFound)
 #
-# Memory in use after class data structure built: 9798704 bytes
-# Total memory available                        : 221970432 bytes
+# Memory in use after class data structure built: 7546776 bytes
+# Total memory available                        : 127401984 bytes
 #
 #
 # Names reserved from obfuscation:
