@@ -6,7 +6,7 @@
 #
 # RetroGuard MCP v3.6.5
 #
-# Logfile created on Tue Nov 20 08:08:40 EST 2012
+# Logfile created on Tue Nov 20 14:17:21 EST 2012
 #
 # Jar file to be obfuscated:           client_recomp.jar
 # Target Jar file for obfuscated code: client_reobf.jar
@@ -52,7 +52,7 @@
 #      Your class net/minecraftforge/event/ASMEventHandler$ASMClassLoader calls the java/lang/ClassLoader method defineClass(Ljava/lang/String;[BII)Ljava/lang/Class;
 #      Your class net/minecraftforge/event/EventBus calls the java/lang/Class method getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 #
-# Memory in use after class data structure built: 25169184 bytes
+# Memory in use after class data structure built: 25169304 bytes
 # Total memory available                        : 371785728 bytes
 #
 #
@@ -4294,6 +4294,7 @@
 .method_map cpw/mods/fml/common/asm/transformers/MCPMerger$ClassInfo/isSame ()Z isSame
 .field_map cpw/mods/fml/common/asm/transformers/MCPMerger/shared shared
 .field_map cpw/mods/fml/common/asm/transformers/MCPMerger/copyToServer copyToServer
+.field_map cpw/mods/fml/common/asm/transformers/MCPMerger/dontAnnotate dontAnnotate
 .field_map cpw/mods/fml/common/asm/transformers/MCPMerger/servers servers
 .field_map cpw/mods/fml/common/asm/transformers/MCPMerger/copyToClient copyToClient
 .field_map cpw/mods/fml/common/asm/transformers/MCPMerger/DEBUG DEBUG

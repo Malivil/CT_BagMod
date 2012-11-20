@@ -1,9 +1,12 @@
 Changelog:
 
+Build 1.4.5-6.4.0.393
+	LexManos: Fix TE Issue
+
 Build 1.4.5-6.4.0.390
 	LexManos: Updated to MC 1.4.5b
 
-Build 1.4.5-6.4.0.393
+Build 1.4.5-6.4.0.394
 	LexManos: Removed GnuWin32 programs, should no longer be needed as we've moved to python.
 
 Build 1.4.5-6.4.0.388
