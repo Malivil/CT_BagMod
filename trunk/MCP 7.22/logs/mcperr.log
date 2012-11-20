@@ -1,1 +1,95 @@
 07:35:18 - !! renaming disabled !!
+07:37:01 - '"C:\Program Files\Java\jdk1.7.0_07\bin\javac" -encoding UTF-8 -Xlint:-options -deprecation -g -sourc...' failed : 1
+07:37:01 - 
+07:37:01 - == ERRORS FOUND ==
+07:37:01 - 
+07:37:01 - src\common\mal\teleportrelay\common\BlockTeleportRelay.java:3: error: package mal.teleportrelay.client does not exist
+07:37:01 - import mal.teleportrelay.client.GuiTeleportRelay;
+07:37:01 -                                ^
+07:37:01 - 
+07:37:01 - src\common\mal\teleportrelay\common\ItemRelayRemote.java:3: error: package mal.teleportrelay.client does not exist
+07:37:01 - import mal.teleportrelay.client.GuiTeleportRemote;
+07:37:01 -                                ^
+07:37:01 - 
+07:37:01 - src\common\mal\teleportrelay\common\TeleportRelay.java:6: error: package mal.teleportrelay.client does not exist
+07:37:01 - import mal.teleportrelay.client.ClientPacketHandler;
+07:37:01 -                                ^
+07:37:01 - 
+07:37:01 - src\common\mal\teleportrelay\common\TeleportRelay.java:30: error: cannot find symbol
+07:37:01 - 		clientPacketHandlerSpec = @SidedPacketHandler(channels = {"TR_Channel"}, packetHandler = ClientPacketHandler.class),
+07:37:01 - 		                                                                                         ^
+07:37:01 - 
+07:37:01 -   symbol: class ClientPacketHandler
+07:37:01 - src\common\mal\teleportrelay\common\BlockTeleportRelay.java:37: error: cannot find symbol
+07:37:01 - 			FMLClientHandler.instance().displayGuiScreen(entityplayer, new GuiTeleportRelay((TileEntityTeleportRelay)entity));
+07:37:01 - 			                                                               ^
+07:37:01 - 
+07:37:01 -   symbol:   class GuiTeleportRelay
+07:37:01 -   location: class BlockTeleportRelay
+07:37:01 - src\common\mal\teleportrelay\common\ItemRelayRemote.java:23: error: cannot find symbol
+07:37:01 - 			FMLClientHandler.instance().displayGuiScreen(entityplayer, new GuiTeleportRemote(itemstack));
+07:37:01 - 			                                                               ^
+07:37:01 - 
+07:37:01 -   symbol:   class GuiTeleportRemote
+07:37:01 -   location: class ItemRelayRemote
+07:37:01 - src\common\mal\teleportrelay\common\ServerPacketHandler.java:47: error: cannot find symbol
+07:37:01 - 					ChunkCoordinates spawnChunk = entityPlayer.getSpawnChunk();
+07:37:01 - 					                                          ^
+07:37:01 - 
+07:37:01 -   symbol:   method getSpawnChunk()
+07:37:01 -   location: variable entityPlayer of type EntityPlayerMP
+07:37:01 - src\common\mal\teleportrelay\common\TeleportRelay.java:148: error: cannot find symbol
+07:37:01 - 		final ChunkCoordinates bed = minecraft.thePlayer.getSpawnChunk();
+07:37:01 - 		                                                ^
+07:37:01 - 
+07:37:01 -   symbol:   method getSpawnChunk()
+07:37:01 -   location: variable thePlayer of type EntityClientPlayerMP
+07:37:01 - src\common\net\minecraftforge\liquids\LiquidTank.java:48: warning: [deprecation] setCapacity(int) in ILiquidTank has been deprecated
+07:37:01 - 	public void setCapacity(int capacity) {
+07:37:01 - 	            ^
+07:37:01 - 
+07:37:01 - src\common\net\minecraftforge\liquids\LiquidTank.java:43: warning: [deprecation] setLiquid(LiquidStack) in ILiquidTank has been deprecated
+07:37:01 - 	public void setLiquid(LiquidStack liquid) {
+07:37:01 - 	            ^
+07:37:01 - 
+07:37:01 - 8 errors
+07:37:01 - 2 warnings
+07:37:01 - ==================
+07:37:01 - 
+07:37:01 - Client recompile failed, correct source then rerun updatemd5
+07:42:49 - '"C:\Program Files\Java\jdk1.7.0_07\bin\java" -cp "runtime\bin\retroguard.jar;lib;lib\*;jars\minecraf...' failed : 1
+07:42:49 - 
+07:42:49 - == ERRORS FOUND ==
+07:42:49 - 
+07:42:49 - ERROR: Could not find obf file temp\server_rg.srg
+07:42:49 - ==================
+07:42:49 - 
+07:42:49 - FATAL ERROR
+Traceback (most recent call last):
+  File "runtime\reobfuscate.py", line 53, in reobfuscate
+    reobfuscate_side(commands, SERVER, reobf_all=reobf_all)
+  File "C:\Users\Mike Lebson\Documents\Other\MineCraft\MCP 7.22\runtime\mcp.py", line 158, in reobfuscate_side
+    commands.applyrg(side, True)
+  File "C:\Users\Mike Lebson\Documents\Other\MineCraft\MCP 7.22\runtime\commands.py", line 907, in applyrg
+    self.runcmd(forkcmd)
+  File "C:\Users\Mike Lebson\Documents\Other\MineCraft\MCP 7.22\runtime\commands.py", line 1111, in runcmd
+    raise CalledProcessError(process.returncode, forkcmd, output)
+CalledProcessError: Command '"C:\Program Files\Java\jdk1.7.0_07\bin\java" -cp "runtime\bin\retroguard.jar;lib;lib\*;jars\minecraft_server.jar" RetroGuard -notch temp\server_ro.cfg' returned non-zero exit status 1
+08:09:21 - '"C:\Program Files\Java\jdk1.7.0_07\bin\java" -cp "runtime\bin\retroguard.jar;lib;lib\*;jars\minecraf...' failed : 1
+08:09:21 - 
+08:09:21 - == ERRORS FOUND ==
+08:09:21 - 
+08:09:21 - ERROR: Could not find obf file temp\server_rg.srg
+08:09:21 - ==================
+08:09:21 - 
+08:09:21 - FATAL ERROR
+Traceback (most recent call last):
+  File "runtime\reobfuscate.py", line 53, in reobfuscate
+    reobfuscate_side(commands, SERVER, reobf_all=reobf_all)
+  File "C:\Users\Mike Lebson\Documents\Other\MineCraft\MCP 7.22\runtime\mcp.py", line 158, in reobfuscate_side
+    commands.applyrg(side, True)
+  File "C:\Users\Mike Lebson\Documents\Other\MineCraft\MCP 7.22\runtime\commands.py", line 907, in applyrg
+    self.runcmd(forkcmd)
+  File "C:\Users\Mike Lebson\Documents\Other\MineCraft\MCP 7.22\runtime\commands.py", line 1111, in runcmd
+    raise CalledProcessError(process.returncode, forkcmd, output)
+CalledProcessError: Command '"C:\Program Files\Java\jdk1.7.0_07\bin\java" -cp "runtime\bin\retroguard.jar;lib;lib\*;jars\minecraft_server.jar" RetroGuard -notch temp\server_ro.cfg' returned non-zero exit status 1

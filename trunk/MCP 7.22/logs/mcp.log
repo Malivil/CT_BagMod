@@ -5971,3 +5971,889 @@ based on RetroGuard v2.3.1 by Retrologic Systems - www.retrologic.com
 07:40:41 - > Recompiling
 07:40:41 - Server side recompiling skipped, this is normal
 07:40:41 - - Done in 0.00 seconds
+07:42:06 - == MCP 7.22 (data: 7.23, client: 1.4.5, server: 1.4.5) ==
+07:42:06 - OS : win32
+07:42:06 - # VERSION INFO
+07:42:06 - python: 2.7.3 (default, Apr 10 2012, 23:31:26) [MSC v.1500 32 bit (Intel)]
+07:42:06 - platform: Windows-7-6.1.7601-SP1
+07:42:06 - # java: '"C:\Program Files\Java\jdk1.7.0_07\bin\java" -version'
+07:42:06 - java version "1.7.0_07"
+Java(TM) SE Runtime Environment (build 1.7.0_07-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 23.3-b01, mixed mode)
+07:42:06 - # javac: '"C:\Program Files\Java\jdk1.7.0_07\bin\javac" -version'
+07:42:06 - javac 1.7.0_07
+07:42:06 - # javac runtime: '"C:\Program Files\Java\jdk1.7.0_07\bin\javac" -J-version'
+07:42:06 - java version "1.7.0_07"
+Java(TM) SE Runtime Environment (build 1.7.0_07-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 23.3-b01, mixed mode)
+07:42:06 - # retroguard: 'runtime\bin\retroguard.jar --version'
+07:42:06 - RetroGuard MCP v3.6.5
+based on RetroGuard v2.3.1 by Retrologic Systems - www.retrologic.com
+07:42:06 - # mcinjector: 'runtime\bin\mcinjector.jar --version'
+07:42:06 - MCInjector v2.8 by Searge, LexManos, Fesh0r
+07:42:06 - # patch: 'runtime\bin\applydiff.exe --version'
+07:42:06 - patch 2.5.4
+07:42:06 - # astyle: 'runtime\bin\astyle.exe --version'
+07:42:06 - Artistic Style Version 2.02.1
+07:42:06 - # jadretro: 'runtime\bin\jadretro.jar'
+07:42:06 - Error: Unable to access jarfile runtime\bin\jadretro.jar
+07:42:06 - # jad: 'runtime\bin\jad.exe'
+07:42:06 - # fernflower: 'runtime\bin\fernflower.jar'
+07:42:06 - Usage: java ConsoleDecompiler ( -<option>=<value>)* (<source>)+ <destination>
+07:42:06 - # found ff, ff patches, srgs, name csvs, doc csvs, param csvs, renumber csv, astyle, astyle config
+07:42:06 - > Creating Retroguard config files
+07:42:06 - == Reobfuscating client ==
+07:42:06 - > Cleaning reobf
+07:42:06 - > Generating md5s
+07:42:07 - > Packing jar
+07:42:07 - > Reobfuscating jar
+07:42:07 - runcmd: '"C:\Program Files\Java\jdk1.7.0_07\bin\java" -cp "runtime\bin\retroguard.jar;lib;lib\*;jars\bin\minecraft.jar;jars\bin\jinput.jar;jars\bin\lwjgl.jar;jars\bin\lwjgl_util.jar" RetroGuard -notch temp\client_ro.cfg'
+07:42:07 - shlex: ['C:\\Program Files\\Java\\jdk1.7.0_07\\bin\\java', '-cp', 'runtime\\bin\\retroguard.jar;lib;lib\\*;jars\\bin\\minecraft.jar;jars\\bin\\jinput.jar;jars\\bin\\lwjgl.jar;jars\\bin\\lwjgl_util.jar', 'RetroGuard', '-notch', 'temp\\client_ro.cfg']
+07:42:49 - # Warning: class argo/jdom/JsonNodeBuilders_Null not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonStringNodeBuilder not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonNodeDoesNotMatchJsonNodeSelectorException not found in JAR
+07:42:49 - # Warning: class argo/saj/SajParser not found in JAR
+07:42:49 - # Warning: class argo/jdom/LeafFunctor not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonListenerToJdomAdapter_Object not found in JAR
+07:42:49 - # Warning: class argo/format/CompactJsonFormatter not found in JAR
+07:42:49 - # Warning: class argo/saj/ThingWithPosition not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonListenerToJdomAdapter_NodeContainer not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonNode not found in JAR
+07:42:49 - # Warning: class argo/jdom/JdomParser not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonNodeSelectors not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonObject not found in JAR
+07:42:49 - # Warning: class argo/format/JsonFormatter not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonNodeFactories not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonStringNode not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonRootNode not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonNodeBuilders_True not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonObjectNodeBuilder not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonListenerToJdomAdapter_Array not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonConstants not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonObjectNodeBuilder_List not found in JAR
+07:42:49 - # Warning: class argo/jdom/Functor not found in JAR
+07:42:49 - # Warning: class argo/jdom/ChainedFunctor not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonNodeDoesNotMatchPathElementsException not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonNodeType not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonNodeSelectors_Field not found in JAR
+07:42:49 - # Warning: class argo/format/CompactJsonFormatter_JsonNodeType not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonNodeSelectors_Array not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonArrayNodeBuilder not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonNodeSelectors_String not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonNodeBuilders_False not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonNumberNode not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonNodeSelectors_Object not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonNodeSelector not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonNodeBuilder not found in JAR
+07:42:49 - # Warning: class argo/saj/PositionTrackingPushbackReader not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonListenerToJdomAdapter not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonNodeSelectors_Element not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonNodeDoesNotMatchChainedJsonNodeSelectorException not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonArray_NodeList not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonNumberNodeBuilder not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonArray not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonFieldBuilder not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonListenerToJdomAdapter_Field not found in JAR
+07:42:49 - # Warning: class argo/jdom/JsonNodeBuilders not found in JAR
+07:42:49 - # Warning: class argo/saj/JsonListener not found in JAR
+07:42:49 - # Warning: class argo/saj/InvalidSyntaxException not found in JAR
+07:42:49 - # Warning: class argo/format/JsonEscapedString not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Object/shortForm not found in JAR
+07:42:49 - # Warning: method argo/jdom/Functor/shortForm not found in JAR
+07:42:49 - # Warning: method argo/format/CompactJsonFormatter/format not found in JAR
+07:42:49 - # Warning: method argo/saj/JsonListener/endArray not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Array/typeSafeApplyTo not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_String/shortForm not found in JAR
+07:42:49 - # Warning: method argo/format/CompactJsonFormatter/formatJsonNode not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNode/getType not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonConstants/getType not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonStringNode/compareTo not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors/func_74679_b not found in JAR
+07:42:49 - # Warning: method argo/saj/SajParser/possibleSign not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeDoesNotMatchChainedJsonNodeSelectorException/toString not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Object/matchesNode not found in JAR
+07:42:49 - # Warning: method argo/jdom/ChainedFunctor/matchesNode not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNode/getText not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter_Field/addField not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonObjectNodeBuilder/buildNode not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonArray/hashCode not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter_Field/addNode not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/stringValue not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonStringNode/getFields not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonStringNode/getElements not found in JAR
+07:42:49 - # Warning: method argo/saj/JsonListener/startObject not found in JAR
+07:42:49 - # Warning: method argo/saj/ThingWithPosition/getRow not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeFactories/aJsonTrue not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors/func_74682_a not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Field/typeSafeApplyTo not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeBuilders/func_74709_c not found in JAR
+07:42:49 - # Warning: method argo/saj/SajParser/hexadecimalNumber not found in JAR
+07:42:49 - # Warning: method argo/saj/JsonListener/numberValue not found in JAR
+07:42:49 - # Warning: method argo/saj/PositionTrackingPushbackReader/getRow not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonStringNode/getText not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonArrayNodeBuilder/buildNode not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNode/wrapExceptionsFor not found in JAR
+07:42:49 - # Warning: method argo/jdom/Functor/applyTo not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/endDocument not found in JAR
+07:42:49 - # Warning: method argo/saj/SajParser/numberToken not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonObject/hashCode not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNode/getArrayNode not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeBuilders/func_74712_a not found in JAR
+07:42:49 - # Warning: method argo/saj/ThingWithPosition/getColumn not found in JAR
+07:42:49 - # Warning: method argo/saj/SajParser/stringToken not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeBuilders/func_74710_b not found in JAR
+07:42:49 - # Warning: method argo/saj/SajParser/nonZeroDigitToken not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Array/matchesNode not found in JAR
+07:42:49 - # Warning: method argo/saj/PositionTrackingPushbackReader/unread not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Element/shortForm not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeFactories/aJsonArray not found in JAR
+07:42:49 - # Warning: method argo/saj/SajParser/objectString not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter_Array/addNode not found in JAR
+07:42:49 - # Warning: method argo/saj/PositionTrackingPushbackReader/updateCharacterAndLineCounts not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors/func_74683_b not found in JAR
+07:42:49 - # Warning: method argo/saj/PositionTrackingPushbackReader/read not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonObject/getElements not found in JAR
+07:42:49 - # Warning: method argo/jdom/ChainedFunctor/toString not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNumberNodeBuilder/buildNode not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeDoesNotMatchPathElementsException/commaSeparate not found in JAR
+07:42:49 - # Warning: method argo/saj/SajParser/aFieldToken not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonFieldBuilder/buildValue not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/getDocument not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonObjectNodeBuilder/withFieldBuilder not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonArray/toString not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeType/valueOf not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Field/func_74641_a not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonConstants/getFields not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter_NodeContainer/addField not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNumberNode/getText not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelector/getValue not found in JAR
+07:42:49 - # Warning: method argo/jdom/JdomParser/parse not found in JAR
+07:42:49 - # Warning: method argo/saj/SajParser/arrayString not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors/func_74678_a not found in JAR
+07:42:49 - # Warning: method argo/saj/SajParser/escapedStringChar not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeFactories/aJsonString not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonArray/getFields not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonFieldBuilder/withValue not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonStringNode/hashCode not found in JAR
+07:42:49 - # Warning: method argo/saj/SajParser/digitToken not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonArray/getElements not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonObject/getText not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeBuilders_False/buildNode not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonStringNode/getType not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/endObject not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNode/getFields not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors/func_74684_b not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Object/typeSafeApplyTo not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNumberNode/getFields not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Array/toString not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeFactories/aJsonNumber not found in JAR
+07:42:49 - # Warning: method argo/saj/SajParser/possibleFractionalComponent not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeFactories/aJsonFalse not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors/chainOn not found in JAR
+07:42:49 - # Warning: method argo/saj/JsonListener/falseValue not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNumberNode/getType not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelector/toString not found in JAR
+07:42:49 - # Warning: method argo/saj/SajParser/nonNegativeNumberToken not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/endField not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Element/toString not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonArray/getType not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Array/shortForm not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Element/typeSafeApplyTo not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonArrayNodeBuilder/withElement not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors/func_74680_a not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNumberNode/hashCode not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeFactories/aJsonNull not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonStringNode/func_74626_a not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_String/func_74645_a not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Object/func_74640_a not found in JAR
+07:42:49 - # Warning: method argo/saj/JsonListener/endObject not found in JAR
+07:42:49 - # Warning: method argo/saj/SajParser/digitString not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Array/typeSafeApplyTo not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Array/matchesNode_ not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNumberNode/getElements not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeBuilders_Null/buildNode not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors/chainedJsonNodeSelector not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_String/func_74644_b not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/nullValue not found in JAR
+07:42:49 - # Warning: method argo/saj/PositionTrackingPushbackReader/getColumn not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/falseValue not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Field/shortForm not found in JAR
+07:42:49 - # Warning: method argo/saj/SajParser/possibleExponent not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Element/matchesNode_ not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Field/typeSafeApplyTo not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeDoesNotMatchChainedJsonNodeSelectorException/func_74701_a not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeDoesNotMatchChainedJsonNodeSelectorException/getShortFormFailPath not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors/func_74675_a not found in JAR
+07:42:49 - # Warning: method argo/format/JsonFormatter/format not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeFactories/aJsonObject not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelector/with not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/addValue not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNumberNode/toString not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeDoesNotMatchChainedJsonNodeSelectorException/func_74699_a not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonObjectNodeBuilder/func_74606_a not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeBuilders/anArrayBuilder not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonConstants/getElements not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_String/typeSafeApplyTo not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter_Array/addField not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_String/toString not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Element/typeSafeApplyTo_ not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonArray/asList not found in JAR
+07:42:49 - # Warning: method argo/saj/JsonListener/stringValue not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeBuilders/func_74714_a not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeBuilder/buildNode not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNode/getStringValue not found in JAR
+07:42:49 - # Warning: method argo/jdom/ChainedFunctor/shortForm not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/trueValue not found in JAR
+07:42:49 - # Warning: method argo/saj/PositionTrackingPushbackReader/uncount not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonFieldBuilder/withKey not found in JAR
+07:42:49 - # Warning: method argo/jdom/LeafFunctor/applyTo not found in JAR
+07:42:49 - # Warning: method argo/saj/JsonListener/endField not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonStringNode/equals not found in JAR
+07:42:49 - # Warning: method argo/saj/JsonListener/trueValue not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Object/func_74639_b not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonConstants/getText not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonObject/equals not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonObject/getType not found in JAR
+07:42:49 - # Warning: method argo/jdom/Functor/matchesNode not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonArray/equals not found in JAR
+07:42:49 - # Warning: method argo/saj/JsonListener/nullValue not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeFactories/aJsonArray not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeBuilders/func_74713_b not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNumberNode/equals not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeType/values not found in JAR
+07:42:49 - # Warning: method argo/saj/SajParser/aJsonValue not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonStringNodeBuilder/buildNode not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonObjectNodeBuilder/func_74607_a not found in JAR
+07:42:49 - # Warning: method argo/format/JsonEscapedString/toString not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter_NodeContainer/addNode not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Element/matchesNode not found in JAR
+07:42:49 - # Warning: method argo/saj/JsonListener/startArray not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_String/matchesNode not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/numberValue not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonStringNode/toString not found in JAR
+07:42:49 - # Warning: method argo/saj/PositionTrackingPushbackReader/read not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Object/toString not found in JAR
+07:42:49 - # Warning: method argo/saj/SajParser/parse not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/startArray not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeDoesNotMatchChainedJsonNodeSelectorException/func_74698_b not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter_Object/addNode not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Field/toString not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelector/shortForm not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonStringNodeBuilder/func_74600_a not found in JAR
+07:42:49 - # Warning: method argo/jdom/ChainedFunctor/applyTo not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors/func_74681_c not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/startField not found in JAR
+07:42:49 - # Warning: method argo/jdom/LeafFunctor/typeSafeApplyTo not found in JAR
+07:42:49 - # Warning: method argo/saj/SajParser/readNextNonWhitespaceChar not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/startDocument not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelector/matches not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeSelectors_Field/matchesNode not found in JAR
+07:42:49 - # Warning: method argo/saj/JsonListener/startDocument not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeDoesNotMatchPathElementsException/formatMessage not found in JAR
+07:42:49 - # Warning: method argo/jdom/JdomParser/parse not found in JAR
+07:42:49 - # Warning: method argo/format/CompactJsonFormatter/format not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonObject/toString not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonObject/getFields not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonFieldBuilder/func_74724_b not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNode/getElements not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeDoesNotMatchPathElementsException/jsonNodeDoesNotMatchPathElementsException not found in JAR
+07:42:49 - # Warning: method argo/saj/JsonListener/endDocument not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonArrayNodeBuilder/build not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter_Object/addField not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonFieldBuilder/aJsonFieldBuilder not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonArray/getText not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/startObject not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/endArray not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeBuilders_True/buildNode not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/addRootNode not found in JAR
+07:42:49 - # Warning: method argo/jdom/JsonNodeBuilders/anObjectBuilder not found in JAR
+07:42:49 - # Warning: method argo/saj/JsonListener/startField not found in JAR
+07:42:49 - # Warning: field argo/saj/InvalidSyntaxException/column not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonConstants/TRUE not found in JAR
+07:42:49 - # Warning: field argo/jdom/ChainedFunctor/childJsonNodeSelector not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonObject/fields not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonFieldBuilder/valueBuilder not found in JAR
+07:42:49 - # Warning: field argo/saj/InvalidSyntaxException/row not found in JAR
+07:42:49 - # Warning: field argo/format/CompactJsonFormatter_JsonNodeType/enumJsonNodeTypeMappingArray not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonArrayNodeBuilder/elementBuilders not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonListenerToJdomAdapter_Array/listenerToJdomAdapter not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonNodeDoesNotMatchChainedJsonNodeSelectorException/failPath not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonNodeType/NUMBER not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonFieldBuilder/key not found in JAR
+07:42:49 - # Warning: field argo/saj/PositionTrackingPushbackReader/pushbackReader not found in JAR
+07:42:49 - # Warning: field argo/saj/PositionTrackingPushbackReader/lineCount not found in JAR
+07:42:49 - # Warning: field argo/saj/PositionTrackingPushbackReader/characterCount not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonListenerToJdomAdapter_Field/fieldBuilder not found in JAR
+07:42:49 - # Warning: field net/minecraft/server/MinecraftServer/timeOfLastDimensionTick not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonNodeDoesNotMatchChainedJsonNodeSelectorException/failedNode not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonNumberNode/value not found in JAR
+07:42:49 - # Warning: field argo/format/JsonEscapedString/escapedString not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonListenerToJdomAdapter/stack not found in JAR
+07:42:49 - # Warning: field argo/jdom/ChainedFunctor/parentJsonNodeSelector not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonNodeType/TRUE not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonNodeType/NULL not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonNodeSelector/valueGetter not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonArray_NodeList/elements not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonListenerToJdomAdapter_Array/nodeBuilder not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonListenerToJdomAdapter/root not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonNodeSelectors_Field/theFieldName not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonStringNode/value not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonNumberNode/PATTERN not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonNodeType/STRING not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonListenerToJdomAdapter_Field/listenerToJdomAdapter not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonNodeType/FALSE not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonArray/elements not found in JAR
+07:42:49 - # Warning: field net/minecraft/src/WorldRenderer/tessellator not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonNumberNodeBuilder/builtNode not found in JAR
+07:42:49 - # Warning: field argo/saj/PositionTrackingPushbackReader/lastCharacterWasCarriageReturn not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonStringNodeBuilder/builtStringNode not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonListenerToJdomAdapter_Object/listenerToJdomAdapter not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonNodeType/$VALUES not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonNodeType/ARRAY not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonNodeSelectors_Element/index not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonNodeDoesNotMatchPathElementsException/JSON_FORMATTER not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonListenerToJdomAdapter_Object/nodeBuilder not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonNodeType/OBJECT not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonConstants/jsonNodeType not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonObjectNodeBuilder_List/nodeBuilder not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonConstants/FALSE not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonObjectNodeBuilder/fieldBuilders not found in JAR
+07:42:49 - # Warning: field argo/jdom/JsonConstants/NULL not found in JAR
+07:42:49 - > Extracting modified classes
+07:42:49 - > New class found      : mal/teleportrelay/client/GuiTeleportRemote
+07:42:49 - > New class found      : metadark/mods/SuperSlopes/Corners/CommonInit
+07:42:49 - > New class found      : metadark/mods/SuperSlopes/Slopes/BlockSlopes
+07:42:49 - > New class found      : metadark/mods/SuperSlopes/IntCorners/ClientInit
+07:42:49 - > New class found      : mal/teleportrelay/common/TileEntityTeleportRelay
+07:42:49 - > New class found      : metadark/mods/SuperSlopes/Corners/BlockCorners
+07:42:49 - > New class found      : mal/teleportrelay/common/CommonProxy
+07:42:49 - > New class found      : metadark/mods/SuperSlopes/IntCorners/ItemIntCorners
+07:42:49 - > New class found      : mal/teleportrelay/common/TileEntityTeleportRelayRenderer
+07:42:49 - > New class found      : metadark/mods/SuperSlopes/Slopes/CommonInit
+07:42:49 - > New class found      : metadark/mods/SuperSlopes/IntCorners/CommonInit
+07:42:49 - > New class found      : metadark/mods/SuperSlopes/Corners/RenderCorners
+07:42:49 - > New class found      : mal/teleportrelay/client/GuiTeleportRelay
+07:42:49 - > New class found      : metadark/mods/SuperSlopes/IntCorners/IntCorners
+07:42:49 - > New class found      : mal/teleportrelay/client/ClientPacketHandler
+07:42:49 - > New class found      : metadark/mods/SuperSlopes/Slopes/ClientInit
+07:42:49 - > New class found      : metadark/mods/SuperSlopes/Slopes/RenderSlopes
+07:42:49 - > New class found      : mal/teleportrelay/common/ServerPacketHandler
+07:42:49 - > New class found      : metadark/mods/SuperSlopes/Corners/ClientInit
+07:42:49 - > New class found      : metadark/mods/SuperSlopes/IntCorners/RenderIntCorners
+07:42:49 - > New class found      : metadark/mods/SuperSlopes/PropertyManager
+07:42:49 - > New class found      : metadark/mods/SuperSlopes/Slopes/ItemSlopes
+07:42:49 - > New class found      : metadark/mods/SuperSlopes/Corners/ItemCorners
+07:42:49 - > New class found      : mal/teleportrelay/common/TeleportRelay
+07:42:49 - > New class found      : metadark/mods/SuperSlopes/Slopes/Slopes
+07:42:49 - > New class found      : mal/teleportrelay/common/BlockTeleportRelay
+07:42:49 - > New class found      : metadark/mods/SuperSlopes/Corners/Corners
+07:42:49 - > New class found      : mal/teleportrelay/client/ClientTickHandler
+07:42:49 - > New class found      : mal/teleportrelay/common/ModelTeleportRelay
+07:42:49 - > New inner class found: mal/teleportrelay/common/TeleportRelay$PACKET_TYPES
+07:42:49 - > New class found      : metadark/mods/SuperSlopes/IntCorners/BlockIntCorners
+07:42:49 - > New class found      : mal/teleportrelay/common/ItemRelayRemote
+07:42:49 - > New class found      : mal/teleportrelay/client/ClientProxy
+07:42:49 - > Outputted mal/teleportrelay/client/GuiTeleportRemote to reobf\minecraft as mal/teleportrelay/client/GuiTeleportRemote.class
+07:42:49 - > Outputted metadark/mods/SuperSlopes/Corners/CommonInit to reobf\minecraft as metadark/mods/SuperSlopes/Corners/CommonInit.class
+07:42:49 - > Outputted metadark/mods/SuperSlopes/Slopes/BlockSlopes to reobf\minecraft as metadark/mods/SuperSlopes/Slopes/BlockSlopes.class
+07:42:49 - > Outputted metadark/mods/SuperSlopes/IntCorners/ClientInit to reobf\minecraft as metadark/mods/SuperSlopes/IntCorners/ClientInit.class
+07:42:49 - > Outputted mal/teleportrelay/common/TileEntityTeleportRelay to reobf\minecraft as mal/teleportrelay/common/TileEntityTeleportRelay.class
+07:42:49 - > Outputted metadark/mods/SuperSlopes/Corners/BlockCorners to reobf\minecraft as metadark/mods/SuperSlopes/Corners/BlockCorners.class
+07:42:49 - > Outputted mal/teleportrelay/common/CommonProxy to reobf\minecraft as mal/teleportrelay/common/CommonProxy.class
+07:42:49 - > Outputted metadark/mods/SuperSlopes/IntCorners/ItemIntCorners to reobf\minecraft as metadark/mods/SuperSlopes/IntCorners/ItemIntCorners.class
+07:42:49 - > Outputted mal/teleportrelay/common/TileEntityTeleportRelayRenderer to reobf\minecraft as mal/teleportrelay/common/TileEntityTeleportRelayRenderer.class
+07:42:49 - > Outputted metadark/mods/SuperSlopes/Slopes/CommonInit to reobf\minecraft as metadark/mods/SuperSlopes/Slopes/CommonInit.class
+07:42:49 - > Outputted metadark/mods/SuperSlopes/IntCorners/CommonInit to reobf\minecraft as metadark/mods/SuperSlopes/IntCorners/CommonInit.class
+07:42:49 - > Outputted metadark/mods/SuperSlopes/Corners/RenderCorners to reobf\minecraft as metadark/mods/SuperSlopes/Corners/RenderCorners.class
+07:42:49 - > Outputted mal/teleportrelay/client/GuiTeleportRelay to reobf\minecraft as mal/teleportrelay/client/GuiTeleportRelay.class
+07:42:49 - > Outputted metadark/mods/SuperSlopes/IntCorners/IntCorners to reobf\minecraft as metadark/mods/SuperSlopes/IntCorners/IntCorners.class
+07:42:49 - > Outputted mal/teleportrelay/client/ClientPacketHandler to reobf\minecraft as mal/teleportrelay/client/ClientPacketHandler.class
+07:42:49 - > Outputted metadark/mods/SuperSlopes/Slopes/ClientInit to reobf\minecraft as metadark/mods/SuperSlopes/Slopes/ClientInit.class
+07:42:49 - > Outputted metadark/mods/SuperSlopes/Slopes/RenderSlopes to reobf\minecraft as metadark/mods/SuperSlopes/Slopes/RenderSlopes.class
+07:42:49 - > Outputted mal/teleportrelay/common/ServerPacketHandler to reobf\minecraft as mal/teleportrelay/common/ServerPacketHandler.class
+07:42:49 - > Outputted metadark/mods/SuperSlopes/Corners/ClientInit to reobf\minecraft as metadark/mods/SuperSlopes/Corners/ClientInit.class
+07:42:49 - > Outputted metadark/mods/SuperSlopes/IntCorners/RenderIntCorners to reobf\minecraft as metadark/mods/SuperSlopes/IntCorners/RenderIntCorners.class
+07:42:49 - > Outputted metadark/mods/SuperSlopes/PropertyManager to reobf\minecraft as metadark/mods/SuperSlopes/PropertyManager.class
+07:42:49 - > Outputted metadark/mods/SuperSlopes/Slopes/ItemSlopes to reobf\minecraft as metadark/mods/SuperSlopes/Slopes/ItemSlopes.class
+07:42:49 - > Outputted metadark/mods/SuperSlopes/Corners/ItemCorners to reobf\minecraft as metadark/mods/SuperSlopes/Corners/ItemCorners.class
+07:42:49 - > Outputted mal/teleportrelay/common/TeleportRelay to reobf\minecraft as mal/teleportrelay/common/TeleportRelay.class
+07:42:49 - > Outputted metadark/mods/SuperSlopes/Slopes/Slopes to reobf\minecraft as metadark/mods/SuperSlopes/Slopes/Slopes.class
+07:42:49 - > Outputted mal/teleportrelay/common/BlockTeleportRelay to reobf\minecraft as mal/teleportrelay/common/BlockTeleportRelay.class
+07:42:49 - > Outputted metadark/mods/SuperSlopes/Corners/Corners to reobf\minecraft as metadark/mods/SuperSlopes/Corners/Corners.class
+07:42:49 - > Outputted mal/teleportrelay/client/ClientTickHandler to reobf\minecraft as mal/teleportrelay/client/ClientTickHandler.class
+07:42:49 - > Outputted mal/teleportrelay/common/ModelTeleportRelay to reobf\minecraft as mal/teleportrelay/common/ModelTeleportRelay.class
+07:42:49 - > Outputted mal/teleportrelay/common/TeleportRelay$PACKET_TYPES to reobf\minecraft as mal/teleportrelay/common/TeleportRelay$PACKET_TYPES.class
+07:42:49 - > Outputted metadark/mods/SuperSlopes/IntCorners/BlockIntCorners to reobf\minecraft as metadark/mods/SuperSlopes/IntCorners/BlockIntCorners.class
+07:42:49 - > Outputted mal/teleportrelay/common/ItemRelayRemote to reobf\minecraft as mal/teleportrelay/common/ItemRelayRemote.class
+07:42:49 - > Outputted mal/teleportrelay/client/ClientProxy to reobf\minecraft as mal/teleportrelay/client/ClientProxy.class
+07:42:49 - - Done in 43.07 seconds
+07:42:49 - == Reobfuscating server ==
+07:42:49 - > Cleaning reobf
+07:42:49 - > Generating md5s
+07:42:49 - > Packing jar
+07:42:49 - > Reobfuscating jar
+07:42:49 - runcmd: '"C:\Program Files\Java\jdk1.7.0_07\bin\java" -cp "runtime\bin\retroguard.jar;lib;lib\*;jars\minecraft_server.jar" RetroGuard -notch temp\server_ro.cfg'
+07:42:49 - shlex: ['C:\\Program Files\\Java\\jdk1.7.0_07\\bin\\java', '-cp', 'runtime\\bin\\retroguard.jar;lib;lib\\*;jars\\minecraft_server.jar', 'RetroGuard', '-notch', 'temp\\server_ro.cfg']
+07:42:49 - 
+07:42:49 - ERROR: Could not find obf file temp\server_rg.srg
+07:42:49 - '"C:\Program Files\Java\jdk1.7.0_07\bin\java" -cp "runtime\bin\retroguard.jar;lib;lib\*;jars\minecraf...' failed : 1
+07:42:49 - 
+07:42:49 - == ERRORS FOUND ==
+07:42:49 - 
+07:42:49 - ERROR: Could not find obf file temp\server_rg.srg
+07:42:49 - ==================
+07:42:49 - 
+07:42:49 - FATAL ERROR
+Traceback (most recent call last):
+  File "runtime\reobfuscate.py", line 53, in reobfuscate
+    reobfuscate_side(commands, SERVER, reobf_all=reobf_all)
+  File "C:\Users\Mike Lebson\Documents\Other\MineCraft\MCP 7.22\runtime\mcp.py", line 158, in reobfuscate_side
+    commands.applyrg(side, True)
+  File "C:\Users\Mike Lebson\Documents\Other\MineCraft\MCP 7.22\runtime\commands.py", line 907, in applyrg
+    self.runcmd(forkcmd)
+  File "C:\Users\Mike Lebson\Documents\Other\MineCraft\MCP 7.22\runtime\commands.py", line 1111, in runcmd
+    raise CalledProcessError(process.returncode, forkcmd, output)
+CalledProcessError: Command '"C:\Program Files\Java\jdk1.7.0_07\bin\java" -cp "runtime\bin\retroguard.jar;lib;lib\*;jars\minecraft_server.jar" RetroGuard -notch temp\server_ro.cfg' returned non-zero exit status 1
+08:08:37 - == MCP 7.22 (data: 7.23, client: 1.4.5, server: 1.4.5) ==
+08:08:37 - OS : win32
+08:08:38 - # VERSION INFO
+08:08:38 - python: 2.7.3 (default, Apr 10 2012, 23:31:26) [MSC v.1500 32 bit (Intel)]
+08:08:38 - platform: Windows-7-6.1.7601-SP1
+08:08:38 - # java: '"C:\Program Files\Java\jdk1.7.0_07\bin\java" -version'
+08:08:38 - java version "1.7.0_07"
+Java(TM) SE Runtime Environment (build 1.7.0_07-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 23.3-b01, mixed mode)
+08:08:38 - # javac: '"C:\Program Files\Java\jdk1.7.0_07\bin\javac" -version'
+08:08:38 - javac 1.7.0_07
+08:08:38 - # javac runtime: '"C:\Program Files\Java\jdk1.7.0_07\bin\javac" -J-version'
+08:08:38 - java version "1.7.0_07"
+Java(TM) SE Runtime Environment (build 1.7.0_07-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 23.3-b01, mixed mode)
+08:08:38 - # retroguard: 'runtime\bin\retroguard.jar --version'
+08:08:38 - RetroGuard MCP v3.6.5
+based on RetroGuard v2.3.1 by Retrologic Systems - www.retrologic.com
+08:08:38 - # mcinjector: 'runtime\bin\mcinjector.jar --version'
+08:08:38 - MCInjector v2.8 by Searge, LexManos, Fesh0r
+08:08:38 - # patch: 'runtime\bin\applydiff.exe --version'
+08:08:38 - patch 2.5.4
+08:08:38 - # astyle: 'runtime\bin\astyle.exe --version'
+08:08:38 - Artistic Style Version 2.02.1
+08:08:38 - # jadretro: 'runtime\bin\jadretro.jar'
+08:08:38 - Error: Unable to access jarfile runtime\bin\jadretro.jar
+08:08:38 - # jad: 'runtime\bin\jad.exe'
+08:08:38 - # fernflower: 'runtime\bin\fernflower.jar'
+08:08:38 - Usage: java ConsoleDecompiler ( -<option>=<value>)* (<source>)+ <destination>
+08:08:38 - # found ff, ff patches, srgs, name csvs, doc csvs, param csvs, renumber csv, astyle, astyle config
+08:08:38 - > Creating Retroguard config files
+08:08:38 - == Reobfuscating client ==
+08:08:38 - > Cleaning reobf
+08:08:38 - > Generating md5s
+08:08:39 - > Packing jar
+08:08:39 - > Reobfuscating jar
+08:08:39 - runcmd: '"C:\Program Files\Java\jdk1.7.0_07\bin\java" -cp "runtime\bin\retroguard.jar;lib;lib\*;jars\bin\minecraft.jar;jars\bin\jinput.jar;jars\bin\lwjgl.jar;jars\bin\lwjgl_util.jar" RetroGuard -notch temp\client_ro.cfg'
+08:08:39 - shlex: ['C:\\Program Files\\Java\\jdk1.7.0_07\\bin\\java', '-cp', 'runtime\\bin\\retroguard.jar;lib;lib\\*;jars\\bin\\minecraft.jar;jars\\bin\\jinput.jar;jars\\bin\\lwjgl.jar;jars\\bin\\lwjgl_util.jar', 'RetroGuard', '-notch', 'temp\\client_ro.cfg']
+08:09:21 - # Warning: class argo/jdom/JsonNodeBuilders_Null not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonStringNodeBuilder not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonNodeDoesNotMatchJsonNodeSelectorException not found in JAR
+08:09:21 - # Warning: class argo/saj/SajParser not found in JAR
+08:09:21 - # Warning: class argo/jdom/LeafFunctor not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonListenerToJdomAdapter_Object not found in JAR
+08:09:21 - # Warning: class argo/format/CompactJsonFormatter not found in JAR
+08:09:21 - # Warning: class argo/saj/ThingWithPosition not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonListenerToJdomAdapter_NodeContainer not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonNode not found in JAR
+08:09:21 - # Warning: class argo/jdom/JdomParser not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonNodeSelectors not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonObject not found in JAR
+08:09:21 - # Warning: class argo/format/JsonFormatter not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonNodeFactories not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonStringNode not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonRootNode not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonNodeBuilders_True not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonObjectNodeBuilder not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonListenerToJdomAdapter_Array not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonConstants not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonObjectNodeBuilder_List not found in JAR
+08:09:21 - # Warning: class argo/jdom/Functor not found in JAR
+08:09:21 - # Warning: class argo/jdom/ChainedFunctor not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonNodeDoesNotMatchPathElementsException not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonNodeType not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonNodeSelectors_Field not found in JAR
+08:09:21 - # Warning: class argo/format/CompactJsonFormatter_JsonNodeType not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonNodeSelectors_Array not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonArrayNodeBuilder not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonNodeSelectors_String not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonNodeBuilders_False not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonNumberNode not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonNodeSelectors_Object not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonNodeSelector not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonNodeBuilder not found in JAR
+08:09:21 - # Warning: class argo/saj/PositionTrackingPushbackReader not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonListenerToJdomAdapter not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonNodeSelectors_Element not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonNodeDoesNotMatchChainedJsonNodeSelectorException not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonArray_NodeList not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonNumberNodeBuilder not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonArray not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonFieldBuilder not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonListenerToJdomAdapter_Field not found in JAR
+08:09:21 - # Warning: class argo/jdom/JsonNodeBuilders not found in JAR
+08:09:21 - # Warning: class argo/saj/JsonListener not found in JAR
+08:09:21 - # Warning: class argo/saj/InvalidSyntaxException not found in JAR
+08:09:21 - # Warning: class argo/format/JsonEscapedString not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Object/shortForm not found in JAR
+08:09:21 - # Warning: method argo/jdom/Functor/shortForm not found in JAR
+08:09:21 - # Warning: method argo/format/CompactJsonFormatter/format not found in JAR
+08:09:21 - # Warning: method argo/saj/JsonListener/endArray not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Array/typeSafeApplyTo not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_String/shortForm not found in JAR
+08:09:21 - # Warning: method argo/format/CompactJsonFormatter/formatJsonNode not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNode/getType not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonConstants/getType not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonStringNode/compareTo not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors/func_74679_b not found in JAR
+08:09:21 - # Warning: method argo/saj/SajParser/possibleSign not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeDoesNotMatchChainedJsonNodeSelectorException/toString not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Object/matchesNode not found in JAR
+08:09:21 - # Warning: method argo/jdom/ChainedFunctor/matchesNode not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNode/getText not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter_Field/addField not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonObjectNodeBuilder/buildNode not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonArray/hashCode not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter_Field/addNode not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/stringValue not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonStringNode/getFields not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonStringNode/getElements not found in JAR
+08:09:21 - # Warning: method argo/saj/JsonListener/startObject not found in JAR
+08:09:21 - # Warning: method argo/saj/ThingWithPosition/getRow not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeFactories/aJsonTrue not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors/func_74682_a not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Field/typeSafeApplyTo not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeBuilders/func_74709_c not found in JAR
+08:09:21 - # Warning: method argo/saj/SajParser/hexadecimalNumber not found in JAR
+08:09:21 - # Warning: method argo/saj/JsonListener/numberValue not found in JAR
+08:09:21 - # Warning: method argo/saj/PositionTrackingPushbackReader/getRow not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonStringNode/getText not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonArrayNodeBuilder/buildNode not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNode/wrapExceptionsFor not found in JAR
+08:09:21 - # Warning: method argo/jdom/Functor/applyTo not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/endDocument not found in JAR
+08:09:21 - # Warning: method argo/saj/SajParser/numberToken not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonObject/hashCode not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNode/getArrayNode not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeBuilders/func_74712_a not found in JAR
+08:09:21 - # Warning: method argo/saj/ThingWithPosition/getColumn not found in JAR
+08:09:21 - # Warning: method argo/saj/SajParser/stringToken not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeBuilders/func_74710_b not found in JAR
+08:09:21 - # Warning: method argo/saj/SajParser/nonZeroDigitToken not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Array/matchesNode not found in JAR
+08:09:21 - # Warning: method argo/saj/PositionTrackingPushbackReader/unread not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Element/shortForm not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeFactories/aJsonArray not found in JAR
+08:09:21 - # Warning: method argo/saj/SajParser/objectString not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter_Array/addNode not found in JAR
+08:09:21 - # Warning: method argo/saj/PositionTrackingPushbackReader/updateCharacterAndLineCounts not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors/func_74683_b not found in JAR
+08:09:21 - # Warning: method argo/saj/PositionTrackingPushbackReader/read not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonObject/getElements not found in JAR
+08:09:21 - # Warning: method argo/jdom/ChainedFunctor/toString not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNumberNodeBuilder/buildNode not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeDoesNotMatchPathElementsException/commaSeparate not found in JAR
+08:09:21 - # Warning: method argo/saj/SajParser/aFieldToken not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonFieldBuilder/buildValue not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/getDocument not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonObjectNodeBuilder/withFieldBuilder not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonArray/toString not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeType/valueOf not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Field/func_74641_a not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonConstants/getFields not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter_NodeContainer/addField not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNumberNode/getText not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelector/getValue not found in JAR
+08:09:21 - # Warning: method argo/jdom/JdomParser/parse not found in JAR
+08:09:21 - # Warning: method argo/saj/SajParser/arrayString not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors/func_74678_a not found in JAR
+08:09:21 - # Warning: method argo/saj/SajParser/escapedStringChar not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeFactories/aJsonString not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonArray/getFields not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonFieldBuilder/withValue not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonStringNode/hashCode not found in JAR
+08:09:21 - # Warning: method argo/saj/SajParser/digitToken not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonArray/getElements not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonObject/getText not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeBuilders_False/buildNode not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonStringNode/getType not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/endObject not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNode/getFields not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors/func_74684_b not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Object/typeSafeApplyTo not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNumberNode/getFields not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Array/toString not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeFactories/aJsonNumber not found in JAR
+08:09:21 - # Warning: method argo/saj/SajParser/possibleFractionalComponent not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeFactories/aJsonFalse not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors/chainOn not found in JAR
+08:09:21 - # Warning: method argo/saj/JsonListener/falseValue not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNumberNode/getType not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelector/toString not found in JAR
+08:09:21 - # Warning: method argo/saj/SajParser/nonNegativeNumberToken not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/endField not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Element/toString not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonArray/getType not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Array/shortForm not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Element/typeSafeApplyTo not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonArrayNodeBuilder/withElement not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors/func_74680_a not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNumberNode/hashCode not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeFactories/aJsonNull not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonStringNode/func_74626_a not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_String/func_74645_a not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Object/func_74640_a not found in JAR
+08:09:21 - # Warning: method argo/saj/JsonListener/endObject not found in JAR
+08:09:21 - # Warning: method argo/saj/SajParser/digitString not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Array/typeSafeApplyTo not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Array/matchesNode_ not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNumberNode/getElements not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeBuilders_Null/buildNode not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors/chainedJsonNodeSelector not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_String/func_74644_b not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/nullValue not found in JAR
+08:09:21 - # Warning: method argo/saj/PositionTrackingPushbackReader/getColumn not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/falseValue not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Field/shortForm not found in JAR
+08:09:21 - # Warning: method argo/saj/SajParser/possibleExponent not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Element/matchesNode_ not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Field/typeSafeApplyTo not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeDoesNotMatchChainedJsonNodeSelectorException/func_74701_a not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeDoesNotMatchChainedJsonNodeSelectorException/getShortFormFailPath not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors/func_74675_a not found in JAR
+08:09:21 - # Warning: method argo/format/JsonFormatter/format not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeFactories/aJsonObject not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelector/with not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/addValue not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNumberNode/toString not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeDoesNotMatchChainedJsonNodeSelectorException/func_74699_a not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonObjectNodeBuilder/func_74606_a not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeBuilders/anArrayBuilder not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonConstants/getElements not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_String/typeSafeApplyTo not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter_Array/addField not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_String/toString not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Element/typeSafeApplyTo_ not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonArray/asList not found in JAR
+08:09:21 - # Warning: method argo/saj/JsonListener/stringValue not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeBuilders/func_74714_a not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeBuilder/buildNode not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNode/getStringValue not found in JAR
+08:09:21 - # Warning: method argo/jdom/ChainedFunctor/shortForm not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/trueValue not found in JAR
+08:09:21 - # Warning: method argo/saj/PositionTrackingPushbackReader/uncount not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonFieldBuilder/withKey not found in JAR
+08:09:21 - # Warning: method argo/jdom/LeafFunctor/applyTo not found in JAR
+08:09:21 - # Warning: method argo/saj/JsonListener/endField not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonStringNode/equals not found in JAR
+08:09:21 - # Warning: method argo/saj/JsonListener/trueValue not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Object/func_74639_b not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonConstants/getText not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonObject/equals not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonObject/getType not found in JAR
+08:09:21 - # Warning: method argo/jdom/Functor/matchesNode not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonArray/equals not found in JAR
+08:09:21 - # Warning: method argo/saj/JsonListener/nullValue not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeFactories/aJsonArray not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeBuilders/func_74713_b not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNumberNode/equals not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeType/values not found in JAR
+08:09:21 - # Warning: method argo/saj/SajParser/aJsonValue not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonStringNodeBuilder/buildNode not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonObjectNodeBuilder/func_74607_a not found in JAR
+08:09:21 - # Warning: method argo/format/JsonEscapedString/toString not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter_NodeContainer/addNode not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Element/matchesNode not found in JAR
+08:09:21 - # Warning: method argo/saj/JsonListener/startArray not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_String/matchesNode not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/numberValue not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonStringNode/toString not found in JAR
+08:09:21 - # Warning: method argo/saj/PositionTrackingPushbackReader/read not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Object/toString not found in JAR
+08:09:21 - # Warning: method argo/saj/SajParser/parse not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/startArray not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeDoesNotMatchChainedJsonNodeSelectorException/func_74698_b not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter_Object/addNode not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Field/toString not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelector/shortForm not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonStringNodeBuilder/func_74600_a not found in JAR
+08:09:21 - # Warning: method argo/jdom/ChainedFunctor/applyTo not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors/func_74681_c not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/startField not found in JAR
+08:09:21 - # Warning: method argo/jdom/LeafFunctor/typeSafeApplyTo not found in JAR
+08:09:21 - # Warning: method argo/saj/SajParser/readNextNonWhitespaceChar not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/startDocument not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelector/matches not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeSelectors_Field/matchesNode not found in JAR
+08:09:21 - # Warning: method argo/saj/JsonListener/startDocument not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeDoesNotMatchPathElementsException/formatMessage not found in JAR
+08:09:21 - # Warning: method argo/jdom/JdomParser/parse not found in JAR
+08:09:21 - # Warning: method argo/format/CompactJsonFormatter/format not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonObject/toString not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonObject/getFields not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonFieldBuilder/func_74724_b not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNode/getElements not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeDoesNotMatchPathElementsException/jsonNodeDoesNotMatchPathElementsException not found in JAR
+08:09:21 - # Warning: method argo/saj/JsonListener/endDocument not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonArrayNodeBuilder/build not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter_Object/addField not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonFieldBuilder/aJsonFieldBuilder not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonArray/getText not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/startObject not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/endArray not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeBuilders_True/buildNode not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonListenerToJdomAdapter/addRootNode not found in JAR
+08:09:21 - # Warning: method argo/jdom/JsonNodeBuilders/anObjectBuilder not found in JAR
+08:09:21 - # Warning: method argo/saj/JsonListener/startField not found in JAR
+08:09:21 - # Warning: field argo/saj/InvalidSyntaxException/column not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonConstants/TRUE not found in JAR
+08:09:21 - # Warning: field argo/jdom/ChainedFunctor/childJsonNodeSelector not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonObject/fields not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonFieldBuilder/valueBuilder not found in JAR
+08:09:21 - # Warning: field argo/saj/InvalidSyntaxException/row not found in JAR
+08:09:21 - # Warning: field argo/format/CompactJsonFormatter_JsonNodeType/enumJsonNodeTypeMappingArray not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonArrayNodeBuilder/elementBuilders not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonListenerToJdomAdapter_Array/listenerToJdomAdapter not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonNodeDoesNotMatchChainedJsonNodeSelectorException/failPath not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonNodeType/NUMBER not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonFieldBuilder/key not found in JAR
+08:09:21 - # Warning: field argo/saj/PositionTrackingPushbackReader/pushbackReader not found in JAR
+08:09:21 - # Warning: field argo/saj/PositionTrackingPushbackReader/lineCount not found in JAR
+08:09:21 - # Warning: field argo/saj/PositionTrackingPushbackReader/characterCount not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonListenerToJdomAdapter_Field/fieldBuilder not found in JAR
+08:09:21 - # Warning: field net/minecraft/server/MinecraftServer/timeOfLastDimensionTick not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonNodeDoesNotMatchChainedJsonNodeSelectorException/failedNode not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonNumberNode/value not found in JAR
+08:09:21 - # Warning: field argo/format/JsonEscapedString/escapedString not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonListenerToJdomAdapter/stack not found in JAR
+08:09:21 - # Warning: field argo/jdom/ChainedFunctor/parentJsonNodeSelector not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonNodeType/TRUE not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonNodeType/NULL not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonNodeSelector/valueGetter not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonArray_NodeList/elements not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonListenerToJdomAdapter_Array/nodeBuilder not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonListenerToJdomAdapter/root not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonNodeSelectors_Field/theFieldName not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonStringNode/value not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonNumberNode/PATTERN not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonNodeType/STRING not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonListenerToJdomAdapter_Field/listenerToJdomAdapter not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonNodeType/FALSE not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonArray/elements not found in JAR
+08:09:21 - # Warning: field net/minecraft/src/WorldRenderer/tessellator not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonNumberNodeBuilder/builtNode not found in JAR
+08:09:21 - # Warning: field argo/saj/PositionTrackingPushbackReader/lastCharacterWasCarriageReturn not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonStringNodeBuilder/builtStringNode not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonListenerToJdomAdapter_Object/listenerToJdomAdapter not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonNodeType/$VALUES not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonNodeType/ARRAY not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonNodeSelectors_Element/index not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonNodeDoesNotMatchPathElementsException/JSON_FORMATTER not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonListenerToJdomAdapter_Object/nodeBuilder not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonNodeType/OBJECT not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonConstants/jsonNodeType not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonObjectNodeBuilder_List/nodeBuilder not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonConstants/FALSE not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonObjectNodeBuilder/fieldBuilders not found in JAR
+08:09:21 - # Warning: field argo/jdom/JsonConstants/NULL not found in JAR
+08:09:21 - > Extracting modified classes
+08:09:21 - > New class found      : mal/teleportrelay/client/GuiTeleportRemote
+08:09:21 - > New class found      : metadark/mods/SuperSlopes/Corners/CommonInit
+08:09:21 - > New class found      : metadark/mods/SuperSlopes/Slopes/BlockSlopes
+08:09:21 - > New class found      : metadark/mods/SuperSlopes/IntCorners/ClientInit
+08:09:21 - > New class found      : mal/teleportrelay/common/TileEntityTeleportRelay
+08:09:21 - > New class found      : metadark/mods/SuperSlopes/Corners/BlockCorners
+08:09:21 - > New class found      : mal/teleportrelay/common/CommonProxy
+08:09:21 - > New class found      : metadark/mods/SuperSlopes/IntCorners/ItemIntCorners
+08:09:21 - > New class found      : mal/teleportrelay/common/TileEntityTeleportRelayRenderer
+08:09:21 - > New class found      : metadark/mods/SuperSlopes/Slopes/CommonInit
+08:09:21 - > New class found      : metadark/mods/SuperSlopes/IntCorners/CommonInit
+08:09:21 - > New class found      : metadark/mods/SuperSlopes/Corners/RenderCorners
+08:09:21 - > New class found      : mal/teleportrelay/client/GuiTeleportRelay
+08:09:21 - > New class found      : metadark/mods/SuperSlopes/IntCorners/IntCorners
+08:09:21 - > New class found      : mal/teleportrelay/client/ClientPacketHandler
+08:09:21 - > New class found      : metadark/mods/SuperSlopes/Slopes/ClientInit
+08:09:21 - > New class found      : metadark/mods/SuperSlopes/Slopes/RenderSlopes
+08:09:21 - > New class found      : mal/teleportrelay/common/ServerPacketHandler
+08:09:21 - > New class found      : metadark/mods/SuperSlopes/Corners/ClientInit
+08:09:21 - > New class found      : metadark/mods/SuperSlopes/IntCorners/RenderIntCorners
+08:09:21 - > New class found      : metadark/mods/SuperSlopes/PropertyManager
+08:09:21 - > New class found      : metadark/mods/SuperSlopes/Slopes/ItemSlopes
+08:09:21 - > New class found      : metadark/mods/SuperSlopes/Corners/ItemCorners
+08:09:21 - > New class found      : mal/teleportrelay/common/TeleportRelay
+08:09:21 - > New class found      : metadark/mods/SuperSlopes/Slopes/Slopes
+08:09:21 - > New class found      : mal/teleportrelay/common/BlockTeleportRelay
+08:09:21 - > New class found      : metadark/mods/SuperSlopes/Corners/Corners
+08:09:21 - > New class found      : mal/teleportrelay/client/ClientTickHandler
+08:09:21 - > New class found      : mal/teleportrelay/common/ModelTeleportRelay
+08:09:21 - > New inner class found: mal/teleportrelay/common/TeleportRelay$PACKET_TYPES
+08:09:21 - > New class found      : metadark/mods/SuperSlopes/IntCorners/BlockIntCorners
+08:09:21 - > New class found      : mal/teleportrelay/common/ItemRelayRemote
+08:09:21 - > New class found      : mal/teleportrelay/client/ClientProxy
+08:09:21 - > Outputted mal/teleportrelay/client/GuiTeleportRemote to reobf\minecraft as mal/teleportrelay/client/GuiTeleportRemote.class
+08:09:21 - > Outputted metadark/mods/SuperSlopes/Corners/CommonInit to reobf\minecraft as metadark/mods/SuperSlopes/Corners/CommonInit.class
+08:09:21 - > Outputted metadark/mods/SuperSlopes/Slopes/BlockSlopes to reobf\minecraft as metadark/mods/SuperSlopes/Slopes/BlockSlopes.class
+08:09:21 - > Outputted metadark/mods/SuperSlopes/IntCorners/ClientInit to reobf\minecraft as metadark/mods/SuperSlopes/IntCorners/ClientInit.class
+08:09:21 - > Outputted mal/teleportrelay/common/TileEntityTeleportRelay to reobf\minecraft as mal/teleportrelay/common/TileEntityTeleportRelay.class
+08:09:21 - > Outputted metadark/mods/SuperSlopes/Corners/BlockCorners to reobf\minecraft as metadark/mods/SuperSlopes/Corners/BlockCorners.class
+08:09:21 - > Outputted mal/teleportrelay/common/CommonProxy to reobf\minecraft as mal/teleportrelay/common/CommonProxy.class
+08:09:21 - > Outputted metadark/mods/SuperSlopes/IntCorners/ItemIntCorners to reobf\minecraft as metadark/mods/SuperSlopes/IntCorners/ItemIntCorners.class
+08:09:21 - > Outputted mal/teleportrelay/common/TileEntityTeleportRelayRenderer to reobf\minecraft as mal/teleportrelay/common/TileEntityTeleportRelayRenderer.class
+08:09:21 - > Outputted metadark/mods/SuperSlopes/Slopes/CommonInit to reobf\minecraft as metadark/mods/SuperSlopes/Slopes/CommonInit.class
+08:09:21 - > Outputted metadark/mods/SuperSlopes/IntCorners/CommonInit to reobf\minecraft as metadark/mods/SuperSlopes/IntCorners/CommonInit.class
+08:09:21 - > Outputted metadark/mods/SuperSlopes/Corners/RenderCorners to reobf\minecraft as metadark/mods/SuperSlopes/Corners/RenderCorners.class
+08:09:21 - > Outputted mal/teleportrelay/client/GuiTeleportRelay to reobf\minecraft as mal/teleportrelay/client/GuiTeleportRelay.class
+08:09:21 - > Outputted metadark/mods/SuperSlopes/IntCorners/IntCorners to reobf\minecraft as metadark/mods/SuperSlopes/IntCorners/IntCorners.class
+08:09:21 - > Outputted mal/teleportrelay/client/ClientPacketHandler to reobf\minecraft as mal/teleportrelay/client/ClientPacketHandler.class
+08:09:21 - > Outputted metadark/mods/SuperSlopes/Slopes/ClientInit to reobf\minecraft as metadark/mods/SuperSlopes/Slopes/ClientInit.class
+08:09:21 - > Outputted metadark/mods/SuperSlopes/Slopes/RenderSlopes to reobf\minecraft as metadark/mods/SuperSlopes/Slopes/RenderSlopes.class
+08:09:21 - > Outputted mal/teleportrelay/common/ServerPacketHandler to reobf\minecraft as mal/teleportrelay/common/ServerPacketHandler.class
+08:09:21 - > Outputted metadark/mods/SuperSlopes/Corners/ClientInit to reobf\minecraft as metadark/mods/SuperSlopes/Corners/ClientInit.class
+08:09:21 - > Outputted metadark/mods/SuperSlopes/IntCorners/RenderIntCorners to reobf\minecraft as metadark/mods/SuperSlopes/IntCorners/RenderIntCorners.class
+08:09:21 - > Outputted metadark/mods/SuperSlopes/PropertyManager to reobf\minecraft as metadark/mods/SuperSlopes/PropertyManager.class
+08:09:21 - > Outputted metadark/mods/SuperSlopes/Slopes/ItemSlopes to reobf\minecraft as metadark/mods/SuperSlopes/Slopes/ItemSlopes.class
+08:09:21 - > Outputted metadark/mods/SuperSlopes/Corners/ItemCorners to reobf\minecraft as metadark/mods/SuperSlopes/Corners/ItemCorners.class
+08:09:21 - > Outputted mal/teleportrelay/common/TeleportRelay to reobf\minecraft as mal/teleportrelay/common/TeleportRelay.class
+08:09:21 - > Outputted metadark/mods/SuperSlopes/Slopes/Slopes to reobf\minecraft as metadark/mods/SuperSlopes/Slopes/Slopes.class
+08:09:21 - > Outputted mal/teleportrelay/common/BlockTeleportRelay to reobf\minecraft as mal/teleportrelay/common/BlockTeleportRelay.class
+08:09:21 - > Outputted metadark/mods/SuperSlopes/Corners/Corners to reobf\minecraft as metadark/mods/SuperSlopes/Corners/Corners.class
+08:09:21 - > Outputted mal/teleportrelay/client/ClientTickHandler to reobf\minecraft as mal/teleportrelay/client/ClientTickHandler.class
+08:09:21 - > Outputted mal/teleportrelay/common/ModelTeleportRelay to reobf\minecraft as mal/teleportrelay/common/ModelTeleportRelay.class
+08:09:21 - > Outputted mal/teleportrelay/common/TeleportRelay$PACKET_TYPES to reobf\minecraft as mal/teleportrelay/common/TeleportRelay$PACKET_TYPES.class
+08:09:21 - > Outputted metadark/mods/SuperSlopes/IntCorners/BlockIntCorners to reobf\minecraft as metadark/mods/SuperSlopes/IntCorners/BlockIntCorners.class
+08:09:21 - > Outputted mal/teleportrelay/common/ItemRelayRemote to reobf\minecraft as mal/teleportrelay/common/ItemRelayRemote.class
+08:09:21 - > Outputted mal/teleportrelay/client/ClientProxy to reobf\minecraft as mal/teleportrelay/client/ClientProxy.class
+08:09:21 - - Done in 42.94 seconds
+08:09:21 - == Reobfuscating server ==
+08:09:21 - > Cleaning reobf
+08:09:21 - > Generating md5s
+08:09:21 - > Packing jar
+08:09:21 - > Reobfuscating jar
+08:09:21 - runcmd: '"C:\Program Files\Java\jdk1.7.0_07\bin\java" -cp "runtime\bin\retroguard.jar;lib;lib\*;jars\minecraft_server.jar" RetroGuard -notch temp\server_ro.cfg'
+08:09:21 - shlex: ['C:\\Program Files\\Java\\jdk1.7.0_07\\bin\\java', '-cp', 'runtime\\bin\\retroguard.jar;lib;lib\\*;jars\\minecraft_server.jar', 'RetroGuard', '-notch', 'temp\\server_ro.cfg']
+08:09:21 - 
+08:09:21 - ERROR: Could not find obf file temp\server_rg.srg
+08:09:21 - '"C:\Program Files\Java\jdk1.7.0_07\bin\java" -cp "runtime\bin\retroguard.jar;lib;lib\*;jars\minecraf...' failed : 1
+08:09:21 - 
+08:09:21 - == ERRORS FOUND ==
+08:09:21 - 
+08:09:21 - ERROR: Could not find obf file temp\server_rg.srg
+08:09:21 - ==================
+08:09:21 - 
+08:09:21 - FATAL ERROR
+Traceback (most recent call last):
+  File "runtime\reobfuscate.py", line 53, in reobfuscate
+    reobfuscate_side(commands, SERVER, reobf_all=reobf_all)
+  File "C:\Users\Mike Lebson\Documents\Other\MineCraft\MCP 7.22\runtime\mcp.py", line 158, in reobfuscate_side
+    commands.applyrg(side, True)
+  File "C:\Users\Mike Lebson\Documents\Other\MineCraft\MCP 7.22\runtime\commands.py", line 907, in applyrg
+    self.runcmd(forkcmd)
+  File "C:\Users\Mike Lebson\Documents\Other\MineCraft\MCP 7.22\runtime\commands.py", line 1111, in runcmd
+    raise CalledProcessError(process.returncode, forkcmd, output)
+CalledProcessError: Command '"C:\Program Files\Java\jdk1.7.0_07\bin\java" -cp "runtime\bin\retroguard.jar;lib;lib\*;jars\minecraft_server.jar" RetroGuard -notch temp\server_ro.cfg' returned non-zero exit status 1
