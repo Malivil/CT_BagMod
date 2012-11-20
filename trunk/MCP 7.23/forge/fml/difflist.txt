@@ -22,7 +22,6 @@ minecraft/yg.class
 minecraft/aex.class
 minecraft/ahq.class
 minecraft/asl.class
-minecraft/aze.class
 minecraft/FMLRenderAccessLibrary.class
 minecraft/sp.class
 minecraft/qx.class

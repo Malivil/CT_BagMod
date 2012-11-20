@@ -2184,6 +2184,7 @@ MD: cpw/mods/fml/common/asm/transformers/MCPMerger$ClassInfo/isSame ()Z cpw/mods
 CL: cpw/mods/fml/common/asm/transformers/MCPMerger cpw/mods/fml/common/asm/transformers/MCPMerger
 FD: cpw/mods/fml/common/asm/transformers/MCPMerger/shared cpw/mods/fml/common/asm/transformers/MCPMerger/shared
 FD: cpw/mods/fml/common/asm/transformers/MCPMerger/copyToServer cpw/mods/fml/common/asm/transformers/MCPMerger/copyToServer
+FD: cpw/mods/fml/common/asm/transformers/MCPMerger/dontAnnotate cpw/mods/fml/common/asm/transformers/MCPMerger/dontAnnotate
 FD: cpw/mods/fml/common/asm/transformers/MCPMerger/servers cpw/mods/fml/common/asm/transformers/MCPMerger/servers
 FD: cpw/mods/fml/common/asm/transformers/MCPMerger/copyToClient cpw/mods/fml/common/asm/transformers/MCPMerger/copyToClient
 FD: cpw/mods/fml/common/asm/transformers/MCPMerger/DEBUG cpw/mods/fml/common/asm/transformers/MCPMerger/DEBUG
