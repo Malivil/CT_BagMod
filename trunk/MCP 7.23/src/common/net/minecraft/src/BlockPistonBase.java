@@ -1,8 +1,10 @@
 package net.minecraft.src;
 
+import java.util.List;
+
+import morePistons.MorePistons;
 import cpw.mods.fml.common.Side;
 import cpw.mods.fml.common.asm.SideOnly;
-import java.util.List;
 
 public class BlockPistonBase extends Block
 {
@@ -340,35 +342,57 @@ public class BlockPistonBase extends Block
      */
     private static boolean canPushBlock(int par0, World par1World, int par2, int par3, int par4, boolean par5)
     {
+        boolean var6 = false;
+
         if (par0 == Block.obsidian.blockID)
         {
             return false;
         }
+        else if (par0 != MorePistons.pistonRod.blockID && par0 != MorePistons.pistonExtension.blockID)
+        {
+            for (int var7 = 0; var7 < MorePistons.pistonList.length; ++var7)
+            {
+                if (par0 == MorePistons.pistonList[var7])
+                {
+                    var6 = true;
+                    break;
+                }
+            }
+
+            if (var6)
+            {
+                return true;
+            }
+            else
+            {
+                if (par0 != Block.pistonBase.blockID && par0 != Block.pistonStickyBase.blockID)
+                {
+                    if (Block.blocksList[par0].getBlockHardness(par1World, par2, par3, par4) == -1.0F)
+                    {
+                        return false;
+                    }
+
+                    if (Block.blocksList[par0].getMobilityFlag() == 2)
+                    {
+                        return false;
+                    }
+
+                    if (!par5 && Block.blocksList[par0].getMobilityFlag() == 1)
+                    {
+                        return false;
+                    }
+                }
+                else if (isExtended(par1World.getBlockMetadata(par2, par3, par4)))
+                {
+                    return false;
+                }
+
+                return !par1World.blockHasTileEntity(par2, par3, par4);
+            }
+        }
         else
         {
-            if (par0 != Block.pistonBase.blockID && par0 != Block.pistonStickyBase.blockID)
-            {
-                if (Block.blocksList[par0].getBlockHardness(par1World, par2, par3, par4) == -1.0F)
-                {
-                    return false;
-                }
-
-                if (Block.blocksList[par0].getMobilityFlag() == 2)
-                {
-                    return false;
-                }
-
-                if (!par5 && Block.blocksList[par0].getMobilityFlag() == 1)
-                {
-                    return false;
-                }
-            }
-            else if (isExtended(par1World.getBlockMetadata(par2, par3, par4)))
-            {
-                return false;
-            }
-
-            return !par1World.blockHasTileEntity(par2, par3, par4);
+            return false;
         }
     }
 

@@ -62,7 +62,7 @@ public class TeleportRelay {
 	public static boolean debug = false;
 
 	@PreInit
-	public void oPreInit(final FMLPreInitializationEvent event) {
+	public void onPreInit(final FMLPreInitializationEvent event) {
 		event.getModMetadata().version = TeleportRelay.version;
 		final Configuration cfg = new Configuration(event.getSuggestedConfigurationFile());
 		try {

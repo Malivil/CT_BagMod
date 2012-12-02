@@ -6,7 +6,7 @@
 #
 # RetroGuard MCP v3.6.5
 #
-# Logfile created on Tue Nov 20 14:17:21 EST 2012
+# Logfile created on Sun Dec 02 10:12:43 EST 2012
 #
 # Jar file to be obfuscated:           client_recomp.jar
 # Target Jar file for obfuscated code: client_reobf.jar
@@ -52,8 +52,8 @@
 #      Your class net/minecraftforge/event/ASMEventHandler$ASMClassLoader calls the java/lang/ClassLoader method defineClass(Ljava/lang/String;[BII)Ljava/lang/Class;
 #      Your class net/minecraftforge/event/EventBus calls the java/lang/Class method getDeclaredMethod(Ljava/lang/String;[Ljava/lang/Class;)Ljava/lang/reflect/Method;
 #
-# Memory in use after class data structure built: 25169304 bytes
-# Total memory available                        : 371785728 bytes
+# Memory in use after class data structure built: 25254520 bytes
+# Total memory available                        : 371916800 bytes
 #
 #
 # Names reserved from obfuscation:
@@ -22226,7 +22226,7 @@
 .field_map mal/teleportrelay/common/TeleportRelay/relayRemoteID relayRemoteID
 .field_map mal/teleportrelay/common/TeleportRelay/version version
 .method_map mal/teleportrelay/common/TeleportRelay/getTeleportLocation (I)Lnet/minecraft/src/ChunkCoordinates; getTeleportLocation
-.method_map mal/teleportrelay/common/TeleportRelay/oPreInit (Lcpw/mods/fml/common/event/FMLPreInitializationEvent;)V oPreInit
+.method_map mal/teleportrelay/common/TeleportRelay/onPreInit (Lcpw/mods/fml/common/event/FMLPreInitializationEvent;)V onPreInit
 .method_map mal/teleportrelay/common/TeleportRelay/printRelayLocations ()V printRelayLocations
 .method_map mal/teleportrelay/common/TeleportRelay/getRelayCount ()I getRelayCount
 .method_map mal/teleportrelay/common/TeleportRelay/removeRelayLocation (III)V removeRelayLocation
@@ -22253,3 +22253,223 @@
 .method_map mal/teleportrelay/common/TileEntityTeleportRelay/writeToNBT (Lnet/minecraft/src/NBTTagCompound;)V b
 .method_map mal/teleportrelay/common/TileEntityTeleportRelay/getDescriptionPacket ()Lnet/minecraft/src/Packet; l
 .method_map mal/teleportrelay/common/TileEntityTeleportRelay/getRenderDistance ()D getRenderDistance
+.package_map morePistons morePistons
+.class_map morePistons/BlockPistonRod BlockPistonRod
+.field_map morePistons/BlockPistonRod/broken broken
+.field_map morePistons/BlockPistonRod/northSouth northSouth
+.field_map morePistons/BlockPistonRod/pistonRodSprTop pistonRodSprTop
+.field_map morePistons/BlockPistonRod/pistonMoving2 pistonMoving2
+.field_map morePistons/BlockPistonRod/headTexture headTexture
+.field_map morePistons/BlockPistonRod/pistonRodSprSide pistonRodSprSide
+.field_map morePistons/BlockPistonRod/upDown upDown
+.method_map morePistons/BlockPistonRod/renderAsNormalBlock ()Z b
+.method_map morePistons/BlockPistonRod/canPlaceBlockOnSide (Lnet/minecraft/src/World;IIII)Z b_
+.method_map morePistons/BlockPistonRod/getBlockTextureFromSideAndMetadata (II)I a
+.method_map morePistons/BlockPistonRod/setBlockBoundsBasedOnState (Lnet/minecraft/src/IBlockAccess;III)V a
+.method_map morePistons/BlockPistonRod/quantityDropped (Ljava/util/Random;)I a
+.method_map morePistons/BlockPistonRod/setHeadTexture (I)V setHeadTexture
+.method_map morePistons/BlockPistonRod/canPlaceBlockAt (Lnet/minecraft/src/World;III)Z b
+.method_map morePistons/BlockPistonRod/addCollidingBlockToList (Lnet/minecraft/src/World;IIILnet/minecraft/src/AxisAlignedBB;Ljava/util/List;Lnet/minecraft/src/Entity;)V a
+.method_map morePistons/BlockPistonRod/breakBlock (Lnet/minecraft/src/World;IIIII)V a
+.method_map morePistons/BlockPistonRod/getDirectionMeta (I)I getDirectionMeta
+.method_map morePistons/BlockPistonRod/clearHeadTexture ()V clearHeadTexture
+.method_map morePistons/BlockPistonRod/isOpaqueCube ()Z c
+.method_map morePistons/BlockPistonRod/setBlockBoundsForItemRender ()V f
+.method_map morePistons/BlockPistonRod/getBlockTexture (Lnet/minecraft/src/IBlockAccess;IIII)I d
+.method_map morePistons/BlockPistonRod/onNeighborBlockChange (Lnet/minecraft/src/World;IIII)V a
+.method_map morePistons/BlockPistonRod/getTextureFile ()Ljava/lang/String; getTextureFile
+.class_map morePistons/Monty_Util Monty_Util
+.field_map morePistons/Monty_Util/blockId2 blockId2
+.field_map morePistons/Monty_Util/extraDisp0 extraDisp0
+.field_map morePistons/Monty_Util/LOG_DATEFORMAT LOG_DATEFORMAT
+.field_map morePistons/Monty_Util/blockId blockId
+.field_map morePistons/Monty_Util/trace trace
+.field_map morePistons/Monty_Util/metadata2 metadata2
+.field_map morePistons/Monty_Util/traceWriter traceWriter
+.field_map morePistons/Monty_Util/y2 y2
+.field_map morePistons/Monty_Util/z2 z2
+.field_map morePistons/Monty_Util/extraDisp extraDisp
+.field_map morePistons/Monty_Util/x2 x2
+.field_map morePistons/Monty_Util/z z
+.field_map morePistons/Monty_Util/y y
+.field_map morePistons/Monty_Util/extraDisp2 extraDisp2
+.field_map morePistons/Monty_Util/metadata metadata
+.field_map morePistons/Monty_Util/x x
+.field_map morePistons/Monty_Util/extraDisp3 extraDisp3
+.class_map morePistons/CommonProxyMorePistons CommonProxyMorePistons
+.method_map morePistons/CommonProxyMorePistons/registerRenderThings ()V registerRenderThings
+.class_map morePistons/BlockDoublePistonBase BlockDoublePistonBase
+.field_map morePistons/BlockDoublePistonBase/ignoreUpdates ignoreUpdates
+.field_map morePistons/BlockDoublePistonBase/isSticky isSticky
+.method_map morePistons/BlockDoublePistonBase/canPushBlock (ILnet/minecraft/src/World;IIIZ)Z canPushBlock
+.method_map morePistons/BlockDoublePistonBase/renderAsNormalBlock ()Z b
+.method_map morePistons/BlockDoublePistonBase/isExtended (I)Z isExtended
+.method_map morePistons/BlockDoublePistonBase/updatePistonState (Lnet/minecraft/src/World;III)V updatePistonState
+.method_map morePistons/BlockDoublePistonBase/canExtend (Lnet/minecraft/src/World;IIII)Z canExtend
+.method_map morePistons/BlockDoublePistonBase/onBlockEventReceived (Lnet/minecraft/src/World;IIIII)V b
+.method_map morePistons/BlockDoublePistonBase/getOrientation (I)I getOrientation
+.method_map morePistons/BlockDoublePistonBase/getCollisionBoundingBoxFromPool (Lnet/minecraft/src/World;III)Lnet/minecraft/src/AxisAlignedBB; e
+.method_map morePistons/BlockDoublePistonBase/getBlockTextureFromSideAndMetadata (II)I a
+.method_map morePistons/BlockDoublePistonBase/determineOrientation (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityPlayer;)I determineOrientation
+.method_map morePistons/BlockDoublePistonBase/setBlockBoundsBasedOnState (Lnet/minecraft/src/IBlockAccess;III)V a
+.method_map morePistons/BlockDoublePistonBase/getPistonExtensionTexture ()I p
+.method_map morePistons/BlockDoublePistonBase/onBlockAdded (Lnet/minecraft/src/World;III)V g
+.method_map morePistons/BlockDoublePistonBase/breakBlock (Lnet/minecraft/src/World;IIIII)V a
+.method_map morePistons/BlockDoublePistonBase/tryExtend (Lnet/minecraft/src/World;IIII)Z tryExtend
+.method_map morePistons/BlockDoublePistonBase/isIndirectlyPowered (Lnet/minecraft/src/World;IIII)Z isIndirectlyPowered
+.method_map morePistons/BlockDoublePistonBase/getDirectionMeta (I)I getDirectionMeta
+.method_map morePistons/BlockDoublePistonBase/isOpaqueCube ()Z c
+.method_map morePistons/BlockDoublePistonBase/setBlockBoundsForItemRender ()V f
+.method_map morePistons/BlockDoublePistonBase/getRenderType ()I d
+.method_map morePistons/BlockDoublePistonBase/onBlockPlacedBy (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityLiving;)V a
+.method_map morePistons/BlockDoublePistonBase/onNeighborBlockChange (Lnet/minecraft/src/World;IIII)V a
+.method_map morePistons/BlockDoublePistonBase/getTextureFile ()Ljava/lang/String; getTextureFile
+.class_map morePistons/mod_MorePistons mod_MorePistons
+.field_map morePistons/mod_MorePistons/lastGuiOpen lastGuiOpen
+.field_map morePistons/mod_MorePistons/blocksAdded blocksAdded
+.field_map morePistons/mod_MorePistons/idBlockQuadStickyPistonBase idBlockQuadStickyPistonBase
+.field_map morePistons/mod_MorePistons/idBlockDoublePistonBase idBlockDoublePistonBase
+.field_map morePistons/mod_MorePistons/idBlockTriplePistonBase idBlockTriplePistonBase
+.field_map morePistons/mod_MorePistons/proxy proxy
+.field_map morePistons/mod_MorePistons/idBlockGravitationalPistonBase idBlockGravitationalPistonBase
+.field_map morePistons/mod_MorePistons/idBlockDoubleStickyPistonBase idBlockDoubleStickyPistonBase
+.field_map morePistons/mod_MorePistons/idBlockPistonExtension idBlockPistonExtension
+.field_map morePistons/mod_MorePistons/idBlockQuadPistonBase idBlockQuadPistonBase
+.field_map morePistons/mod_MorePistons/idBlockPistonRod idBlockPistonRod
+.field_map morePistons/mod_MorePistons/idBlockTripleStickyPistonBase idBlockTripleStickyPistonBase
+.method_map morePistons/mod_MorePistons/onPreInit (Lcpw/mods/fml/common/event/FMLPreInitializationEvent;)V onPreInit
+.method_map morePistons/mod_MorePistons/getTileEntity (IIIZZ)Lnet/minecraft/src/TileEntity; getTileEntity
+.method_map morePistons/mod_MorePistons/morePistons (Lcpw/mods/fml/common/event/FMLInitializationEvent;)V morePistons
+.class_map morePistons/ClientProxyMorePistons ClientProxyMorePistons
+.method_map morePistons/ClientProxyMorePistons/registerRenderThings ()V registerRenderThings
+.class_map morePistons/BlockGravitationalPistonBase BlockGravitationalPistonBase
+.field_map morePistons/BlockGravitationalPistonBase/ignoreUpdates ignoreUpdates
+.field_map morePistons/BlockGravitationalPistonBase/power power
+.field_map morePistons/BlockGravitationalPistonBase/isSticky isSticky
+.method_map morePistons/BlockGravitationalPistonBase/canPushBlock (ILnet/minecraft/src/World;IIIZ)Z canPushBlock
+.method_map morePistons/BlockGravitationalPistonBase/renderAsNormalBlock ()Z b
+.method_map morePistons/BlockGravitationalPistonBase/isExtended (I)Z isExtended
+.method_map morePistons/BlockGravitationalPistonBase/updatePistonState (Lnet/minecraft/src/World;III)V updatePistonState
+.method_map morePistons/BlockGravitationalPistonBase/canExtend (Lnet/minecraft/src/World;IIII)Z canExtend
+.method_map morePistons/BlockGravitationalPistonBase/onBlockEventReceived (Lnet/minecraft/src/World;IIIII)V b
+.method_map morePistons/BlockGravitationalPistonBase/getOrientation (I)I getOrientation
+.method_map morePistons/BlockGravitationalPistonBase/getCollisionBoundingBoxFromPool (Lnet/minecraft/src/World;III)Lnet/minecraft/src/AxisAlignedBB; e
+.method_map morePistons/BlockGravitationalPistonBase/onBlockActivated (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityPlayer;)Z onBlockActivated
+.method_map morePistons/BlockGravitationalPistonBase/getBlockTextureFromSideAndMetadata (II)I a
+.method_map morePistons/BlockGravitationalPistonBase/determineOrientation (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityPlayer;)I determineOrientation
+.method_map morePistons/BlockGravitationalPistonBase/setBlockBoundsBasedOnState (Lnet/minecraft/src/IBlockAccess;III)V a
+.method_map morePistons/BlockGravitationalPistonBase/getPistonExtensionTexture ()I p
+.method_map morePistons/BlockGravitationalPistonBase/onBlockAdded (Lnet/minecraft/src/World;III)V g
+.method_map morePistons/BlockGravitationalPistonBase/breakBlock (Lnet/minecraft/src/World;IIIII)V a
+.method_map morePistons/BlockGravitationalPistonBase/tryExtend (Lnet/minecraft/src/World;IIII)Z tryExtend
+.method_map morePistons/BlockGravitationalPistonBase/isIndirectlyPowered (Lnet/minecraft/src/World;IIII)Z isIndirectlyPowered
+.method_map morePistons/BlockGravitationalPistonBase/getDirectionMeta (I)I getDirectionMeta
+.method_map morePistons/BlockGravitationalPistonBase/isOpaqueCube ()Z c
+.method_map morePistons/BlockGravitationalPistonBase/setBlockBoundsForItemRender ()V f
+.method_map morePistons/BlockGravitationalPistonBase/getRenderType ()I d
+.method_map morePistons/BlockGravitationalPistonBase/onBlockPlacedBy (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityLiving;)V a
+.method_map morePistons/BlockGravitationalPistonBase/onNeighborBlockChange (Lnet/minecraft/src/World;IIII)V a
+.method_map morePistons/BlockGravitationalPistonBase/getTextureFile ()Ljava/lang/String; getTextureFile
+.class_map morePistons/BlockQuadPistonBase BlockQuadPistonBase
+.field_map morePistons/BlockQuadPistonBase/ignoreUpdates ignoreUpdates
+.field_map morePistons/BlockQuadPistonBase/isSticky isSticky
+.method_map morePistons/BlockQuadPistonBase/canPushBlock (ILnet/minecraft/src/World;IIIZ)Z canPushBlock
+.method_map morePistons/BlockQuadPistonBase/blockActivated (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityPlayer;)Z blockActivated
+.method_map morePistons/BlockQuadPistonBase/renderAsNormalBlock ()Z b
+.method_map morePistons/BlockQuadPistonBase/isExtended (I)Z isExtended
+.method_map morePistons/BlockQuadPistonBase/updatePistonState (Lnet/minecraft/src/World;III)V updatePistonState
+.method_map morePistons/BlockQuadPistonBase/canExtend (Lnet/minecraft/src/World;IIII)Z canExtend
+.method_map morePistons/BlockQuadPistonBase/onBlockEventReceived (Lnet/minecraft/src/World;IIIII)V b
+.method_map morePistons/BlockQuadPistonBase/getOrientation (I)I getOrientation
+.method_map morePistons/BlockQuadPistonBase/getCollisionBoundingBoxFromPool (Lnet/minecraft/src/World;III)Lnet/minecraft/src/AxisAlignedBB; e
+.method_map morePistons/BlockQuadPistonBase/getBlockTextureFromSideAndMetadata (II)I a
+.method_map morePistons/BlockQuadPistonBase/determineOrientation (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityPlayer;)I determineOrientation
+.method_map morePistons/BlockQuadPistonBase/setBlockBoundsBasedOnState (Lnet/minecraft/src/IBlockAccess;III)V a
+.method_map morePistons/BlockQuadPistonBase/getPistonExtensionTexture ()I p
+.method_map morePistons/BlockQuadPistonBase/onBlockAdded (Lnet/minecraft/src/World;III)V g
+.method_map morePistons/BlockQuadPistonBase/breakBlock (Lnet/minecraft/src/World;IIIII)V a
+.method_map morePistons/BlockQuadPistonBase/tryExtend (Lnet/minecraft/src/World;IIII)Z tryExtend
+.method_map morePistons/BlockQuadPistonBase/isIndirectlyPowered (Lnet/minecraft/src/World;IIII)Z isIndirectlyPowered
+.method_map morePistons/BlockQuadPistonBase/getDirectionMeta (I)I getDirectionMeta
+.method_map morePistons/BlockQuadPistonBase/isOpaqueCube ()Z c
+.method_map morePistons/BlockQuadPistonBase/setBlockBoundsForItemRender ()V f
+.method_map morePistons/BlockQuadPistonBase/getRenderType ()I d
+.method_map morePistons/BlockQuadPistonBase/onBlockPlacedBy (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityLiving;)V a
+.method_map morePistons/BlockQuadPistonBase/onNeighborBlockChange (Lnet/minecraft/src/World;IIII)V a
+.method_map morePistons/BlockQuadPistonBase/getTextureFile ()Ljava/lang/String; getTextureFile
+.class_map morePistons/MorePistonsRecipes MorePistonsRecipes
+.class_map morePistons/MorePistonsBlocks MorePistonsBlocks
+.class_map morePistons/BlockTriplePistonBase BlockTriplePistonBase
+.field_map morePistons/BlockTriplePistonBase/ignoreUpdates ignoreUpdates
+.field_map morePistons/BlockTriplePistonBase/isSticky isSticky
+.method_map morePistons/BlockTriplePistonBase/canPushBlock (ILnet/minecraft/src/World;IIIZ)Z canPushBlock
+.method_map morePistons/BlockTriplePistonBase/blockActivated (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityPlayer;)Z blockActivated
+.method_map morePistons/BlockTriplePistonBase/renderAsNormalBlock ()Z b
+.method_map morePistons/BlockTriplePistonBase/isExtended (I)Z isExtended
+.method_map morePistons/BlockTriplePistonBase/updatePistonState (Lnet/minecraft/src/World;III)V updatePistonState
+.method_map morePistons/BlockTriplePistonBase/canExtend (Lnet/minecraft/src/World;IIII)Z canExtend
+.method_map morePistons/BlockTriplePistonBase/onBlockEventReceived (Lnet/minecraft/src/World;IIIII)V b
+.method_map morePistons/BlockTriplePistonBase/getOrientation (I)I getOrientation
+.method_map morePistons/BlockTriplePistonBase/getCollisionBoundingBoxFromPool (Lnet/minecraft/src/World;III)Lnet/minecraft/src/AxisAlignedBB; e
+.method_map morePistons/BlockTriplePistonBase/getBlockTextureFromSideAndMetadata (II)I a
+.method_map morePistons/BlockTriplePistonBase/determineOrientation (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityPlayer;)I determineOrientation
+.method_map morePistons/BlockTriplePistonBase/setBlockBoundsBasedOnState (Lnet/minecraft/src/IBlockAccess;III)V a
+.method_map morePistons/BlockTriplePistonBase/getPistonExtensionTexture ()I p
+.method_map morePistons/BlockTriplePistonBase/onBlockAdded (Lnet/minecraft/src/World;III)V g
+.method_map morePistons/BlockTriplePistonBase/breakBlock (Lnet/minecraft/src/World;IIIII)V a
+.method_map morePistons/BlockTriplePistonBase/tryExtend (Lnet/minecraft/src/World;IIII)Z tryExtend
+.method_map morePistons/BlockTriplePistonBase/isIndirectlyPowered (Lnet/minecraft/src/World;IIII)Z isIndirectlyPowered
+.method_map morePistons/BlockTriplePistonBase/getDirectionMeta (I)I getDirectionMeta
+.method_map morePistons/BlockTriplePistonBase/isOpaqueCube ()Z c
+.method_map morePistons/BlockTriplePistonBase/setBlockBoundsForItemRender ()V f
+.method_map morePistons/BlockTriplePistonBase/getRenderType ()I d
+.method_map morePistons/BlockTriplePistonBase/onBlockPlacedBy (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityLiving;)V a
+.method_map morePistons/BlockTriplePistonBase/onNeighborBlockChange (Lnet/minecraft/src/World;IIII)V a
+.method_map morePistons/BlockTriplePistonBase/getTextureFile ()Ljava/lang/String; getTextureFile
+.class_map morePistons/TileEntityMorePistons TileEntityMorePistons
+.field_map morePistons/TileEntityMorePistons/progress progress
+.field_map morePistons/TileEntityMorePistons/shouldHeadBeRendered shouldHeadBeRendered
+.field_map morePistons/TileEntityMorePistons/pushedObjects pushedObjects
+.field_map morePistons/TileEntityMorePistons/storedMetadata storedMetadata
+.field_map morePistons/TileEntityMorePistons/storedBlockID storedBlockID
+.field_map morePistons/TileEntityMorePistons/extending extending
+.field_map morePistons/TileEntityMorePistons/lastProgress lastProgress
+.field_map morePistons/TileEntityMorePistons/storedOrientation storedOrientation
+.method_map morePistons/TileEntityMorePistons/writeToNBT (Lnet/minecraft/src/NBTTagCompound;)V b
+.method_map morePistons/TileEntityMorePistons/getPistonOrientation ()I c
+.method_map morePistons/TileEntityMorePistons/clearPistonTileEntity ()V f
+.method_map morePistons/TileEntityMorePistons/isExtending ()Z b
+.method_map morePistons/TileEntityMorePistons/updateEntity ()V g
+.method_map morePistons/TileEntityMorePistons/getStoredBlockID ()I a
+.method_map morePistons/TileEntityMorePistons/readFromNBT (Lnet/minecraft/src/NBTTagCompound;)V a
+.method_map morePistons/TileEntityMorePistons/getOffsetZ (F)F d
+.method_map morePistons/TileEntityMorePistons/shouldRenderHead ()Z e
+.method_map morePistons/TileEntityMorePistons/getBlockMetadata ()I p
+.method_map morePistons/TileEntityMorePistons/getOffsetY (F)F c
+.method_map morePistons/TileEntityMorePistons/getProgress (F)F a
+.method_map morePistons/TileEntityMorePistons/updatePushedObjects (FF)V updatePushedObjects
+.method_map morePistons/TileEntityMorePistons/getOffsetX (F)F b
+.class_map morePistons/TileEntityMorePistonsRenderer TileEntityMorePistonsRenderer
+.field_map morePistons/TileEntityMorePistonsRenderer/blockRenderer blockRenderer
+.method_map morePistons/TileEntityMorePistonsRenderer/renderTileEntityAt (Lnet/minecraft/src/TileEntity;DDDF)V a
+.method_map morePistons/TileEntityMorePistonsRenderer/renderPiston (Lnet/minecraft/src/TileEntityPiston;DDDF)V a
+.method_map morePistons/TileEntityMorePistonsRenderer/onWorldChange (Lnet/minecraft/src/World;)V a
+.class_map morePistons/BlockMorePistonsExtension BlockMorePistonsExtension
+.field_map morePistons/BlockMorePistonsExtension/northSouth northSouth
+.field_map morePistons/BlockMorePistonsExtension/headTexture headTexture
+.field_map morePistons/BlockMorePistonsExtension/upDown upDown
+.method_map morePistons/BlockMorePistonsExtension/idPicked (Lnet/minecraft/src/World;III)I a
+.method_map morePistons/BlockMorePistonsExtension/breakBlock (Lnet/minecraft/src/World;IIIII)V a
+.method_map morePistons/BlockMorePistonsExtension/onNeighborBlockChange (Lnet/minecraft/src/World;IIII)V a
+.class_map morePistons/MorePistons MorePistons
+.field_map morePistons/MorePistons/doubleStickyPistonBase doubleStickyPistonBase
+.field_map morePistons/MorePistons/pistonExtension pistonExtension
+.field_map morePistons/MorePistons/quadrupleStickyPistonBase quadrupleStickyPistonBase
+.field_map morePistons/MorePistons/pistonRod pistonRod
+.field_map morePistons/MorePistons/gravitationalPistonBase gravitationalPistonBase
+.field_map morePistons/MorePistons/quadruplePistonBase quadruplePistonBase
+.field_map morePistons/MorePistons/doublePistonBase doublePistonBase
+.field_map morePistons/MorePistons/pistonList pistonList
+.field_map morePistons/MorePistons/tripleStickyPistonBase tripleStickyPistonBase
+.field_map morePistons/MorePistons/triplePistonBase triplePistonBase
+.method_map morePistons/MorePistons/RegisterBlocks ([Lnet/minecraft/src/Block;)V RegisterBlocks

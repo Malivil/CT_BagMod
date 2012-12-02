@@ -19883,7 +19883,7 @@ FD: mal/teleportrelay/common/TeleportRelay/relayRemoteUses mal/teleportrelay/com
 FD: mal/teleportrelay/common/TeleportRelay/relayRemoteID mal/teleportrelay/common/TeleportRelay/relayRemoteID
 FD: mal/teleportrelay/common/TeleportRelay/version mal/teleportrelay/common/TeleportRelay/version
 MD: mal/teleportrelay/common/TeleportRelay/getTeleportLocation (I)Lnet/minecraft/src/ChunkCoordinates; mal/teleportrelay/common/TeleportRelay/getTeleportLocation (I)Ls;
-MD: mal/teleportrelay/common/TeleportRelay/oPreInit (Lcpw/mods/fml/common/event/FMLPreInitializationEvent;)V mal/teleportrelay/common/TeleportRelay/oPreInit (Lcpw/mods/fml/common/event/FMLPreInitializationEvent;)V
+MD: mal/teleportrelay/common/TeleportRelay/onPreInit (Lcpw/mods/fml/common/event/FMLPreInitializationEvent;)V mal/teleportrelay/common/TeleportRelay/onPreInit (Lcpw/mods/fml/common/event/FMLPreInitializationEvent;)V
 MD: mal/teleportrelay/common/TeleportRelay/printRelayLocations ()V mal/teleportrelay/common/TeleportRelay/printRelayLocations ()V
 MD: mal/teleportrelay/common/TeleportRelay/getRelayCount ()I mal/teleportrelay/common/TeleportRelay/getRelayCount ()I
 MD: mal/teleportrelay/common/TeleportRelay/removeRelayLocation (III)V mal/teleportrelay/common/TeleportRelay/removeRelayLocation (III)V
@@ -19897,3 +19897,134 @@ FD: mal/teleportrelay/common/TileEntityTeleportRelay/ownerName mal/teleportrelay
 FD: mal/teleportrelay/common/TileEntityTeleportRelay/publicAccess mal/teleportrelay/common/TileEntityTeleportRelay/publicAccess
 FD: mal/teleportrelay/common/TileEntityTeleportRelay/name mal/teleportrelay/common/TileEntityTeleportRelay/name
 MD: mal/teleportrelay/common/TileEntityTeleportRelay/getRenderDistance ()D mal/teleportrelay/common/TileEntityTeleportRelay/getRenderDistance ()D
+PK: morePistons morePistons
+CL: morePistons/BlockPistonRod morePistons/BlockPistonRod
+FD: morePistons/BlockPistonRod/broken morePistons/BlockPistonRod/broken
+FD: morePistons/BlockPistonRod/northSouth morePistons/BlockPistonRod/northSouth
+FD: morePistons/BlockPistonRod/pistonRodSprTop morePistons/BlockPistonRod/pistonRodSprTop
+FD: morePistons/BlockPistonRod/pistonMoving2 morePistons/BlockPistonRod/pistonMoving2
+FD: morePistons/BlockPistonRod/headTexture morePistons/BlockPistonRod/headTexture
+FD: morePistons/BlockPistonRod/pistonRodSprSide morePistons/BlockPistonRod/pistonRodSprSide
+FD: morePistons/BlockPistonRod/upDown morePistons/BlockPistonRod/upDown
+MD: morePistons/BlockPistonRod/setHeadTexture (I)V morePistons/BlockPistonRod/setHeadTexture (I)V
+MD: morePistons/BlockPistonRod/getDirectionMeta (I)I morePistons/BlockPistonRod/getDirectionMeta (I)I
+MD: morePistons/BlockPistonRod/clearHeadTexture ()V morePistons/BlockPistonRod/clearHeadTexture ()V
+CL: morePistons/Monty_Util morePistons/Monty_Util
+FD: morePistons/Monty_Util/blockId2 morePistons/Monty_Util/blockId2
+FD: morePistons/Monty_Util/extraDisp0 morePistons/Monty_Util/extraDisp0
+FD: morePistons/Monty_Util/LOG_DATEFORMAT morePistons/Monty_Util/LOG_DATEFORMAT
+FD: morePistons/Monty_Util/blockId morePistons/Monty_Util/blockId
+FD: morePistons/Monty_Util/trace morePistons/Monty_Util/trace
+FD: morePistons/Monty_Util/metadata2 morePistons/Monty_Util/metadata2
+FD: morePistons/Monty_Util/traceWriter morePistons/Monty_Util/traceWriter
+FD: morePistons/Monty_Util/y2 morePistons/Monty_Util/y2
+FD: morePistons/Monty_Util/z2 morePistons/Monty_Util/z2
+FD: morePistons/Monty_Util/extraDisp morePistons/Monty_Util/extraDisp
+FD: morePistons/Monty_Util/x2 morePistons/Monty_Util/x2
+FD: morePistons/Monty_Util/z morePistons/Monty_Util/z
+FD: morePistons/Monty_Util/y morePistons/Monty_Util/y
+FD: morePistons/Monty_Util/extraDisp2 morePistons/Monty_Util/extraDisp2
+FD: morePistons/Monty_Util/metadata morePistons/Monty_Util/metadata
+FD: morePistons/Monty_Util/x morePistons/Monty_Util/x
+FD: morePistons/Monty_Util/extraDisp3 morePistons/Monty_Util/extraDisp3
+CL: morePistons/CommonProxyMorePistons morePistons/CommonProxyMorePistons
+MD: morePistons/CommonProxyMorePistons/registerRenderThings ()V morePistons/CommonProxyMorePistons/registerRenderThings ()V
+CL: morePistons/BlockDoublePistonBase morePistons/BlockDoublePistonBase
+FD: morePistons/BlockDoublePistonBase/ignoreUpdates morePistons/BlockDoublePistonBase/ignoreUpdates
+FD: morePistons/BlockDoublePistonBase/isSticky morePistons/BlockDoublePistonBase/isSticky
+MD: morePistons/BlockDoublePistonBase/canPushBlock (ILnet/minecraft/src/World;IIIZ)Z morePistons/BlockDoublePistonBase/canPushBlock (ILxv;IIIZ)Z
+MD: morePistons/BlockDoublePistonBase/isExtended (I)Z morePistons/BlockDoublePistonBase/isExtended (I)Z
+MD: morePistons/BlockDoublePistonBase/updatePistonState (Lnet/minecraft/src/World;III)V morePistons/BlockDoublePistonBase/updatePistonState (Lxv;III)V
+MD: morePistons/BlockDoublePistonBase/canExtend (Lnet/minecraft/src/World;IIII)Z morePistons/BlockDoublePistonBase/canExtend (Lxv;IIII)Z
+MD: morePistons/BlockDoublePistonBase/getOrientation (I)I morePistons/BlockDoublePistonBase/getOrientation (I)I
+MD: morePistons/BlockDoublePistonBase/determineOrientation (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityPlayer;)I morePistons/BlockDoublePistonBase/determineOrientation (Lxv;IIILqx;)I
+MD: morePistons/BlockDoublePistonBase/tryExtend (Lnet/minecraft/src/World;IIII)Z morePistons/BlockDoublePistonBase/tryExtend (Lxv;IIII)Z
+MD: morePistons/BlockDoublePistonBase/isIndirectlyPowered (Lnet/minecraft/src/World;IIII)Z morePistons/BlockDoublePistonBase/isIndirectlyPowered (Lxv;IIII)Z
+MD: morePistons/BlockDoublePistonBase/getDirectionMeta (I)I morePistons/BlockDoublePistonBase/getDirectionMeta (I)I
+CL: morePistons/mod_MorePistons morePistons/mod_MorePistons
+FD: morePistons/mod_MorePistons/lastGuiOpen morePistons/mod_MorePistons/lastGuiOpen
+FD: morePistons/mod_MorePistons/blocksAdded morePistons/mod_MorePistons/blocksAdded
+FD: morePistons/mod_MorePistons/idBlockQuadStickyPistonBase morePistons/mod_MorePistons/idBlockQuadStickyPistonBase
+FD: morePistons/mod_MorePistons/idBlockDoublePistonBase morePistons/mod_MorePistons/idBlockDoublePistonBase
+FD: morePistons/mod_MorePistons/idBlockTriplePistonBase morePistons/mod_MorePistons/idBlockTriplePistonBase
+FD: morePistons/mod_MorePistons/proxy morePistons/mod_MorePistons/proxy
+FD: morePistons/mod_MorePistons/idBlockGravitationalPistonBase morePistons/mod_MorePistons/idBlockGravitationalPistonBase
+FD: morePistons/mod_MorePistons/idBlockDoubleStickyPistonBase morePistons/mod_MorePistons/idBlockDoubleStickyPistonBase
+FD: morePistons/mod_MorePistons/idBlockPistonExtension morePistons/mod_MorePistons/idBlockPistonExtension
+FD: morePistons/mod_MorePistons/idBlockQuadPistonBase morePistons/mod_MorePistons/idBlockQuadPistonBase
+FD: morePistons/mod_MorePistons/idBlockPistonRod morePistons/mod_MorePistons/idBlockPistonRod
+FD: morePistons/mod_MorePistons/idBlockTripleStickyPistonBase morePistons/mod_MorePistons/idBlockTripleStickyPistonBase
+MD: morePistons/mod_MorePistons/onPreInit (Lcpw/mods/fml/common/event/FMLPreInitializationEvent;)V morePistons/mod_MorePistons/onPreInit (Lcpw/mods/fml/common/event/FMLPreInitializationEvent;)V
+MD: morePistons/mod_MorePistons/getTileEntity (IIIZZ)Lnet/minecraft/src/TileEntity; morePistons/mod_MorePistons/getTileEntity (IIIZZ)Lanq;
+MD: morePistons/mod_MorePistons/morePistons (Lcpw/mods/fml/common/event/FMLInitializationEvent;)V morePistons/mod_MorePistons/morePistons (Lcpw/mods/fml/common/event/FMLInitializationEvent;)V
+CL: morePistons/ClientProxyMorePistons morePistons/ClientProxyMorePistons
+CL: morePistons/BlockGravitationalPistonBase morePistons/BlockGravitationalPistonBase
+FD: morePistons/BlockGravitationalPistonBase/ignoreUpdates morePistons/BlockGravitationalPistonBase/ignoreUpdates
+FD: morePistons/BlockGravitationalPistonBase/power morePistons/BlockGravitationalPistonBase/power
+FD: morePistons/BlockGravitationalPistonBase/isSticky morePistons/BlockGravitationalPistonBase/isSticky
+MD: morePistons/BlockGravitationalPistonBase/canPushBlock (ILnet/minecraft/src/World;IIIZ)Z morePistons/BlockGravitationalPistonBase/canPushBlock (ILxv;IIIZ)Z
+MD: morePistons/BlockGravitationalPistonBase/isExtended (I)Z morePistons/BlockGravitationalPistonBase/isExtended (I)Z
+MD: morePistons/BlockGravitationalPistonBase/updatePistonState (Lnet/minecraft/src/World;III)V morePistons/BlockGravitationalPistonBase/updatePistonState (Lxv;III)V
+MD: morePistons/BlockGravitationalPistonBase/canExtend (Lnet/minecraft/src/World;IIII)Z morePistons/BlockGravitationalPistonBase/canExtend (Lxv;IIII)Z
+MD: morePistons/BlockGravitationalPistonBase/getOrientation (I)I morePistons/BlockGravitationalPistonBase/getOrientation (I)I
+MD: morePistons/BlockGravitationalPistonBase/onBlockActivated (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityPlayer;)Z morePistons/BlockGravitationalPistonBase/onBlockActivated (Lxv;IIILqx;)Z
+MD: morePistons/BlockGravitationalPistonBase/determineOrientation (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityPlayer;)I morePistons/BlockGravitationalPistonBase/determineOrientation (Lxv;IIILqx;)I
+MD: morePistons/BlockGravitationalPistonBase/tryExtend (Lnet/minecraft/src/World;IIII)Z morePistons/BlockGravitationalPistonBase/tryExtend (Lxv;IIII)Z
+MD: morePistons/BlockGravitationalPistonBase/isIndirectlyPowered (Lnet/minecraft/src/World;IIII)Z morePistons/BlockGravitationalPistonBase/isIndirectlyPowered (Lxv;IIII)Z
+MD: morePistons/BlockGravitationalPistonBase/getDirectionMeta (I)I morePistons/BlockGravitationalPistonBase/getDirectionMeta (I)I
+CL: morePistons/BlockQuadPistonBase morePistons/BlockQuadPistonBase
+FD: morePistons/BlockQuadPistonBase/ignoreUpdates morePistons/BlockQuadPistonBase/ignoreUpdates
+FD: morePistons/BlockQuadPistonBase/isSticky morePistons/BlockQuadPistonBase/isSticky
+MD: morePistons/BlockQuadPistonBase/canPushBlock (ILnet/minecraft/src/World;IIIZ)Z morePistons/BlockQuadPistonBase/canPushBlock (ILxv;IIIZ)Z
+MD: morePistons/BlockQuadPistonBase/blockActivated (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityPlayer;)Z morePistons/BlockQuadPistonBase/blockActivated (Lxv;IIILqx;)Z
+MD: morePistons/BlockQuadPistonBase/isExtended (I)Z morePistons/BlockQuadPistonBase/isExtended (I)Z
+MD: morePistons/BlockQuadPistonBase/updatePistonState (Lnet/minecraft/src/World;III)V morePistons/BlockQuadPistonBase/updatePistonState (Lxv;III)V
+MD: morePistons/BlockQuadPistonBase/canExtend (Lnet/minecraft/src/World;IIII)Z morePistons/BlockQuadPistonBase/canExtend (Lxv;IIII)Z
+MD: morePistons/BlockQuadPistonBase/getOrientation (I)I morePistons/BlockQuadPistonBase/getOrientation (I)I
+MD: morePistons/BlockQuadPistonBase/determineOrientation (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityPlayer;)I morePistons/BlockQuadPistonBase/determineOrientation (Lxv;IIILqx;)I
+MD: morePistons/BlockQuadPistonBase/tryExtend (Lnet/minecraft/src/World;IIII)Z morePistons/BlockQuadPistonBase/tryExtend (Lxv;IIII)Z
+MD: morePistons/BlockQuadPistonBase/isIndirectlyPowered (Lnet/minecraft/src/World;IIII)Z morePistons/BlockQuadPistonBase/isIndirectlyPowered (Lxv;IIII)Z
+MD: morePistons/BlockQuadPistonBase/getDirectionMeta (I)I morePistons/BlockQuadPistonBase/getDirectionMeta (I)I
+CL: morePistons/MorePistonsRecipes morePistons/MorePistonsRecipes
+CL: morePistons/MorePistonsBlocks morePistons/MorePistonsBlocks
+CL: morePistons/BlockTriplePistonBase morePistons/BlockTriplePistonBase
+FD: morePistons/BlockTriplePistonBase/ignoreUpdates morePistons/BlockTriplePistonBase/ignoreUpdates
+FD: morePistons/BlockTriplePistonBase/isSticky morePistons/BlockTriplePistonBase/isSticky
+MD: morePistons/BlockTriplePistonBase/canPushBlock (ILnet/minecraft/src/World;IIIZ)Z morePistons/BlockTriplePistonBase/canPushBlock (ILxv;IIIZ)Z
+MD: morePistons/BlockTriplePistonBase/blockActivated (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityPlayer;)Z morePistons/BlockTriplePistonBase/blockActivated (Lxv;IIILqx;)Z
+MD: morePistons/BlockTriplePistonBase/isExtended (I)Z morePistons/BlockTriplePistonBase/isExtended (I)Z
+MD: morePistons/BlockTriplePistonBase/updatePistonState (Lnet/minecraft/src/World;III)V morePistons/BlockTriplePistonBase/updatePistonState (Lxv;III)V
+MD: morePistons/BlockTriplePistonBase/canExtend (Lnet/minecraft/src/World;IIII)Z morePistons/BlockTriplePistonBase/canExtend (Lxv;IIII)Z
+MD: morePistons/BlockTriplePistonBase/getOrientation (I)I morePistons/BlockTriplePistonBase/getOrientation (I)I
+MD: morePistons/BlockTriplePistonBase/determineOrientation (Lnet/minecraft/src/World;IIILnet/minecraft/src/EntityPlayer;)I morePistons/BlockTriplePistonBase/determineOrientation (Lxv;IIILqx;)I
+MD: morePistons/BlockTriplePistonBase/tryExtend (Lnet/minecraft/src/World;IIII)Z morePistons/BlockTriplePistonBase/tryExtend (Lxv;IIII)Z
+MD: morePistons/BlockTriplePistonBase/isIndirectlyPowered (Lnet/minecraft/src/World;IIII)Z morePistons/BlockTriplePistonBase/isIndirectlyPowered (Lxv;IIII)Z
+MD: morePistons/BlockTriplePistonBase/getDirectionMeta (I)I morePistons/BlockTriplePistonBase/getDirectionMeta (I)I
+CL: morePistons/TileEntityMorePistons morePistons/TileEntityMorePistons
+FD: morePistons/TileEntityMorePistons/progress morePistons/TileEntityMorePistons/progress
+FD: morePistons/TileEntityMorePistons/shouldHeadBeRendered morePistons/TileEntityMorePistons/shouldHeadBeRendered
+FD: morePistons/TileEntityMorePistons/pushedObjects morePistons/TileEntityMorePistons/pushedObjects
+FD: morePistons/TileEntityMorePistons/storedMetadata morePistons/TileEntityMorePistons/storedMetadata
+FD: morePistons/TileEntityMorePistons/storedBlockID morePistons/TileEntityMorePistons/storedBlockID
+FD: morePistons/TileEntityMorePistons/extending morePistons/TileEntityMorePistons/extending
+FD: morePistons/TileEntityMorePistons/lastProgress morePistons/TileEntityMorePistons/lastProgress
+FD: morePistons/TileEntityMorePistons/storedOrientation morePistons/TileEntityMorePistons/storedOrientation
+MD: morePistons/TileEntityMorePistons/updatePushedObjects (FF)V morePistons/TileEntityMorePistons/updatePushedObjects (FF)V
+CL: morePistons/TileEntityMorePistonsRenderer morePistons/TileEntityMorePistonsRenderer
+FD: morePistons/TileEntityMorePistonsRenderer/blockRenderer morePistons/TileEntityMorePistonsRenderer/blockRenderer
+CL: morePistons/BlockMorePistonsExtension morePistons/BlockMorePistonsExtension
+FD: morePistons/BlockMorePistonsExtension/northSouth morePistons/BlockMorePistonsExtension/northSouth
+FD: morePistons/BlockMorePistonsExtension/headTexture morePistons/BlockMorePistonsExtension/headTexture
+FD: morePistons/BlockMorePistonsExtension/upDown morePistons/BlockMorePistonsExtension/upDown
+CL: morePistons/MorePistons morePistons/MorePistons
+FD: morePistons/MorePistons/doubleStickyPistonBase morePistons/MorePistons/doubleStickyPistonBase
+FD: morePistons/MorePistons/pistonExtension morePistons/MorePistons/pistonExtension
+FD: morePistons/MorePistons/quadrupleStickyPistonBase morePistons/MorePistons/quadrupleStickyPistonBase
+FD: morePistons/MorePistons/pistonRod morePistons/MorePistons/pistonRod
+FD: morePistons/MorePistons/gravitationalPistonBase morePistons/MorePistons/gravitationalPistonBase
+FD: morePistons/MorePistons/quadruplePistonBase morePistons/MorePistons/quadruplePistonBase
+FD: morePistons/MorePistons/doublePistonBase morePistons/MorePistons/doublePistonBase
+FD: morePistons/MorePistons/pistonList morePistons/MorePistons/pistonList
+FD: morePistons/MorePistons/tripleStickyPistonBase morePistons/MorePistons/tripleStickyPistonBase
+FD: morePistons/MorePistons/triplePistonBase morePistons/MorePistons/triplePistonBase
+MD: morePistons/MorePistons/RegisterBlocks ([Lnet/minecraft/src/Block;)V morePistons/MorePistons/RegisterBlocks ([Lamj;)V
