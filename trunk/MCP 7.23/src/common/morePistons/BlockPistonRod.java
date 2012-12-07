@@ -60,20 +60,18 @@ public class BlockPistonRod extends Block
      * ejects contained items into the world, and notifies neighbours of an update, as appropriate
      */
     @Override
-    public void breakBlock(World var1, int var2, int var3, int var4, int var5, int var6)
+    public void breakBlock(World world, int x, int y, int z, int blockId, int meta)
     {
-        Minecraft var7 = FMLClientHandler.instance().getClient();
-        EntityClientPlayerMP var8 = var7.thePlayer;
         boolean var9 = false;
         boolean var10 = false;
         boolean var11 = false;
-        super.breakBlock(var1, var2, var3, var4, var5, var6);
-        int var12 = var1.getBlockMetadata(var2, var3, var4);
+        super.breakBlock(world, x, y, z, blockId, meta);
+        int var12 = world.getBlockMetadata(x, y, z);
         int var13 = Facing.faceToSide[getDirectionMeta(var12)];
-        var2 += Facing.offsetsXForSide[var13];
-        var3 += Facing.offsetsYForSide[var13];
-        var4 += Facing.offsetsZForSide[var13];
-        int var14 = var1.getBlockId(var2, var3, var4);
+        x += Facing.offsetsXForSide[var13];
+        y += Facing.offsetsYForSide[var13];
+        z += Facing.offsetsZForSide[var13];
+        int var14 = world.getBlockId(x, y, z);
 
         if (!pistonMoving2)
         {
@@ -95,26 +93,22 @@ public class BlockPistonRod extends Block
 
             if (var9)
             {
-                var15 = var1.getBlockMetadata(var2, var3, var4);
+                var15 = world.getBlockMetadata(x, y, z);
 
                 if (BlockPistonBase.isExtended(var15))
                 {
-                    if (!var8.capabilities.isCreativeMode)
-                    {
-                        Block.blocksList[var14].dropBlockAsItem(var1, var2, var3, var4, var15, 0);
-                    }
-
-                    var1.setBlockWithNotify(var2, var3, var4, 0);
+                	Block.blocksList[var14].dropBlockAsItem(world, x, y, z, var15, 0);
+                    world.setBlockWithNotify(x, y, z, 0);
                 }
             }
             else if (var14 == MorePistons.pistonRod.blockID)
             {
-                var15 = var1.getBlockMetadata(var2, var3, var4);
+                var15 = world.getBlockMetadata(x, y, z);
                 int var16 = Facing.faceToSide[getDirectionMeta(var15)];
-                var2 += Facing.offsetsXForSide[var16];
-                var3 += Facing.offsetsYForSide[var16];
-                var4 += Facing.offsetsZForSide[var16];
-                int var17 = var1.getBlockId(var2, var3, var4);
+                x += Facing.offsetsXForSide[var16];
+                y += Facing.offsetsYForSide[var16];
+                z += Facing.offsetsZForSide[var16];
+                int var17 = world.getBlockId(x, y, z);
                 int var18;
 
                 for (var18 = 0; var18 < MorePistons.pistonList.length; ++var18)
@@ -133,26 +127,22 @@ public class BlockPistonRod extends Block
 
                 if (var10)
                 {
-                    var18 = var1.getBlockMetadata(var2, var3, var4);
+                    var18 = world.getBlockMetadata(x, y, z);
 
                     if (BlockPistonBase.isExtended(var18))
                     {
-                        if (!var8.capabilities.isCreativeMode)
-                        {
-                            Block.blocksList[var17].dropBlockAsItem(var1, var2, var3, var4, var18, 0);
-                        }
-
-                        var1.setBlockWithNotify(var2, var3, var4, 0);
+                        Block.blocksList[var17].dropBlockAsItem(world, x, y, z, var18, 0);
+                        world.setBlockWithNotify(x, y, z, 0);
                     }
                 }
                 else if (var14 == MorePistons.pistonRod.blockID)
                 {
-                    var18 = var1.getBlockMetadata(var2, var3, var4);
+                    var18 = world.getBlockMetadata(x, y, z);
                     int var19 = Facing.faceToSide[getDirectionMeta(var18)];
-                    var2 += Facing.offsetsXForSide[var19];
-                    var3 += Facing.offsetsYForSide[var19];
-                    var4 += Facing.offsetsZForSide[var19];
-                    int var20 = var1.getBlockId(var2, var3, var4);
+                    x += Facing.offsetsXForSide[var19];
+                    y += Facing.offsetsYForSide[var19];
+                    z += Facing.offsetsZForSide[var19];
+                    int var20 = world.getBlockId(x, y, z);
                     int var21;
 
                     for (var21 = 0; var21 < MorePistons.pistonList.length; ++var21)
@@ -171,16 +161,12 @@ public class BlockPistonRod extends Block
 
                     if (var11)
                     {
-                        var21 = var1.getBlockMetadata(var2, var3, var4);
+                        var21 = world.getBlockMetadata(x, y, z);
 
                         if (BlockPistonBase.isExtended(var21))
                         {
-                            if (!var8.capabilities.isCreativeMode)
-                            {
-                                Block.blocksList[var20].dropBlockAsItem(var1, var2, var3, var4, var21, 0);
-                            }
-
-                            var1.setBlockWithNotify(var2, var3, var4, 0);
+                            Block.blocksList[var20].dropBlockAsItem(world, x, y, z, var21, 0);
+                            world.setBlockWithNotify(x, y, z, 0);
                         }
                     }
                 }
