@@ -1,3 +1,4 @@
+# Warning: package com not found in JAR
 # Warning: class argo/jdom/JsonNodeBuilders_Null not found in JAR
 # Warning: class argo/jdom/JsonStringNodeBuilder not found in JAR
 # Warning: class argo/jdom/JsonNodeDoesNotMatchJsonNodeSelectorException not found in JAR
@@ -309,7 +310,6 @@
 # Warning: field argo/jdom/JsonObjectNodeBuilder/fieldBuilders not found in JAR
 # Warning: field argo/jdom/JsonConstants/NULL not found in JAR
 PK: . .
-PK: com com
 PK: metadark metadark
 PK: metadark/mods metadark/mods
 PK: metadark/mods/SuperSlopes metadark/mods/SuperSlopes
@@ -19942,7 +19942,6 @@ MD: morePistons/BlockDoublePistonBase/tryExtend (Lnet/minecraft/src/World;IIII)Z
 MD: morePistons/BlockDoublePistonBase/isIndirectlyPowered (Lnet/minecraft/src/World;IIII)Z morePistons/BlockDoublePistonBase/isIndirectlyPowered (Lxv;IIII)Z
 MD: morePistons/BlockDoublePistonBase/getDirectionMeta (I)I morePistons/BlockDoublePistonBase/getDirectionMeta (I)I
 CL: morePistons/mod_MorePistons morePistons/mod_MorePistons
-FD: morePistons/mod_MorePistons/lastGuiOpen morePistons/mod_MorePistons/lastGuiOpen
 FD: morePistons/mod_MorePistons/blocksAdded morePistons/mod_MorePistons/blocksAdded
 FD: morePistons/mod_MorePistons/idBlockQuadStickyPistonBase morePistons/mod_MorePistons/idBlockQuadStickyPistonBase
 FD: morePistons/mod_MorePistons/idBlockDoublePistonBase morePistons/mod_MorePistons/idBlockDoublePistonBase

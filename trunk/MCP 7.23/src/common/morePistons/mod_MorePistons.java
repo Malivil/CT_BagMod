@@ -25,7 +25,6 @@ import cpw.mods.fml.common.network.NetworkMod;
 )
 public class mod_MorePistons
 {
-    private static GuiScreen lastGuiOpen;
     public boolean blocksAdded = false;
     public static int idBlockDoublePistonBase;
     public static int idBlockDoubleStickyPistonBase;
