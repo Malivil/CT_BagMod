@@ -21,7 +21,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 @Mod(
         modid = "MorePistons",
         name = "More Pistons",
-        version = "1.1.0 for [1.4.5]"
+        version = "1.1.1 for [1.4.5]"
 )
 public class mod_MorePistons
 {
@@ -46,7 +46,7 @@ public class mod_MorePistons
 
     @PreInit
 	public void onPreInit(final FMLPreInitializationEvent event) {
-		event.getModMetadata().version = "1.1.0";
+		event.getModMetadata().version = "1.1.1";
 		final Configuration cfg = new Configuration(event.getSuggestedConfigurationFile());
 		try {
 			cfg.load();
