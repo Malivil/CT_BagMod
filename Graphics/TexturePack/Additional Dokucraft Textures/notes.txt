@@ -1,0 +1,44 @@
+Register or login @ http://minecraftcustomizer.net/login to obtain a reusable, unique url for this download 
+
+ Notes from the creator:
+
+ 
+
+ Notes from the creator:
+
+ Mod Support
+Aether
+Airship
+BabyAnimals
+Better Than Wolves
+ClaySoldier
+Cloth
+CTM
+Fishy
+HayBale
+Humans 
+IndustrialCraft
+LoafCat
+Mo Creatures
+MoreHealth
+Mystic
+SteamCraft
+WildGrass
+Zipline 
+
+ The following textures were added from defaults because the creator did not include these in their pack:
+
+ The following textures were added from defaults because the creator did not include these in their pack:
+enchantingRunes
+tradeParticle
+villagerHit
+criticalHit
+potionEffect
+angryVillagerFace
+armorOverlay
+ruby
+capIconOverlay
+tunicIconOverlay
+pantsIconOverlay
+bootsIconOverlay
+CTM_Chest
