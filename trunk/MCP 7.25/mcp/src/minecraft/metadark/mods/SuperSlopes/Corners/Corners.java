@@ -15,7 +15,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 @Mod(
         modid = "SuperSlopesCorners",
         name = "SuperSlopes - Corners",
-        version = "4.7"
+        version = "4.7.1"
 )
 @NetworkMod(
         clientSideRequired = true,

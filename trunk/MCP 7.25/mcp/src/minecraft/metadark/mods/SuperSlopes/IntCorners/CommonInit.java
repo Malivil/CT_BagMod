@@ -209,11 +209,11 @@ public class CommonInit {
         						IntCorners.BlockKaevBrownWoolIntCorners, IntCorners.BlockKaevGreenWoolIntCorners, IntCorners.BlockKaevRedWoolIntCorners, IntCorners.BlockKaevBlackWoolIntCorners};
 
         for (int i = 0; i < colors.length; i++) {
-        	if (Corners.props.getInt(colors[i] + "WoolIntCorners") != 0) {
+        	if (IntCorners.props.getInt(colors[i] + "WoolIntCorners") != 0) {
                 GameRegistry.addRecipe(new ItemStack(blocks[i], 3, 0), new Object[] {"  #", "###", '#', new ItemStack(Block.cloth, 1, i)});
                 GameRegistry.addRecipe(new ItemStack(blocks[i], 3, 8), new Object[] {"## ", "# #", '#', new ItemStack(Block.cloth, 1, i)});
 
-                if (Corners.props.getBoolean("BlockInversion")) {
+                if (IntCorners.props.getBoolean("BlockInversion")) {
                     GameRegistry.addRecipe(new ItemStack(blocks[i], 3, 4), new Object[] {"###", "  #", '#', new ItemStack(Block.cloth, 1, i)});
                     GameRegistry.addRecipe(new ItemStack(blocks[i], 3, 12), new Object[] {"# #", "## ", '#', new ItemStack(Block.cloth, 1, i)});
                 }
