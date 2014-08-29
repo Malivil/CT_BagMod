@@ -1,14 +1,5 @@
 CT_BagNames = nil;
 
-function CT_GetNextCID()
-    for i=1, 5, 1 do
-        if (not getglobal("ContainerFrame" .. i):IsVisible()) then
-            return i;
-        end
-    end
-    return 5;
-end
-
 function CT_GetBagID(container)
     if ( not container ) then return nil; end
     return getglobal("ContainerFrame" .. container):GetID();
@@ -69,15 +60,16 @@ end
 
 function CT_CCEditBox_OnEscapePressed(self)
     local containerID = self:GetParent():GetParent():GetID()+1;
-    local bagID = CT_GetBagID();
+    local bagID = CT_GetBagID(containerID);
     local bagName = CT_BagNames[bagID];
+    local originalBagName = GetBagName(bagID);
 
     -- If there is a name and it's different than the current name, set the container text
-    if ( bagName and strlen(bagName) > 0 and bagName ~= GetBagName() ) then
+    if ( bagName and strlen(bagName) > 0 and bagName ~= originalBagName ) then
         getglobal("ContainerFrame" .. containerID .. "Name"):SetText(bagName);
     -- Otherwise reset the text to the name of the bag
     else
-        getglobal("ContainerFrame" .. containerID .. "Name"):SetText(GetBagName(bagID));
+        getglobal("ContainerFrame" .. containerID .. "Name"):SetText(originalBagName);
     end
 
     -- Reset the edit box text
@@ -118,7 +110,7 @@ end
 -- BID = Button ID
 -- CID = Container ID
 
--- Backpack oppens, BID 0, CID 1
+-- Backpack opens, BID 0, CID 1
 -- Bag 2 opens, BID 2, CID 3
 -- Bag 2 changes CID to 2, Bag 1 takes CID 3.
 
@@ -203,6 +195,7 @@ function CT_CCFrame_OnEnter(self)
     local bagid = CT_GetBagID(self:GetParent():GetID()+1);
     local cid = self:GetParent():GetID()+1;
     local settext;
+
     if ( not CT_BagNames[bagid] or CT_BagNames[bagid] == "" ) then
         settext = GetBagName(bagid);
     else
@@ -229,6 +222,7 @@ end
 function CT_CCButton_OnEnter(self)
     local bagid = self:GetID();
     local settext;
+
     if ( not CT_BagNames[bagid] or CT_BagNames[bagid] == "" ) then
         settext = GetBagName(bagid);
     else

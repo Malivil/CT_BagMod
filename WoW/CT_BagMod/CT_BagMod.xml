@@ -192,6 +192,69 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
             </Anchor>
         </Anchors>
     </Frame>
+    <Frame name="CT_CCFrame5" inherits="CT_CCFrame" id="5" parent="ContainerFrame6" enableMouse="true" hidden="false">
+        <Anchors>
+            <Anchor point="TOPLEFT" relativeTo="ContainerFrame6" relativePoint="TOPLEFT">
+                <Offset>
+                    <AbsDimension x="0" y="0"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+    </Frame>
+    <Frame name="CT_CCFrame6" inherits="CT_CCFrame" id="6" parent="ContainerFrame7" enableMouse="true" hidden="false">
+        <Anchors>
+            <Anchor point="TOPLEFT" relativeTo="ContainerFrame7" relativePoint="TOPLEFT">
+                <Offset>
+                    <AbsDimension x="0" y="0"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+    </Frame>
+    <Frame name="CT_CCFrame7" inherits="CT_CCFrame" id="7" parent="ContainerFrame8" enableMouse="true" hidden="false">
+        <Anchors>
+            <Anchor point="TOPLEFT" relativeTo="ContainerFrame8" relativePoint="TOPLEFT">
+                <Offset>
+                    <AbsDimension x="0" y="0"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+    </Frame>
+    <Frame name="CT_CCFrame8" inherits="CT_CCFrame" id="8" parent="ContainerFrame9" enableMouse="true" hidden="false">
+        <Anchors>
+            <Anchor point="TOPLEFT" relativeTo="ContainerFrame9" relativePoint="TOPLEFT">
+                <Offset>
+                    <AbsDimension x="0" y="0"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+    </Frame>
+    <Frame name="CT_CCFrame9" inherits="CT_CCFrame" id="9" parent="ContainerFrame10" enableMouse="true" hidden="false">
+        <Anchors>
+            <Anchor point="TOPLEFT" relativeTo="ContainerFrame10" relativePoint="TOPLEFT">
+                <Offset>
+                    <AbsDimension x="0" y="0"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+    </Frame>
+    <Frame name="CT_CCFrame10" inherits="CT_CCFrame" id="10" parent="ContainerFrame11" enableMouse="true" hidden="false">
+        <Anchors>
+            <Anchor point="TOPLEFT" relativeTo="ContainerFrame11" relativePoint="TOPLEFT">
+                <Offset>
+                    <AbsDimension x="0" y="0"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+    </Frame>
+    <Frame name="CT_CCFrame11" inherits="CT_CCFrame" id="11" parent="ContainerFrame12" enableMouse="true" hidden="false">
+        <Anchors>
+            <Anchor point="TOPLEFT" relativeTo="ContainerFrame12" relativePoint="TOPLEFT">
+                <Offset>
+                    <AbsDimension x="0" y="0"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+    </Frame>
     <Frame name="CT_CCB0" parent="MainMenuBarArtFrame" enableMouse="true" hidden="false" id="0">
         <Size>
             <AbsDimension x="150" y="37"/>
@@ -267,11 +330,109 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
             <Button name="$parentButton" inherits="CT_CCBBTemplate" id="4" hidden="false" enableMouse="true"/>
         </Frames>
     </Frame>
-    <Frame name="CT_CCGlobalFrame" hidden="false" parent="UIParent">
-        <Scripts>
-            <OnLoad>
-                
-            </OnLoad>
-        </Scripts>
+    <Frame name="CT_CCB5" parent="MainMenuBarArtFrame" enableMouse="true" hidden="false" id="5">
+        <Size>
+            <AbsDimension x="150" y="37"/>
+        </Size>
+        <Anchors>
+            <Anchor point="TOPLEFT" relativeTo="BankFrameBag1" relativePoint="TOPLEFT">
+                <Offset>
+                    <AbsDimension x="0" y="0"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+        <Frames>
+            <Button name="$parentButton" inherits="CT_CCBBTemplate" id="5" hidden="false" enableMouse="true"/>
+        </Frames>
+    </Frame>
+    <Frame name="CT_CCB6" parent="MainMenuBarArtFrame" enableMouse="true" hidden="false" id="6">
+        <Size>
+            <AbsDimension x="150" y="37"/>
+        </Size>
+        <Anchors>
+            <Anchor point="TOPLEFT" relativeTo="BankFrameBag2" relativePoint="TOPLEFT">
+                <Offset>
+                    <AbsDimension x="0" y="0"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+        <Frames>
+            <Button name="$parentButton" inherits="CT_CCBBTemplate" id="6" hidden="false" enableMouse="true"/>
+        </Frames>
+    </Frame>
+    <Frame name="CT_CCB7" parent="MainMenuBarArtFrame" enableMouse="true" hidden="false" id="7">
+        <Size>
+            <AbsDimension x="150" y="37"/>
+        </Size>
+        <Anchors>
+            <Anchor point="TOPLEFT" relativeTo="BankFrameBag3" relativePoint="TOPLEFT">
+                <Offset>
+                    <AbsDimension x="0" y="0"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+        <Frames>
+            <Button name="$parentButton" inherits="CT_CCBBTemplate" id="7" hidden="false" enableMouse="true"/>
+        </Frames>
+    </Frame>
+    <Frame name="CT_CCB8" parent="MainMenuBarArtFrame" enableMouse="true" hidden="false" id="8">
+        <Size>
+            <AbsDimension x="150" y="37"/>
+        </Size>
+        <Anchors>
+            <Anchor point="TOPLEFT" relativeTo="BankFrameBag4" relativePoint="TOPLEFT">
+                <Offset>
+                    <AbsDimension x="0" y="0"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+        <Frames>
+            <Button name="$parentButton" inherits="CT_CCBBTemplate" id="8" hidden="false" enableMouse="true"/>
+        </Frames>
+    </Frame>
+    <Frame name="CT_CCB9" parent="MainMenuBarArtFrame" enableMouse="true" hidden="false" id="9">
+        <Size>
+            <AbsDimension x="150" y="37"/>
+        </Size>
+        <Anchors>
+            <Anchor point="TOPLEFT" relativeTo="BankFrameBag5" relativePoint="TOPLEFT">
+                <Offset>
+                    <AbsDimension x="0" y="0"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+        <Frames>
+            <Button name="$parentButton" inherits="CT_CCBBTemplate" id="9" hidden="false" enableMouse="true"/>
+        </Frames>
+    </Frame>
+    <Frame name="CT_CCB10" parent="MainMenuBarArtFrame" enableMouse="true" hidden="false" id="10">
+        <Size>
+            <AbsDimension x="150" y="37"/>
+        </Size>
+        <Anchors>
+            <Anchor point="TOPLEFT" relativeTo="BankFrameBag6" relativePoint="TOPLEFT">
+                <Offset>
+                    <AbsDimension x="0" y="0"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+        <Frames>
+            <Button name="$parentButton" inherits="CT_CCBBTemplate" id="10" hidden="false" enableMouse="true"/>
+        </Frames>
+    </Frame>
+    <Frame name="CT_CCB11" parent="MainMenuBarArtFrame" enableMouse="true" hidden="false" id="11">
+        <Size>
+            <AbsDimension x="150" y="37"/>
+        </Size>
+        <Anchors>
+            <Anchor point="TOPLEFT" relativeTo="BankFrameBag7" relativePoint="TOPLEFT">
+                <Offset>
+                    <AbsDimension x="0" y="0"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+        <Frames>
+            <Button name="$parentButton" inherits="CT_CCBBTemplate" id="11" hidden="false" enableMouse="true"/>
+        </Frames>
     </Frame>
 </Ui>
