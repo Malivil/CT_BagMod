@@ -1,0 +1,112 @@
+Changelog:
+
+Build 1.4.5-6.4.0.393
+	LexManos: Fix TE Issue
+
+Build 1.4.5-6.4.0.390
+	LexManos: Updated to MC 1.4.5b
+
+Build 1.4.5-6.4.0.394
+	LexManos: Removed GnuWin32 programs, should no longer be needed as we've moved to python.
+
+Build 1.4.5-6.4.0.388
+	cpw: Stupid eclipse resetting preferences. Spaces, not tabs!!!
+	cpw
+		Update FML: 570592b
+		570592b Attempt to fix a possible comodification risk
+
+Build 1.4.5-6.4.0.387
+	cpw: Add in events when forcing and unforcing chunks. Hope this works for you ChickenBones!
+
+Build 1.4.5-6.4.0.386
+	cpw
+		Update FML: fde9414
+		fde9414 Change texturebinding to use the textureId directly rather than iconInde
+
+Build 1.4.5-6.4.0.385
+	LexManos: Fixed issue with default implementation of Beach plant type check
+	LexManos: Fixed custom soil checks for NetherStalk and Reeds
+
+Build 1.4.5-6.4.0.384
+	LexManos: Release script will now include the Minecraft version in the arcive names.
+
+Build 6.4.0.383
+	cpw
+		Update FML: f348496
+		f348496 Fix mod display list. Shouldn't be derpy anymore.
+		a5c31b5 Fix World patch- workaround no longer required and leftovers are bad.
+		2dc3f0d Cleaned up the AT config updater, should work for any setup of the MCP w
+
+Build 6.4.0.382
+	LexManos: Fixed beds not working properly when respawning.
+
+Build 6.4.0.381
+	cpw
+		Remove EntityFX patch - moved to FML. Patch SuspiciousClasses to add "forge"
+		Update FML: fa56701
+		fa56701 Fix MC-2497 - derpy torch flames. Moved from forge. Everyone should benefit.
+		96935bb Fix an NPE in TileEntity trying to generate a crash report. Make suspicious classes just return the obvious. Fix NPE for FML crash report on server. Clean up dead pa
+
+Build 6.4.0.380
+	cpw: Fix the derpy torch flames properly. Closes MC-2497 properly ;)
+
+Build 6.4.0.379
+	cpw
+		Update to MC 1.4.5
+		Update FML: 43d3042
+		43d3042 Clean up a patch
+		fec221f Update FML for MC 1.4.5
+		b0f0635 Fix for ModLoader static overrides not displaying.
+		23a2513 Fix up derpy file name handling: closes #127 Fix up duping childmods: cl
+		a6eaa2b Fix spelling issue.
+		c6a0741 FML setup should now download and verify all the minecraft files needed
+		5a1930e Small fix to some MCP metadata for pre2
+		418deba Update to MC 1.4.4
+		4ff2cff Fix bug when a modloader mod is run on a dedicated server and has a conn
+
+Build 6.3.0.378
+	cpw
+		Some liquid events. Non-API breaking. Add them at your leisure. This helps liquids know
+		what's happening to them. In case they're volatile or something ;)
+
+Build 6.3.0.377
+	cpw: Another difference
+
+Build 6.3.0.376
+	cpw
+		Fix fillLiquidContainer - return null, not the empty container for
+		previous API compatibility
+
+Build 6.3.0.375
+	LexManos: Update FML to fix ModLoader/addOverride functionality.
+
+Build 6.3.0.374
+	kinglemming
+		Fixed oversights in liquid registry, added functionality for instant checks as requested by CJ.
+		Liquid list return is now secure.
+		Signed-off-by: King Lemming <kinglemming@gmail.com>
+	cpw: Change name to LiquidContainerRegistry. Fix up missing API. This better be it now!
+
+Build 6.3.0.373
+	kinglemming
+		Liquid Manager Rewrite - slightly more memory usage, loads more efficient at runtime.
+		Added default Lava and Water registrations to Liquid Manager.
+		Removed method which relied on flawed assumption that a given liquid only had a single type of container.
+		Signed-off-by: King Lemming <kinglemming@gmail.com>
+	cpw: Rename some liquid stuff for more sensible naming. Tweak API slightly.
+
+Build 6.3.0.372
+	cpw
+		Add in the basic IBlockLiquid interface. The actual block implementation
+		will follow.
+
+Build 6.3.0.371
+	cpw
+		Add an ItemStack sensitive version of getIconForRenderPass, defers to
+		existing by default. Should allow NBT data to affect multipass icon rendering.
+
+Build 6.3.0.370
+	cpw: Change getLeft to getRotation, around any axis.
+
+Build 6.3.0.369
+	cpw: Some new stuff on the liquid API for better RP2 interaction. Coming soon: blocks!
