@@ -1,0 +1,5 @@
+## Interface: 50400
+## Title: CT_BagMod
+## Notes: Allows you to rename your bags for easier storage.
+## SavedVariablesPerCharacter: CT_BagNames
+CT_BagMod.xml
