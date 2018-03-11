@@ -330,6 +330,81 @@ C:\Projects\WoW\Bin\Interface\FrameXML\UI.xsd">
             <Button name="$parentButton" inherits="CT_CCBBTemplate" id="4" hidden="false" enableMouse="true"/>
         </Frames>
     </Frame>
+    <Frame name="CT_CCB0B" parent="UIParent" enableMouse="true" hidden="false" id="0">
+        <Size>
+            <AbsDimension x="150" y="37"/>
+        </Size>
+        <Anchors>
+            <Anchor point="TOPLEFT" relativeTo="MainMenuBarBackpackButton" relativePoint="TOPLEFT">
+                <Offset>
+                    <AbsDimension x="0" y="0"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+        <Frames>
+            <Button name="$parentButton" inherits="CT_CCBBTemplate" id="0" hidden="false" enableMouse="true"/>
+        </Frames>
+    </Frame>
+    <Frame name="CT_CCB1B" parent="UIParent" enableMouse="true" hidden="false" id="1">
+        <Size>
+            <AbsDimension x="150" y="37"/>
+        </Size>
+        <Anchors>
+            <Anchor point="TOPLEFT" relativeTo="CharacterBag0Slot" relativePoint="TOPLEFT">
+                <Offset>
+                    <AbsDimension x="0" y="0"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+        <Frames>
+            <Button name="$parentButton" inherits="CT_CCBBTemplate" id="1" hidden="false" enableMouse="true"/>
+        </Frames>
+    </Frame>
+    <Frame name="CT_CCB2B" parent="UIParent" enableMouse="true" hidden="false" id="2">
+        <Size>
+            <AbsDimension x="150" y="37"/>
+        </Size>
+        <Anchors>
+            <Anchor point="TOPLEFT" relativeTo="CharacterBag1Slot" relativePoint="TOPLEFT">
+                <Offset>
+                    <AbsDimension x="0" y="0"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+        <Frames>
+            <Button name="$parentButton" inherits="CT_CCBBTemplate" id="2" hidden="false" enableMouse="true"/>
+        </Frames>
+    </Frame>
+    <Frame name="CT_CCB3B" parent="UIParent" enableMouse="true" hidden="false" id="3">
+        <Size>
+            <AbsDimension x="150" y="37"/>
+        </Size>
+        <Anchors>
+            <Anchor point="TOPLEFT" relativeTo="CharacterBag2Slot" relativePoint="TOPLEFT">
+                <Offset>
+                    <AbsDimension x="0" y="0"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+        <Frames>
+            <Button name="$parentButton" inherits="CT_CCBBTemplate" id="3" hidden="false" enableMouse="true"/>
+        </Frames>
+    </Frame>
+    <Frame name="CT_CCB4B" parent="UIParent" enableMouse="true" hidden="false" id="4">
+        <Size>
+            <AbsDimension x="150" y="37"/>
+        </Size>
+        <Anchors>
+            <Anchor point="TOPLEFT" relativeTo="CharacterBag3Slot" relativePoint="TOPLEFT">
+                <Offset>
+                    <AbsDimension x="0" y="0"/>
+                </Offset>
+            </Anchor>
+        </Anchors>
+        <Frames>
+            <Button name="$parentButton" inherits="CT_CCBBTemplate" id="4" hidden="false" enableMouse="true"/>
+        </Frames>
+    </Frame>
     <Frame name="CT_CCB5" parent="MainMenuBarArtFrame" enableMouse="true" hidden="false" id="5">
         <Size>
             <AbsDimension x="150" y="37"/>
