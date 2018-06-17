@@ -1,5 +1,5 @@
 # MalsMods
-Collect of mods created for (or edited to work in newer versions of) World of Warcraft
+Collection of mods created for (or edited to work in newer versions of) World of Warcraft
 
 ## CT_BagMod
 Port and update of [CT_BagMod](https://wow.curseforge.com/projects/ct_bagmod)
