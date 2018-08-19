@@ -2,4 +2,5 @@
 ## Title: CT_BagMod
 ## Notes: Allows you to rename your bags for easier storage.
 ## SavedVariablesPerCharacter: CT_BagNames
+## Version: 8.0.1.0
 CT_BagMod.xml
