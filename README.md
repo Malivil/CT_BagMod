@@ -1,7 +1,7 @@
 # CT_BagMod
 Port and update of CT_BagMod based on the following outdated ports:
-*[Vanilla](https://wow.curseforge.com/projects/project-109)
-*[MoP](https://wow.curseforge.com/projects/ct_bagmod)
+* [Vanilla](https://wow.curseforge.com/projects/project-109)
+* [MoP](https://wow.curseforge.com/projects/ct_bagmod)
 
 The original was part of the [CTMod Collection](https://www.ctmod.net)
 
