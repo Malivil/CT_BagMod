@@ -100,7 +100,6 @@ function CT_CCItemSlotButton_OnLoad(self)
     self:RegisterEvent("ITEM_LOCK_CHANGED");
     self:RegisterEvent("CURSOR_UPDATE");
     self:RegisterEvent("BAG_UPDATE_COOLDOWN");
-    self:RegisterEvent("SHOW_COMPARE_TOOLTIP");
     self:RegisterForDrag("LeftButton");
     self:RegisterForClicks("LeftButtonUp", "RightButtonUp");
     self.CID = self:GetID()+1;
