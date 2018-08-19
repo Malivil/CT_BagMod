@@ -1,12 +1,9 @@
-# MalsMods
-Collection of mods created for (or edited to work in newer versions of) World of Warcraft
-
-## CT_BagMod
+# CT_BagMod
 Port and update of [CT_BagMod](https://wow.curseforge.com/projects/ct_bagmod)
 
 Allows players to rename their bags for easier ad-hoc organization.
 
-### Usage
+## Usage
 Click the bag icon of the opened bag to enter edit mode. Simply type the new name and press *Enter* to save it. Press *Esc* to exit edit mode without saving
 
 ![Bag name edit](https://i.imgur.com/gj9bIzi.png)
